@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafraBr Admin Local</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f1115;
+      color: #e4e6eb;
+      padding: 24px;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 24px;
+    }
+
+    .note {
+      background: #1a1d24;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #3a3f4b;
+      border-radius: 6px;
+      background: #171a22;
+      color: #fff;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+      grid-column: 1 / -1;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0 16px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #2b5fd9;
+      color: #fff;
+      border: 0;
+      border-radius: 6px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #2f3440;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      background: #11141b;
+      border: 1px solid #2a2f3a;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 13px;
+      max-height: 380px;
+      overflow: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="app">
+    <h1>SafraBr Admin Local</h1>
+    <div class="note">
+      Ferramenta local para montar o <code>data/items.json</code>. Clique em "Exportar JSON" para baixar e substituir o arquivo no projeto.
+    </div>
+
+    <div class="grid">
+      <input id="name" placeholder="nome (ex: Trator X1)">
+      <input id="id" placeholder="id (ex: tractor_x1)">
+      <input id="level" type="number" min="1" max="5" step="1" placeholder="level (1-5)">
+      <input id="category" placeholder="categoria (ex: Tratores)">
+      <input id="rarity" type="number" min="0" max="5" step="1" placeholder="raridade (0-5)">
+      <input id="value" type="number" min="0" step="1" placeholder="valor (ex: 200000)">
+      <input id="lastUpdate" type="date">
+      <input id="image" placeholder="imagem (ex: img/placeholder.png)">
+      <input id="packageId" placeholder="id do pacote (opcional)">
+      <input id="packageName" placeholder="nome do pacote (opcional)">
+      <textarea id="notes" placeholder="observações (opcional)"></textarea>
+    </div>
+
+    <div class="actions">
+      <button id="addItem">Adicionar item</button>
+      <button id="exportJson">Exportar JSON</button>
+      <button id="clearAll" class="secondary">Limpar tudo</button>
+    </div>
+
+    <pre id="preview"></pre>
+  </div>
+
+  <script>
+    const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+    if (!isLocal) {
+      document.body.innerHTML = '<div style="padding:24px;font-family:Arial,sans-serif">Painel disponível apenas em ambiente local.</div>';
+      throw new Error('Local only');
+    }
+
+    const state = {
+      schemaVersion: 2,
+      items: []
+    };
+
+    const previewEl = document.getElementById('preview');
+
+    fetch('data/items.json')
+      .then(r => r.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          state.items = data;
+        } else {
+          state.schemaVersion = data.schemaVersion || 2;
+          state.items = data.items || [];
+        }
+        renderPreview();
+      })
+      .catch(() => renderPreview());
+
+    function value(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function slugify(text) {
+      return String(text)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .replace(/_+/g, '_');
+    }
+
+    function renderPreview() {
+      previewEl.textContent = JSON.stringify(state, null, 2);
+    }
+
+    function clearForm() {
+      ['id', 'name', 'level', 'category', 'rarity', 'value', 'lastUpdate', 'image', 'packageId', 'packageName', 'notes'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      idEditedManually = false;
+    }
+
+    const nameInput = document.getElementById('name');
+    const idInput = document.getElementById('id');
+    let idEditedManually = false;
+
+    idInput.addEventListener('input', () => {
+      idEditedManually = true;
+    });
+
+    nameInput.addEventListener('input', () => {
+      if (!idEditedManually || !idInput.value.trim()) {
+        idInput.value = slugify(nameInput.value);
+      }
+    });
+
+    document.getElementById('addItem').addEventListener('click', () => {
+      const id = value('id') || slugify(value('name'));
+      const name = value('name');
+      const level = Number(value('level'));
+      const category = value('category');
+      const rarity = Number(value('rarity'));
+      const valueNum = Number(value('value'));
+      const lastUpdate = value('lastUpdate');
+      const image = value('image') || 'img/placeholder.png';
+      const packageId = value('packageId');
+      const packageName = value('packageName');
+      const notes = value('notes');
+
+      if (!id || !name || Number.isNaN(level) || !category || Number.isNaN(rarity) || Number.isNaN(valueNum)) {
+        alert('Preencha id, nome, level, categoria, raridade e valor.');
+        return;
+      }
+
+      if (level < 1 || level > 5) {
+        alert('Level deve ser entre 1 e 5.');
+        return;
+      }
+
+      const item = {
+        id,
+        display: {
+          name,
+          image
+        },
+        classification: {
+          level,
+          category,
+          rarity
+        },
+        pricing: {
+          value: valueNum,
+          lastUpdate: lastUpdate || ''
+        },
+        relations: packageId ? {
+          packageId,
+          packageName: packageName || packageId
+        } : undefined,
+        notes: notes || undefined
+      };
+
+      state.items.push(item);
+      renderPreview();
+      clearForm();
+    });
+
+    document.getElementById('clearAll').addEventListener('click', () => {
+      state.items = [];
+      renderPreview();
+    });
+
+    document.getElementById('exportJson').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'items.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>

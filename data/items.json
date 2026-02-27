@@ -1,0 +1,46 @@
+﻿{
+  "schemaVersion": 2,
+  "items": [
+    {
+      "id": "tractor_x1",
+      "display": {
+        "name": "Fordson",
+        "image": "img/fordson.png"
+      },
+      "classification": {
+        "level": 2,
+        "category": "Tratores",
+        "rarity": 1
+      },
+      "pricing": {
+        "value": 10000,
+        "lastUpdate": "2026-02-27"
+      },
+      "relations": {
+        "packageId": "pack-inicio",
+        "packageName": "Pacote Inicial"
+      },
+      "notes": "Bom custo-beneficio para comecar a colecao."
+    },
+    {
+      "id": "harvester_pro",
+      "display": {
+        "name": "Plantadeira",
+        "image": "img/plantadeira.png"
+      },
+      "classification": {
+        "level": 4,
+        "category": "Colheitadeiras",
+        "rarity": 5
+      },
+      "pricing": {
+        "value": 450000,
+        "lastUpdate": "2026-02-27"
+      },
+      "relations": {
+        "packageId": "pack-inicio",
+        "packageName": "Pacote Inicial"
+      }
+    }
+  ]
+}
