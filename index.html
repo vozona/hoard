@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Hoard</h1>
+
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="Buscar item...">
+
+      <select id="categoryFilter">
+        <option value="Todos">Todos</option>
+        <option value="Tratores">Tratores</option>
+        <option value="Colheitadeiras">Colheitadeiras</option>
+        <option value="Plantadeiras">Plantadeiras</option>
+        <option value="Caminhões">Caminhões</option>
+        <option value="Reboques">Reboques</option>
+        <option value="Equipamentos">Equipamentos</option>
+        <option value="Caixas de sementes">Caixas de sementes</option>
+        <option value="Misc">Misc</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <div id="itemsContainer" class="items-grid"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
