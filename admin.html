@@ -138,15 +138,30 @@
     fetch('data/items.json')
       .then(r => r.json())
       .then(data => {
-        if (Array.isArray(data)) {
-          state.items = data;
+        const parsedData = parseCatalogData(data);
+        if (Array.isArray(parsedData)) {
+          state.items = parsedData;
         } else {
-          state.schemaVersion = data.schemaVersion || 2;
-          state.items = data.items || [];
+          state.schemaVersion = parsedData.schemaVersion || 2;
+          state.items = parsedData.items || [];
         }
         renderPreview();
       })
       .catch(() => renderPreview());
+
+    function parseCatalogData(data) {
+      if (!data || typeof data !== 'object') return { items: [] };
+
+      if (typeof data.payload === 'string' && data.payload.trim()) {
+        try {
+          return JSON.parse(atob(data.payload));
+        } catch (error) {
+          console.warn('Falha ao decodificar payload do catalogo.', error);
+        }
+      }
+
+      return data;
+    }
 
     function value(id) {
       return document.getElementById(id).value.trim();

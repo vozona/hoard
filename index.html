@@ -1,36 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>SafraBr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoard SafraBr</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
-    <h1>SafraBr</h1>
-    <p class="subtitle">Catálogo de Itens do Farming and Friends</p>
+    <h1>Hoard SafraBr</h1>
+    <p class="subtitle" data-i18n="subtitle">Catalogo de Itens do Farming and Friends</p>
 
     <div class="controls">
-      <input type="text" id="searchInput" placeholder="Buscar item...">
+      <div class="controls-search">
+        <input type="text" id="searchInput" placeholder="Buscar item..." data-i18n-placeholder="searchPlaceholder">
+        <button id="clearSearchBtn" class="clear-search-btn" type="button" aria-label="Limpar busca" title="Limpar busca">×</button>
+      </div>
 
-      <select id="categoryFilter">
-        <option value="Todos">Todos</option>
-        <option value="Tratores">Tratores</option>
-        <option value="Colheitadeiras">Colheitadeiras</option>
-        <option value="Plantadeiras">Plantadeiras</option>
-        <option value="Caminhões">Caminhões</option>
-        <option value="Reboques">Reboques</option>
-        <option value="Equipamentos">Equipamentos</option>
-        <option value="Caixas de sementes">Caixas de sementes</option>
-        <option value="Misc">Misc</option>
-      </select>
+      <div class="controls-filters">
+        <select id="categoryFilter">
+          <option value="All" data-category-key="All">Todas as categorias</option>
+          <option value="TreeCutters" data-category-key="TreeCutters">Cortadores de Arvores</option>
+          <option value="Tractors" data-category-key="Tractors">Tratores</option>
+          <option value="Plows" data-category-key="Plows">Arados</option>
+          <option value="Cultivators" data-category-key="Cultivators">Cultivadores</option>
+          <option value="Seeders" data-category-key="Seeders">Plantadeiras</option>
+          <option value="SeedBoxes" data-category-key="SeedBoxes">Caixas de Sementes</option>
+          <option value="Harvesters" data-category-key="Harvesters">Colheitadeiras</option>
+          <option value="Trucks" data-category-key="Trucks">Caminhoes</option>
+          <option value="Trailers" data-category-key="Trailers">Reboques</option>
+          <option value="Misc" data-category-key="Misc">Diversos</option>
+        </select>
+
+        <label class="filter-toggle" for="specialFilter">
+          <input type="checkbox" id="specialFilter">
+          <span data-i18n="specialOnlyLabel">Somente especiais</span>
+        </label>
+
+        <select id="languageSwitch" aria-label="Idioma">
+          <option value="pt-BR">PT-BR</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
     </div>
+
   </header>
 
   <main>
-    <div id="itemsContainer" class="items-grid"></div>
+    <div class="content-wrap">
+      <p id="resultsCount" class="results-count" aria-live="polite"></p>
+      <div id="itemsContainer" class="items-grid"></div>
+    </div>
   </main>
+
+  <footer class="site-footer">
+    <span data-i18n="footerCreditPrefix">Criado por</span>
+    <a href="https://www.roblox.com/pt/catalog?taxonomy=tZsUsd2BqGViQrJ9Vs3Wah&CreatorName=The_TerminaDO&CreatorType=User&salesTypeFilter=1" target="_blank" rel="noopener noreferrer">VoZona</a>
+  </footer>
+
+  <button id="backToTopBtn" class="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
 
   <script src="script.js"></script>
 </body>
