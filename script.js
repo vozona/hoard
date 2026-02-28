@@ -33,7 +33,8 @@ const I18N = {
     rarityRare: 'Raro',
     rarityVeryRare: 'Muito raro',
     itemsSuffix: 'itens',
-    indicatorLabel: 'Indicador {value} de {max}'
+    indicatorLabel: 'Indicador {value} de {max}',
+    footerCreditPrefix: 'Feito por'
   },
   en: {
     subtitle: 'Farming and Friends Item Catalog',
@@ -51,7 +52,8 @@ const I18N = {
     rarityRare: 'Rare',
     rarityVeryRare: 'Very rare',
     itemsSuffix: 'items',
-    indicatorLabel: 'Indicator {value} of {max}'
+    indicatorLabel: 'Indicator {value} of {max}',
+    footerCreditPrefix: 'Powered by'
   }
 };
 
@@ -150,7 +152,7 @@ function renderItems(items) {
 
     card.innerHTML = `
       <div class="item-preview">
-        <img src="${item.image}" alt="${escapeHtml(item.name)}">
+        <div class="item-image" role="img" aria-label="${escapeHtml(item.name)}" style="${getItemImageStyle(item.image)}"></div>
         <div class="item-name">${escapeHtml(item.name)}</div>
       </div>
       <div class="item-details">
@@ -287,6 +289,19 @@ function escapeHtml(value) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+function getItemImageStyle(imagePath) {
+  const safePath = escapeCssUrl(imagePath || 'img/placeholder.png');
+  return `background-image: url('${safePath}');`;
+}
+
+function escapeCssUrl(value) {
+  return String(value)
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'")
+    .replace(/\(/g, '\\(')
+    .replace(/\)/g, '\\)');
 }
 
 function filterItems() {
