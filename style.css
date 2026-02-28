@@ -90,6 +90,13 @@ h1 {
   width: 100%;
 }
 
+.results-count {
+  margin: 8px 14px 0;
+  color: #7f889b;
+  font-size: 11px;
+  text-align: right;
+}
+
 input[type="text"], select {
   padding: 8px 12px;
   background: #1a1d24;

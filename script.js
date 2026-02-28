@@ -33,7 +33,8 @@ const I18N = {
     footerCreditPrefix: 'Criado por',
     specialOnlyLabel: 'Somente especiais',
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
-    noItemsInCatalog: 'Nenhum item disponivel no catalogo.'
+    noItemsInCatalog: 'Nenhum item disponivel no catalogo.',
+    resultsCountLabel: '{shown} de {total} itens'
   },
   en: {
     subtitle: 'Farming and Friends Item Catalog',
@@ -51,7 +52,8 @@ const I18N = {
     footerCreditPrefix: 'Powered by',
     specialOnlyLabel: 'Special only',
     noItemsFound: 'No items found. Try adjusting your search or filters.',
-    noItemsInCatalog: 'No items available in the catalog.'
+    noItemsInCatalog: 'No items available in the catalog.',
+    resultsCountLabel: '{shown} of {total} items'
   }
 };
 
@@ -60,7 +62,8 @@ currentLanguage = getInitialLanguage();
 fetch('data/items.json')
   .then(response => response.json())
   .then(data => {
-    const rawItems = Array.isArray(data) ? data : data.items || [];
+    const parsedData = parseCatalogData(data);
+    const rawItems = Array.isArray(parsedData) ? parsedData : parsedData.items || [];
     allItems = rawItems.map(normalizeItem);
     applyInterfaceLanguage();
     renderItems(allItems);
@@ -69,6 +72,24 @@ fetch('data/items.json')
     applyInterfaceLanguage();
     renderItems([]);
   });
+
+function parseCatalogData(data) {
+  if (!data || typeof data !== 'object') {
+    return { items: [] };
+  }
+
+  if (typeof data.payload === 'string' && data.payload.trim()) {
+    try {
+      const decoded = atob(data.payload);
+      const parsed = JSON.parse(decoded);
+      return parsed;
+    } catch (error) {
+      console.warn('Failed to decode catalog payload. Falling back to direct JSON.', error);
+    }
+  }
+
+  return data;
+}
 
 function getInitialLanguage() {
   const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
@@ -186,6 +207,7 @@ function normalizeItem(item) {
 function renderItems(items) {
   const container = document.getElementById('itemsContainer');
   container.innerHTML = '';
+  updateResultsCount(items.length, allItems.length);
 
   if (items.length === 0) {
     const emptyState = document.createElement('div');
@@ -242,6 +264,15 @@ function renderItems(items) {
 
     slot.appendChild(card);
     container.appendChild(slot);
+  });
+}
+
+function updateResultsCount(shown, total) {
+  const resultsCountEl = document.getElementById('resultsCount');
+  if (!resultsCountEl) return;
+  resultsCountEl.textContent = t('resultsCountLabel', {
+    shown: String(shown),
+    total: String(total)
   });
 }
 
