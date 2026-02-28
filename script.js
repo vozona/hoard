@@ -23,15 +23,10 @@ const I18N = {
     levelLabel: 'Level',
     categoryLabel: 'Categoria',
     packageLabel: 'Pacote',
-    rarityLabel: 'Raridade',
+    speedLabel: 'Velocidade',
     averageValueLabel: 'Valor medio',
     relatedLabel: 'Relacionados',
     updatedAtLabel: 'Atualizado em',
-    rarityVeryCommon: 'Muito comum',
-    rarityCommon: 'Comum',
-    rarityUncommon: 'Incomum',
-    rarityRare: 'Raro',
-    rarityVeryRare: 'Muito raro',
     itemsSuffix: 'itens',
     indicatorLabel: 'Indicador {value} de {max}',
     footerCreditPrefix: 'Criado por',
@@ -45,15 +40,10 @@ const I18N = {
     levelLabel: 'Level',
     categoryLabel: 'Category',
     packageLabel: 'Bundle',
-    rarityLabel: 'Rarity',
+    speedLabel: 'Speed',
     averageValueLabel: 'Average value',
     relatedLabel: 'Related',
     updatedAtLabel: 'Updated on',
-    rarityVeryCommon: 'Very common',
-    rarityCommon: 'Common',
-    rarityUncommon: 'Uncommon',
-    rarityRare: 'Rare',
-    rarityVeryRare: 'Very rare',
     itemsSuffix: 'items',
     indicatorLabel: 'Indicator {value} of {max}',
     footerCreditPrefix: 'Powered by',
@@ -121,17 +111,52 @@ function applyInterfaceLanguage() {
 }
 
 function normalizeItem(item) {
-  const rawCategory = item.classification?.category || item.categoria || item.category || 'Misc';
+  const rawCategory = firstNonEmptyText([
+    item.classification?.category,
+    item.categoria,
+    item.category
+  ]);
+  const rawSpeed = firstDefinedValue([
+    item.classification?.speed,
+    item.velocidade,
+    item.speed,
+    item.classification?.rarity,
+    item.raridade,
+    item.rarity
+  ]);
+  const rawSpeedMin = firstDefinedValue([
+    item.classification?.speedMin,
+    item.speedMin,
+    item.classification?.speedRange?.min,
+    item.speedRange?.min,
+    item.classification?.rarityMin,
+    item.rarityMin,
+    item.classification?.rarityRange?.min,
+    item.rarityRange?.min
+  ]);
+  const rawSpeedMax = firstDefinedValue([
+    item.classification?.speedMax,
+    item.speedMax,
+    item.classification?.speedRange?.max,
+    item.speedRange?.max,
+    item.classification?.rarityMax,
+    item.rarityMax,
+    item.classification?.rarityRange?.max,
+    item.rarityRange?.max
+  ]);
+
   return {
     id: item.id || '',
     name: item.display?.name || item.nome || item.name || 'Unnamed item',
     image: item.display?.image || item.imagem || item.image || 'img/placeholder.png',
-    level: Number(item.classification?.level || item.nivel || item.level || 1),
-    category: rawCategory,
-    categoryKey: resolveCategoryKey(rawCategory),
-    rarity: Number(item.classification?.rarity || item.raridade || item.rarity || 0),
-    value: Number(item.pricing?.value || item.valor || item.value || 0),
-    lastUpdate: item.pricing?.lastUpdate || item.ultima_atualizacao || item.lastUpdate || '',
+    level: toNumberOrNull(firstDefinedValue([item.classification?.level, item.nivel, item.level])),
+    category: rawCategory || '',
+    categoryKey: rawCategory ? resolveCategoryKey(rawCategory) : '',
+    speed: toNumberOrNull(rawSpeed),
+    speedMin: toNumberOrNull(rawSpeedMin),
+    speedMax: toNumberOrNull(rawSpeedMax),
+    value: toNumberOrNull(firstDefinedValue([item.pricing?.value, item.valor, item.value])),
+    lastUpdate: firstNonEmptyText([item.pricing?.lastUpdate, item.ultima_atualizacao, item.lastUpdate]) || '',
     special: toBoolean(
       item.access?.special
       ?? item.special
@@ -183,29 +208,14 @@ function renderItems(items) {
         <div class="item-name">${escapeHtml(item.name)}</div>
       </div>
       <div class="item-details">
-        <div class="item-row">
-          <span>${t('levelLabel')}</span>
-          <strong>${formatLevel(item.level)}</strong>
-        </div>
-        <div class="item-row">
-          <span>${t('categoryLabel')}</span>
-          <strong>${escapeHtml(item.category)}</strong>
-        </div>
+        ${renderLevelRow(item)}
+        ${renderCategoryRow(item)}
+        ${renderSpeedRow(item)}
+        ${renderValueRow(item)}
         ${renderPackageRow(item, packageMap)}
-        <div class="item-row">
-          <span>${t('rarityLabel')}</span>
-          <div class="stat-group" title="${escapeHtml(`${t('rarityLabel')}: ${getRarityLabel(item.rarity)} (${clampScale(item.rarity, 5)}/5)`)}">
-            ${generateBar(item.rarity, 5)}
-            <small>${getRarityLabel(item.rarity)} (${clampScale(item.rarity, 5)}/5)</small>
-          </div>
-        </div>
-        <div class="item-row">
-          <span>${t('averageValueLabel')}</span>
-          <strong>${formatPrice(item.value)}</strong>
-        </div>
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
-        <div class="item-meta">${t('updatedAtLabel')}: ${formatDate(item.lastUpdate)}</div>
+        ${renderUpdateRow(item)}
       </div>
     `;
 
@@ -224,6 +234,53 @@ function renderItems(items) {
     slot.appendChild(card);
     container.appendChild(slot);
   });
+}
+
+function renderLevelRow(item) {
+  if (item.level === null) return '';
+  return `
+    <div class="item-row">
+      <span>${t('levelLabel')}</span>
+      <strong>${formatLevel(item.level)}</strong>
+    </div>
+  `;
+}
+
+function renderCategoryRow(item) {
+  if (!item.category) return '';
+  return `
+    <div class="item-row">
+      <span>${t('categoryLabel')}</span>
+      <strong>${escapeHtml(item.category)}</strong>
+    </div>
+  `;
+}
+
+function renderSpeedRow(item) {
+  if (item.speed === null) return '';
+  const range = resolveSpeedRange(item);
+  if (!range) return '';
+  const speedSummary = getSpeedSummary(item.speed, range.min, range.max);
+
+  return `
+    <div class="item-row">
+      <span>${t('speedLabel')}</span>
+      <div class="stat-group" title="${escapeHtml(`${t('speedLabel')}: ${speedSummary}`)}">
+        ${generateBar(item.speed, range.min, range.max)}
+        <small>${speedSummary}</small>
+      </div>
+    </div>
+  `;
+}
+
+function renderValueRow(item) {
+  if (item.value === null) return '';
+  return `
+    <div class="item-row">
+      <span>${t('averageValueLabel')}</span>
+      <strong>${formatPrice(item.value)}</strong>
+    </div>
+  `;
 }
 
 function renderPackageRow(item, packageMap) {
@@ -258,9 +315,15 @@ function renderItemNotes(item) {
   return `<div class="item-note">${escapeHtml(item.notes)}</div>`;
 }
 
-function generateBar(value, max) {
-  const safeValue = clampScale(value, max);
-  const percentage = (safeValue / max) * 100;
+function renderUpdateRow(item) {
+  if (!item.lastUpdate) return '';
+  return `<div class="item-meta">${t('updatedAtLabel')}: ${formatDate(item.lastUpdate)}</div>`;
+}
+
+function generateBar(value, min, max) {
+  const safeValue = clampScale(value, min, max);
+  const rangeSize = Math.max(1, max - min);
+  const percentage = ((safeValue - min) / rangeSize) * 100;
   const ariaLabel = escapeHtml(t('indicatorLabel', { value: safeValue, max }));
   return `
     <div class="stat-bar" aria-label="${ariaLabel}">
@@ -269,23 +332,32 @@ function generateBar(value, max) {
   `;
 }
 
-function clampScale(value, max) {
+function clampScale(value, min, max) {
   const numeric = Number(value);
   if (Number.isNaN(numeric)) return 0;
-  return Math.max(0, Math.min(max, numeric));
+  return Math.max(min, Math.min(max, numeric));
 }
 
 function formatLevel(value) {
-  return `${clampScale(value, 5)}/5`;
+  return `${clampScale(value, 0, 5)}/5`;
 }
 
-function getRarityLabel(value) {
-  const rarity = clampScale(value, 5);
-  if (rarity <= 1) return t('rarityVeryCommon');
-  if (rarity <= 2) return t('rarityCommon');
-  if (rarity <= 3) return t('rarityUncommon');
-  if (rarity <= 4) return t('rarityRare');
-  return t('rarityVeryRare');
+function resolveSpeedRange(item) {
+  if (item.speed === null) return null;
+
+  const min = item.speedMin ?? 0;
+  const fallbackMax = min === 0 ? 100 : item.speed;
+  let max = item.speedMax ?? fallbackMax;
+
+  if (max <= min) {
+    max = item.speed > min ? item.speed : min + 1;
+  }
+
+  return { min, max };
+}
+
+function getSpeedSummary(value, min, max) {
+  return `${value} (${min}-${max})`;
 }
 
 function formatPrice(value) {
@@ -329,6 +401,22 @@ function escapeCssUrl(value) {
     .replace(/'/g, "\\'")
     .replace(/\(/g, '\\(')
     .replace(/\)/g, '\\)');
+}
+
+function firstDefinedValue(values) {
+  return values.find(value => value !== undefined && value !== null && value !== '');
+}
+
+function firstNonEmptyText(values) {
+  const value = values.find(candidate => typeof candidate === 'string' ? candidate.trim() : candidate);
+  if (typeof value === 'string') return value.trim();
+  return value || '';
+}
+
+function toNumberOrNull(value) {
+  if (value === undefined || value === null || value === '') return null;
+  const numeric = Number(value);
+  return Number.isNaN(numeric) ? null : numeric;
 }
 
 function filterItems() {
@@ -414,4 +502,29 @@ function toBoolean(value) {
     return normalized === 'true' || normalized === '1' || normalized === 'yes' || normalized === 'sim';
   }
   return false;
+}
+
+const backToTopBtn = document.getElementById('backToTopBtn');
+const controlsSearch = document.querySelector('.controls-search');
+
+if (backToTopBtn) {
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+window.addEventListener('scroll', handleScrollUiState, { passive: true });
+handleScrollUiState();
+
+function handleScrollUiState() {
+  const y = window.scrollY || document.documentElement.scrollTop || 0;
+  const showFloatingUi = y > 240;
+
+  if (backToTopBtn) {
+    backToTopBtn.classList.toggle('is-visible', showFloatingUi);
+  }
+
+  if (controlsSearch) {
+    controlsSearch.classList.toggle('is-sticky', y > 120);
+  }
 }

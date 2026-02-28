@@ -37,10 +37,26 @@ h1 {
 
 .controls-search {
   width: 100%;
+  position: relative;
+  z-index: 20;
 }
 
 .controls-search #searchInput {
   width: 100%;
+}
+
+.controls-search.is-sticky {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(760px, calc(100% - 16px));
+  padding: 6px;
+  border-radius: 10px;
+  background: rgba(12, 15, 21, 0.9);
+  border: 1px solid #2a3347;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
 }
 
 .controls-filters {
@@ -211,6 +227,7 @@ main {
   border-top: 1px dashed #2f3542;
   color: #8b92a3;
   font-size: 12px;
+  text-align: right;
 }
 
 .item-related {
@@ -251,6 +268,39 @@ main {
   text-decoration: underline;
 }
 
+.back-to-top {
+  position: fixed;
+  right: 14px;
+  bottom: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid #33415a;
+  background: rgba(20, 25, 35, 0.95);
+  color: #d7deef;
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+  z-index: 60;
+}
+
+.back-to-top:hover {
+  border-color: #4a77d4;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   header {
     padding: 16px 14px;
@@ -278,6 +328,13 @@ main {
 
   .controls-filters {
     grid-template-columns: 1fr;
+  }
+
+  .controls-search.is-sticky {
+    top: 8px;
+    width: calc(100% - 12px);
+    border-radius: 8px;
+    padding: 5px;
   }
 
   #searchInput,
@@ -336,5 +393,10 @@ main {
 
   .stat-bar {
     width: 72px;
+  }
+
+  .back-to-top {
+    right: 10px;
+    bottom: 12px;
   }
 }
