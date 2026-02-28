@@ -20,11 +20,12 @@ const I18N = {
   'pt-BR': {
     subtitle: 'Catalogo de Itens do Farming and Friends',
     searchPlaceholder: 'Buscar item...',
+    clearSearchLabel: 'Limpar busca',
     levelLabel: 'Level',
     categoryLabel: 'Categoria',
     packageLabel: 'Pacote',
     speedLabel: 'Velocidade',
-    averageValueLabel: 'Valor medio',
+    averageValueLabel: 'Valor',
     relatedLabel: 'Relacionados',
     updatedAtLabel: 'Atualizado em',
     itemsSuffix: 'itens',
@@ -37,6 +38,7 @@ const I18N = {
   en: {
     subtitle: 'Farming and Friends Item Catalog',
     searchPlaceholder: 'Search item...',
+    clearSearchLabel: 'Clear search',
     levelLabel: 'Level',
     categoryLabel: 'Category',
     packageLabel: 'Bundle',
@@ -103,6 +105,13 @@ function applyInterfaceLanguage() {
     const key = element.getAttribute('data-i18n-placeholder');
     element.placeholder = t(key);
   });
+
+  const clearSearchBtn = document.getElementById('clearSearchBtn');
+  if (clearSearchBtn) {
+    const clearLabel = t('clearSearchLabel');
+    clearSearchBtn.setAttribute('aria-label', clearLabel);
+    clearSearchBtn.setAttribute('title', clearLabel);
+  }
 
   document.querySelectorAll('#categoryFilter option[data-category-key]').forEach(option => {
     const key = option.getAttribute('data-category-key');
@@ -357,7 +366,7 @@ function resolveSpeedRange(item) {
 }
 
 function getSpeedSummary(value, min, max) {
-  return `${value} (${min}-${max})`;
+  return `${value}/${max}`;
 }
 
 function formatPrice(value) {
@@ -392,7 +401,8 @@ function escapeHtml(value) {
 
 function getItemImageStyle(imagePath) {
   const safePath = escapeCssUrl(imagePath || 'img/placeholder.png');
-  return `background-image: url('${safePath}');`;
+  const fallbackPath = escapeCssUrl('img/placeholder.png');
+  return `background-image: url('${safePath}'), url('${fallbackPath}');`;
 }
 
 function escapeCssUrl(value) {
@@ -445,6 +455,20 @@ document.getElementById('languageSwitch').addEventListener('change', event => {
   filterItems();
 });
 
+const searchInputEl = document.getElementById('searchInput');
+const clearSearchBtnEl = document.getElementById('clearSearchBtn');
+
+if (searchInputEl && clearSearchBtnEl) {
+  searchInputEl.addEventListener('input', updateClearSearchVisibility);
+  clearSearchBtnEl.addEventListener('click', () => {
+    searchInputEl.value = '';
+    updateClearSearchVisibility();
+    filterItems();
+    searchInputEl.focus();
+  });
+  updateClearSearchVisibility();
+}
+
 function getCategoryLabel(key) {
   const labels = CATEGORY_LABELS[key];
   if (!labels) return key;
@@ -457,10 +481,11 @@ function resolveCategoryKey(rawCategory) {
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .trim();
+  const compact = normalized.replace(/[^a-z0-9]+/g, '');
 
   const aliases = {
     treecutters: 'TreeCutters',
-    tree_cutters: 'TreeCutters',
+    treecuter: 'TreeCutters',
     cortadoresdearvore: 'TreeCutters',
     tractors: 'Tractors',
     trator: 'Tractors',
@@ -481,6 +506,8 @@ function resolveCategoryKey(rawCategory) {
     cultivador: 'Cultivators',
     cultivadores: 'Cultivators',
     seeders: 'Seeders',
+    planter: 'Seeders',
+    planters: 'Seeders',
     plantadeira: 'Seeders',
     plantadeiras: 'Seeders',
     seedboxes: 'SeedBoxes',
@@ -491,7 +518,7 @@ function resolveCategoryKey(rawCategory) {
     equipamentos: 'Misc'
   };
 
-  return aliases[normalized] || 'Misc';
+  return aliases[compact] || aliases[normalized] || 'Misc';
 }
 
 function toBoolean(value) {
@@ -502,6 +529,12 @@ function toBoolean(value) {
     return normalized === 'true' || normalized === '1' || normalized === 'yes' || normalized === 'sim';
   }
   return false;
+}
+
+function updateClearSearchVisibility() {
+  if (!searchInputEl || !clearSearchBtnEl) return;
+  const hasValue = searchInputEl.value.trim().length > 0;
+  clearSearchBtnEl.classList.toggle('is-visible', hasValue);
 }
 
 const backToTopBtn = document.getElementById('backToTopBtn');

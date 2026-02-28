@@ -1,46 +1,3455 @@
 ﻿{
-  "schemaVersion": 2,
-  "items": [
-    {
-      "id": "tractor_x1",
-      "display": {
-        "name": "Fordson",
-        "image": "img/fordson.png"
-      },
-      "classification": {
-        "level": 2,
-        "category": "Tratores",
-        "rarity": 1
-      },
-      "pricing": {
-        "value": 10000,
-        "lastUpdate": "2026-02-27"
-      },
-      "relations": {
-        "packageId": "pack-inicio",
-        "packageName": "Pacote Inicial"
-      },
-      "notes": "Bom custo-beneficio para comecar a colecao."
-    },
-    {
-      "id": "harvester_pro",
-      "display": {
-        "name": "Plantadeira",
-        "image": "img/plantadeira.png"
-      },
-      "classification": {
-        "level": 4,
-        "category": "Colheitadeiras",
-        "rarity": 5
-      },
-      "pricing": {
-        "value": 450000,
-        "lastUpdate": "2026-02-27"
-      },
-      "relations": {
-        "packageId": "pack-inicio",
-        "packageName": "Pacote Inicial"
-      }
-    }
-  ]
+    "schemaVersion":  2,
+    "items":  [
+                  {
+                      "id":  "tk500",
+                      "display":  {
+                                      "name":  "TK500",
+                                      "image":  "img/tk500.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Tree Cutters",
+                                             "speed":  30,
+                                             "speedMin":  "",
+                                             "speedMax":  30,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  75000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "tk1500",
+                      "display":  {
+                                      "name":  "TK1500",
+                                      "image":  "img/tk1500.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Tree Cutters",
+                                             "speed":  25,
+                                             "speedMin":  "",
+                                             "speedMax":  30,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  380000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "s4204",
+                      "display":  {
+                                      "name":  "S4204",
+                                      "image":  "img/s4204.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Plows",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  1500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "ps505",
+                      "display":  {
+                                      "name":  "PS505",
+                                      "image":  "img/ps505.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Plows",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  3000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "wkp118",
+                      "display":  {
+                                      "name":  "WKP118",
+                                      "image":  "img/wkp118.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Plows",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  32500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "cp300",
+                      "display":  {
+                                      "name":  "CP300",
+                                      "image":  "img/cp300.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Plows",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  90000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "jd-shank",
+                      "display":  {
+                                      "name":  "JD Shank",
+                                      "image":  "img/jd-shank.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Plows",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  400000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "src6",
+                      "display":  {
+                                      "name":  "SRC6",
+                                      "image":  "img/src6.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Harvesters",
+                                             "speed":  28,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  2500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "hrv300",
+                      "display":  {
+                                      "name":  "HRV300",
+                                      "image":  "img/hrv300.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Harvesters",
+                                             "speed":  40,
+                                             "speedMin":  "",
+                                             "speedMax":  51,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  4000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "jd700",
+                      "display":  {
+                                      "name":  "JD700",
+                                      "image":  "img/jd700.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Harvesters",
+                                             "speed":  29,
+                                             "speedMin":  "",
+                                             "speedMax":  51,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  40000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "oxbo3220",
+                      "display":  {
+                                      "name":  "Oxbo3220",
+                                      "image":  "img/oxbo3220.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Harvesters",
+                                             "speed":  36,
+                                             "speedMin":  "",
+                                             "speedMax":  52,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  140000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "cph3000",
+                      "display":  {
+                                      "name":  "CPH3000",
+                                      "image":  "img/cph3000.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Harvesters",
+                                             "speed":  40,
+                                             "speedMin":  "",
+                                             "speedMax":  53,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  180000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "oxbo-4220",
+                      "display":  {
+                                      "name":  "Oxbo 4220",
+                                      "image":  "img/oxbo-4220.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Harvesters",
+                                             "speed":  40,
+                                             "speedMin":  "",
+                                             "speedMax":  54,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  360000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "jd-s790",
+                      "display":  {
+                                      "name":  "JD S790",
+                                      "image":  "img/jd-s790.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Harvesters",
+                                             "speed":  33,
+                                             "speedMin":  "",
+                                             "speedMax":  55,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  550000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "claas-790",
+                      "display":  {
+                                      "name":  "Claas 790",
+                                      "image":  "img/claas-790.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Harvesters",
+                                             "speed":  33,
+                                             "speedMin":  "",
+                                             "speedMax":  56,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  255,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "zm80",
+                      "display":  {
+                                      "name":  "ZM80",
+                                      "image":  "img/zm80.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Tractors",
+                                             "speed":  33,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  1500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "h488",
+                      "display":  {
+                                      "name":  "H488",
+                                      "image":  "img/h488.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Tractors",
+                                             "speed":  37,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  4500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "imt650",
+                      "display":  {
+                                      "name":  "IMT650",
+                                      "image":  "img/imt650.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Tractors",
+                                             "speed":  40,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  5500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "gd428",
+                      "display":  {
+                                      "name":  "GD428",
+                                      "image":  "img/gd428.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Tractors",
+                                             "speed":  31,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  35000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "lht340",
+                      "display":  {
+                                      "name":  "LHT340",
+                                      "image":  "img/lht340.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Tractors",
+                                             "speed":  30,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  85000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "gd216",
+                      "display":  {
+                                      "name":  "GD216",
+                                      "image":  "img/gd216.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Tractors",
+                                             "speed":  27,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  120000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "ap450",
+                      "display":  {
+                                      "name":  "AP450",
+                                      "image":  "img/ap450.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Tractors",
+                                             "speed":  39,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  150000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "industrial-log-hauler",
+                      "display":  {
+                                      "name":  "Industrial Log Hauler",
+                                      "image":  "img/industrial-log-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Tractors",
+                                             "speed":  30,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  315000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "challenger-mt9",
+                      "display":  {
+                                      "name":  "Challenger MT9",
+                                      "image":  "img/challenger-mt9.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  36,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  600000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "rusty-tractor",
+                      "display":  {
+                                      "name":  "Rusty Tractor",
+                                      "image":  "img/rusty-tractor.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Tractors",
+                                             "speed":  37,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  55,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "fordson",
+                      "display":  {
+                                      "name":  "Fordson",
+                                      "image":  "img/fordson.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Tractors",
+                                             "speed":  30,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  150,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "er80t",
+                      "display":  {
+                                      "name":  "ER80T",
+                                      "image":  "img/er80t.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Tractors",
+                                             "speed":  41,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  150,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "claas-xerion-5000",
+                      "display":  {
+                                      "name":  "Claas Xerion 5000",
+                                      "image":  "img/claas-xerion-5000.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  39,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  160,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "foxx-metal-tech-x1",
+                      "display":  {
+                                      "name":  "Foxx Metal Tech X1",
+                                      "image":  "img/foxx-metal-tech-x1.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  41,
+                                             "speedMin":  "",
+                                             "speedMax":  100,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  180,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "trailer",
+                      "display":  {
+                                      "name":  "Trailer",
+                                      "image":  "img/trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  1500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "medium-trailer",
+                      "display":  {
+                                      "name":  "Medium Trailer",
+                                      "image":  "img/medium-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  4500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "small-liquid-transport",
+                      "display":  {
+                                      "name":  "Small Liquid Transport",
+                                      "image":  "img/small-liquid-transport.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  5000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "small-animal-trailer",
+                      "display":  {
+                                      "name":  "Small Animal Trailer",
+                                      "image":  "img/small-animal-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  5000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "box-trailer",
+                      "display":  {
+                                      "name":  "Box Trailer",
+                                      "image":  "img/box-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  14000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "medium-animal-trailer",
+                      "display":  {
+                                      "name":  "Medium Animal Trailer",
+                                      "image":  "img/medium-animal-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  17000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "small-log-trailer",
+                      "display":  {
+                                      "name":  "Small Log Trailer",
+                                      "image":  "img/small-log-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  28000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "medium-box-trailer",
+                      "display":  {
+                                      "name":  "Medium Box Trailer",
+                                      "image":  "img/medium-box-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  29000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "big-trailer",
+                      "display":  {
+                                      "name":  "Big Trailer",
+                                      "image":  "img/big-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  30000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "automatic-box-trailer",
+                      "display":  {
+                                      "name":  "Automatic Box Trailer",
+                                      "image":  "img/automatic-box-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  37000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "medium-log-trailer",
+                      "display":  {
+                                      "name":  "Medium Log Trailer",
+                                      "image":  "img/medium-log-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  65000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "semi-trailer",
+                      "display":  {
+                                      "name":  "Semi Trailer",
+                                      "image":  "img/semi-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  100000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "large-liquid-transport",
+                      "display":  {
+                                      "name":  "Large Liquid Transport",
+                                      "image":  "img/large-liquid-transport.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  100000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "crop-hauler-900",
+                      "display":  {
+                                      "name":  "Crop Hauler 900",
+                                      "image":  "img/crop-hauler-900.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  160000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "animal-hauler-s-1500",
+                      "display":  {
+                                      "name":  "Animal Hauler S-1500",
+                                      "image":  "img/animal-hauler-s-1500.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  190000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "flatbed-hauler-s-500",
+                      "display":  {
+                                      "name":  "Flatbed Hauler S-500",
+                                      "image":  "img/flatbed-hauler-s-500.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  200000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "liquid-hauler-150",
+                      "display":  {
+                                      "name":  "Liquid Hauler 150",
+                                      "image":  "img/liquid-hauler-150.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  220000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "large-log-trailer",
+                      "display":  {
+                                      "name":  "Large Log Trailer",
+                                      "image":  "img/large-log-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  325000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "r150",
+                      "display":  {
+                                      "name":  "R150",
+                                      "image":  "img/r150.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Trucks",
+                                             "speed":  52,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  2000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "r250",
+                      "display":  {
+                                      "name":  "R250",
+                                      "image":  "img/r250.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Trucks",
+                                             "speed":  40,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  15000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "medium-liquid-truck",
+                      "display":  {
+                                      "name":  "Medium Liquid Truck",
+                                      "image":  "img/medium-liquid-truck.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  45,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  24000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "utility-hauler",
+                      "display":  {
+                                      "name":  "Utility Hauler",
+                                      "image":  "img/utility-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  46,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  27000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "rt-200",
+                      "display":  {
+                                      "name":  "RT 200",
+                                      "image":  "img/rt-200.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  52,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  29000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "washington",
+                      "display":  {
+                                      "name":  "Washington",
+                                      "image":  "img/washington.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  40,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  32000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "r350-flatdeb",
+                      "display":  {
+                                      "name":  "R350 Flatdeb",
+                                      "image":  "img/r350-flatdeb.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  45,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  35000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "rx50",
+                      "display":  {
+                                      "name":  "RX50",
+                                      "image":  "img/rx50.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  16,
+                                             "speedMin":  "",
+                                             "speedMax":  16,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  40000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "m1-flatbed",
+                      "display":  {
+                                      "name":  "M1 Flatbed",
+                                      "image":  "img/m1-flatbed.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  40,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  40000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "insul-2400",
+                      "display":  {
+                                      "name":  "Insul 2400",
+                                      "image":  "img/insul-2400.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  51,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  42000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "m2-flatbed",
+                      "display":  {
+                                      "name":  "M2 Flatbed",
+                                      "image":  "img/m2-flatbed.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  38,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  52000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "r1500",
+                      "display":  {
+                                      "name":  "R1500",
+                                      "image":  "img/r1500.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trucks",
+                                             "speed":  40,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  120000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "mts",
+                      "display":  {
+                                      "name":  "MTS",
+                                      "image":  "img/mts.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trucks",
+                                             "speed":  41,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  300000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "atm-700",
+                      "display":  {
+                                      "name":  "ATM 700",
+                                      "image":  "img/atm-700.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  57,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  85,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "utility-hauler-deluxe",
+                      "display":  {
+                                      "name":  "Utility Hauler Deluxe",
+                                      "image":  "img/utility-hauler-deluxe.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  46,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  120,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "foxx-metal-tech-p1",
+                      "display":  {
+                                      "name":  "Foxx Metal Tech P1",
+                                      "image":  "img/foxx-metal-tech-p1.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  61,
+                                             "speedMin":  "",
+                                             "speedMax":  76,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  170,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "kqf3000",
+                      "display":  {
+                                      "name":  "KQF3000",
+                                      "image":  "img/kqf3000.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Cultivators",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  1500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "kcl300",
+                      "display":  {
+                                      "name":  "KCL300",
+                                      "image":  "img/kcl300.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Cultivators",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  2500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "dw2021",
+                      "display":  {
+                                      "name":  "DW2021",
+                                      "image":  "img/dw2021.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Cultivators",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  32500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "cp600",
+                      "display":  {
+                                      "name":  "CP600",
+                                      "image":  "img/cp600.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Cultivators",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  90000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "horsch-joker",
+                      "display":  {
+                                      "name":  "Horsch Joker",
+                                      "image":  "img/horsch-joker.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Cultivators",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  450000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "kadl",
+                      "display":  {
+                                      "name":  "KADL",
+                                      "image":  "img/kadl.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Seeders",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  1500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "eaed300",
+                      "display":  {
+                                      "name":  "EAED300",
+                                      "image":  "img/eaed300.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Seeders",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  4000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "ml350",
+                      "display":  {
+                                      "name":  "ML350",
+                                      "image":  "img/ml350.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Seeders",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  32500,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "cps2918",
+                      "display":  {
+                                      "name":  "CPS2918",
+                                      "image":  "img/cps2918.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Seeders",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  120000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "tempo-l16",
+                      "display":  {
+                                      "name":  "Tempo L16",
+                                      "image":  "img/tempo-l16.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Seeders",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  475000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "sprinkler",
+                      "display":  {
+                                      "name":  "Sprinkler",
+                                      "image":  "img/sprinkler.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Misc",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  5000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "square-bale-stacker",
+                      "display":  {
+                                      "name":  "Square Bale Stacker",
+                                      "image":  "img/square-bale-stacker.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Misc",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  150000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "square-baler",
+                      "display":  {
+                                      "name":  "Square Baler",
+                                      "image":  "img/square-baler.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Misc",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  180000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "medium-sprinkler",
+                      "display":  {
+                                      "name":  "Medium Sprinkler",
+                                      "image":  "img/medium-sprinkler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Misc",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  180000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "round-baler",
+                      "display":  {
+                                      "name":  "Round Baler",
+                                      "image":  "img/round-baler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Misc",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  520000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "round-baler-hauler",
+                      "display":  {
+                                      "name":  "Round Baler Hauler",
+                                      "image":  "img/round-baler-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Misc",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  600000,
+                                      "valueStatus":  "known",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "maltex-p680-ah",
+                      "display":  {
+                                      "name":  "Maltex P680 AH",
+                                      "image":  "img/maltex-p680-ah.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Plows",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "nsh",
+                      "display":  {
+                                      "name":  "NSH",
+                                      "image":  "img/nsh.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Plows",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "actives7",
+                      "display":  {
+                                      "name":  "ActiveS7",
+                                      "image":  "img/actives7.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Harvesters",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "na-cr10",
+                      "display":  {
+                                      "name":  "NA CR10",
+                                      "image":  "img/na-cr10.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Harvesters",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "vintage-harvester",
+                      "display":  {
+                                      "name":  "Vintage Harvester",
+                                      "image":  "img/vintage-harvester.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Harvesters",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  false
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "falcon-x",
+                      "display":  {
+                                      "name":  "Falcon X",
+                                      "image":  "img/falcon-x.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "zalter-500",
+                      "display":  {
+                                      "name":  "Zalter 500",
+                                      "image":  "img/zalter-500.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "vintage-tractor",
+                      "display":  {
+                                      "name":  "Vintage Tractor",
+                                      "image":  "img/vintage-tractor.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "km472",
+                      "display":  {
+                                      "name":  "KM472",
+                                      "image":  "img/km472.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "vertra",
+                      "display":  {
+                                      "name":  "Vertra",
+                                      "image":  "img/vertra.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "foxx-chamber-105",
+                      "display":  {
+                                      "name":  "Foxx Chamber 105",
+                                      "image":  "img/foxx-chamber-105.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "sopt-925",
+                      "display":  {
+                                      "name":  "SOPT 925",
+                                      "image":  "img/sopt-925.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "gd-8r410",
+                      "display":  {
+                                      "name":  "GD 8R410",
+                                      "image":  "img/gd-8r410.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "train",
+                      "display":  {
+                                      "name":  "Train",
+                                      "image":  "img/train.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "sleigh",
+                      "display":  {
+                                      "name":  "Sleigh",
+                                      "image":  "img/sleigh.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Tractors",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "falcon-pickup",
+                      "display":  {
+                                      "name":  "Falcon Pickup",
+                                      "image":  "img/falcon-pickup.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "falcon-utility",
+                      "display":  {
+                                      "name":  "Falcon Utility",
+                                      "image":  "img/falcon-utility.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "marley-liquid-hauler",
+                      "display":  {
+                                      "name":  "Marley Liquid Hauler",
+                                      "image":  "img/marley-liquid-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "marley-pickup-hauler",
+                      "display":  {
+                                      "name":  "Marley Pickup Hauler",
+                                      "image":  "img/marley-pickup-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "marley-crop-hauler",
+                      "display":  {
+                                      "name":  "Marley Crop Hauler",
+                                      "image":  "img/marley-crop-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "titan",
+                      "display":  {
+                                      "name":  "Titan",
+                                      "image":  "img/titan.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "titan-lh",
+                      "display":  {
+                                      "name":  "Titan LH",
+                                      "image":  "img/titan-lh.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "titan-ch",
+                      "display":  {
+                                      "name":  "Titan CH",
+                                      "image":  "img/titan-ch.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "titan-x",
+                      "display":  {
+                                      "name":  "Titan X",
+                                      "image":  "img/titan-x.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "pace-ix-lt",
+                      "display":  {
+                                      "name":  "Pace IX-LT",
+                                      "image":  "img/pace-ix-lt.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "pace-ix-ch",
+                      "display":  {
+                                      "name":  "Pace IX-CH",
+                                      "image":  "img/pace-ix-ch.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "cybertruck",
+                      "display":  {
+                                      "name":  "Cybertruck",
+                                      "image":  "img/cybertruck.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "cybersemi",
+                      "display":  {
+                                      "name":  "CyberSemi",
+                                      "image":  "img/cybersemi.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "levi-flatbed",
+                      "display":  {
+                                      "name":  "Levi Flatbed",
+                                      "image":  "img/levi-flatbed.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "log-transport-vehicle",
+                      "display":  {
+                                      "name":  "Log Transport Vehicle",
+                                      "image":  "img/log-transport-vehicle.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "kei-liquid-hauler",
+                      "display":  {
+                                      "name":  "Kei Liquid Hauler",
+                                      "image":  "img/kei-liquid-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "kei-crop-hauler",
+                      "display":  {
+                                      "name":  "Kei Crop Hauler",
+                                      "image":  "img/kei-crop-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "kei-pickup",
+                      "display":  {
+                                      "name":  "Kei Pickup",
+                                      "image":  "img/kei-pickup.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "solid-hauler-4700",
+                      "display":  {
+                                      "name":  "Solid Hauler 4700",
+                                      "image":  "img/solid-hauler-4700.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "r1950-liquid",
+                      "display":  {
+                                      "name":  "R1950 - Liquid",
+                                      "image":  "img/r1950-liquid.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "rc1950",
+                      "display":  {
+                                      "name":  "RC1950",
+                                      "image":  "img/rc1950.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "rl1950",
+                      "display":  {
+                                      "name":  "RL1950",
+                                      "image":  "img/rl1950.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "r1950",
+                      "display":  {
+                                      "name":  "R1950",
+                                      "image":  "img/r1950.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "solid-hauler-47",
+                      "display":  {
+                                      "name":  "Solid Hauler 47",
+                                      "image":  "img/solid-hauler-47.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "maverick-430",
+                      "display":  {
+                                      "name":  "Maverick 430",
+                                      "image":  "img/maverick-430.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "r500",
+                      "display":  {
+                                      "name":  "R500",
+                                      "image":  "img/r500.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "vintage-semi",
+                      "display":  {
+                                      "name":  "Vintage Semi",
+                                      "image":  "img/vintage-semi.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "r350-sd",
+                      "display":  {
+                                      "name":  "R350 SD",
+                                      "image":  "img/r350-sd.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "utility-hauler-deluxe-2",
+                      "display":  {
+                                      "name":  "Utility Hauler Deluxe",
+                                      "image":  "img/utility-hauler-deluxe-2.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "euro-haler-1280",
+                      "display":  {
+                                      "name":  "Euro Haler 1280",
+                                      "image":  "img/euro-haler-1280.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "dg-semi",
+                      "display":  {
+                                      "name":  "DG-Semi",
+                                      "image":  "img/dg-semi.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "dg-ct",
+                      "display":  {
+                                      "name":  "DG-CT",
+                                      "image":  "img/dg-ct.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "dg-lt",
+                      "display":  {
+                                      "name":  "DG-LT",
+                                      "image":  "img/dg-lt.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "vintage-flatbed",
+                      "display":  {
+                                      "name":  "Vintage Flatbed",
+                                      "image":  "img/vintage-flatbed.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "vintage-log-trailer",
+                      "display":  {
+                                      "name":  "Vintage Log Trailer",
+                                      "image":  "img/vintage-log-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  4,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "lat-360",
+                      "display":  {
+                                      "name":  "LAT 360",
+                                      "image":  "img/lat-360.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "large-crop-trailer",
+                      "display":  {
+                                      "name":  "Large Crop Trailer",
+                                      "image":  "img/large-crop-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "large-box-trailer",
+                      "display":  {
+                                      "name":  "Large Box Trailer",
+                                      "image":  "img/large-box-trailer.png"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "small-log-hauler",
+                      "display":  {
+                                      "name":  "Small Log Hauler",
+                                      "image":  "img/small-log-hauler.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "maltex-c4500-global",
+                      "display":  {
+                                      "name":  "Maltex C4500 Global",
+                                      "image":  "img/maltex-c4500-global.png"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Cultivators",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "swifter180",
+                      "display":  {
+                                      "name":  "Swifter180",
+                                      "image":  "img/swifter180.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Cultivators",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "zalter-s-270",
+                      "display":  {
+                                      "name":  "Zalter-S 270",
+                                      "image":  "img/zalter-s-270.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Planters",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "pronto9",
+                      "display":  {
+                                      "name":  "Pronto9",
+                                      "image":  "img/pronto9.png"
+                                  },
+                      "classification":  {
+                                             "level":  5,
+                                             "category":  "Planters",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "mega-baler",
+                      "display":  {
+                                      "name":  "Mega Baler",
+                                      "image":  "img/mega-baler.png"
+                                  },
+                      "classification":  {
+                                             "level":  1,
+                                             "category":  "Misc",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  ""
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  }
+              ]
 }
