@@ -12,35 +12,46 @@
     <p class="subtitle" data-i18n="subtitle">Catalogo de Itens do Farming and Friends</p>
 
     <div class="controls">
-      <input type="text" id="searchInput" placeholder="Buscar item..." data-i18n-placeholder="searchPlaceholder">
+      <div class="controls-search">
+        <input type="text" id="searchInput" placeholder="Buscar item..." data-i18n-placeholder="searchPlaceholder">
+      </div>
 
-      <select id="categoryFilter">
-        <option value="All" data-category-key="All">Todas as categorias</option>
-        <option value="TreeCutters" data-category-key="TreeCutters">Cortadores de Arvores</option>
-        <option value="Tractors" data-category-key="Tractors">Tratores</option>
-        <option value="Plows" data-category-key="Plows">Arados</option>
-        <option value="Cultivators" data-category-key="Cultivators">Cultivadores</option>
-        <option value="Seeders" data-category-key="Seeders">Plantadeiras</option>
-        <option value="SeedBoxes" data-category-key="SeedBoxes">Caixas de Sementes</option>
-        <option value="Harvesters" data-category-key="Harvesters">Colheitadeiras</option>
-        <option value="Trucks" data-category-key="Trucks">Caminhoes</option>
-        <option value="Trailers" data-category-key="Trailers">Reboques</option>
-        <option value="Misc" data-category-key="Misc">Diversos</option>
-      </select>
+      <div class="controls-filters">
+        <select id="categoryFilter">
+          <option value="All" data-category-key="All">Todas as categorias</option>
+          <option value="TreeCutters" data-category-key="TreeCutters">Cortadores de Arvores</option>
+          <option value="Tractors" data-category-key="Tractors">Tratores</option>
+          <option value="Plows" data-category-key="Plows">Arados</option>
+          <option value="Cultivators" data-category-key="Cultivators">Cultivadores</option>
+          <option value="Seeders" data-category-key="Seeders">Plantadeiras</option>
+          <option value="SeedBoxes" data-category-key="SeedBoxes">Caixas de Sementes</option>
+          <option value="Harvesters" data-category-key="Harvesters">Colheitadeiras</option>
+          <option value="Trucks" data-category-key="Trucks">Caminhoes</option>
+          <option value="Trailers" data-category-key="Trailers">Reboques</option>
+          <option value="Misc" data-category-key="Misc">Diversos</option>
+        </select>
 
-      <select id="languageSwitch" aria-label="Idioma">
-        <option value="pt-BR">PT-BR</option>
-        <option value="en">EN</option>
-      </select>
+        <label class="filter-toggle" for="specialFilter">
+          <input type="checkbox" id="specialFilter">
+          <span data-i18n="specialOnlyLabel">Somente especiais</span>
+        </label>
+
+        <select id="languageSwitch" aria-label="Idioma">
+          <option value="pt-BR">PT-BR</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
     </div>
   </header>
 
   <main>
-    <div id="itemsContainer" class="items-grid"></div>
+    <div class="content-wrap">
+      <div id="itemsContainer" class="items-grid"></div>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <span data-i18n="footerCreditPrefix">Feito por</span>
+    <span data-i18n="footerCreditPrefix">Criado por</span>
     <a href="https://www.roblox.com/pt/catalog?taxonomy=tZsUsd2BqGViQrJ9Vs3Wah&CreatorName=The_TerminaDO&CreatorType=User&salesTypeFilter=1" target="_blank" rel="noopener noreferrer">VoZona</a>
   </footer>
 

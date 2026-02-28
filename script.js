@@ -34,7 +34,10 @@ const I18N = {
     rarityVeryRare: 'Muito raro',
     itemsSuffix: 'itens',
     indicatorLabel: 'Indicador {value} de {max}',
-    footerCreditPrefix: 'Feito por'
+    footerCreditPrefix: 'Criado por',
+    specialOnlyLabel: 'Somente especiais',
+    noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
+    noItemsInCatalog: 'Nenhum item disponivel no catalogo.'
   },
   en: {
     subtitle: 'Farming and Friends Item Catalog',
@@ -53,7 +56,10 @@ const I18N = {
     rarityVeryRare: 'Very rare',
     itemsSuffix: 'items',
     indicatorLabel: 'Indicator {value} of {max}',
-    footerCreditPrefix: 'Powered by'
+    footerCreditPrefix: 'Powered by',
+    specialOnlyLabel: 'Special only',
+    noItemsFound: 'No items found. Try adjusting your search or filters.',
+    noItemsInCatalog: 'No items available in the catalog.'
   }
 };
 
@@ -115,16 +121,28 @@ function applyInterfaceLanguage() {
 }
 
 function normalizeItem(item) {
+  const rawCategory = item.classification?.category || item.categoria || item.category || 'Misc';
   return {
     id: item.id || '',
     name: item.display?.name || item.nome || item.name || 'Unnamed item',
     image: item.display?.image || item.imagem || item.image || 'img/placeholder.png',
     level: Number(item.classification?.level || item.nivel || item.level || 1),
-    category: item.classification?.category || item.categoria || item.category || 'Misc',
-    categoryKey: resolveCategoryKey(item.classification?.category || item.categoria || item.category || 'Misc'),
+    category: rawCategory,
+    categoryKey: resolveCategoryKey(rawCategory),
     rarity: Number(item.classification?.rarity || item.raridade || item.rarity || 0),
     value: Number(item.pricing?.value || item.valor || item.value || 0),
     lastUpdate: item.pricing?.lastUpdate || item.ultima_atualizacao || item.lastUpdate || '',
+    special: toBoolean(
+      item.access?.special
+      ?? item.special
+      ?? item.isSpecial
+      ?? item.access?.premium
+      ?? item.premium
+      ?? item.isPremium
+      ?? item.access?.limited
+      ?? item.limited
+      ?? item.isLimited
+    ),
     packageId: item.relations?.packageId || item.packageId || '',
     packageName: item.relations?.packageName || item.packageName || '',
     notes: item.notes || item.description || ''
@@ -134,6 +152,15 @@ function normalizeItem(item) {
 function renderItems(items) {
   const container = document.getElementById('itemsContainer');
   container.innerHTML = '';
+
+  if (items.length === 0) {
+    const emptyState = document.createElement('div');
+    emptyState.className = 'empty-state';
+    emptyState.textContent = allItems.length === 0 ? t('noItemsInCatalog') : t('noItemsFound');
+    container.appendChild(emptyState);
+    return;
+  }
+
   const packageMap = new Map();
 
   items.forEach(item => {
@@ -307,11 +334,13 @@ function escapeCssUrl(value) {
 function filterItems() {
   const search = document.getElementById('searchInput').value.toLowerCase();
   const category = document.getElementById('categoryFilter').value;
+  const specialOnly = document.getElementById('specialFilter').checked;
 
   const filtered = allItems.filter(item => {
     const matchName = item.name.toLowerCase().includes(search);
     const matchCategory = category === ALL_CATEGORY_VALUE || item.categoryKey === category;
-    return matchName && matchCategory;
+    const matchSpecial = !specialOnly || item.special;
+    return matchName && matchCategory && matchSpecial;
   });
 
   renderItems(filtered);
@@ -319,6 +348,7 @@ function filterItems() {
 
 document.getElementById('searchInput').addEventListener('input', filterItems);
 document.getElementById('categoryFilter').addEventListener('change', filterItems);
+document.getElementById('specialFilter').addEventListener('change', filterItems);
 document.getElementById('languageSwitch').addEventListener('change', event => {
   const nextLanguage = I18N[event.target.value] ? event.target.value : 'pt-BR';
   currentLanguage = nextLanguage;
@@ -374,4 +404,14 @@ function resolveCategoryKey(rawCategory) {
   };
 
   return aliases[normalized] || 'Misc';
+}
+
+function toBoolean(value) {
+  if (typeof value === 'boolean') return value;
+  if (typeof value === 'number') return value > 0;
+  if (typeof value === 'string') {
+    const normalized = value.trim().toLowerCase();
+    return normalized === 'true' || normalized === '1' || normalized === 'yes' || normalized === 'sim';
+  }
+  return false;
 }
