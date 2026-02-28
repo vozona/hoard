@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>SafraBr</title>
+  <title>Hoard - SafraBr by VoZona</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
-    <h1>SafraBr</h1>
-    <p class="subtitle">Catálogo de Itens do Farming and Friends</p>
+    <h1>Hoard - SafraBr</h1>
+    <p class="subtitle" data-i18n="subtitle">Catalogo de Itens do Farming and Friends</p>
 
     <div class="controls">
-      <input type="text" id="searchInput" placeholder="Buscar item...">
+      <input type="text" id="searchInput" placeholder="Buscar item..." data-i18n-placeholder="searchPlaceholder">
 
       <select id="categoryFilter">
-        <option value="Todos">Todos</option>
-        <option value="Tratores">Tratores</option>
-        <option value="Colheitadeiras">Colheitadeiras</option>
-        <option value="Plantadeiras">Plantadeiras</option>
-        <option value="Caminhões">Caminhões</option>
-        <option value="Reboques">Reboques</option>
-        <option value="Equipamentos">Equipamentos</option>
-        <option value="Caixas de sementes">Caixas de sementes</option>
-        <option value="Misc">Misc</option>
+        <option value="All" data-category-key="All">Todas as categorias</option>
+        <option value="TreeCutters" data-category-key="TreeCutters">Cortadores de Arvores</option>
+        <option value="Tractors" data-category-key="Tractors">Tratores</option>
+        <option value="Plows" data-category-key="Plows">Arados</option>
+        <option value="Cultivators" data-category-key="Cultivators">Cultivadores</option>
+        <option value="Seeders" data-category-key="Seeders">Plantadeiras</option>
+        <option value="SeedBoxes" data-category-key="SeedBoxes">Caixas de Sementes</option>
+        <option value="Harvesters" data-category-key="Harvesters">Colheitadeiras</option>
+        <option value="Trucks" data-category-key="Trucks">Caminhoes</option>
+        <option value="Trailers" data-category-key="Trailers">Reboques</option>
+        <option value="Misc" data-category-key="Misc">Diversos</option>
+      </select>
+
+      <select id="languageSwitch" aria-label="Idioma">
+        <option value="pt-BR">PT-BR</option>
+        <option value="en">EN</option>
       </select>
     </div>
   </header>

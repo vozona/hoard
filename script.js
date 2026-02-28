@@ -1,20 +1,125 @@
-﻿let allItems = [];
+﻿const ALL_CATEGORY_VALUE = 'All';
+const LANGUAGE_STORAGE_KEY = 'safrabr_language';
+const CATEGORY_LABELS = {
+  All: { 'pt-BR': 'Todas as categorias', en: 'All categories' },
+  TreeCutters: { 'pt-BR': 'Cortadores de Àrvores', en: 'Tree Cutters' },
+  Tractors: { 'pt-BR': 'Tratores', en: 'Tractors' },
+  Harvesters: { 'pt-BR': 'Colheitadeiras', en: 'Harvesters' },
+  Trucks: { 'pt-BR': 'Caminhões', en: 'Trucks' },
+  Trailers: { 'pt-BR': 'Reboques', en: 'Trailers' },
+  Plows: { 'pt-BR': 'Arados', en: 'Plows' },
+  Cultivators: { 'pt-BR': 'Cultivadores', en: 'Cultivators' },
+  Seeders: { 'pt-BR': 'Plantadeiras', en: 'Seeders' },
+  SeedBoxes: { 'pt-BR': 'Caixas de Sementes', en: 'Seed Boxes' },
+  Misc: { 'pt-BR': 'Diversos', en: 'Misc' }
+};
+let allItems = [];
+let currentLanguage = 'pt-BR';
+
+const I18N = {
+  'pt-BR': {
+    subtitle: 'Catalogo de Itens do Farming and Friends',
+    searchPlaceholder: 'Buscar item...',
+    levelLabel: 'Level',
+    categoryLabel: 'Categoria',
+    packageLabel: 'Pacote',
+    rarityLabel: 'Raridade',
+    averageValueLabel: 'Valor medio',
+    relatedLabel: 'Relacionados',
+    updatedAtLabel: 'Atualizado em',
+    rarityVeryCommon: 'Muito comum',
+    rarityCommon: 'Comum',
+    rarityUncommon: 'Incomum',
+    rarityRare: 'Raro',
+    rarityVeryRare: 'Muito raro',
+    itemsSuffix: 'itens',
+    indicatorLabel: 'Indicador {value} de {max}'
+  },
+  en: {
+    subtitle: 'Farming and Friends Item Catalog',
+    searchPlaceholder: 'Search item...',
+    levelLabel: 'Level',
+    categoryLabel: 'Category',
+    packageLabel: 'Bundle',
+    rarityLabel: 'Rarity',
+    averageValueLabel: 'Average value',
+    relatedLabel: 'Related',
+    updatedAtLabel: 'Updated on',
+    rarityVeryCommon: 'Very common',
+    rarityCommon: 'Common',
+    rarityUncommon: 'Uncommon',
+    rarityRare: 'Rare',
+    rarityVeryRare: 'Very rare',
+    itemsSuffix: 'items',
+    indicatorLabel: 'Indicator {value} of {max}'
+  }
+};
+
+currentLanguage = getInitialLanguage();
 
 fetch('data/items.json')
   .then(response => response.json())
   .then(data => {
     const rawItems = Array.isArray(data) ? data : data.items || [];
     allItems = rawItems.map(normalizeItem);
+    applyInterfaceLanguage();
     renderItems(allItems);
+  })
+  .catch(() => {
+    applyInterfaceLanguage();
+    renderItems([]);
   });
+
+function getInitialLanguage() {
+  const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  if (savedLanguage && I18N[savedLanguage]) {
+    return savedLanguage;
+  }
+  return 'pt-BR';
+}
+
+function t(key, replacements = {}) {
+  const dictionary = I18N[currentLanguage] || I18N['pt-BR'];
+  let text = dictionary[key] || I18N['pt-BR'][key] || key;
+
+  Object.entries(replacements).forEach(([name, value]) => {
+    text = text.replace(`{${name}}`, value);
+  });
+
+  return text;
+}
+
+function applyInterfaceLanguage() {
+  document.documentElement.lang = currentLanguage;
+
+  const languageSwitch = document.getElementById('languageSwitch');
+  languageSwitch.value = currentLanguage;
+  languageSwitch.setAttribute('aria-label', currentLanguage === 'en' ? 'Language' : 'Idioma');
+
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    element.textContent = t(key);
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    const key = element.getAttribute('data-i18n-placeholder');
+    element.placeholder = t(key);
+  });
+
+  document.querySelectorAll('#categoryFilter option[data-category-key]').forEach(option => {
+    const key = option.getAttribute('data-category-key');
+    option.textContent = getCategoryLabel(key);
+  });
+}
 
 function normalizeItem(item) {
   return {
     id: item.id || '',
-    name: item.display?.name || item.nome || item.name || 'Item sem nome',
+    name: item.display?.name || item.nome || item.name || 'Unnamed item',
     image: item.display?.image || item.imagem || item.image || 'img/placeholder.png',
     level: Number(item.classification?.level || item.nivel || item.level || 1),
     category: item.classification?.category || item.categoria || item.category || 'Misc',
+    categoryKey: resolveCategoryKey(item.classification?.category || item.categoria || item.category || 'Misc'),
     rarity: Number(item.classification?.rarity || item.raridade || item.rarity || 0),
     value: Number(item.pricing?.value || item.valor || item.value || 0),
     lastUpdate: item.pricing?.lastUpdate || item.ultima_atualizacao || item.lastUpdate || '',
@@ -50,28 +155,28 @@ function renderItems(items) {
       </div>
       <div class="item-details">
         <div class="item-row">
-          <span>Level</span>
+          <span>${t('levelLabel')}</span>
           <strong>${formatLevel(item.level)}</strong>
         </div>
         <div class="item-row">
-          <span>Categoria</span>
+          <span>${t('categoryLabel')}</span>
           <strong>${escapeHtml(item.category)}</strong>
         </div>
         ${renderPackageRow(item, packageMap)}
         <div class="item-row">
-          <span>Raridade</span>
-          <div class="stat-group" title="Raridade: ${escapeHtml(getRarityLabel(item.rarity))} (${clampScale(item.rarity, 5)}/5)">
+          <span>${t('rarityLabel')}</span>
+          <div class="stat-group" title="${escapeHtml(`${t('rarityLabel')}: ${getRarityLabel(item.rarity)} (${clampScale(item.rarity, 5)}/5)`)}">
             ${generateBar(item.rarity, 5)}
             <small>${getRarityLabel(item.rarity)} (${clampScale(item.rarity, 5)}/5)</small>
           </div>
         </div>
         <div class="item-row">
-          <span>Valor médio</span>
+          <span>${t('averageValueLabel')}</span>
           <strong>${formatPrice(item.value)}</strong>
         </div>
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
-        <div class="item-meta">Atualizado em: ${formatDate(item.lastUpdate)}</div>
+        <div class="item-meta">${t('updatedAtLabel')}: ${formatDate(item.lastUpdate)}</div>
       </div>
     `;
 
@@ -97,11 +202,11 @@ function renderPackageRow(item, packageMap) {
 
   const packageCount = packageMap.get(item.packageId)?.length || 0;
   const packageLabel = item.packageName || item.packageId;
-  const countLabel = packageCount > 1 ? ` (${packageCount} itens)` : '';
+  const countLabel = packageCount > 1 ? ` (${packageCount} ${t('itemsSuffix')})` : '';
 
   return `
     <div class="item-row">
-      <span>Pacote</span>
+      <span>${t('packageLabel')}</span>
       <strong>${escapeHtml(packageLabel)}${countLabel}</strong>
     </div>
   `;
@@ -116,7 +221,7 @@ function renderRelatedItems(item, packageMap) {
 
   if (related.length === 0) return '';
 
-  return `<div class="item-related">Relacionados: ${related.join(', ')}</div>`;
+  return `<div class="item-related">${t('relatedLabel')}: ${related.join(', ')}</div>`;
 }
 
 function renderItemNotes(item) {
@@ -127,8 +232,9 @@ function renderItemNotes(item) {
 function generateBar(value, max) {
   const safeValue = clampScale(value, max);
   const percentage = (safeValue / max) * 100;
+  const ariaLabel = escapeHtml(t('indicatorLabel', { value: safeValue, max }));
   return `
-    <div class="stat-bar" aria-label="Indicador ${safeValue} de ${max}">
+    <div class="stat-bar" aria-label="${ariaLabel}">
       <div class="stat-fill" style="width: ${percentage}%"></div>
     </div>
   `;
@@ -146,15 +252,16 @@ function formatLevel(value) {
 
 function getRarityLabel(value) {
   const rarity = clampScale(value, 5);
-  if (rarity <= 1) return 'Muito comum';
-  if (rarity <= 2) return 'Comum';
-  if (rarity <= 3) return 'Incomum';
-  if (rarity <= 4) return 'Raro';
-  return 'Muito raro';
+  if (rarity <= 1) return t('rarityVeryCommon');
+  if (rarity <= 2) return t('rarityCommon');
+  if (rarity <= 3) return t('rarityUncommon');
+  if (rarity <= 4) return t('rarityRare');
+  return t('rarityVeryRare');
 }
 
 function formatPrice(value) {
-  return new Intl.NumberFormat('pt-BR', {
+  const locale = currentLanguage === 'en' ? 'en-US' : 'pt-BR';
+  return new Intl.NumberFormat(locale, {
     maximumFractionDigits: 0
   }).format(value);
 }
@@ -165,7 +272,8 @@ function formatDate(value) {
   if (value.includes('-')) {
     const parsed = new Date(`${value}T00:00:00`);
     if (!Number.isNaN(parsed.getTime())) {
-      return parsed.toLocaleDateString('pt-BR');
+      const locale = currentLanguage === 'en' ? 'en-US' : 'pt-BR';
+      return parsed.toLocaleDateString(locale);
     }
   }
 
@@ -181,18 +289,74 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-document.getElementById('searchInput').addEventListener('input', filterItems);
-document.getElementById('categoryFilter').addEventListener('change', filterItems);
-
 function filterItems() {
   const search = document.getElementById('searchInput').value.toLowerCase();
   const category = document.getElementById('categoryFilter').value;
 
   const filtered = allItems.filter(item => {
     const matchName = item.name.toLowerCase().includes(search);
-    const matchCategory = category === 'Todos' || item.category === category;
+    const matchCategory = category === ALL_CATEGORY_VALUE || item.categoryKey === category;
     return matchName && matchCategory;
   });
 
   renderItems(filtered);
+}
+
+document.getElementById('searchInput').addEventListener('input', filterItems);
+document.getElementById('categoryFilter').addEventListener('change', filterItems);
+document.getElementById('languageSwitch').addEventListener('change', event => {
+  const nextLanguage = I18N[event.target.value] ? event.target.value : 'pt-BR';
+  currentLanguage = nextLanguage;
+  localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+  applyInterfaceLanguage();
+  filterItems();
+});
+
+function getCategoryLabel(key) {
+  const labels = CATEGORY_LABELS[key];
+  if (!labels) return key;
+  return labels[currentLanguage] || labels['pt-BR'];
+}
+
+function resolveCategoryKey(rawCategory) {
+  const normalized = String(rawCategory || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim();
+
+  const aliases = {
+    treecutters: 'TreeCutters',
+    tree_cutters: 'TreeCutters',
+    cortadoresdearvore: 'TreeCutters',
+    tractors: 'Tractors',
+    trator: 'Tractors',
+    tratores: 'Tractors',
+    harvesters: 'Harvesters',
+    colheitadeira: 'Harvesters',
+    colheitadeiras: 'Harvesters',
+    trucks: 'Trucks',
+    caminhao: 'Trucks',
+    caminhoes: 'Trucks',
+    trailers: 'Trailers',
+    reboque: 'Trailers',
+    reboques: 'Trailers',
+    plows: 'Plows',
+    arado: 'Plows',
+    arados: 'Plows',
+    cultivators: 'Cultivators',
+    cultivador: 'Cultivators',
+    cultivadores: 'Cultivators',
+    seeders: 'Seeders',
+    plantadeira: 'Seeders',
+    plantadeiras: 'Seeders',
+    seedboxes: 'SeedBoxes',
+    seed_boxes: 'SeedBoxes',
+    caixasdesementes: 'SeedBoxes',
+    misc: 'Misc',
+    diversos: 'Misc',
+    equipamentos: 'Misc'
+  };
+
+  return aliases[normalized] || 'Misc';
 }
