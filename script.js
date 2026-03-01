@@ -620,7 +620,25 @@ function filterItems() {
     return matchName && matchCategory && matchSpecial;
   });
 
-  renderItems(filtered);
+  renderItems(sortItemsForDisplay(filtered));
+}
+
+function sortItemsForDisplay(items) {
+  return [...items].sort((a, b) => {
+    const categoryA = getCategorySortLabel(a);
+    const categoryB = getCategorySortLabel(b);
+    const categoryCompare = categoryA.localeCompare(categoryB, currentLanguage, { sensitivity: 'base' });
+    if (categoryCompare !== 0) return categoryCompare;
+
+    const nameA = String(a.name || '');
+    const nameB = String(b.name || '');
+    return nameA.localeCompare(nameB, currentLanguage, { sensitivity: 'base' });
+  });
+}
+
+function getCategorySortLabel(item) {
+  if (item?.categoryKey) return getCategoryLabel(item.categoryKey);
+  return String(item?.category || '~');
 }
 
 document.getElementById('searchInput').addEventListener('input', filterItems);
