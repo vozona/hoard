@@ -2,7 +2,7 @@
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
 const CATEGORY_LABELS = {
   All: { 'pt-BR': 'Todas as categorias', en: 'All categories' },
-  TreeCutters: { 'pt-BR': 'Cortadores de Àrvores', en: 'Tree Cutters' },
+  TreeCutters: { 'pt-BR': 'Cortadores de Árvores', en: 'Tree Cutters' },
   Tractors: { 'pt-BR': 'Tratores', en: 'Tractors' },
   Harvesters: { 'pt-BR': 'Colheitadeiras', en: 'Harvesters' },
   Trucks: { 'pt-BR': 'Caminhões', en: 'Trucks' },
@@ -72,7 +72,7 @@ fetch('data/items.json')
     const rawItems = Array.isArray(parsedData) ? parsedData : parsedData.items || [];
     allItems = rawItems.map(normalizeItem);
     applyInterfaceLanguage();
-    renderItems(allItems);
+    filterItems();
     openItemFromUrl();
   })
   .catch(() => {
@@ -334,7 +334,13 @@ function openItemFromUrl() {
   const card = document.querySelector(`.item-card[data-item-id="${selectorId}"]`);
   if (!card) return;
 
+  document.querySelectorAll('.item-card.is-shared-target').forEach(sharedCard => {
+    sharedCard.classList.remove('is-shared-target');
+  });
   setExpandedCard(card, true);
+  card.classList.add('is-shared-target');
+  card.setAttribute('tabindex', '-1');
+  card.focus({ preventScroll: true });
   card.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 

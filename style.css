@@ -188,6 +188,11 @@ main {
   transform: scale(0.995);
 }
 
+.item-card.is-shared-target {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45), 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
 .item-preview {
   display: flex;
   flex-direction: column;

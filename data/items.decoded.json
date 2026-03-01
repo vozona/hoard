@@ -2352,6 +2352,81 @@
                       "notes":  ""
                   },
                   {
+                      "id":  "sled",
+                      "display":  {
+                                      "name":  "Sled",
+                                      "image":  "img/sled.jpg"
+                                  },
+                      "classification":  {
+                                             "level":  0,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  "2026-03-01"
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "sl-medium",
+                      "display":  {
+                                      "name":  "SL Medium",
+                                      "image":  "img/sl-medium.jpg"
+                                  },
+                      "classification":  {
+                                             "level":  3,
+                                             "category":  "Trucks",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  "2026-03-01"
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "automatic-flatbed",
+                      "display":  {
+                                      "name":  "Automatic Flatbed",
+                                      "image":  "img/automatic-flatbed.jpg"
+                                  },
+                      "classification":  {
+                                             "level":  2,
+                                             "category":  "Trailers",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  "2026-03-01"
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
                       "id":  "falcon-pickup",
                       "display":  {
                                       "name":  "Falcon Pickup",
@@ -3052,31 +3127,6 @@
                       "notes":  ""
                   },
                   {
-                      "id":  "utility-hauler-deluxe-2",
-                      "display":  {
-                                      "name":  "Utility Hauler Deluxe",
-                                      "image":  "img/utility-hauler-deluxe-2.jpg"
-                                  },
-                      "classification":  {
-                                             "level":  3,
-                                             "category":  "Trucks",
-                                             "speed":  null,
-                                             "speedMin":  "",
-                                             "speedMax":  null,
-                                             "rarity":  ""
-                                         },
-                      "pricing":  {
-                                      "value":  null,
-                                      "valueStatus":  "none",
-                                      "robux":  null,
-                                      "lastUpdate":  "2026-03-01"
-                                  },
-                      "access":  {
-                                     "special":  true
-                                 },
-                      "notes":  ""
-                  },
-                  {
                       "id":  "euro-haler-1280",
                       "display":  {
                                       "name":  "Euro Haler 1280",
@@ -3434,6 +3484,31 @@
                                   },
                       "classification":  {
                                              "level":  1,
+                                             "category":  "Misc",
+                                             "speed":  null,
+                                             "speedMin":  "",
+                                             "speedMax":  null,
+                                             "rarity":  ""
+                                         },
+                      "pricing":  {
+                                      "value":  null,
+                                      "valueStatus":  "none",
+                                      "robux":  null,
+                                      "lastUpdate":  "2026-03-01"
+                                  },
+                      "access":  {
+                                     "special":  true
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "chainsaw",
+                      "display":  {
+                                      "name":  "Chainsaw",
+                                      "image":  "img/chainsaw.jpg"
+                                  },
+                      "classification":  {
+                                             "level":  0,
                                              "category":  "Misc",
                                              "speed":  null,
                                              "speedMin":  "",
