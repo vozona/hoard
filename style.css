@@ -62,11 +62,16 @@ h1 {
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 
 .clear-search-btn.is-visible {
   opacity: 1;
   pointer-events: auto;
+}
+
+.clear-search-btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.34);
 }
 
 .controls-search.is-sticky {
@@ -134,7 +139,7 @@ input[type="text"], select {
 
 .items-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   padding: 20px 14px 24px;
   align-items: start;
@@ -171,6 +176,7 @@ main {
   cursor: pointer;
   transition: 0.2s;
   border: 1px solid transparent;
+  position: relative;
 }
 
 .item-card:hover {
@@ -287,6 +293,48 @@ main {
   line-height: 1.4;
 }
 
+.item-share-btn {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #e8f0ff;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease, width 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.share-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.item-share-btn:hover {
+  background: #244377;
+  border-color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.38);
+}
+
+.item-share-btn.is-copied {
+  width: auto;
+  min-width: 74px;
+  padding: 0 10px;
+  background: #1f6a3f;
+  border-color: #2f945b;
+  border-radius: 8px;
+}
+
 .item-card.expanded .item-details {
   display: block;
 }
@@ -316,7 +364,7 @@ main {
   width: 38px;
   height: 38px;
   border-radius: 999px;
-  border: 1px solid #33415a;
+  border: 1px solid #ffffff;
   background: rgba(20, 25, 35, 0.95);
   color: #d7deef;
   font-size: 18px;
@@ -330,10 +378,12 @@ main {
   transform: translateY(8px);
   transition: opacity 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
   z-index: 60;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.34);
 }
 
 .back-to-top:hover {
-  border-color: #4a77d4;
+  border-color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.42);
 }
 
 .back-to-top.is-visible {
