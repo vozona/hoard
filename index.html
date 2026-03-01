@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hoard SafraBr</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" href="favicon_io/favicon.ico" sizes="any">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,13 +17,13 @@
     <div class="controls">
       <div class="controls-search">
         <input type="text" id="searchInput" placeholder="Buscar item..." data-i18n-placeholder="searchPlaceholder">
-        <button id="clearSearchBtn" class="clear-search-btn" type="button" aria-label="Limpar busca" title="Limpar busca">×</button>
+        <button id="clearSearchBtn" class="clear-search-btn" type="button" aria-label="Limpar busca" title="Limpar busca">&times;</button>
       </div>
 
       <div class="controls-filters">
         <select id="categoryFilter">
           <option value="All" data-category-key="All">Todas as categorias</option>
-          <option value="TreeCutters" data-category-key="TreeCutters">Cortadores de Arvores</option>
+          <option value="TreeCutters" data-category-key="TreeCutters">Cortadores de Árvores</option>
           <option value="Tractors" data-category-key="Tractors">Tratores</option>
           <option value="Plows" data-category-key="Plows">Arados</option>
           <option value="Cultivators" data-category-key="Cultivators">Cultivadores</option>
@@ -33,7 +36,7 @@
         </select>
 
         <label class="filter-toggle" for="specialFilter">
-          <input type="checkbox" id="specialFilter">
+          <input type="checkbox" id="specialFilter" checked>
           <span data-i18n="specialOnlyLabel">Somente especiais</span>
         </label>
 
@@ -43,7 +46,6 @@
         </select>
       </div>
     </div>
-
   </header>
 
   <main>
@@ -58,8 +60,16 @@
     <a href="https://www.roblox.com/pt/catalog?taxonomy=tZsUsd2BqGViQrJ9Vs3Wah&CreatorName=The_TerminaDO&CreatorType=User&salesTypeFilter=1" target="_blank" rel="noopener noreferrer">VoZona</a>
   </footer>
 
-  <button id="backToTopBtn" class="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+  <button id="backToTopBtn" class="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">&uarr;</button>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+

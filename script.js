@@ -2,7 +2,7 @@
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
 const CATEGORY_LABELS = {
   All: { 'pt-BR': 'Todas as categorias', en: 'All categories' },
-  TreeCutters: { 'pt-BR': 'Cortadores de Àrvores', en: 'Tree Cutters' },
+  TreeCutters: { 'pt-BR': 'Cortadores de Árvores', en: 'Tree Cutters' },
   Tractors: { 'pt-BR': 'Tratores', en: 'Tractors' },
   Harvesters: { 'pt-BR': 'Colheitadeiras', en: 'Harvesters' },
   Trucks: { 'pt-BR': 'Caminhões', en: 'Trucks' },
@@ -32,6 +32,9 @@ const I18N = {
     indicatorLabel: 'Indicador {value} de {max}',
     footerCreditPrefix: 'Criado por',
     specialOnlyLabel: 'Somente especiais',
+    cardHintLabel: 'Ver mais detalhes',
+    shareButtonLabel: 'Compartilhar link',
+    shareCopiedLabel: 'Link copiado',
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
     noItemsInCatalog: 'Nenhum item disponivel no catalogo.',
     resultsCountLabel: '{shown} de {total} itens'
@@ -51,6 +54,9 @@ const I18N = {
     indicatorLabel: 'Indicator {value} of {max}',
     footerCreditPrefix: 'Powered by',
     specialOnlyLabel: 'Special only',
+    cardHintLabel: 'View details',
+    shareButtonLabel: 'Share link',
+    shareCopiedLabel: 'Link copied',
     noItemsFound: 'No items found. Try adjusting your search or filters.',
     noItemsInCatalog: 'No items available in the catalog.',
     resultsCountLabel: '{shown} of {total} items'
@@ -66,7 +72,8 @@ fetch('data/items.json')
     const rawItems = Array.isArray(parsedData) ? parsedData : parsedData.items || [];
     allItems = rawItems.map(normalizeItem);
     applyInterfaceLanguage();
-    renderItems(allItems);
+    filterItems();
+    openItemFromUrl();
   })
   .catch(() => {
     applyInterfaceLanguage();
@@ -178,7 +185,7 @@ function normalizeItem(item) {
   return {
     id: item.id || '',
     name: item.display?.name || item.nome || item.name || 'Unnamed item',
-    image: item.display?.image || item.imagem || item.image || 'img/placeholder.png',
+    image: item.display?.image || item.imagem || item.image || 'img/default.jpg',
     level: toNumberOrNull(firstDefinedValue([item.classification?.level, item.nivel, item.level])),
     category: rawCategory || '',
     categoryKey: rawCategory ? resolveCategoryKey(rawCategory) : '',
@@ -232,8 +239,11 @@ function renderItems(items) {
 
     const card = document.createElement('div');
     card.classList.add('item-card');
+    card.dataset.itemId = item.id;
+    card.title = t('cardHintLabel');
 
     card.innerHTML = `
+      ${renderShareButton(item)}
       <div class="item-preview">
         <div class="item-image" role="img" aria-label="${escapeHtml(item.name)}" style="${getItemImageStyle(item.image)}"></div>
         <div class="item-name">${escapeHtml(item.name)}</div>
@@ -250,16 +260,18 @@ function renderItems(items) {
       </div>
     `;
 
+    const shareButton = card.querySelector('.item-share-btn');
+    if (shareButton) {
+      shareButton.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        handleShareClick(item, shareButton);
+      });
+    }
+
     card.addEventListener('click', () => {
       const wasExpanded = card.classList.contains('expanded');
-
-      document.querySelectorAll('.item-card.expanded').forEach(otherCard => {
-        otherCard.classList.remove('expanded');
-      });
-
-      if (!wasExpanded) {
-        card.classList.add('expanded');
-      }
+      setExpandedCard(card, !wasExpanded);
     });
 
     slot.appendChild(card);
@@ -276,6 +288,62 @@ function updateResultsCount(shown, total) {
   });
 }
 
+function setExpandedCard(card, shouldExpand) {
+  if (!card) return;
+
+  document.querySelectorAll('.item-card.expanded').forEach(otherCard => {
+    otherCard.classList.remove('expanded');
+  });
+
+  if (shouldExpand) {
+    card.classList.add('expanded');
+  }
+}
+
+function getItemIdFromUrl() {
+  const params = new URLSearchParams(window.location.search || '');
+  const value = params.get('item');
+  return value ? value.trim() : '';
+}
+
+function findItemById(itemId) {
+  const normalizedId = String(itemId || '').toLowerCase();
+  return allItems.find(item => String(item.id || '').toLowerCase() === normalizedId) || null;
+}
+
+function openItemFromUrl() {
+  const requestedId = getItemIdFromUrl();
+  if (!requestedId) return;
+
+  const targetItem = findItemById(requestedId);
+  if (!targetItem) return;
+
+  const searchInput = document.getElementById('searchInput');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const specialFilter = document.getElementById('specialFilter');
+
+  if (searchInput) searchInput.value = '';
+  if (categoryFilter) categoryFilter.value = ALL_CATEGORY_VALUE;
+  if (specialFilter) specialFilter.checked = false;
+  updateClearSearchVisibility();
+  filterItems();
+
+  const selectorId = typeof CSS !== 'undefined' && typeof CSS.escape === 'function'
+    ? CSS.escape(targetItem.id)
+    : targetItem.id.replace(/["\\]/g, '\\$&');
+  const card = document.querySelector(`.item-card[data-item-id="${selectorId}"]`);
+  if (!card) return;
+
+  document.querySelectorAll('.item-card.is-shared-target').forEach(sharedCard => {
+    sharedCard.classList.remove('is-shared-target');
+  });
+  setExpandedCard(card, true);
+  card.classList.add('is-shared-target');
+  card.setAttribute('tabindex', '-1');
+  card.focus({ preventScroll: true });
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
 function renderLevelRow(item) {
   if (item.level === null) return '';
   return `
@@ -288,10 +356,11 @@ function renderLevelRow(item) {
 
 function renderCategoryRow(item) {
   if (!item.category) return '';
+  const categoryLabel = item.categoryKey ? getCategoryLabel(item.categoryKey) : item.category;
   return `
     <div class="item-row">
       <span>${t('categoryLabel')}</span>
-      <strong>${escapeHtml(item.category)}</strong>
+      <strong>${escapeHtml(categoryLabel)}</strong>
     </div>
   `;
 }
@@ -358,6 +427,85 @@ function renderItemNotes(item) {
 function renderUpdateRow(item) {
   if (!item.lastUpdate) return '';
   return `<div class="item-meta">${t('updatedAtLabel')}: ${formatDate(item.lastUpdate)}</div>`;
+}
+
+function renderShareButton(item) {
+  if (!item.id) return '';
+  const label = t('shareButtonLabel');
+  const icon = getShareButtonIconMarkup();
+  return `
+    <button type="button" class="item-share-btn" data-default-label="${escapeHtml(label)}" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${icon}</button>
+  `;
+}
+
+async function handleShareClick(item, button) {
+  if (!item || !item.id || !button) return;
+  const shareUrl = buildItemShareUrl(item.id);
+  const copied = await copyTextToClipboard(shareUrl);
+  if (!copied) return;
+
+  const defaultLabel = button.dataset.defaultLabel || t('shareButtonLabel');
+  button.dataset.defaultLabel = defaultLabel;
+  button.textContent = t('shareCopiedLabel');
+  button.classList.add('is-copied');
+  button.setAttribute('aria-label', t('shareCopiedLabel'));
+  button.setAttribute('title', t('shareCopiedLabel'));
+
+  window.setTimeout(() => {
+    button.innerHTML = getShareButtonIconMarkup();
+    button.classList.remove('is-copied');
+    button.setAttribute('aria-label', defaultLabel);
+    button.setAttribute('title', defaultLabel);
+  }, 1200);
+}
+
+function getShareButtonIconMarkup() {
+  return `
+    <svg class="share-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M15 8l-6 4 6 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+      <circle cx="18" cy="8" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+      <circle cx="6" cy="12" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+      <circle cx="18" cy="16" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+    </svg>
+  `;
+}
+
+function buildItemShareUrl(itemId) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('item', itemId);
+  return url.toString();
+}
+
+async function copyTextToClipboard(text) {
+  if (!text) return false;
+
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (error) {
+      // Fall back to legacy copy flow below.
+    }
+  }
+
+  const tempInput = document.createElement('input');
+  tempInput.value = text;
+  tempInput.setAttribute('readonly', '');
+  tempInput.style.position = 'absolute';
+  tempInput.style.left = '-9999px';
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  tempInput.setSelectionRange(0, tempInput.value.length);
+
+  let copied = false;
+  try {
+    copied = document.execCommand('copy');
+  } catch (error) {
+    copied = false;
+  }
+
+  tempInput.remove();
+  return copied;
 }
 
 function generateBar(value, min, max) {
@@ -431,8 +579,8 @@ function escapeHtml(value) {
 }
 
 function getItemImageStyle(imagePath) {
-  const safePath = escapeCssUrl(imagePath || 'img/placeholder.png');
-  const fallbackPath = escapeCssUrl('img/placeholder.png');
+  const safePath = escapeCssUrl(imagePath || 'img/default.jpg');
+  const fallbackPath = escapeCssUrl('img/default.jpg');
   return `background-image: url('${safePath}'), url('${fallbackPath}');`;
 }
 
@@ -592,3 +740,4 @@ function handleScrollUiState() {
     controlsSearch.classList.toggle('is-sticky', y > 120);
   }
 }
+
