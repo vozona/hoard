@@ -178,7 +178,7 @@ function normalizeItem(item) {
   return {
     id: item.id || '',
     name: item.display?.name || item.nome || item.name || 'Unnamed item',
-    image: item.display?.image || item.imagem || item.image || 'img/placeholder.png',
+    image: item.display?.image || item.imagem || item.image || 'img/default.jpg',
     level: toNumberOrNull(firstDefinedValue([item.classification?.level, item.nivel, item.level])),
     category: rawCategory || '',
     categoryKey: rawCategory ? resolveCategoryKey(rawCategory) : '',
@@ -431,8 +431,8 @@ function escapeHtml(value) {
 }
 
 function getItemImageStyle(imagePath) {
-  const safePath = escapeCssUrl(imagePath || 'img/placeholder.png');
-  const fallbackPath = escapeCssUrl('img/placeholder.png');
+  const safePath = escapeCssUrl(imagePath || 'img/default.jpg');
+  const fallbackPath = escapeCssUrl('img/default.jpg');
   return `background-image: url('${safePath}'), url('${fallbackPath}');`;
 }
 
@@ -592,3 +592,4 @@ function handleScrollUiState() {
     controlsSearch.classList.toggle('is-sticky', y > 120);
   }
 }
+

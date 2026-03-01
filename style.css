@@ -192,10 +192,20 @@ main {
   aspect-ratio: 4 / 3;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 112%;
   background-color: #10141b;
   border: 1px solid #252b38;
   border-radius: 8px;
+  transition: background-size 0.3s ease, filter 0.3s ease;
+}
+
+.item-card:hover .item-image {
+  background-size: 144%;
+  filter: brightness(1.08) contrast(1.02);
+}
+
+.item-card:active .item-image {
+  background-size: 136%;
 }
 
 .item-name {
