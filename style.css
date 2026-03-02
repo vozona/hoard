@@ -115,8 +115,8 @@ input[type="text"], select {
 .filter-toggle {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 10px;
   min-height: 40px;
   padding: 0 10px;
   border: 1px solid #333;
@@ -128,13 +128,51 @@ input[type="text"], select {
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
+  cursor: pointer;
+  position: relative;
 }
 
 .filter-toggle input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  margin: 0;
-  accent-color: #3a82f7;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle-ui {
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background: #2a3345;
+  border: 1px solid #3a465e;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.toggle-knob {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #dce3f2;
+  transition: transform 0.2s ease;
+}
+
+.filter-toggle input[type="checkbox"]:checked + .toggle-ui {
+  background: #3a82f7;
+  border-color: #3a82f7;
+}
+
+.filter-toggle input[type="checkbox"]:checked + .toggle-ui .toggle-knob {
+  transform: translateX(18px);
+}
+
+.filter-toggle input[type="checkbox"]:focus-visible + .toggle-ui {
+  box-shadow: 0 0 0 2px rgba(58, 130, 247, 0.35);
 }
 
 .items-grid {
