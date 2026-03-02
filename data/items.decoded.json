@@ -1,4 +1,4 @@
-{
+﻿{
     "schemaVersion": 2,
     "items": [
         {
@@ -1673,10 +1673,10 @@
             }
         },
         {
-            "id": "eaed300",
+            "id": "aed300",
             "display": {
-                "name": "EAED300",
-                "image": "img/eaed300.jpg"
+                "name": "AED300",
+                "image": "img/aed300.jpg"
             },
             "classification": {
                 "level": 2,
@@ -1937,7 +1937,7 @@
                 "rarity": ""
             },
             "access": {
-                "special": false
+                "special": true
             },
             "notes": "",
             "pricing": {
@@ -3000,6 +3000,25 @@
             "classification": {
                 "level": 2,
                 "category": "Trailers",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "efc-8300-drill",
+            "display": {
+                "name": "EFC 8300 Drill",
+                "image": "img/efc-8300-drill.jpg"
+            },
+            "classification": {
+                "level": 2,
+                "category": "Seeders",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,

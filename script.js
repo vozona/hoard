@@ -18,7 +18,7 @@ let currentLanguage = 'pt-BR';
 
 const I18N = {
   'pt-BR': {
-    subtitle: 'Catalogo de Itens do Farming and Friends',
+    subtitlePrefix: 'Catalogo de Itens do',
     searchPlaceholder: 'Buscar item...',
     clearSearchLabel: 'Limpar busca',
     levelLabel: 'Level',
@@ -32,7 +32,7 @@ const I18N = {
     itemsSuffix: 'itens',
     indicatorLabel: 'Indicador {value} de {max}',
     footerCreditPrefix: 'Criado por',
-    specialOnlyLabel: 'Somente especiais',
+    specialOnlyLabel: 'Somente itens especiais',
     cardHintLabel: 'Ver mais detalhes',
     shareButtonLabel: 'Compartilhar link',
     shareCopiedLabel: 'Link copiado',
@@ -41,7 +41,7 @@ const I18N = {
     resultsCountLabel: '{shown} de {total} itens'
   },
   en: {
-    subtitle: 'Farming and Friends Item Catalog',
+    subtitlePrefix: 'Item catalog for',
     searchPlaceholder: 'Search item...',
     clearSearchLabel: 'Clear search',
     levelLabel: 'Level',
@@ -55,7 +55,7 @@ const I18N = {
     itemsSuffix: 'items',
     indicatorLabel: 'Indicator {value} of {max}',
     footerCreditPrefix: 'Powered by',
-    specialOnlyLabel: 'Special only',
+    specialOnlyLabel: 'Special items only',
     cardHintLabel: 'View details',
     shareButtonLabel: 'Share link',
     shareCopiedLabel: 'Link copied',

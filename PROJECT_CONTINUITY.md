@@ -122,3 +122,39 @@
   - `data/items.json`, `data/items.market.json`
   - assets `img/` e `favicon_io/`
 - `admin.html` e `save-data.php` sao ferramentas operacionais; uso recomendado local.
+
+## 11) Atualizacoes Recentes (mar/2026)
+- Filtro de especiais:
+  - Rotulo atualizado para `Somente itens especiais` (`pt-BR`) e `Special items only` (`en`).
+  - Checkbox convertido para visual de toggle (liga/desliga), mantendo a mesma logica de filtro (`specialFilter`).
+- Idioma:
+  - Seletor atualizado para `Portugues` e `English` com bandeiras no rotulo (observacao: renderizacao de bandeira em `select` nativo depende do SO/browser).
+  - Subtitulo do topo passou a usar prefixo traduzivel (`subtitlePrefix`) + link fixo para o jogo:
+    - `https://www.roblox.com/pt/games/2772610559/Farming-and-Friends`
+    - abre em nova aba (`target="_blank"`).
+- Sticky da busca:
+  - Mantido comportamento por classe `.is-sticky` com `position: fixed` (controle no `handleScrollUiState`).
+  - Ajuste para evitar regressao de visibilidade quando rola a pagina.
+- Tema visual (sem alterar estrutura funcional):
+  - Refresh de UI em `style.css` com base neutra (estilo mais proximo de interfaces Roblox).
+  - Estados interativos com destaque em azul (foco de campos, hover/focus de card, toggle ativo).
+  - `stat-fill` recebeu gradiente com maior destaque visual.
+- Atalhos flutuantes (publicidade discreta):
+  - Bloco fixo `quick-links` acima do `backToTopBtn` no canto inferior direito.
+  - Links atuais: Discord, Camisa oficial, YouTube.
+  - Comportamento:
+    - Desktop: icone compacto + expande texto em `hover/focus`.
+    - Mobile: mantem formato compacto circular (sem expansao de texto).
+  - Cores por atalho:
+    - Discord (azul), YouTube (vermelho), Camisa (verde).
+- Marca d'agua nas imagens dos itens:
+  - `VoZona` adicionada via CSS pseudo-elemento em `.item-image::after`.
+  - Estilo atual: texto discreto no centro, em diagonal (timbrado), sem bloquear interacao.
+- Compartilhamento e navegacao (mantidos ativos):
+  - Botao de compartilhar por card com copia de link e feedback visual.
+  - Abertura de item por query string `?item=...`.
+  - Botao `Voltar ao topo` com exibicao por scroll.
+
+## 12) Commits Recentes (branch `development`)
+- `33d47f5` - Atualiza filtro de especiais com toggle e bandeiras no seletor de idioma
+- `1e78ffb` - Refina UI com tema neutro e destaques interativos
