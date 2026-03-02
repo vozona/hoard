@@ -504,6 +504,18 @@
             "lastUpdate": "2026-03-02",
             "valueStatus": "known",
             "robux": null
+        },
+        "efc-8300-drill": {
+            "history": [],
+            "lastUpdate": "",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "maltex-p680-ah": {
+            "history": [],
+            "lastUpdate": "",
+            "valueStatus": "none",
+            "robux": null
         }
     }
 }

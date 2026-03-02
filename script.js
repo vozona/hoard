@@ -18,7 +18,7 @@ let currentLanguage = 'pt-BR';
 
 const I18N = {
   'pt-BR': {
-    subtitle: 'Catalogo de Itens do Farming and Friends',
+    subtitlePrefix: 'Catalogo de Itens do',
     searchPlaceholder: 'Buscar item...',
     clearSearchLabel: 'Limpar busca',
     levelLabel: 'Level',
@@ -41,7 +41,7 @@ const I18N = {
     resultsCountLabel: '{shown} de {total} itens'
   },
   en: {
-    subtitle: 'Farming and Friends Item Catalog',
+    subtitlePrefix: 'Item catalog for',
     searchPlaceholder: 'Search item...',
     clearSearchLabel: 'Clear search',
     levelLabel: 'Level',

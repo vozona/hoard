@@ -52,6 +52,19 @@ h1 {
   font-size: 14px;
 }
 
+.subtitle a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.38);
+  text-underline-offset: 2px;
+}
+
+.subtitle a:hover,
+.subtitle a:focus-visible {
+  color: #f1f2f4;
+  text-decoration-color: rgba(255, 255, 255, 0.75);
+}
+
 .controls {
   display: flex;
   flex-direction: column;
@@ -137,6 +150,11 @@ input[type="text"], select {
   min-height: 40px;
   box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+#languageSwitch,
+#languageSwitch option {
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Segoe UI', 'Manrope', sans-serif;
 }
 
 input[type="text"]:hover, select:hover {
@@ -310,7 +328,26 @@ main {
   background-color: #101726;
   border: 1px solid #2a3a53;
   border-radius: 10px;
+  position: relative;
+  overflow: hidden;
   transition: background-size 0.3s ease, filter 0.3s ease;
+}
+
+.item-image::after {
+  content: 'VoZona';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: clamp(12px, 2.1vw, 18px);
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
 
 .item-card:hover .item-image {
@@ -470,6 +507,110 @@ main {
   text-decoration: underline;
 }
 
+.quick-links {
+  position: fixed;
+  right: 14px;
+  bottom: 64px;
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.quick-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: 34px;
+  height: 34px;
+  width: 34px;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid #545a66;
+  background: rgba(22, 25, 31, 0.9);
+  color: #dce3ef;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.22s ease, border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+}
+
+.quick-link-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.quick-link-label {
+  max-width: 0;
+  opacity: 0;
+  margin-left: 0;
+  overflow: hidden;
+  transition: max-width 0.22s ease, opacity 0.18s ease, margin-left 0.22s ease;
+}
+
+.quick-link--discord {
+  border-color: #5865f2;
+  background: #5865f2;
+  color: #ffffff;
+}
+
+.quick-link--youtube {
+  border-color: #ff4a4a;
+  background: #ff4a4a;
+  color: #ffffff;
+}
+
+.quick-link--shop {
+  border-color: #58c481;
+  background: #58c481;
+  color: #ffffff;
+}
+
+.quick-link:hover,
+.quick-link:focus-visible {
+  width: 138px;
+  justify-content: flex-start;
+  padding: 0 9px;
+  color: #f4f8ff;
+  background: rgba(35, 41, 51, 0.95);
+  transform: translateX(-2px);
+}
+
+.quick-link:hover .quick-link-label,
+.quick-link:focus-visible .quick-link-label {
+  max-width: 92px;
+  opacity: 1;
+  margin-left: 7px;
+}
+
+.quick-link--discord:hover,
+.quick-link--discord:focus-visible {
+  border-color: #5865f2;
+}
+
+.quick-link--youtube:hover,
+.quick-link--youtube:focus-visible {
+  border-color: #ff4a4a;
+}
+
+.quick-link--shop:hover,
+.quick-link--shop:focus-visible {
+  border-color: #58c481;
+}
+
+.quick-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.24);
+}
+
 .back-to-top {
   position: fixed;
   right: 14px;
@@ -542,6 +683,22 @@ main {
     padding: 5px;
   }
 
+  .quick-link:hover,
+  .quick-link:focus-visible {
+    width: 34px;
+    aspect-ratio: 1 / 1;
+    justify-content: center;
+    padding: 0;
+    transform: none;
+  }
+
+  .quick-link:hover .quick-link-label,
+  .quick-link:focus-visible .quick-link-label {
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
+  }
+
   #searchInput,
   #categoryFilter,
   .filter-toggle,
@@ -598,6 +755,36 @@ main {
 
   .stat-bar {
     width: 72px;
+  }
+
+  .quick-links {
+    right: 10px;
+    bottom: 58px;
+    gap: 6px;
+  }
+
+  .quick-link {
+    min-height: 32px;
+    height: 32px;
+    width: 32px;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+  }
+
+  .quick-link:hover,
+  .quick-link:focus-visible {
+    width: 32px;
+    aspect-ratio: 1 / 1;
+    justify-content: center;
+    padding: 0;
+    transform: none;
+  }
+
+  .quick-link:hover .quick-link-label,
+  .quick-link:focus-visible .quick-link-label {
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
   }
 
   .back-to-top {
