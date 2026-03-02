@@ -1,0 +1,509 @@
+{
+    "schemaVersion": 1,
+    "pricing": {
+        "pronto9": {
+            "history": [
+                15000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "large-box-trailer": {
+            "history": [
+                10000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "pace-ix-ch": {
+            "history": [
+                55000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "nsh": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "falcon-utility": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "claas-xerion-5000": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": 160
+        },
+        "vertra": {
+            "history": [
+                355000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "kei-liquid-hauler": {
+            "history": [
+                67000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "cybertruck": {
+            "history": [
+                70000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "foxx-chamber-105": {
+            "history": [
+                21000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "swifter180": {
+            "history": [
+                12000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "cybersemi": {
+            "history": [
+                70000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "r1950": {
+            "history": [
+                40000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "titan": {
+            "history": [
+                66000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "maltex-c4500-global": {
+            "history": [
+                5000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "vintage-flatbed": {
+            "history": [
+                25000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "marley-liquid-hauler": {
+            "history": [
+                51000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "r350-sd": {
+            "history": [
+                18000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "rusty-tractor": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": 55
+        },
+        "fordson": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": 150
+        },
+        "kei-pickup": {
+            "history": [
+                66000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "log-transport-vehicle": {
+            "history": [
+                50000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "mega-baler": {
+            "history": [
+                50000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "er80t": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": 150
+        },
+        "rc1950": {
+            "history": [
+                40000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "titan-ch": {
+            "history": [
+                67500000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "utility-hauler-deluxe": {
+            "history": [
+                15000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": 120
+        },
+        "falcon-x": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "vintage-tractor": {
+            "history": [
+                65000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "maverick-430": {
+            "history": [
+                44000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "gd-8r410": {
+            "history": [
+                47500000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "falcon-pickup": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "dg-ct": {
+            "history": [
+                25000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "zalter-s-270": {
+            "history": [
+                55000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "kei-crop-hauler": {
+            "history": [
+                70000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "solid-hauler-4700": {
+            "history": [
+                180000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "automatic-flatbed": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "euro-haler-1280": {
+            "history": [
+                140000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "dg-lt": {
+            "history": [
+                20000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "train": {
+            "history": [
+                21000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "marley-crop-hauler": {
+            "history": [
+                46500000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "r500": {
+            "history": [
+                49000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "titan-lh": {
+            "history": [
+                72500000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "km472": {
+            "history": [
+                36500000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "claas-790": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": 255
+        },
+        "solid-hauler-47": {
+            "history": [
+                45000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "dg-semi": {
+            "history": [
+                20000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "sled": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "chainsaw": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "pace-ix-lt": {
+            "history": [
+                55000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "zalter-500": {
+            "history": [
+                42000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "rl1950": {
+            "history": [
+                35000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "vintage-log-trailer": {
+            "history": [
+                18000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "sl-medium": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "lat-360": {
+            "history": [
+                9000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "vintage-semi": {
+            "history": [
+                60000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "marley-pickup-hauler": {
+            "history": [
+                47000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "atm-700": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": 85
+        },
+        "large-crop-trailer": {
+            "history": [
+                10000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "foxx-metal-tech-x1": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": 180
+        },
+        "foxx-metal-tech-p1": {
+            "history": [],
+            "lastUpdate": "2026-03-01",
+            "valueStatus": "none",
+            "robux": 170
+        },
+        "sleigh": {
+            "history": [
+                1520000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "titan-x": {
+            "history": [
+                83000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "r1950-liquid": {
+            "history": [
+                45000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "small-log-hauler": {
+            "history": [
+                49000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "levi-flatbed": {
+            "history": [
+                80000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "sopt-925": {
+            "history": [
+                48000000
+            ],
+            "lastUpdate": "2026-03-02",
+            "valueStatus": "known",
+            "robux": null
+        }
+    }
+}
