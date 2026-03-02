@@ -42,7 +42,7 @@
       margin-bottom: 12px;
     }
 
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 8px;
       border: 1px solid #3a3f4b;
@@ -98,7 +98,7 @@
   <div class="wrap" id="app">
     <h1>SafraBr Admin Local</h1>
     <div class="note">
-      Ferramenta local para montar o <code>data/items.json</code>. Clique em "Exportar JSON" para baixar e substituir o arquivo no projeto.
+      Ferramenta local para montar o catalogo fixo (<code>data/items.json</code>, ofuscado) e o mercado dinamico (<code>data/items.market.json</code>).
     </div>
 
     <div class="grid">
@@ -107,8 +107,6 @@
       <input id="level" type="number" min="1" max="5" step="1" placeholder="level (1-5)">
       <input id="category" placeholder="categoria (ex: Tratores)">
       <input id="rarity" type="number" min="0" max="5" step="1" placeholder="raridade (0-5)">
-      <input id="value" type="number" min="0" step="1" placeholder="valor (ex: 200000)">
-      <input id="lastUpdate" type="date">
       <input id="image" placeholder="imagem (ex: img/default.jpg)">
       <input id="packageId" placeholder="id do pacote (opcional)">
       <input id="packageName" placeholder="nome do pacote (opcional)">
@@ -117,9 +115,27 @@
 
     <div class="actions">
       <button id="addItem">Adicionar item</button>
-      <button id="exportJson">Exportar JSON</button>
+      <button id="exportJson">Exportar JSONs</button>
+      <button id="saveServer" class="secondary">Salvar no servidor</button>
       <button id="clearAll" class="secondary">Limpar tudo</button>
     </div>
+
+    <div class="note">
+      Registrar preco de trade: selecione o veiculo especial, informe um valor e ele sera adicionado ao historico com a data de hoje automaticamente.
+    </div>
+
+    <div class="grid">
+      <select id="priceVehicleId">
+        <option value="">Selecione um veiculo especial</option>
+      </select>
+      <input id="priceValue" type="number" min="0" step="1" placeholder="preco observado (ex: 250000)">
+    </div>
+
+    <div class="actions">
+      <button id="addPricePoint">Registrar preco</button>
+    </div>
+
+    <div class="note" id="statusMessage">Nenhuma alteracao salva no servidor ainda.</div>
 
     <pre id="preview"></pre>
   </div>
@@ -132,25 +148,45 @@
     }
 
     const state = {
-      schemaVersion: 2,
-      items: []
+      catalog: {
+        schemaVersion: 2,
+        items: []
+      },
+      market: {
+        schemaVersion: 1,
+        pricing: {}
+      }
     };
 
     const previewEl = document.getElementById('preview');
+    const statusEl = document.getElementById('statusMessage');
 
-    fetch('data/items.json')
-      .then(r => r.json())
-      .then(data => {
-        const parsedData = parseCatalogData(data);
-        if (Array.isArray(parsedData)) {
-          state.items = parsedData;
+    Promise.all([
+      fetch('data/items.json').then(r => r.json()),
+      fetch('data/items.market.json')
+        .then(r => r.ok ? r.json() : ({ schemaVersion: 1, pricing: {} }))
+        .catch(() => ({ schemaVersion: 1, pricing: {} }))
+    ])
+      .then(([catalogData, marketData]) => {
+        const parsedCatalog = parseCatalogData(catalogData);
+        if (Array.isArray(parsedCatalog)) {
+          state.catalog.items = parsedCatalog;
         } else {
-          state.schemaVersion = parsedData.schemaVersion || 2;
-          state.items = parsedData.items || [];
+          state.catalog.schemaVersion = parsedCatalog.schemaVersion || 2;
+          state.catalog.items = parsedCatalog.items || [];
         }
+
+        if (marketData && typeof marketData === 'object') {
+          state.market.schemaVersion = Number(marketData.schemaVersion) || 1;
+          state.market.pricing = marketData.pricing && typeof marketData.pricing === 'object' ? marketData.pricing : {};
+        }
+        populatePriceVehicleSelect();
         renderPreview();
       })
-      .catch(() => renderPreview());
+      .catch(() => {
+        populatePriceVehicleSelect();
+        renderPreview();
+      });
 
     function parseCatalogData(data) {
       if (!data || typeof data !== 'object') return { items: [] };
@@ -170,6 +206,20 @@
       return document.getElementById(id).value.trim();
     }
 
+    function toNumberOrNull(rawValue) {
+      if (rawValue === '' || rawValue === null || rawValue === undefined) return null;
+      const parsed = Number(rawValue);
+      return Number.isNaN(parsed) ? null : parsed;
+    }
+
+    function getTodayIsoDate() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
     function slugify(text) {
       return String(text)
         .normalize('NFD')
@@ -184,11 +234,115 @@
       previewEl.textContent = JSON.stringify(state, null, 2);
     }
 
+    function setStatus(message, isError = false) {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      statusEl.style.borderColor = isError ? '#8f3131' : '#2a5f2a';
+      statusEl.style.background = isError ? '#291616' : '#132113';
+    }
+
     function clearForm() {
-      ['id', 'name', 'level', 'category', 'rarity', 'value', 'lastUpdate', 'image', 'packageId', 'packageName', 'notes'].forEach(id => {
+      ['id', 'name', 'level', 'category', 'rarity', 'image', 'packageId', 'packageName', 'notes'].forEach(id => {
         document.getElementById(id).value = '';
       });
       idEditedManually = false;
+    }
+
+    function upsertItem(item) {
+      const index = state.catalog.items.findIndex(existingItem => existingItem.id === item.id);
+      if (index >= 0) {
+        state.catalog.items[index] = item;
+      } else {
+        state.catalog.items.push(item);
+      }
+    }
+
+    function encodeCatalogPayload(catalog) {
+      const decoded = JSON.stringify(catalog, null, 2);
+      return {
+        schemaVersion: catalog.schemaVersion || 2,
+        payload: base64EncodeUtf8(decoded)
+      };
+    }
+
+    function base64EncodeUtf8(text) {
+      const bytes = new TextEncoder().encode(text);
+      let binary = '';
+      bytes.forEach(byte => {
+        binary += String.fromCharCode(byte);
+      });
+      return btoa(binary);
+    }
+
+    function downloadJsonFile(filename, data) {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    async function saveToServer() {
+      const encodedCatalog = encodeCatalogPayload(state.catalog);
+      const response = await fetch('save-data.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          catalogEncoded: encodedCatalog,
+          catalogDecoded: state.catalog,
+          market: state.market
+        })
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || `Falha HTTP ${response.status}`);
+      }
+    }
+
+    function isSpecialItem(item) {
+      return Boolean(item?.access?.special);
+    }
+
+    function normalizeHistory(rawHistory) {
+      if (!Array.isArray(rawHistory)) return [];
+      return rawHistory
+        .map(toNumberOrNull)
+        .filter(number => number !== null && number >= 0);
+    }
+
+    function getItemLabel(item) {
+      const name = item?.display?.name || item?.name || item?.id || 'Sem nome';
+      const id = item?.id || 'sem-id';
+      return `${name} (${id})`;
+    }
+
+    function populatePriceVehicleSelect() {
+      const select = document.getElementById('priceVehicleId');
+      if (!select) return;
+
+      const previousValue = select.value;
+      const candidates = state.catalog.items
+        .filter(item => item?.id && isSpecialItem(item))
+        .slice()
+        .sort((a, b) => getItemLabel(a).localeCompare(getItemLabel(b), 'pt-BR', { sensitivity: 'base' }));
+
+      select.innerHTML = '<option value="">Selecione um veiculo especial</option>';
+
+      candidates.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.id;
+        option.textContent = getItemLabel(item);
+        select.appendChild(option);
+      });
+
+      if (previousValue && candidates.some(item => item.id === previousValue)) {
+        select.value = previousValue;
+      }
     }
 
     const nameInput = document.getElementById('name');
@@ -211,15 +365,13 @@
       const level = Number(value('level'));
       const category = value('category');
       const rarity = Number(value('rarity'));
-      const valueNum = Number(value('value'));
-      const lastUpdate = value('lastUpdate');
       const image = value('image') || 'img/default.jpg';
       const packageId = value('packageId');
       const packageName = value('packageName');
       const notes = value('notes');
 
-      if (!id || !name || Number.isNaN(level) || !category || Number.isNaN(rarity) || Number.isNaN(valueNum)) {
-        alert('Preencha id, nome, level, categoria, raridade e valor.');
+      if (!id || !name || Number.isNaN(level) || !category || Number.isNaN(rarity)) {
+        alert('Preencha id, nome, level, categoria e raridade.');
         return;
       }
 
@@ -239,10 +391,6 @@
           category,
           rarity
         },
-        pricing: {
-          value: valueNum,
-          lastUpdate: lastUpdate || ''
-        },
         relations: packageId ? {
           packageId,
           packageName: packageName || packageId
@@ -250,26 +398,74 @@
         notes: notes || undefined
       };
 
-      state.items.push(item);
+      upsertItem(item);
+      populatePriceVehicleSelect();
       renderPreview();
+      setStatus('Item adicionado localmente. Clique em "Salvar no servidor" ou "Exportar JSONs".');
       clearForm();
     });
 
-    document.getElementById('clearAll').addEventListener('click', () => {
-      state.items = [];
+    document.getElementById('addPricePoint').addEventListener('click', () => {
+      const vehicleId = value('priceVehicleId');
+      const priceValue = toNumberOrNull(value('priceValue'));
+
+      if (!vehicleId) {
+        alert('Selecione um veiculo especial.');
+        return;
+      }
+
+      if (priceValue === null || priceValue < 0) {
+        alert('Informe um preco valido.');
+        return;
+      }
+
+      const existingEntry = state.market.pricing[vehicleId] || {};
+      const history = normalizeHistory(existingEntry.history);
+      history.push(priceValue);
+
+      state.market.pricing[vehicleId] = {
+        history,
+        lastUpdate: getTodayIsoDate(),
+        valueStatus: 'known',
+        robux: existingEntry.robux ?? null
+      };
+
       renderPreview();
+      document.getElementById('priceValue').value = '';
+      setStatus(`Preco registrado localmente para ${vehicleId}. Salvando no servidor...`);
+
+      saveToServer()
+        .then(() => {
+          setStatus(`Preco salvo com sucesso para ${vehicleId}. Arquivos atualizados no servidor.`);
+        })
+        .catch(error => {
+          setStatus(`Preco registrado localmente, mas falhou ao salvar no servidor: ${error.message}`, true);
+        });
+    });
+
+    document.getElementById('saveServer').addEventListener('click', () => {
+      setStatus('Salvando no servidor...');
+      saveToServer()
+        .then(() => {
+          setStatus('Dados salvos com sucesso no servidor (items.json, items.decoded.json e items.market.json).');
+        })
+        .catch(error => {
+          setStatus(`Falha ao salvar no servidor: ${error.message}`, true);
+        });
+    });
+
+    document.getElementById('clearAll').addEventListener('click', () => {
+      state.catalog.items = [];
+      state.market.pricing = {};
+      populatePriceVehicleSelect();
+      renderPreview();
+      setStatus('Estado local limpo. Clique em "Salvar no servidor" para persistir essa alteracao.');
     });
 
     document.getElementById('exportJson').addEventListener('click', () => {
-      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'items.json';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
+      const encodedCatalog = encodeCatalogPayload(state.catalog);
+      downloadJsonFile('items.json', encodedCatalog);
+      downloadJsonFile('items.market.json', state.market);
     });
   </script>
 </body>

@@ -26,6 +26,7 @@ const I18N = {
     packageLabel: 'Pacote',
     speedLabel: 'Velocidade',
     averageValueLabel: 'Valor',
+    suggestedValueLabel: 'Valor sugerido',
     relatedLabel: 'Relacionados',
     updatedAtLabel: 'Atualizado em',
     itemsSuffix: 'itens',
@@ -48,6 +49,7 @@ const I18N = {
     packageLabel: 'Bundle',
     speedLabel: 'Speed',
     averageValueLabel: 'Average value',
+    suggestedValueLabel: 'Suggested value',
     relatedLabel: 'Related',
     updatedAtLabel: 'Updated on',
     itemsSuffix: 'items',
@@ -65,12 +67,18 @@ const I18N = {
 
 currentLanguage = getInitialLanguage();
 
-fetch('data/items.json')
-  .then(response => response.json())
-  .then(data => {
-    const parsedData = parseCatalogData(data);
-    const rawItems = Array.isArray(parsedData) ? parsedData : parsedData.items || [];
-    allItems = rawItems.map(normalizeItem);
+Promise.all([
+  fetch('data/items.json').then(response => response.json()),
+  fetch('data/items.market.json')
+    .then(response => response.ok ? response.json() : ({ pricing: {} }))
+    .catch(() => ({ pricing: {} }))
+])
+  .then(([itemsData, marketData]) => {
+    const parsedItemsData = parseCatalogData(itemsData);
+    const rawItems = Array.isArray(parsedItemsData) ? parsedItemsData : parsedItemsData.items || [];
+    const marketMap = parseMarketData(marketData);
+
+    allItems = rawItems.map(item => normalizeItem(item, marketMap[item.id] || {}));
     applyInterfaceLanguage();
     filterItems();
     openItemFromUrl();
@@ -96,6 +104,56 @@ function parseCatalogData(data) {
   }
 
   return data;
+}
+
+function parseMarketData(data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
+    return {};
+  }
+
+  const marketEntries = data.pricing && typeof data.pricing === 'object' ? data.pricing : {};
+  return Object.entries(marketEntries).reduce((acc, [itemId, entry]) => {
+    acc[itemId] = normalizeMarketEntry(entry);
+    return acc;
+  }, {});
+}
+
+function normalizeMarketEntry(entry) {
+  const safeEntry = entry && typeof entry === 'object' ? entry : {};
+  const history = Array.isArray(safeEntry.history)
+    ? safeEntry.history.map(toNumberOrNull).filter(value => value !== null && value >= 0)
+    : [];
+
+  return {
+    history,
+    lastUpdate: firstNonEmptyText([safeEntry.lastUpdate]),
+    valueStatus: firstNonEmptyText([safeEntry.valueStatus]),
+    robux: toNumberOrNull(safeEntry.robux)
+  };
+}
+
+function resolveSuggestedValue(valueHistory, fallbackValue) {
+  if (Array.isArray(valueHistory) && valueHistory.length > 0) {
+    return calculateMedian(valueHistory);
+  }
+  return fallbackValue;
+}
+
+function calculateMedian(values) {
+  const numericValues = values
+    .map(toNumberOrNull)
+    .filter(value => value !== null)
+    .sort((a, b) => a - b);
+
+  const length = numericValues.length;
+  if (length === 0) return null;
+
+  const mid = Math.floor(length / 2);
+  if (length % 2 === 1) {
+    return numericValues[mid];
+  }
+
+  return Math.round((numericValues[mid - 1] + numericValues[mid]) / 2);
 }
 
 function getInitialLanguage() {
@@ -147,7 +205,7 @@ function applyInterfaceLanguage() {
   });
 }
 
-function normalizeItem(item) {
+function normalizeItem(item, marketEntry = {}) {
   const rawCategory = firstNonEmptyText([
     item.classification?.category,
     item.categoria,
@@ -182,6 +240,11 @@ function normalizeItem(item) {
     item.rarityRange?.max
   ]);
 
+  const normalizedMarket = normalizeMarketEntry(marketEntry);
+  const hasMarketHistory = normalizedMarket.history.length > 0;
+  const fallbackValue = toNumberOrNull(firstDefinedValue([item.pricing?.value, item.valor, item.value]));
+  const resolvedValue = resolveSuggestedValue(normalizedMarket.history, fallbackValue);
+
   return {
     id: item.id || '',
     name: item.display?.name || item.nome || item.name || 'Unnamed item',
@@ -192,8 +255,12 @@ function normalizeItem(item) {
     speed: toNumberOrNull(rawSpeed),
     speedMin: toNumberOrNull(rawSpeedMin),
     speedMax: toNumberOrNull(rawSpeedMax),
-    value: toNumberOrNull(firstDefinedValue([item.pricing?.value, item.valor, item.value])),
-    lastUpdate: firstNonEmptyText([item.pricing?.lastUpdate, item.ultima_atualizacao, item.lastUpdate]) || '',
+    value: resolvedValue,
+    valueHistory: normalizedMarket.history,
+    valueSource: hasMarketHistory ? 'market' : 'fixed',
+    valueStatus: firstNonEmptyText([normalizedMarket.valueStatus, item.pricing?.valueStatus]) || (resolvedValue === null ? 'none' : 'known'),
+    robux: toNumberOrNull(firstDefinedValue([normalizedMarket.robux, item.pricing?.robux, item.robux])),
+    lastUpdate: firstNonEmptyText([normalizedMarket.lastUpdate, item.pricing?.lastUpdate, item.ultima_atualizacao, item.lastUpdate]) || '',
     special: toBoolean(
       item.access?.special
       ?? item.special
@@ -384,9 +451,10 @@ function renderSpeedRow(item) {
 
 function renderValueRow(item) {
   if (item.value === null) return '';
+  const valueLabelKey = item.valueSource === 'market' ? 'suggestedValueLabel' : 'averageValueLabel';
   return `
     <div class="item-row">
-      <span>${t('averageValueLabel')}</span>
+      <span>${t(valueLabelKey)}</span>
       <strong>${formatPrice(item.value)}</strong>
     </div>
   `;
