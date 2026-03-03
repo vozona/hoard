@@ -1,4 +1,4 @@
-﻿{
+{
     "schemaVersion": 2,
     "items": [
         {
@@ -102,6 +102,25 @@
             }
         },
         {
+            "id": "maltex-p680-ah",
+            "display": {
+                "name": "Maltex P680 AH",
+                "image": "img/maltex-p680-ah.jpg"
+            },
+            "classification": {
+                "level": 2,
+                "category": "Plows",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
             "id": "wkp118",
             "display": {
                 "name": "WKP118",
@@ -175,6 +194,25 @@
                 "robux": null,
                 "lastUpdate": "2026-03-01"
             }
+        },
+        {
+            "id": "nsh",
+            "display": {
+                "name": "NSH",
+                "image": "img/nsh.jpg"
+            },
+            "classification": {
+                "level": 5,
+                "category": "Plows",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
         },
         {
             "id": "src6",
@@ -1923,50 +1961,6 @@
             }
         },
         {
-            "id": "maltex-p680-ah",
-            "display": {
-                "name": "Maltex P680 AH",
-                "image": "img/maltex-p680-ah.jpg"
-            },
-            "classification": {
-                "level": 2,
-                "category": "Plows",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
-                "rarity": ""
-            },
-            "access": {
-                "special": true
-            },
-            "notes": "",
-            "pricing": {
-                "value": null,
-                "valueStatus": "none",
-                "robux": null,
-                "lastUpdate": "2026-03-01"
-            }
-        },
-        {
-            "id": "nsh",
-            "display": {
-                "name": "NSH",
-                "image": "img/nsh.jpg"
-            },
-            "classification": {
-                "level": 5,
-                "category": "Plows",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
-                "rarity": ""
-            },
-            "access": {
-                "special": true
-            },
-            "notes": ""
-        },
-        {
             "id": "actives7",
             "display": {
                 "name": "ActiveS7",
@@ -3142,6 +3136,698 @@
                 "special": true
             },
             "notes": ""
+        },
+        {
+            "id": "candy-cane",
+            "display": {
+                "name": "Candy Cane",
+                "image": "img/candy-cane.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "burnt-hallowood",
+            "display": {
+                "name": "Burnt Hallowood",
+                "image": "img/burnt-hallowood.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "marshmallow",
+            "display": {
+                "name": "Marshmallow",
+                "image": "img/marshmallow.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "toxic-hallowood",
+            "display": {
+                "name": "Toxic Hallowood",
+                "image": "img/toxic-hallowood.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "mint",
+            "display": {
+                "name": "Mint",
+                "image": "img/mint.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "poinsettia",
+            "display": {
+                "name": "Poinsettia",
+                "image": "img/poinsettia.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "balsam",
+            "display": {
+                "name": "Balsam",
+                "image": "img/balsam.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "bamboo",
+            "display": {
+                "name": "Bamboo",
+                "image": "img/bamboo.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "woodlouse-stitch-head",
+            "display": {
+                "name": "WoodLouse Stitch Head",
+                "image": "img/woodlouse-stitch-head.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "shelly-stitch-head",
+            "display": {
+                "name": "Shelly Stitch Head",
+                "image": "img/shelly-stitch-head.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "steve-stitch-head",
+            "display": {
+                "name": "Steve Stitch Head",
+                "image": "img/steve-stitch-head.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "octochicken-stitch-head",
+            "display": {
+                "name": "Octochicken Stitch Head",
+                "image": "img/octochicken-stitch-head.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "geoff-stitch-head",
+            "display": {
+                "name": "Geoff Stitch Head",
+                "image": "img/geoff-stitch-head.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "holly",
+            "display": {
+                "name": "Holly",
+                "image": "img/holly.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "gnarled-hallowood",
+            "display": {
+                "name": "Gnarled Hallowood",
+                "image": "img/gnarled-hallowood.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "hallowood",
+            "display": {
+                "name": "Hallowood",
+                "image": "img/hallowood.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "stunted-hallowood",
+            "display": {
+                "name": "Stunted Hallowood",
+                "image": "img/stunted-hallowood.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "alien-tentacles",
+            "display": {
+                "name": "Alien Tentacles",
+                "image": "img/alien-tentacles.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "birch",
+            "display": {
+                "name": "Birch",
+                "image": "img/birch.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 210000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "cypress",
+            "display": {
+                "name": "Cypress",
+                "image": "img/cypress.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 150000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "potato",
+            "display": {
+                "name": "Potato",
+                "image": "img/potato.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 120000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "carrot",
+            "display": {
+                "name": "Carrot",
+                "image": "img/carrot.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 85000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "cocoa",
+            "display": {
+                "name": "Cocoa",
+                "image": "img/cocoa.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 70000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "cabbage",
+            "display": {
+                "name": "Cabbage",
+                "image": "img/cabbage.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 57600,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "tomato",
+            "display": {
+                "name": "Tomato",
+                "image": "img/tomato.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 26400,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "soybean",
+            "display": {
+                "name": "Soybean",
+                "image": "img/soybean.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 24000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "sugar-cane",
+            "display": {
+                "name": "Sugar Cane",
+                "image": "img/sugar-cane.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 8400,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "oat",
+            "display": {
+                "name": "Oat",
+                "image": "img/oat.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 2200,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "rice",
+            "display": {
+                "name": "Rice",
+                "image": "img/rice.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 2000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "pine",
+            "display": {
+                "name": "Pine",
+                "image": "img/pine.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 600,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "corn",
+            "display": {
+                "name": "Corn",
+                "image": "img/corn.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 250,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
+        },
+        {
+            "id": "wheat",
+            "display": {
+                "name": "Wheat",
+                "image": "img/wheat.jpg"
+            },
+            "classification": {
+                "level": 0,
+                "category": "SeedBoxes",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "",
+            "pricing": {
+                "value": 100,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-03-03"
+            }
         }
     ]
 }

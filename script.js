@@ -1,5 +1,21 @@
 ﻿const ALL_CATEGORY_VALUE = 'All';
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
+const CATEGORY_DISPLAY_ORDER = [
+  'TreeCutters',
+  'Tractors',
+  'Plows',
+  'Cultivators',
+  'Seeders',
+  'SeedBoxes',
+  'Harvesters',
+  'Trucks',
+  'Trailers',
+  'Misc'
+];
+const CATEGORY_SORT_INDEX = CATEGORY_DISPLAY_ORDER.reduce((accumulator, key, index) => {
+  accumulator[key] = index;
+  return accumulator;
+}, Object.create(null));
 const CATEGORY_LABELS = {
   All: { 'pt-BR': 'Todas as categorias', en: 'All categories' },
   TreeCutters: { 'pt-BR': 'Cortadores de Árvores', en: 'Tree Cutters' },
@@ -693,20 +709,24 @@ function filterItems() {
 
 function sortItemsForDisplay(items) {
   return [...items].sort((a, b) => {
-    const categoryA = getCategorySortLabel(a);
-    const categoryB = getCategorySortLabel(b);
-    const categoryCompare = categoryA.localeCompare(categoryB, currentLanguage, { sensitivity: 'base' });
+    const categoryCompare = getCategorySortIndex(a) - getCategorySortIndex(b);
     if (categoryCompare !== 0) return categoryCompare;
 
     const nameA = String(a.name || '');
     const nameB = String(b.name || '');
-    return nameA.localeCompare(nameB, currentLanguage, { sensitivity: 'base' });
+    const nameCompare = nameA.localeCompare(nameB, currentLanguage, { sensitivity: 'base', numeric: true });
+    if (nameCompare !== 0) return nameCompare;
+
+    return String(a.id || '').localeCompare(String(b.id || ''), 'en', { sensitivity: 'base', numeric: true });
   });
 }
 
-function getCategorySortLabel(item) {
-  if (item?.categoryKey) return getCategoryLabel(item.categoryKey);
-  return String(item?.category || '~');
+function getCategorySortIndex(item) {
+  const key = item?.categoryKey;
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_SORT_INDEX, key)) {
+    return CATEGORY_SORT_INDEX[key];
+  }
+  return Number.MAX_SAFE_INTEGER;
 }
 
 document.getElementById('searchInput').addEventListener('input', filterItems);

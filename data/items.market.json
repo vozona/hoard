@@ -27,7 +27,7 @@
         },
         "nsh": {
             "history": [],
-            "lastUpdate": "2026-03-01",
+            "lastUpdate": "2026-03-03",
             "valueStatus": "none",
             "robux": null
         },
@@ -513,8 +513,152 @@
         },
         "maltex-p680-ah": {
             "history": [],
-            "lastUpdate": "",
+            "lastUpdate": "2026-03-03",
             "valueStatus": "none",
+            "robux": null
+        },
+        "candy-cane": {
+            "history": [
+                280000000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "burnt-hallowood": {
+            "history": [
+                68000000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "marshmallow": {
+            "history": [
+                58000000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "toxic-hallowood": {
+            "history": [
+                43000000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "mint": {
+            "history": [
+                41500000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "poinsettia": {
+            "history": [
+                40000000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "balsam": {
+            "history": [
+                30000000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "bamboo": {
+            "history": [
+                20000000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "woodlouse-stitch-head": {
+            "history": [
+                17500000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "shelly-stitch-head": {
+            "history": [
+                8250000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "steve-stitch-head": {
+            "history": [
+                4500000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "octochicken-stitch-head": {
+            "history": [
+                4250000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "geoff-stitch-head": {
+            "history": [
+                4250000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "holly": {
+            "history": [
+                2200000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "gnarled-hallowood": {
+            "history": [
+                825000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "hallowood": {
+            "history": [
+                450000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "stunted-hallowood": {
+            "history": [
+                200000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "alien-tentacles": {
+            "history": [
+                160000
+            ],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "known",
             "robux": null
         }
     }
