@@ -660,6 +660,24 @@
             "lastUpdate": "2026-03-03",
             "valueStatus": "known",
             "robux": null
+        },
+        "actives7": {
+            "history": [],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "na-cr10": {
+            "history": [],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "vintage-harvester": {
+            "history": [],
+            "lastUpdate": "2026-03-03",
+            "valueStatus": "none",
+            "robux": null
         }
     }
 }

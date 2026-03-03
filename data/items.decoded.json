@@ -1,4 +1,4 @@
-{
+﻿{
     "schemaVersion": 2,
     "items": [
         {
@@ -52,10 +52,10 @@
             }
         },
         {
-            "id": "s4204",
+            "id": "4204",
             "display": {
-                "name": "S4204",
-                "image": "img/s4204.jpg"
+                "name": "4204",
+                "image": "img/4204.jpg"
             },
             "classification": {
                 "level": 1,
@@ -1975,15 +1975,9 @@
                 "rarity": ""
             },
             "access": {
-                "special": false
+                "special": true
             },
-            "notes": "",
-            "pricing": {
-                "value": null,
-                "valueStatus": "none",
-                "robux": null,
-                "lastUpdate": "2026-03-01"
-            }
+            "notes": ""
         },
         {
             "id": "na-cr10",
@@ -2000,15 +1994,9 @@
                 "rarity": ""
             },
             "access": {
-                "special": false
+                "special": true
             },
-            "notes": "",
-            "pricing": {
-                "value": null,
-                "valueStatus": "none",
-                "robux": null,
-                "lastUpdate": "2026-03-01"
-            }
+            "notes": ""
         },
         {
             "id": "vintage-harvester",
@@ -2025,15 +2013,9 @@
                 "rarity": ""
             },
             "access": {
-                "special": false
+                "special": true
             },
-            "notes": "",
-            "pricing": {
-                "value": null,
-                "valueStatus": "none",
-                "robux": null,
-                "lastUpdate": "2026-03-01"
-            }
+            "notes": ""
         },
         {
             "id": "falcon-x",

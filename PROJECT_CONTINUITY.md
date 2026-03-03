@@ -29,10 +29,11 @@
   - Campo `lastUpdate` atualizado quando ha novo registro de preco.
 
 ### 2.3 Numeros atuais (snapshot)
-- Total de itens: `141`
-- Especiais: `67`
-- Nao especiais (fixos): `74`
-- Entradas em `items.market.json`: `67` (apenas especiais)
+- Total de itens: `174`
+- Especiais: `90`
+- Nao especiais (fixos): `84`
+- Entradas em `items.market.json`: `90` (apenas especiais)
+- SeedBoxes: `32` (`18` especiais + `14` nao especiais)
 
 ## 3) Fluxo da Pagina Publica
 - Arquivo principal: `script.js`.
@@ -46,6 +47,7 @@
 - Rotulo dinamico de preco:
   - `Valor` para fixo
   - `Valor sugerido` para origem mercado
+  - Itens com `Valor sugerido` exibem `*` no preco com tooltip explicativo (informativo/comunidade).
 
 ## 4) Fluxo do Admin Local
 - Arquivo principal: `admin.html`.
@@ -124,9 +126,27 @@
 - `admin.html` e `save-data.php` sao ferramentas operacionais; uso recomendado local.
 
 ## 11) Atualizacoes Recentes (mar/2026)
+- Catalogo e dados:
+  - Categoria `SeedBoxes` alimentada pela primeira vez:
+    - 18 especiais (com historico inicial em `items.market.json`)
+    - 14 comuns (somente `pricing` fixo em `items.decoded.json`)
+  - Conversoes para especiais:
+    - `maltex-p680-ah` e `nsh` normalizados como especiais no padrao atual (sem `pricing` em decoded; entrada em market com `valueStatus: none`).
+    - `actives7`, `na-cr10` e `vintage-harvester` convertidos para especiais e adicionados ao market.
+  - Renomeacao:
+    - `s4204`/`S4204` atualizado para `4204`.
 - Filtro de especiais:
   - Rotulo atualizado para `Somente itens especiais` (`pt-BR`) e `Special items only` (`en`).
   - Checkbox convertido para visual de toggle (liga/desliga), mantendo a mesma logica de filtro (`specialFilter`).
+- Ordenacao de listagem (publico):
+  - Ordem fixa por categoria (TreeCutters -> Tractors -> Plows -> Cultivators -> Seeders -> SeedBoxes -> Harvesters -> Trucks -> Trailers -> Misc).
+  - Dentro da categoria: ordem alfabetica natural por nome (`numeric: true`).
+- Barra de estatisticas/lista:
+  - Adicionado seletor de ordenacao:
+    - `Categoria + nome` (padrao)
+    - `Maior preco primeiro`
+    - `Menor preco primeiro`
+  - Layout: controle a esquerda e contador de resultados a direita.
 - Idioma:
   - Seletor atualizado para `Portugues` e `English` com bandeiras no rotulo (observacao: renderizacao de bandeira em `select` nativo depende do SO/browser).
   - Subtitulo do topo passou a usar prefixo traduzivel (`subtitlePrefix`) + link fixo para o jogo:
@@ -151,10 +171,17 @@
   - `VoZona` adicionada via CSS pseudo-elemento em `.item-image::after`.
   - Estilo atual: texto discreto no centro, em diagonal (timbrado), sem bloquear interacao.
 - Compartilhamento e navegacao (mantidos ativos):
-  - Botao de compartilhar por card com copia de link e feedback visual.
+  - Botao de compartilhar evoluiu para menu de acoes (icone de tres pontos):
+    - `Compartilhar link` (ativo, com feedback de copia)
+    - `Anunciar este item` (placeholder: `Em breve`)
+    - `Relatar preco` (placeholder: `Em breve`)
+  - Estrutura pronta para formularios externos (Google Forms ou similar):
+    - `ACTION_FORM_LINKS` em `script.js` permite configurar URL por acao.
+    - Quando vazio, acao permanece em modo placeholder.
   - Abertura de item por query string `?item=...`.
   - Botao `Voltar ao topo` com exibicao por scroll.
 
 ## 12) Commits Recentes (branch `development`)
+- `c0d5bd3` - Atualiza SeedBoxes, corrige especiais e ordenacao por categoria/nome
 - `33d47f5` - Atualiza filtro de especiais com toggle e bandeiras no seletor de idioma
 - `1e78ffb` - Refina UI com tema neutro e destaques interativos

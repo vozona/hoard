@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportar negociacao</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" href="favicon_io/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .report-wrap {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: 22px 14px 28px;
+      box-sizing: border-box;
+    }
+
+    .report-card {
+      border: 1px solid #3a4050;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(41, 45, 53, 0.96), rgba(29, 33, 40, 0.96));
+      padding: 16px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+    }
+
+    .report-title {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.1px;
+    }
+
+    .report-subtitle {
+      margin: 0 0 14px;
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .report-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .report-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .report-field label {
+      font-size: 12px;
+      color: #b6c2d8;
+      font-weight: 600;
+    }
+
+    .report-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .report-btn {
+      border: 1px solid #4e78b7;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #4f88dc, #467dcd);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13px;
+      min-height: 38px;
+      padding: 0 14px;
+      cursor: pointer;
+    }
+
+    .report-btn--secondary {
+      border-color: #4a5366;
+      background: linear-gradient(180deg, #353b48, #2d323e);
+    }
+
+    .report-status {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #abc6f1;
+      min-height: 18px;
+    }
+
+    .report-output {
+      margin-top: 10px;
+      border: 1px solid #404b60;
+      border-radius: 10px;
+      background: rgba(17, 23, 32, 0.85);
+      color: #dbe7fa;
+      font-size: 12px;
+      padding: 10px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 220px;
+      overflow: auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #aecdff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .report-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hoard SafraBr</h1>
+    <p class="subtitle">Contribuicao de preco de mercado</p>
+  </header>
+
+  <main>
+    <div class="report-wrap">
+      <section class="report-card">
+        <h2 class="report-title">Reportar negociacao</h2>
+        <p class="report-subtitle">Informe por quanto voce comprou ou vendeu o item para ajudar na atualizacao dos valores.</p>
+
+        <form id="priceReportForm" novalidate>
+          <div class="report-grid">
+            <div class="report-field">
+              <label for="itemName">Item</label>
+              <input id="itemName" type="text" readonly>
+            </div>
+            <div class="report-field">
+              <label for="itemId">ID do item</label>
+              <input id="itemId" type="text" readonly>
+            </div>
+
+            <div class="report-field">
+              <label for="tradeType">Tipo de negociacao</label>
+              <select id="tradeType" required>
+                <option value="buy">Comprei</option>
+                <option value="sell">Vendi</option>
+              </select>
+            </div>
+            <div class="report-field">
+              <label for="priceValue">Valor negociado</label>
+              <input id="priceValue" type="number" min="0" step="1" placeholder="Ex: 3500000" required>
+            </div>
+
+            <div class="report-field">
+              <label for="tradeDate">Data</label>
+              <input id="tradeDate" type="date" required>
+            </div>
+            <div class="report-field">
+              <label for="category">Categoria</label>
+              <input id="category" type="text" readonly>
+            </div>
+
+            <div class="report-field report-field--full">
+              <label for="note">Observacao (opcional)</label>
+              <input id="note" type="text" placeholder="Ex: negociacao no marketplace interno">
+            </div>
+          </div>
+
+          <div class="report-actions">
+            <button type="submit" class="report-btn">Salvar contribuicao</button>
+            <button type="button" id="copyReportBtn" class="report-btn report-btn--secondary">Copiar ultimo registro</button>
+          </div>
+        </form>
+
+        <div id="status" class="report-status"></div>
+        <pre id="output" class="report-output" hidden></pre>
+        <a class="back-link" href="index.html">Voltar ao catalogo</a>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'hoard_price_reports';
+
+    const form = document.getElementById('priceReportForm');
+    const itemNameEl = document.getElementById('itemName');
+    const itemIdEl = document.getElementById('itemId');
+    const categoryEl = document.getElementById('category');
+    const tradeTypeEl = document.getElementById('tradeType');
+    const priceValueEl = document.getElementById('priceValue');
+    const tradeDateEl = document.getElementById('tradeDate');
+    const noteEl = document.getElementById('note');
+    const statusEl = document.getElementById('status');
+    const outputEl = document.getElementById('output');
+    const copyReportBtn = document.getElementById('copyReportBtn');
+
+    const params = new URLSearchParams(window.location.search || '');
+    const itemId = (params.get('itemId') || '').trim();
+    const itemName = (params.get('itemName') || itemId || '').trim();
+    const category = (params.get('category') || '').trim();
+
+    itemNameEl.value = itemName || '-';
+    itemIdEl.value = itemId || '-';
+    categoryEl.value = category || '-';
+    tradeDateEl.value = getTodayIsoDate();
+
+    let lastSavedReport = null;
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      saveReport();
+    });
+
+    copyReportBtn.addEventListener('click', async () => {
+      if (!lastSavedReport) {
+        setStatus('Salve uma contribuicao antes de copiar.', true);
+        return;
+      }
+      const payload = JSON.stringify(lastSavedReport, null, 2);
+      const copied = await copyText(payload);
+      setStatus(copied ? 'Registro copiado para a area de transferencia.' : 'Nao foi possivel copiar o registro.', !copied);
+    });
+
+    function saveReport() {
+      const tradeType = tradeTypeEl.value;
+      const priceValue = Number(priceValueEl.value);
+      const tradeDate = tradeDateEl.value;
+      const note = noteEl.value.trim();
+
+      if (!itemId) {
+        setStatus('Item invalido. Volte ao catalogo e tente novamente.', true);
+        return;
+      }
+      if (!Number.isFinite(priceValue) || priceValue < 0) {
+        setStatus('Informe um valor valido.', true);
+        priceValueEl.focus();
+        return;
+      }
+      if (!tradeDate) {
+        setStatus('Informe a data da negociacao.', true);
+        tradeDateEl.focus();
+        return;
+      }
+
+      const report = {
+        itemId,
+        itemName,
+        category,
+        tradeType,
+        priceValue,
+        tradeDate,
+        note,
+        createdAt: new Date().toISOString()
+      };
+
+      const queue = readReports();
+      queue.push(report);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(queue));
+
+      lastSavedReport = report;
+      outputEl.hidden = false;
+      outputEl.textContent = JSON.stringify(report, null, 2);
+      setStatus('Contribuicao salva localmente. Total acumulado: ' + queue.length + '.');
+      form.reset();
+      tradeTypeEl.value = 'buy';
+      tradeDateEl.value = getTodayIsoDate();
+      itemNameEl.value = itemName || '-';
+      itemIdEl.value = itemId || '-';
+      categoryEl.value = category || '-';
+    }
+
+    function readReports() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function setStatus(message, isError = false) {
+      statusEl.textContent = message;
+      statusEl.style.color = isError ? '#f4a6a6' : '#abc6f1';
+    }
+
+    async function copyText(text) {
+      if (!text) return false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch (error) {}
+      }
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'absolute';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(textarea);
+      return ok;
+    }
+
+    function getTodayIsoDate() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + d;
+    }
+  </script>
+</body>
+</html>

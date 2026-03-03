@@ -1,5 +1,9 @@
 ﻿const ALL_CATEGORY_VALUE = 'All';
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
+const ACTION_FORM_LINKS = {
+  announce: '',
+  reportPrice: ''
+};
 const CATEGORY_DISPLAY_ORDER = [
   'TreeCutters',
   'Tractors',
@@ -43,6 +47,7 @@ const I18N = {
     speedLabel: 'Velocidade',
     averageValueLabel: 'Valor',
     suggestedValueLabel: 'Valor sugerido',
+    suggestedValueTooltip: 'Valores sugestivos e informais, baseados na mediana de negociações da comunidade. Podem variar com frequência e servem apenas como referência para apoiar o bom senso em cada negociação.',
     relatedLabel: 'Relacionados',
     updatedAtLabel: 'Atualizado em',
     itemsSuffix: 'itens',
@@ -52,6 +57,17 @@ const I18N = {
     cardHintLabel: 'Ver mais detalhes',
     shareButtonLabel: 'Compartilhar link',
     shareCopiedLabel: 'Link copiado',
+    moreActionsLabel: 'Mais ações',
+    itemActionsMenuLabel: 'Opções do item',
+    announceItemLabel: 'Anunciar este item',
+    announceSoonLabel: 'Em breve',
+    reportPriceLabel: 'Relatar preço',
+    reportSoonLabel: 'Em breve',
+    sortByLabel: 'Ordenar',
+    sortFilterAriaLabel: 'Ordenação',
+    sortCategoryName: 'Categoria + nome',
+    sortValueDesc: 'Maior preço primeiro',
+    sortValueAsc: 'Menor preço primeiro',
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
     noItemsInCatalog: 'Nenhum item disponivel no catalogo.',
     resultsCountLabel: '{shown} de {total} itens'
@@ -66,6 +82,7 @@ const I18N = {
     speedLabel: 'Speed',
     averageValueLabel: 'Average value',
     suggestedValueLabel: 'Suggested value',
+    suggestedValueTooltip: 'Informal, community-based values calculated from the median of reported trades. They may change frequently and should be used only as a reference in each negotiation.',
     relatedLabel: 'Related',
     updatedAtLabel: 'Updated on',
     itemsSuffix: 'items',
@@ -75,6 +92,17 @@ const I18N = {
     cardHintLabel: 'View details',
     shareButtonLabel: 'Share link',
     shareCopiedLabel: 'Link copied',
+    moreActionsLabel: 'More actions',
+    itemActionsMenuLabel: 'Item options',
+    announceItemLabel: 'List this item',
+    announceSoonLabel: 'Soon',
+    reportPriceLabel: 'Report deal',
+    reportSoonLabel: 'Soon',
+    sortByLabel: 'Sort',
+    sortFilterAriaLabel: 'Sort order',
+    sortCategoryName: 'Category + name',
+    sortValueDesc: 'Highest price first',
+    sortValueAsc: 'Lowest price first',
     noItemsFound: 'No items found. Try adjusting your search or filters.',
     noItemsInCatalog: 'No items available in the catalog.',
     resultsCountLabel: '{shown} of {total} items'
@@ -219,6 +247,11 @@ function applyInterfaceLanguage() {
     const key = option.getAttribute('data-category-key');
     option.textContent = getCategoryLabel(key);
   });
+
+  const sortFilter = document.getElementById('sortFilter');
+  if (sortFilter) {
+    sortFilter.setAttribute('aria-label', t('sortFilterAriaLabel'));
+  }
 }
 
 function normalizeItem(item, marketEntry = {}) {
@@ -343,12 +376,45 @@ function renderItems(items) {
       </div>
     `;
 
-    const shareButton = card.querySelector('.item-share-btn');
-    if (shareButton) {
-      shareButton.addEventListener('click', event => {
+    const actionsToggle = card.querySelector('.item-actions-toggle');
+    const actionsMenu = card.querySelector('.item-actions-menu');
+    const shareAction = card.querySelector('[data-action="share"]');
+    const announceAction = card.querySelector('[data-action="announce"]');
+    const reportPriceAction = card.querySelector('[data-action="report-price"]');
+    if (actionsToggle) {
+      actionsToggle.addEventListener('click', event => {
         event.preventDefault();
         event.stopPropagation();
-        handleShareClick(item, shareButton);
+        const willOpen = !card.classList.contains('actions-open');
+        closeAllItemActionMenus(card);
+        card.classList.toggle('actions-open', willOpen);
+        actionsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    }
+    if (actionsMenu) {
+      actionsMenu.addEventListener('click', event => {
+        event.stopPropagation();
+      });
+    }
+    if (shareAction) {
+      shareAction.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        handleShareClick(item, shareAction);
+      });
+    }
+    if (announceAction) {
+      announceAction.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        handleAnnounceClick(item, announceAction);
+      });
+    }
+    if (reportPriceAction) {
+      reportPriceAction.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        handleReportPriceClick(item, reportPriceAction);
       });
     }
 
@@ -467,11 +533,14 @@ function renderSpeedRow(item) {
 
 function renderValueRow(item) {
   if (item.value === null) return '';
-  const valueLabelKey = item.valueSource === 'market' ? 'suggestedValueLabel' : 'averageValueLabel';
+  const isSuggestedValue = item.valueSource === 'market';
+  const valueLabelKey = isSuggestedValue ? 'suggestedValueLabel' : 'averageValueLabel';
+  const valueTitleAttr = isSuggestedValue ? ` title="${escapeHtml(t('suggestedValueTooltip'))}"` : '';
+  const markerHtml = isSuggestedValue ? '<sup class="value-hint-marker">*</sup>' : '';
   return `
     <div class="item-row">
       <span>${t(valueLabelKey)}</span>
-      <strong>${formatPrice(item.value)}</strong>
+      <strong${valueTitleAttr}>${formatPrice(item.value)}${markerHtml}</strong>
     </div>
   `;
 }
@@ -515,10 +584,18 @@ function renderUpdateRow(item) {
 
 function renderShareButton(item) {
   if (!item.id) return '';
-  const label = t('shareButtonLabel');
-  const icon = getShareButtonIconMarkup();
+  const shareLabel = t('shareButtonLabel');
+  const actionsLabel = t('moreActionsLabel');
+  const actionsMenuLabel = t('itemActionsMenuLabel');
   return `
-    <button type="button" class="item-share-btn" data-default-label="${escapeHtml(label)}" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${icon}</button>
+    <div class="item-actions">
+      <button type="button" class="item-actions-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="${escapeHtml(actionsLabel)}" title="${escapeHtml(actionsLabel)}">${getItemActionsIconMarkup()}</button>
+      <div class="item-actions-menu" role="menu" aria-label="${escapeHtml(actionsMenuLabel)}">
+        <button type="button" class="item-action-btn" data-action="share" data-default-label="${escapeHtml(shareLabel)}" role="menuitem">${escapeHtml(shareLabel)}</button>
+        <button type="button" class="item-action-btn" data-action="announce" data-default-label="${escapeHtml(t('announceItemLabel'))}" role="menuitem">${escapeHtml(t('announceItemLabel'))}</button>
+        <button type="button" class="item-action-btn" data-action="report-price" role="menuitem">${escapeHtml(t('reportPriceLabel'))}</button>
+      </div>
+    </div>
   `;
 }
 
@@ -530,28 +607,87 @@ async function handleShareClick(item, button) {
 
   const defaultLabel = button.dataset.defaultLabel || t('shareButtonLabel');
   button.dataset.defaultLabel = defaultLabel;
-  button.textContent = t('shareCopiedLabel');
+  const copiedLabel = t('shareCopiedLabel');
+  button.textContent = copiedLabel;
   button.classList.add('is-copied');
-  button.setAttribute('aria-label', t('shareCopiedLabel'));
-  button.setAttribute('title', t('shareCopiedLabel'));
 
   window.setTimeout(() => {
-    button.innerHTML = getShareButtonIconMarkup();
+    button.textContent = defaultLabel;
     button.classList.remove('is-copied');
-    button.setAttribute('aria-label', defaultLabel);
-    button.setAttribute('title', defaultLabel);
   }, 1200);
 }
 
-function getShareButtonIconMarkup() {
+function handleAnnounceClick(item, button) {
+  if (!item || !button) return;
+  const formUrl = buildActionFormUrl(ACTION_FORM_LINKS.announce, item, { action: 'announce' });
+  if (formUrl) {
+    window.open(formUrl, '_blank', 'noopener,noreferrer');
+    closeAllItemActionMenus();
+    return;
+  }
+  showPendingActionFeedback(button, 'announceItemLabel', 'announceSoonLabel');
+}
+
+function handleReportPriceClick(item, button) {
+  if (!item || !button) return;
+  const formUrl = buildActionFormUrl(ACTION_FORM_LINKS.reportPrice, item, { action: 'report-price' });
+  if (formUrl) {
+    window.open(formUrl, '_blank', 'noopener,noreferrer');
+    closeAllItemActionMenus();
+    return;
+  }
+  showPendingActionFeedback(button, 'reportPriceLabel', 'reportSoonLabel');
+}
+
+function showPendingActionFeedback(button, defaultLabelKey, pendingLabelKey) {
+  if (!button) return;
+  const defaultLabel = button.dataset.defaultLabel || t(defaultLabelKey);
+  button.dataset.defaultLabel = defaultLabel;
+  button.textContent = t(pendingLabelKey);
+  button.classList.add('is-pending');
+
+  window.setTimeout(() => {
+    button.textContent = defaultLabel;
+    button.classList.remove('is-pending');
+  }, 1400);
+}
+
+function buildActionFormUrl(baseUrl, item, extraParams = {}) {
+  const normalizedBaseUrl = String(baseUrl || '').trim();
+  if (!normalizedBaseUrl) return '';
+
+  try {
+    const url = new URL(normalizedBaseUrl);
+    url.searchParams.set('itemId', item.id || '');
+    url.searchParams.set('itemName', item.name || item.id || '');
+    url.searchParams.set('category', item.categoryKey || item.category || '');
+    Object.entries(extraParams).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) url.searchParams.set(key, String(value));
+    });
+    return url.toString();
+  } catch (error) {
+    console.warn('Invalid action form URL configured.', error);
+    return '';
+  }
+}
+
+function getItemActionsIconMarkup() {
   return `
-    <svg class="share-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M15 8l-6 4 6 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-      <circle cx="18" cy="8" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-      <circle cx="6" cy="12" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-      <circle cx="18" cy="16" r="2.1" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+    <svg class="item-actions-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="5" r="1.8" fill="currentColor"></circle>
+      <circle cx="12" cy="12" r="1.8" fill="currentColor"></circle>
+      <circle cx="12" cy="19" r="1.8" fill="currentColor"></circle>
     </svg>
   `;
+}
+
+function closeAllItemActionMenus(exceptCard = null) {
+  document.querySelectorAll('.item-card.actions-open').forEach(card => {
+    if (exceptCard && card === exceptCard) return;
+    card.classList.remove('actions-open');
+    const toggle = card.querySelector('.item-actions-toggle');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  });
 }
 
 function buildItemShareUrl(itemId) {
@@ -696,6 +832,7 @@ function filterItems() {
   const search = document.getElementById('searchInput').value.toLowerCase();
   const category = document.getElementById('categoryFilter').value;
   const specialOnly = document.getElementById('specialFilter').checked;
+  const sortMode = document.getElementById('sortFilter')?.value || 'category-name';
 
   const filtered = allItems.filter(item => {
     const matchName = item.name.toLowerCase().includes(search);
@@ -704,11 +841,19 @@ function filterItems() {
     return matchName && matchCategory && matchSpecial;
   });
 
-  renderItems(sortItemsForDisplay(filtered));
+  renderItems(sortItemsForDisplay(filtered, sortMode));
 }
 
-function sortItemsForDisplay(items) {
+function sortItemsForDisplay(items, sortMode = 'category-name') {
   return [...items].sort((a, b) => {
+    if (sortMode === 'value-desc') {
+      const valueCompare = compareItemsByValue(a, b, 'desc');
+      if (valueCompare !== 0) return valueCompare;
+    } else if (sortMode === 'value-asc') {
+      const valueCompare = compareItemsByValue(a, b, 'asc');
+      if (valueCompare !== 0) return valueCompare;
+    }
+
     const categoryCompare = getCategorySortIndex(a) - getCategorySortIndex(b);
     if (categoryCompare !== 0) return categoryCompare;
 
@@ -719,6 +864,21 @@ function sortItemsForDisplay(items) {
 
     return String(a.id || '').localeCompare(String(b.id || ''), 'en', { sensitivity: 'base', numeric: true });
   });
+}
+
+function compareItemsByValue(a, b, direction) {
+  const valueA = toNumberOrNull(a?.value);
+  const valueB = toNumberOrNull(b?.value);
+  const hasValueA = valueA !== null;
+  const hasValueB = valueB !== null;
+
+  if (hasValueA && hasValueB) {
+    if (direction === 'asc') return valueA - valueB;
+    return valueB - valueA;
+  }
+  if (hasValueA && !hasValueB) return -1;
+  if (!hasValueA && hasValueB) return 1;
+  return 0;
 }
 
 function getCategorySortIndex(item) {
@@ -732,6 +892,7 @@ function getCategorySortIndex(item) {
 document.getElementById('searchInput').addEventListener('input', filterItems);
 document.getElementById('categoryFilter').addEventListener('change', filterItems);
 document.getElementById('specialFilter').addEventListener('change', filterItems);
+document.getElementById('sortFilter').addEventListener('change', filterItems);
 document.getElementById('languageSwitch').addEventListener('change', event => {
   const nextLanguage = I18N[event.target.value] ? event.target.value : 'pt-BR';
   currentLanguage = nextLanguage;
@@ -832,6 +993,12 @@ if (backToTopBtn) {
 }
 
 window.addEventListener('scroll', handleScrollUiState, { passive: true });
+document.addEventListener('click', () => {
+  closeAllItemActionMenus();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeAllItemActionMenus();
+});
 handleScrollUiState();
 
 function handleScrollUiState() {
