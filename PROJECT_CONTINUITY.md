@@ -223,3 +223,12 @@
 - Compatibilidade de compartilhamento:
   - Fluxo `?item=...` continua funcional para grade e lista.
   - Em lista, item compartilhado abre linha expandida e recebe destaque.
+
+## 14) Ajustes Rapidos (mar/2026 - fim do dia)
+- Ordenacao (toolbar):
+  - Opcoes do seletor reorganizadas para exibir `Nome` primeiro e `Categoria e nome` em seguida.
+  - Mantido `Categoria e nome` como selecao padrao ativa.
+- Busca:
+  - Botao de limpar busca (`x`) atualizado para destaque visual em gradiente laranja/vermelho.
+- Dados:
+  - Atualizacoes incrementais em `data/items.decoded.json`, `data/items.json` e `data/items.market.json` mantidas no estado atual do workspace para continuidade.

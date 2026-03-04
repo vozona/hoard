@@ -113,12 +113,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2.5"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Starter Pack"
         },
         {
             "id": "wkp118",
@@ -2105,12 +2105,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "4.5"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 Christmas Event"
         },
         {
             "id": "foxx-chamber-105",
@@ -2124,12 +2124,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2.5"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Starter Pack"
         },
         {
             "id": "sopt-925",
@@ -2618,12 +2618,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "4"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 Christmas Event"
         },
         {
             "id": "r1950-liquid",
@@ -2713,12 +2713,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "3"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 & 2025 Christmas Event"
         },
         {
             "id": "maverick-430",
@@ -2732,12 +2732,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "3"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 & 2025 Christmas Event"
         },
         {
             "id": "r500",
@@ -2808,12 +2808,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "3.5"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 & 2025 Christmas Event"
         },
         {
             "id": "dg-semi",
@@ -2998,12 +2998,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2.5"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Starter Pack"
         },
         {
             "id": "maltex-c4500-global",
@@ -3017,12 +3017,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2.5"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Starter Pack"
         },
         {
             "id": "swifter180",
@@ -3153,12 +3153,12 @@
             },
             "classification": {
                 "category": "SeedBoxes",
-                "rarity": ""
+                "rarity": "4"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 Christmas Event"
         },
         {
             "id": "toxic-hallowood",
@@ -3183,12 +3183,12 @@
             },
             "classification": {
                 "category": "SeedBoxes",
-                "rarity": ""
+                "rarity": "4"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 Christmas Event"
         },
         {
             "id": "poinsettia",
@@ -3198,12 +3198,12 @@
             },
             "classification": {
                 "category": "SeedBoxes",
-                "rarity": ""
+                "rarity": "4"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 Christmas Event"
         },
         {
             "id": "balsam",
@@ -3318,12 +3318,12 @@
             },
             "classification": {
                 "category": "SeedBoxes",
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "2023 Christmas Event"
         },
         {
             "id": "gnarled-hallowood",

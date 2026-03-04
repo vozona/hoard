@@ -656,9 +656,10 @@
         },
         "alien-tentacles": {
             "history": [
-                160000
+                160000,
+                250000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-04",
             "valueStatus": "known",
             "robux": null
         },
