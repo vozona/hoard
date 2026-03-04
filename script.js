@@ -43,6 +43,7 @@ const I18N = {
     clearSearchLabel: 'Limpar busca',
     levelLabel: 'Level',
     categoryLabel: 'Categoria',
+    categoryFilterHintLabel: 'Filtrar por esta categoria',
     packageLabel: 'Pacote',
     speedLabel: 'Velocidade',
     rarityLabel: 'Raridade',
@@ -79,7 +80,9 @@ const I18N = {
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
     noItemsInCatalog: 'Nenhum item disponivel no catalogo.',
     resultsCountLabel: '{shown} de {total} itens',
-    noteSearchHintLabel: 'Usar esta nota na busca'
+    noteSearchHintLabel: 'Usar esta nota na busca',
+    quickLinkCommunityLabel: 'Comunidade',
+    quickLinkShirtLabel: 'Camisa oficial'
   },
   en: {
     subtitlePrefix: 'Item catalog for',
@@ -87,6 +90,7 @@ const I18N = {
     clearSearchLabel: 'Clear search',
     levelLabel: 'Level',
     categoryLabel: 'Category',
+    categoryFilterHintLabel: 'Filter by this category',
     packageLabel: 'Bundle',
     speedLabel: 'Speed',
     rarityLabel: 'Rarity',
@@ -123,7 +127,9 @@ const I18N = {
     noItemsFound: 'No items found. Try adjusting your search or filters.',
     noItemsInCatalog: 'No items available in the catalog.',
     resultsCountLabel: '{shown} of {total} items',
-    noteSearchHintLabel: 'Use this note in search'
+    noteSearchHintLabel: 'Use this note in search',
+    quickLinkCommunityLabel: 'Community',
+    quickLinkShirtLabel: 'Official shirt'
   }
 };
 
@@ -475,6 +481,15 @@ function renderItems(items) {
         applyNoteSearchQuery(query);
       });
     });
+    card.querySelectorAll('.item-category-btn').forEach(categoryButton => {
+      categoryButton.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const categoryKey = firstNonEmptyText([categoryButton.dataset.categoryKey]);
+        if (!categoryKey) return;
+        applyCategoryFilter(categoryKey);
+      });
+    });
 
     card.addEventListener('click', () => {
       const wasExpanded = card.classList.contains('expanded');
@@ -564,10 +579,13 @@ function renderLevelRow(item) {
 function renderCategoryRow(item) {
   if (!item.category) return '';
   const categoryLabel = item.categoryKey ? getCategoryLabel(item.categoryKey) : item.category;
+  const categoryValueHtml = item.categoryKey
+    ? `<button type="button" class="item-category-btn" data-category-key="${escapeHtml(item.categoryKey)}" title="${escapeHtml(t('categoryFilterHintLabel'))}" aria-label="${escapeHtml(t('categoryFilterHintLabel'))}">${escapeHtml(categoryLabel)}</button>`
+    : `<strong>${escapeHtml(categoryLabel)}</strong>`;
   return `
     <div class="item-row">
       <span>${t('categoryLabel')}</span>
-      <strong>${escapeHtml(categoryLabel)}</strong>
+      ${categoryValueHtml}
     </div>
   `;
 }
@@ -837,6 +855,14 @@ function applyNoteSearchQuery(query) {
   updateClearSearchVisibility();
   filterItems();
   searchInput.focus();
+}
+
+function applyCategoryFilter(categoryKey) {
+  const categoryFilter = document.getElementById('categoryFilter');
+  if (!categoryFilter || !categoryKey) return;
+  categoryFilter.value = categoryKey;
+  filterItems();
+  categoryFilter.focus();
 }
 
 function closeAllValueTooltips(exceptCard = null) {

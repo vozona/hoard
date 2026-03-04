@@ -479,6 +479,24 @@ main {
   color: #f1f6ff;
 }
 
+.item-category-btn {
+  border: 0;
+  background: transparent;
+  color: #f1f6ff;
+  font: inherit;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+  text-align: right;
+}
+
+.item-category-btn:hover,
+.item-category-btn:focus-visible {
+  color: #bcd6ff;
+  text-decoration: underline;
+  outline: none;
+}
+
 .value-hint-marker {
   margin-left: 2px;
   color: #9cc1f2;
