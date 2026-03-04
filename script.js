@@ -2,7 +2,7 @@
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
 const ACTION_FORM_LINKS = {
   announce: '',
-  reportPrice: 'report-price.html'
+  reportPrice: ''
 };
 const CATEGORY_DISPLAY_ORDER = [
   'TreeCutters',
@@ -39,13 +39,18 @@ let currentLanguage = 'pt-BR';
 const I18N = {
   'pt-BR': {
     subtitlePrefix: 'Catalogo de Itens do',
-    searchPlaceholder: 'Buscar item...',
+    searchPlaceholder: 'Buscar por nome do item ou pacote...',
     clearSearchLabel: 'Limpar busca',
     levelLabel: 'Level',
     categoryLabel: 'Categoria',
     packageLabel: 'Pacote',
     speedLabel: 'Velocidade',
     rarityLabel: 'Raridade',
+    rarityTier1: 'Comum',
+    rarityTier2: 'Incomum',
+    rarityTier3: 'Raro',
+    rarityTier4: 'Muito raro',
+    rarityTier5: 'Lendário',
     averageValueLabel: 'Valor',
     suggestedValueLabel: 'Valor sugerido',
     suggestedValueInfoLabel: 'Sobre valor sugerido',
@@ -73,17 +78,23 @@ const I18N = {
     sortValueAsc: 'Menor preço primeiro',
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
     noItemsInCatalog: 'Nenhum item disponivel no catalogo.',
-    resultsCountLabel: '{shown} de {total} itens'
+    resultsCountLabel: '{shown} de {total} itens',
+    noteSearchHintLabel: 'Usar esta nota na busca'
   },
   en: {
     subtitlePrefix: 'Item catalog for',
-    searchPlaceholder: 'Search item...',
+    searchPlaceholder: 'Search by item or pack name...',
     clearSearchLabel: 'Clear search',
     levelLabel: 'Level',
     categoryLabel: 'Category',
     packageLabel: 'Bundle',
     speedLabel: 'Speed',
     rarityLabel: 'Rarity',
+    rarityTier1: 'Common',
+    rarityTier2: 'Uncommon',
+    rarityTier3: 'Rare',
+    rarityTier4: 'Very rare',
+    rarityTier5: 'Legendary',
     averageValueLabel: 'Average value',
     suggestedValueLabel: 'Suggested value',
     suggestedValueInfoLabel: 'About suggested value',
@@ -111,7 +122,8 @@ const I18N = {
     sortValueAsc: 'Lowest price first',
     noItemsFound: 'No items found. Try adjusting your search or filters.',
     noItemsInCatalog: 'No items available in the catalog.',
-    resultsCountLabel: '{shown} of {total} items'
+    resultsCountLabel: '{shown} of {total} items',
+    noteSearchHintLabel: 'Use this note in search'
   }
 };
 
@@ -454,6 +466,15 @@ function renderItems(items) {
         event.stopPropagation();
       });
     }
+    card.querySelectorAll('.item-note-btn').forEach(noteButton => {
+      noteButton.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const query = firstNonEmptyText([noteButton.dataset.noteQuery]);
+        if (!query) return;
+        applyNoteSearchQuery(query);
+      });
+    });
 
     card.addEventListener('click', () => {
       const wasExpanded = card.classList.contains('expanded');
@@ -630,13 +651,18 @@ function renderRelatedItems(item, packageMap) {
     .map(packageItem => escapeHtml(packageItem.name));
 
   if (related.length === 0) return '';
-
   return `<div class="item-related">${t('relatedLabel')}: ${related.join(', ')}</div>`;
 }
 
 function renderItemNotes(item) {
   if (!item.notes) return '';
-  return `<div class="item-note">${escapeHtml(item.notes)}</div>`;
+  const noteQuery = buildNoteSearchQuery(item.notes);
+  const hintLabel = t('noteSearchHintLabel');
+  return `
+    <button type="button" class="item-note item-note-btn" data-note-query="${escapeHtml(noteQuery)}" title="${escapeHtml(hintLabel)}" aria-label="${escapeHtml(hintLabel)}">
+      ${escapeHtml(item.notes)}
+    </button>
+  `;
 }
 
 function renderUpdateRow(item) {
@@ -752,6 +778,67 @@ function closeAllItemActionMenus(exceptCard = null) {
   });
 }
 
+function normalizeSearchText(noteText) {
+  const text = String(noteText || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+  return text;
+}
+
+function isGenericSearchToken(token) {
+  const genericTokens = new Set([
+    'pack', 'bundle', 'item', 'items', 'set', 'kit',
+    'veiculo', 'veiculos', 'vehicle', 'vehicles',
+    'the', 'and', 'for', 'with', 'from',
+    'de', 'do', 'da', 'dos', 'das', 'com', 'para'
+  ]);
+  return genericTokens.has(token);
+}
+
+function getRelevantSearchTokens(searchText) {
+  const normalized = normalizeSearchText(searchText);
+  if (!normalized) return [];
+  return normalized
+    .split(' ')
+    .filter(token => token.length >= 3 && !isGenericSearchToken(token));
+}
+
+function itemMatchesSearch(item, rawSearch) {
+  const normalizedSearch = normalizeSearchText(rawSearch);
+  if (!normalizedSearch) return true;
+
+  const normalizedName = normalizeSearchText(item?.name || '');
+  if (normalizedName.includes(normalizedSearch)) return true;
+
+  const relevantTokens = getRelevantSearchTokens(rawSearch);
+  if (relevantTokens.length === 0) return false;
+
+  const normalizedNotes = normalizeSearchText(item?.notes || '');
+  if (!normalizedNotes) return false;
+
+  return relevantTokens.every(token => normalizedNotes.includes(token));
+}
+
+function buildNoteSearchQuery(noteText) {
+  const relevantTokens = getRelevantSearchTokens(noteText);
+  if (relevantTokens.length === 0) {
+    return String(noteText || '').trim();
+  }
+  return relevantTokens.slice(0, 4).join(' ');
+}
+
+function applyNoteSearchQuery(query) {
+  const searchInput = document.getElementById('searchInput');
+  if (!searchInput || !query) return;
+  searchInput.value = query;
+  updateClearSearchVisibility();
+  filterItems();
+  searchInput.focus();
+}
+
 function closeAllValueTooltips(exceptCard = null) {
   document.querySelectorAll('.item-row--value.tooltip-open').forEach(row => {
     const card = row.closest('.item-card');
@@ -859,7 +946,18 @@ function getSpeedSummary(value, min, max) {
 }
 
 function getRaritySummary(value, max) {
-  return `${value}/${max}`;
+  const tierLabel = getRarityTierLabel(value, max);
+  return tierLabel ? `${value}/${max} · ${tierLabel}` : `${value}/${max}`;
+}
+
+function getRarityTierLabel(value, max) {
+  const safeValue = toNumberOrNull(value);
+  const safeMax = toNumberOrNull(max);
+  if (safeValue === null || safeMax === null || safeMax <= 0) return '';
+
+  const ratio = Math.max(0, Math.min(1, safeValue / safeMax));
+  const tier = Math.max(1, Math.min(5, Math.ceil(ratio * 5)));
+  return t(`rarityTier${tier}`);
 }
 
 function formatPrice(value) {
@@ -923,16 +1021,16 @@ function toNumberOrNull(value) {
 }
 
 function filterItems() {
-  const search = document.getElementById('searchInput').value.toLowerCase();
+  const search = document.getElementById('searchInput').value;
   const category = document.getElementById('categoryFilter').value;
   const specialOnly = document.getElementById('specialFilter').checked;
   const sortMode = document.getElementById('sortFilter')?.value || 'category-name';
 
   const filtered = allItems.filter(item => {
-    const matchName = item.name.toLowerCase().includes(search);
+    const matchSearch = itemMatchesSearch(item, search);
     const matchCategory = category === ALL_CATEGORY_VALUE || item.categoryKey === category;
     const matchSpecial = !specialOnly || item.special;
-    return matchName && matchCategory && matchSpecial;
+    return matchSearch && matchCategory && matchSpecial;
   });
 
   renderItems(sortItemsForDisplay(filtered, sortMode));

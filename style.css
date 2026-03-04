@@ -552,6 +552,21 @@ main {
   line-height: 1.4;
 }
 
+.item-note-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.item-note-btn:hover,
+.item-note-btn:focus-visible {
+  border-color: #4e78b7;
+  background: rgba(49, 71, 104, 0.62);
+  outline: none;
+}
+
 .item-actions {
   position: absolute;
   top: 12px;

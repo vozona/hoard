@@ -2770,12 +2770,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "3"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Vintage Semi Pack"
         },
         {
             "id": "r350-sd",
@@ -2884,12 +2884,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "3"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Vintage Semi Pack"
         },
         {
             "id": "vintage-log-trailer",
@@ -2903,12 +2903,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "3"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Vintage Semi Pack"
         },
         {
             "id": "lat-360",

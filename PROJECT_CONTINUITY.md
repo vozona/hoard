@@ -47,7 +47,7 @@
 - Rotulo dinamico de preco:
   - `Valor` para fixo
   - `Valor sugerido` para origem mercado
-  - Itens com `Valor sugerido` exibem `*` no preco com tooltip explicativo (informativo/comunidade).
+  - Itens com `Valor sugerido` exibem botao `i` ao lado do preco com tooltip interativo (mobile-friendly), abrindo acima do valor.
 
 ## 4) Fluxo do Admin Local
 - Arquivo principal: `admin.html`.
@@ -161,27 +161,41 @@
   - `stat-fill` recebeu gradiente com maior destaque visual.
 - Atalhos flutuantes (publicidade discreta):
   - Bloco fixo `quick-links` acima do `backToTopBtn` no canto inferior direito.
-  - Links atuais: Discord, Camisa oficial, YouTube.
+  - Links atuais: Discord, Comunidade Roblox, Camisa oficial.
   - Comportamento:
     - Desktop: icone compacto + expande texto em `hover/focus`.
     - Mobile: mantem formato compacto circular (sem expansao de texto).
   - Cores por atalho:
-    - Discord (azul), YouTube (vermelho), Camisa (verde).
+    - Discord (azul), Comunidade (verde), Camisa (vermelho).
 - Marca d'agua nas imagens dos itens:
   - `VoZona` adicionada via CSS pseudo-elemento em `.item-image::after`.
   - Estilo atual: texto discreto no centro, em diagonal (timbrado), sem bloquear interacao.
 - Compartilhamento e navegacao (mantidos ativos):
   - Botao de compartilhar evoluiu para menu de acoes (icone de tres pontos):
-    - `Compartilhar link` (ativo, com feedback de copia)
-    - `Anunciar este item` (placeholder: `Em breve`)
-    - `Relatar preco` (placeholder: `Em breve`)
+    - `Tenho interesse` (placeholder: `Em breve`)
+    - `Compartilhar este item` (ativo, com feedback de copia)
+    - `Informar preco negociado` (placeholder: `Em breve`)
   - Estrutura pronta para formularios externos (Google Forms ou similar):
     - `ACTION_FORM_LINKS` em `script.js` permite configurar URL por acao.
     - Quando vazio, acao permanece em modo placeholder.
   - Abertura de item por query string `?item=...`.
   - Botao `Voltar ao topo` com exibicao por scroll.
+ - Busca e relacionamento por notas:
+   - Busca principal agora considera nome + `notes` (com normalizacao de texto e filtro de termos genericos como `pack`/`bundle` para reduzir ruido).
+   - `notes` no card ficou clicavel: ao clicar, preenche busca automaticamente com termos relevantes da nota.
+   - Resultado: usuario consegue localizar itens de um mesmo pacote/tema sem poluir o card com componentes extras.
+ - Raridade:
+   - Separada de velocidade no parser/render (sem fallback indevido).
+   - Indicador visual proprio (barra com cor dedicada).
+   - Subrotulo textual dinamico por faixa (ex.: `Comum`, `Raro`, `Muito raro`, `Lendario`) para escalas `1-5` e `1-10`.
+ - SeedBoxes:
+   - Limpeza de schema no `items.decoded.json`:
+     - removido `level` de itens SeedBoxes.
+     - removidos `speed`, `speedMin` e `speedMax` de itens SeedBoxes.
+   - `items.json` sincronizado apos encode.
 
 ## 12) Commits Recentes (branch `development`)
 - `c0d5bd3` - Atualiza SeedBoxes, corrige especiais e ordenacao por categoria/nome
 - `33d47f5` - Atualiza filtro de especiais com toggle e bandeiras no seletor de idioma
 - `1e78ffb` - Refina UI com tema neutro e destaques interativos
+- `bb61dfc` - Checkpoint: limpeza SeedBoxes, raridade, tooltip de valor e atualizacoes de quick links
