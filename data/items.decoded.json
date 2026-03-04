@@ -212,7 +212,7 @@
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Christmas Pack"
         },
         {
             "id": "src6",
@@ -401,12 +401,12 @@
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 56,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Premium Vehicles Store"
         },
         {
             "id": "zm80",
@@ -645,12 +645,12 @@
                 "speed": 37,
                 "speedMin": "",
                 "speedMax": 100,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Premium Vehicles Store"
         },
         {
             "id": "fordson",
@@ -664,12 +664,12 @@
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Premium Vehicles Store"
         },
         {
             "id": "er80t",
@@ -683,12 +683,12 @@
                 "speed": 41,
                 "speedMin": "",
                 "speedMax": 100,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Premium Vehicles Store"
         },
         {
             "id": "claas-xerion-5000",
@@ -702,12 +702,12 @@
                 "speed": 39,
                 "speedMin": "",
                 "speedMax": 100,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Premium Vehicles Store"
         },
         {
             "id": "foxx-metal-tech-x1",
@@ -721,12 +721,12 @@
                 "speed": 41,
                 "speedMin": "",
                 "speedMax": 100,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Premium Vehicles Store"
         },
         {
             "id": "trailer",
@@ -1553,12 +1553,12 @@
                 "speed": 61,
                 "speedMin": "",
                 "speedMax": 76,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Premium Vehicles Store"
         },
         {
             "id": "kqf3000",
@@ -1972,12 +1972,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "3"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Christmas Pack"
         },
         {
             "id": "na-cr10",
@@ -2091,7 +2091,7 @@
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Christmas Pack"
         },
         {
             "id": "vertra",
@@ -2485,12 +2485,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2.5"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Premium Vehicles Store & Cyber Pack"
         },
         {
             "id": "cybersemi",
@@ -2504,12 +2504,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "3"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Cyber Pack"
         },
         {
             "id": "levi-flatbed",
@@ -2637,12 +2637,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "1950's Truck Pack"
         },
         {
             "id": "rc1950",
@@ -2656,12 +2656,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "1950's Truck Pack"
         },
         {
             "id": "rl1950",
@@ -2675,12 +2675,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "1950's Truck Pack"
         },
         {
             "id": "r1950",
@@ -2694,12 +2694,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "1950's Truck Pack"
         },
         {
             "id": "solid-hauler-47",
@@ -3041,7 +3041,7 @@
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Christmas Pack"
         },
         {
             "id": "zalter-s-270",
@@ -3079,7 +3079,7 @@
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Christmas Pack"
         },
         {
             "id": "mega-baler",
@@ -3107,11 +3107,7 @@
                 "image": "img/chainsaw.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "Misc",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3126,11 +3122,7 @@
                 "image": "img/candy-cane.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3145,11 +3137,7 @@
                 "image": "img/burnt-hallowood.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3164,11 +3152,7 @@
                 "image": "img/marshmallow.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3183,11 +3167,7 @@
                 "image": "img/toxic-hallowood.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3202,11 +3182,7 @@
                 "image": "img/mint.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3221,11 +3197,7 @@
                 "image": "img/poinsettia.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3240,11 +3212,7 @@
                 "image": "img/balsam.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3259,11 +3227,7 @@
                 "image": "img/bamboo.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3278,11 +3242,7 @@
                 "image": "img/woodlouse-stitch-head.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3297,11 +3257,7 @@
                 "image": "img/shelly-stitch-head.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3316,11 +3272,7 @@
                 "image": "img/steve-stitch-head.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3335,11 +3287,7 @@
                 "image": "img/octochicken-stitch-head.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3354,11 +3302,7 @@
                 "image": "img/geoff-stitch-head.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3373,11 +3317,7 @@
                 "image": "img/holly.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3392,11 +3332,7 @@
                 "image": "img/gnarled-hallowood.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3411,11 +3347,7 @@
                 "image": "img/hallowood.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3430,11 +3362,7 @@
                 "image": "img/stunted-hallowood.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3449,11 +3377,7 @@
                 "image": "img/alien-tentacles.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3468,11 +3392,7 @@
                 "image": "img/birch.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3493,11 +3413,7 @@
                 "image": "img/cypress.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3518,11 +3434,7 @@
                 "image": "img/potato.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3543,11 +3455,7 @@
                 "image": "img/carrot.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3568,11 +3476,7 @@
                 "image": "img/cocoa.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3593,11 +3497,7 @@
                 "image": "img/cabbage.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3618,11 +3518,7 @@
                 "image": "img/tomato.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3643,11 +3539,7 @@
                 "image": "img/soybean.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3668,11 +3560,7 @@
                 "image": "img/sugar-cane.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3693,11 +3581,7 @@
                 "image": "img/oat.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3718,11 +3602,7 @@
                 "image": "img/rice.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3743,11 +3623,7 @@
                 "image": "img/pine.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3768,11 +3644,7 @@
                 "image": "img/corn.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {
@@ -3793,11 +3665,7 @@
                 "image": "img/wheat.jpg"
             },
             "classification": {
-                "level": 0,
                 "category": "SeedBoxes",
-                "speed": null,
-                "speedMin": "",
-                "speedMax": null,
                 "rarity": ""
             },
             "access": {

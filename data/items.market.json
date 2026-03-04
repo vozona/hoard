@@ -61,9 +61,10 @@
         },
         "cybertruck": {
             "history": [
-                70000000
+                70000000,
+                40000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-04",
             "valueStatus": "known",
             "robux": null
         },

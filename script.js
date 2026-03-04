@@ -2,7 +2,7 @@
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
 const ACTION_FORM_LINKS = {
   announce: '',
-  reportPrice: ''
+  reportPrice: 'report-price.html'
 };
 const CATEGORY_DISPLAY_ORDER = [
   'TreeCutters',
@@ -45,9 +45,11 @@ const I18N = {
     categoryLabel: 'Categoria',
     packageLabel: 'Pacote',
     speedLabel: 'Velocidade',
+    rarityLabel: 'Raridade',
     averageValueLabel: 'Valor',
     suggestedValueLabel: 'Valor sugerido',
-    suggestedValueTooltip: 'Valores sugestivos e informais, baseados na mediana de negociações da comunidade. Podem variar com frequência e servem apenas como referência para apoiar o bom senso em cada negociação.',
+    suggestedValueInfoLabel: 'Sobre valor sugerido',
+    suggestedValueTooltip: 'Estes preços são apenas uma sugestão (não são oficiais!). Para chegar nesse valor, analisamos vários preços informados pela comunidade nas trocas entre jogadores e calculamos um valor médio mais justo. Lembre-se de que os valores podem mudar com o tempo, então use isso apenas como uma ajudinha na hora de fazer sua troca! Como referência prática, uma negociação pode variar cerca de 15% para cima ou para baixo.',
     relatedLabel: 'Relacionados',
     updatedAtLabel: 'Atualizado em',
     itemsSuffix: 'itens',
@@ -55,17 +57,18 @@ const I18N = {
     footerCreditPrefix: 'Criado por',
     specialOnlyLabel: 'Somente itens especiais',
     cardHintLabel: 'Ver mais detalhes',
-    shareButtonLabel: 'Compartilhar link',
+    shareButtonLabel: 'Compartilhar este item',
     shareCopiedLabel: 'Link copiado',
     moreActionsLabel: 'Mais ações',
     itemActionsMenuLabel: 'Opções do item',
-    announceItemLabel: 'Anunciar este item',
+    announceItemLabel: 'Tenho interesse',
     announceSoonLabel: 'Em breve',
-    reportPriceLabel: 'Relatar preço',
+    reportPriceLabel: 'Informar preço negociado',
     reportSoonLabel: 'Em breve',
     sortByLabel: 'Ordenar',
     sortFilterAriaLabel: 'Ordenação',
     sortCategoryName: 'Categoria + nome',
+    sortName: 'Nome',
     sortValueDesc: 'Maior preço primeiro',
     sortValueAsc: 'Menor preço primeiro',
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
@@ -80,9 +83,11 @@ const I18N = {
     categoryLabel: 'Category',
     packageLabel: 'Bundle',
     speedLabel: 'Speed',
+    rarityLabel: 'Rarity',
     averageValueLabel: 'Average value',
     suggestedValueLabel: 'Suggested value',
-    suggestedValueTooltip: 'Informal, community-based values calculated from the median of reported trades. They may change frequently and should be used only as a reference in each negotiation.',
+    suggestedValueInfoLabel: 'About suggested value',
+    suggestedValueTooltip: 'These prices are only a suggestion (they are not official!). To estimate this value, we review several prices reported by the community in player-to-player trades and calculate a fairer average reference. Keep in mind values can change over time, so use this only as a helpful guide when making your trade. As a practical reference, a trade can vary by around 15% above or below this value.',
     relatedLabel: 'Related',
     updatedAtLabel: 'Updated on',
     itemsSuffix: 'items',
@@ -90,17 +95,18 @@ const I18N = {
     footerCreditPrefix: 'Powered by',
     specialOnlyLabel: 'Special items only',
     cardHintLabel: 'View details',
-    shareButtonLabel: 'Share link',
+    shareButtonLabel: 'Share this item',
     shareCopiedLabel: 'Link copied',
     moreActionsLabel: 'More actions',
     itemActionsMenuLabel: 'Item options',
-    announceItemLabel: 'List this item',
+    announceItemLabel: 'I am interested',
     announceSoonLabel: 'Soon',
-    reportPriceLabel: 'Report deal',
+    reportPriceLabel: 'Report trade price',
     reportSoonLabel: 'Soon',
     sortByLabel: 'Sort',
     sortFilterAriaLabel: 'Sort order',
     sortCategoryName: 'Category + name',
+    sortName: 'Name',
     sortValueDesc: 'Highest price first',
     sortValueAsc: 'Lowest price first',
     noItemsFound: 'No items found. Try adjusting your search or filters.',
@@ -263,26 +269,32 @@ function normalizeItem(item, marketEntry = {}) {
   const rawSpeed = firstDefinedValue([
     item.classification?.speed,
     item.velocidade,
-    item.speed,
-    item.classification?.rarity,
-    item.raridade,
-    item.rarity
+    item.speed
   ]);
   const rawSpeedMin = firstDefinedValue([
     item.classification?.speedMin,
     item.speedMin,
     item.classification?.speedRange?.min,
-    item.speedRange?.min,
-    item.classification?.rarityMin,
-    item.rarityMin,
-    item.classification?.rarityRange?.min,
-    item.rarityRange?.min
+    item.speedRange?.min
   ]);
   const rawSpeedMax = firstDefinedValue([
     item.classification?.speedMax,
     item.speedMax,
     item.classification?.speedRange?.max,
-    item.speedRange?.max,
+    item.speedRange?.max
+  ]);
+  const rawRarity = firstDefinedValue([
+    item.classification?.rarity,
+    item.raridade,
+    item.rarity
+  ]);
+  const rawRarityMin = firstDefinedValue([
+    item.classification?.rarityMin,
+    item.rarityMin,
+    item.classification?.rarityRange?.min,
+    item.rarityRange?.min
+  ]);
+  const rawRarityMax = firstDefinedValue([
     item.classification?.rarityMax,
     item.rarityMax,
     item.classification?.rarityRange?.max,
@@ -304,6 +316,9 @@ function normalizeItem(item, marketEntry = {}) {
     speed: toNumberOrNull(rawSpeed),
     speedMin: toNumberOrNull(rawSpeedMin),
     speedMax: toNumberOrNull(rawSpeedMax),
+    rarity: toNumberOrNull(rawRarity),
+    rarityMin: toNumberOrNull(rawRarityMin),
+    rarityMax: toNumberOrNull(rawRarityMax),
     value: resolvedValue,
     valueHistory: normalizedMarket.history,
     valueSource: hasMarketHistory ? 'market' : 'fixed',
@@ -367,6 +382,7 @@ function renderItems(items) {
       <div class="item-details">
         ${renderLevelRow(item)}
         ${renderCategoryRow(item)}
+        ${renderRarityRow(item)}
         ${renderSpeedRow(item)}
         ${renderValueRow(item)}
         ${renderPackageRow(item, packageMap)}
@@ -381,6 +397,8 @@ function renderItems(items) {
     const shareAction = card.querySelector('[data-action="share"]');
     const announceAction = card.querySelector('[data-action="announce"]');
     const reportPriceAction = card.querySelector('[data-action="report-price"]');
+    const valueInfoButton = card.querySelector('.value-info-btn');
+    const valueTooltip = card.querySelector('.value-tooltip');
     if (actionsToggle) {
       actionsToggle.addEventListener('click', event => {
         event.preventDefault();
@@ -415,6 +433,25 @@ function renderItems(items) {
         event.preventDefault();
         event.stopPropagation();
         handleReportPriceClick(item, reportPriceAction);
+      });
+    }
+    if (valueInfoButton) {
+      valueInfoButton.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const valueRow = valueInfoButton.closest('.item-row--value');
+        const ownerCard = valueInfoButton.closest('.item-card');
+        if (!valueRow) return;
+        const willOpen = !valueRow.classList.contains('tooltip-open');
+        closeAllValueTooltips(card);
+        valueRow.classList.toggle('tooltip-open', willOpen);
+        if (ownerCard) ownerCard.classList.toggle('value-tooltip-open', willOpen);
+        valueInfoButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    }
+    if (valueTooltip) {
+      valueTooltip.addEventListener('click', event => {
+        event.stopPropagation();
       });
     }
 
@@ -531,16 +568,41 @@ function renderSpeedRow(item) {
   `;
 }
 
+function renderRarityRow(item) {
+  if (item.rarity === null || item.rarity < 1) return '';
+  const range = resolveRarityRange(item);
+  if (!range) return '';
+  const raritySummary = getRaritySummary(item.rarity, range.max);
+
+  return `
+    <div class="item-row">
+      <span>${t('rarityLabel')}</span>
+      <div class="stat-group stat-group--rarity" title="${escapeHtml(`${t('rarityLabel')}: ${raritySummary}`)}">
+        ${generateBar(item.rarity, range.min, range.max, { barClass: 'stat-bar rarity-bar', fillClass: 'stat-fill rarity-fill' })}
+        <small>${raritySummary}</small>
+      </div>
+    </div>
+  `;
+}
+
 function renderValueRow(item) {
   if (item.value === null) return '';
   const isSuggestedValue = item.valueSource === 'market';
   const valueLabelKey = isSuggestedValue ? 'suggestedValueLabel' : 'averageValueLabel';
-  const valueTitleAttr = isSuggestedValue ? ` title="${escapeHtml(t('suggestedValueTooltip'))}"` : '';
-  const markerHtml = isSuggestedValue ? '<sup class="value-hint-marker">*</sup>' : '';
+  const infoHtml = isSuggestedValue ? `
+    <button type="button" class="value-info-btn" aria-label="${escapeHtml(t('suggestedValueInfoLabel'))}" aria-expanded="false">i</button>
+  ` : '';
+  const tooltipHtml = isSuggestedValue ? `
+    <span class="value-tooltip" role="tooltip">${escapeHtml(t('suggestedValueTooltip'))}</span>
+  ` : '';
   return `
-    <div class="item-row">
-      <span>${t(valueLabelKey)}</span>
-      <strong${valueTitleAttr}>${formatPrice(item.value)}${markerHtml}</strong>
+    <div class="item-row item-row--value">
+      <span class="value-label-wrap">${t(valueLabelKey)}</span>
+      <span class="value-number-wrap">
+        <strong>${formatPrice(item.value)}</strong>
+        ${infoHtml}
+        ${tooltipHtml}
+      </span>
     </div>
   `;
 }
@@ -591,8 +653,8 @@ function renderShareButton(item) {
     <div class="item-actions">
       <button type="button" class="item-actions-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="${escapeHtml(actionsLabel)}" title="${escapeHtml(actionsLabel)}">${getItemActionsIconMarkup()}</button>
       <div class="item-actions-menu" role="menu" aria-label="${escapeHtml(actionsMenuLabel)}">
-        <button type="button" class="item-action-btn" data-action="share" data-default-label="${escapeHtml(shareLabel)}" role="menuitem">${escapeHtml(shareLabel)}</button>
         <button type="button" class="item-action-btn" data-action="announce" data-default-label="${escapeHtml(t('announceItemLabel'))}" role="menuitem">${escapeHtml(t('announceItemLabel'))}</button>
+        <button type="button" class="item-action-btn" data-action="share" data-default-label="${escapeHtml(shareLabel)}" role="menuitem">${escapeHtml(shareLabel)}</button>
         <button type="button" class="item-action-btn" data-action="report-price" role="menuitem">${escapeHtml(t('reportPriceLabel'))}</button>
       </div>
     </div>
@@ -657,10 +719,10 @@ function buildActionFormUrl(baseUrl, item, extraParams = {}) {
   if (!normalizedBaseUrl) return '';
 
   try {
-    const url = new URL(normalizedBaseUrl);
+    const url = new URL(normalizedBaseUrl, window.location.href);
     url.searchParams.set('itemId', item.id || '');
     url.searchParams.set('itemName', item.name || item.id || '');
-    url.searchParams.set('category', item.categoryKey || item.category || '');
+    url.searchParams.set('category', item.category || item.categoryKey || '');
     Object.entries(extraParams).forEach(([key, value]) => {
       if (value !== undefined && value !== null) url.searchParams.set(key, String(value));
     });
@@ -687,6 +749,17 @@ function closeAllItemActionMenus(exceptCard = null) {
     card.classList.remove('actions-open');
     const toggle = card.querySelector('.item-actions-toggle');
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function closeAllValueTooltips(exceptCard = null) {
+  document.querySelectorAll('.item-row--value.tooltip-open').forEach(row => {
+    const card = row.closest('.item-card');
+    if (exceptCard && card === exceptCard) return;
+    row.classList.remove('tooltip-open');
+    if (card) card.classList.remove('value-tooltip-open');
+    const infoButton = row.querySelector('.value-info-btn');
+    if (infoButton) infoButton.setAttribute('aria-expanded', 'false');
   });
 }
 
@@ -728,14 +801,16 @@ async function copyTextToClipboard(text) {
   return copied;
 }
 
-function generateBar(value, min, max) {
+function generateBar(value, min, max, options = {}) {
+  const barClass = firstNonEmptyText([options.barClass]) || 'stat-bar';
+  const fillClass = firstNonEmptyText([options.fillClass]) || 'stat-fill';
   const safeValue = clampScale(value, min, max);
   const rangeSize = Math.max(1, max - min);
   const percentage = ((safeValue - min) / rangeSize) * 100;
   const ariaLabel = escapeHtml(t('indicatorLabel', { value: safeValue, max }));
   return `
-    <div class="stat-bar" aria-label="${ariaLabel}">
-      <div class="stat-fill" style="width: ${percentage}%"></div>
+    <div class="${escapeHtml(barClass)}" aria-label="${ariaLabel}">
+      <div class="${escapeHtml(fillClass)}" style="width: ${percentage}%"></div>
     </div>
   `;
 }
@@ -764,7 +839,26 @@ function resolveSpeedRange(item) {
   return { min, max };
 }
 
+function resolveRarityRange(item) {
+  if (item.rarity === null || item.rarity < 1) return null;
+
+  const min = 1;
+  const configuredMax = toNumberOrNull(item.rarityMax);
+  const max = resolveRarityScale(configuredMax, item.rarity);
+
+  return { min, max };
+}
+
+function resolveRarityScale(configuredMax, rarityValue) {
+  const baseValue = Math.max(toNumberOrNull(configuredMax) || 0, toNumberOrNull(rarityValue) || 0);
+  return baseValue > 5 ? 10 : 5;
+}
+
 function getSpeedSummary(value, min, max) {
+  return `${value}/${max}`;
+}
+
+function getRaritySummary(value, max) {
   return `${value}/${max}`;
 }
 
@@ -846,7 +940,10 @@ function filterItems() {
 
 function sortItemsForDisplay(items, sortMode = 'category-name') {
   return [...items].sort((a, b) => {
-    if (sortMode === 'value-desc') {
+    if (sortMode === 'name') {
+      const nameCompare = compareItemsByName(a, b);
+      if (nameCompare !== 0) return nameCompare;
+    } else if (sortMode === 'value-desc') {
       const valueCompare = compareItemsByValue(a, b, 'desc');
       if (valueCompare !== 0) return valueCompare;
     } else if (sortMode === 'value-asc') {
@@ -857,13 +954,17 @@ function sortItemsForDisplay(items, sortMode = 'category-name') {
     const categoryCompare = getCategorySortIndex(a) - getCategorySortIndex(b);
     if (categoryCompare !== 0) return categoryCompare;
 
-    const nameA = String(a.name || '');
-    const nameB = String(b.name || '');
-    const nameCompare = nameA.localeCompare(nameB, currentLanguage, { sensitivity: 'base', numeric: true });
+    const nameCompare = compareItemsByName(a, b);
     if (nameCompare !== 0) return nameCompare;
 
     return String(a.id || '').localeCompare(String(b.id || ''), 'en', { sensitivity: 'base', numeric: true });
   });
+}
+
+function compareItemsByName(a, b) {
+  const nameA = String(a?.name || '');
+  const nameB = String(b?.name || '');
+  return nameA.localeCompare(nameB, currentLanguage, { sensitivity: 'base', numeric: true });
 }
 
 function compareItemsByValue(a, b, direction) {
@@ -995,9 +1096,13 @@ if (backToTopBtn) {
 window.addEventListener('scroll', handleScrollUiState, { passive: true });
 document.addEventListener('click', () => {
   closeAllItemActionMenus();
+  closeAllValueTooltips();
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeAllItemActionMenus();
+  if (event.key === 'Escape') {
+    closeAllItemActionMenus();
+    closeAllValueTooltips();
+  }
 });
 handleScrollUiState();
 
