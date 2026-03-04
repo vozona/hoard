@@ -36,7 +36,7 @@ header {
   padding: 20px 20px 16px;
   text-align: center;
   border-bottom: 1px solid var(--line-soft);
-  background: linear-gradient(180deg, rgba(31, 34, 40, 0.8), rgba(23, 25, 31, 0.68));
+  background: linear-gradient(180deg, rgba(10, 14, 21, 0.75), rgba(15, 20, 30, 0.5)), url(img/top.jpg) bottom / cover no-repeat;
 }
 
 h1 {
@@ -138,7 +138,7 @@ h1 {
   margin: 10px 14px 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 12px;
 }
 
@@ -159,6 +159,7 @@ h1 {
 
 .results-count {
   margin: 0;
+  margin-left: auto;
   color: #7f8eaa;
   font-size: 11px;
   text-align: right;
@@ -280,6 +281,13 @@ select option {
   align-items: start;
 }
 
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+}
+
 .empty-state {
   grid-column: 1 / -1;
   text-align: center;
@@ -302,6 +310,167 @@ main {
 
 .item-slot {
   width: 100%;
+}
+
+.item-list-row {
+  display: grid;
+  grid-template-areas:
+    "thumb main value"
+    "details details details";
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 9px 10px;
+  background: linear-gradient(180deg, rgba(43, 47, 56, 0.92), rgba(32, 35, 42, 0.92));
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.item-list-row:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(var(--accent-rgb), 0.24);
+}
+
+.item-list-row:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.22), 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+
+.item-list-row:focus-visible {
+  outline: none;
+}
+
+.item-list-row.is-shared-target {
+  border-color: #d8e9ff;
+  box-shadow: 0 0 0 2px rgba(216, 233, 255, 0.32), 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+
+.item-list-thumb {
+  grid-area: thumb;
+  width: 64px;
+  height: 48px;
+  border-radius: 9px;
+  border: 1px solid #2a3a53;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #101726;
+}
+
+.item-list-main {
+  grid-area: main;
+  min-width: 0;
+}
+
+.item-list-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f1f6ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-list-meta {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 12px;
+  color: #9fb0cd;
+}
+
+.item-list-value {
+  grid-area: value;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  text-align: right;
+}
+
+.item-list-value-number {
+  color: #f1f6ff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.item-list-value-main {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.item-list-value-label {
+  color: #8ea3c8;
+  font-size: 11px;
+}
+
+.item-list-updated {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.item-list-updated-label {
+  color: #8ea3c8;
+  font-size: 11px;
+}
+
+.item-list-updated-date {
+  color: #d8e6ff;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.item-list-details {
+  grid-area: details;
+  display: none;
+  margin-top: 2px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+}
+
+.item-list-row.expanded .item-list-details {
+  display: block;
+}
+
+.item-list-row .item-actions {
+  display: none;
+}
+
+.item-list-row.expanded .item-actions {
+  display: block;
+  top: 16px;
+  right: 16px;
+  z-index: 22;
+}
+
+.item-list-row.expanded {
+  grid-template-areas:
+    "thumb thumb thumb"
+    "main main value"
+    "details details details";
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  row-gap: 10px;
+}
+
+.item-list-row.expanded .item-list-thumb {
+  width: 100%;
+  height: auto;
+  min-height: 240px;
+  aspect-ratio: 16 / 6;
+  border-radius: 11px;
+  background-size: cover;
+  background-position: center;
 }
 
 .item-card {
@@ -497,6 +666,16 @@ main {
   outline: none;
 }
 
+.item-category-btn--inline {
+  text-align: left;
+  color: #d8e6ff;
+}
+
+.item-list-category-text {
+  color: #d8e6ff;
+  font-weight: 600;
+}
+
 .value-hint-marker {
   margin-left: 2px;
   color: #9cc1f2;
@@ -636,6 +815,10 @@ main {
 }
 
 .item-card.actions-open .item-actions-menu {
+  display: block;
+}
+
+.item-list-row.actions-open .item-actions-menu {
   display: block;
 }
 
@@ -921,6 +1104,36 @@ main {
     padding: 14px;
   }
 
+  .items-list {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .item-list-row {
+    grid-template-areas:
+      "thumb main value"
+      "details details details";
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+    column-gap: 10px;
+    row-gap: 0;
+    padding: 8px;
+  }
+
+  .item-list-thumb {
+    width: 56px;
+    height: 42px;
+  }
+
+  .item-list-row.expanded .item-list-thumb {
+    min-height: 195px;
+    aspect-ratio: 16 / 7;
+  }
+
+  .item-list-row.expanded .item-actions {
+    top: 14px;
+    right: 14px;
+  }
+
   .item-card {
     padding: 9px;
   }
@@ -943,6 +1156,51 @@ main {
     grid-template-columns: 1fr;
     gap: 10px;
     padding: 12px;
+  }
+
+  .items-list {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .item-list-row {
+    grid-template-areas:
+      "thumb main"
+      "value value"
+      "details details";
+    grid-template-columns: 48px minmax(0, 1fr);
+    padding: 8px;
+  }
+
+  .item-list-thumb {
+    width: 48px;
+    height: 36px;
+  }
+
+  .item-list-value {
+    grid-area: value;
+    align-items: flex-end;
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  .item-list-row.expanded {
+    grid-template-areas:
+      "thumb thumb"
+      "main main"
+      "value value"
+      "details details";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .item-list-row.expanded .item-list-thumb {
+    min-height: 175px;
+    aspect-ratio: 16 / 8;
+  }
+
+  .item-list-row.expanded .item-actions {
+    top: 12px;
+    right: 12px;
   }
 
   .item-card {

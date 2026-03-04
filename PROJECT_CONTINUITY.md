@@ -199,3 +199,27 @@
 - `33d47f5` - Atualiza filtro de especiais com toggle e bandeiras no seletor de idioma
 - `1e78ffb` - Refina UI com tema neutro e destaques interativos
 - `bb61dfc` - Checkpoint: limpeza SeedBoxes, raridade, tooltip de valor e atualizacoes de quick links
+
+## 13) Checkpoint Atual (mar/2026 - v1 apresentavel)
+- Visualizacao:
+  - Mantida visualizacao em grade (padrao) e adicionada visualizacao em lista.
+  - Novo seletor `Visualizacao` na toolbar (`Grade` | `Lista`) com persistencia em `localStorage` (`safrabr_view_mode`).
+  - Ordenacao e filtros continuam compartilhados entre os dois modos.
+- Lista com expansao:
+  - Linha compacta exibe miniatura, nome, categoria clicavel, valor e data.
+  - Clique (ou Enter/Espaco) expande a linha em destaque unico.
+  - Expandido mostra detalhes do item (level/raridade/velocidade/pacote/notas/relacionados), sem duplicar categoria/valor/data.
+  - Imagem no estado expandido foi ampliada para ocupar toda a largura da linha.
+- Acoes no modo lista:
+  - Menu de acoes reaproveitado do card em grade.
+  - No modo lista fica no canto superior direito da imagem e aparece apenas com a linha expandida.
+  - Itens do menu:
+    - `Tenho interesse` (placeholder)
+    - `Compartilhar este item` (ativo)
+    - `Informar preco negociado` (placeholder)
+- Header com imagem:
+  - Fundo do topo agora usa `img/top.jpg` com `cover` e overlay em gradiente para preservar legibilidade.
+  - Posicionamento atual da imagem ajustado para `bottom`.
+- Compatibilidade de compartilhamento:
+  - Fluxo `?item=...` continua funcional para grade e lista.
+  - Em lista, item compartilhado abre linha expandida e recebe destaque.

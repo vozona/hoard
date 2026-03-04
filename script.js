@@ -1,5 +1,6 @@
 ﻿const ALL_CATEGORY_VALUE = 'All';
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
+const VIEW_MODE_STORAGE_KEY = 'safrabr_view_mode';
 const ACTION_FORM_LINKS = {
   announce: '',
   reportPrice: ''
@@ -35,6 +36,7 @@ const CATEGORY_LABELS = {
 };
 let allItems = [];
 let currentLanguage = 'pt-BR';
+let currentViewMode = 'grid';
 
 const I18N = {
   'pt-BR': {
@@ -73,6 +75,10 @@ const I18N = {
     reportSoonLabel: 'Em breve',
     sortByLabel: 'Ordenar',
     sortFilterAriaLabel: 'Ordenação',
+    viewModeLabel: 'Visualização',
+    viewModeFilterAriaLabel: 'Modo de visualização',
+    viewModeGrid: 'Grade',
+    viewModeList: 'Lista',
     sortCategoryName: 'Categoria + nome',
     sortName: 'Nome',
     sortValueDesc: 'Maior preço primeiro',
@@ -120,6 +126,10 @@ const I18N = {
     reportSoonLabel: 'Soon',
     sortByLabel: 'Sort',
     sortFilterAriaLabel: 'Sort order',
+    viewModeLabel: 'View',
+    viewModeFilterAriaLabel: 'View mode',
+    viewModeGrid: 'Grid',
+    viewModeList: 'List',
     sortCategoryName: 'Category + name',
     sortName: 'Name',
     sortValueDesc: 'Highest price first',
@@ -134,6 +144,7 @@ const I18N = {
 };
 
 currentLanguage = getInitialLanguage();
+currentViewMode = getInitialViewMode();
 
 Promise.all([
   fetch('data/items.json').then(response => response.json()),
@@ -232,6 +243,14 @@ function getInitialLanguage() {
   return 'pt-BR';
 }
 
+function getInitialViewMode() {
+  const savedMode = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
+  if (savedMode === 'list' || savedMode === 'grid') {
+    return savedMode;
+  }
+  return 'grid';
+}
+
 function t(key, replacements = {}) {
   const dictionary = I18N[currentLanguage] || I18N['pt-BR'];
   let text = dictionary[key] || I18N['pt-BR'][key] || key;
@@ -275,6 +294,12 @@ function applyInterfaceLanguage() {
   const sortFilter = document.getElementById('sortFilter');
   if (sortFilter) {
     sortFilter.setAttribute('aria-label', t('sortFilterAriaLabel'));
+  }
+
+  const viewModeFilter = document.getElementById('viewModeFilter');
+  if (viewModeFilter) {
+    viewModeFilter.setAttribute('aria-label', t('viewModeFilterAriaLabel'));
+    viewModeFilter.value = currentViewMode;
   }
 }
 
@@ -362,6 +387,8 @@ function normalizeItem(item, marketEntry = {}) {
 
 function renderItems(items) {
   const container = document.getElementById('itemsContainer');
+  const viewMode = getSelectedViewMode();
+  container.className = viewMode === 'list' ? 'items-list' : 'items-grid';
   container.innerHTML = '';
   updateResultsCount(items.length, allItems.length);
 
@@ -381,6 +408,11 @@ function renderItems(items) {
     packageItems.push(item);
     packageMap.set(item.packageId, packageItems);
   });
+
+  if (viewMode === 'list') {
+    renderListView(items, container, packageMap);
+    return;
+  }
 
   items.forEach(item => {
     const slot = document.createElement('div');
@@ -501,6 +533,164 @@ function renderItems(items) {
   });
 }
 
+function getSelectedViewMode() {
+  const viewModeFilter = document.getElementById('viewModeFilter');
+  const selectedMode = viewModeFilter?.value;
+  if (selectedMode === 'list' || selectedMode === 'grid') {
+    return selectedMode;
+  }
+  return currentViewMode === 'list' ? 'list' : 'grid';
+}
+
+function renderListView(items, container, packageMap) {
+  items.forEach(item => {
+    const hasCategoryKey = Boolean(item.categoryKey);
+    const categoryLabel = hasCategoryKey
+      ? getCategoryLabel(item.categoryKey)
+      : firstNonEmptyText([item.category, '-']);
+    const categoryValueHtml = hasCategoryKey
+      ? `<button type="button" class="item-category-btn item-category-btn--inline" data-category-key="${escapeHtml(item.categoryKey)}" title="${escapeHtml(t('categoryFilterHintLabel'))}" aria-label="${escapeHtml(t('categoryFilterHintLabel'))}">${escapeHtml(categoryLabel)}</button>`
+      : `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`;
+    const valueLabel = item.valueSource === 'market' ? t('suggestedValueLabel') : t('averageValueLabel');
+    const valueDisplay = item.value !== null ? escapeHtml(formatPrice(item.value)) : '-';
+    const updatedAtDate = item.lastUpdate ? escapeHtml(formatDate(item.lastUpdate)) : '';
+
+    const row = document.createElement('article');
+    row.className = 'item-list-row';
+    row.dataset.itemId = item.id;
+    row.innerHTML = `
+      ${renderShareButton(item)}
+      <div class="item-list-thumb" role="img" aria-label="${escapeHtml(item.name)}" style="${getItemImageStyle(item.image)}"></div>
+      <div class="item-list-main">
+        <h3 class="item-list-name">${escapeHtml(item.name)}</h3>
+        <div class="item-list-meta">
+          <span class="item-list-meta-label">${t('categoryLabel')}</span>
+          ${categoryValueHtml}
+        </div>
+      </div>
+      <div class="item-list-value">
+        <div class="item-list-value-main">
+          <small class="item-list-value-label">${item.value !== null ? escapeHtml(valueLabel) : '&nbsp;'}</small>
+          <span class="item-list-value-number">${valueDisplay}</span>
+        </div>
+        <div class="item-list-updated">
+          <small class="item-list-updated-label">${t('updatedAtLabel')}</small>
+          <span class="item-list-updated-date">${updatedAtDate || '&nbsp;'}</span>
+        </div>
+      </div>
+      <div class="item-list-details">
+        ${renderLevelRow(item)}
+        ${renderRarityRow(item)}
+        ${renderSpeedRow(item)}
+        ${renderPackageRow(item, packageMap)}
+        ${renderRelatedItems(item, packageMap)}
+        ${renderItemNotes(item)}
+      </div>
+    `;
+
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('role', 'button');
+    row.setAttribute('aria-expanded', 'false');
+
+    row.querySelectorAll('.item-category-btn').forEach(categoryButton => {
+      categoryButton.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const categoryKey = firstNonEmptyText([categoryButton.dataset.categoryKey]);
+        if (!categoryKey) return;
+        applyCategoryFilter(categoryKey);
+      });
+    });
+    row.querySelectorAll('.item-note-btn').forEach(noteButton => {
+      noteButton.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const query = firstNonEmptyText([noteButton.dataset.noteQuery]);
+        if (!query) return;
+        applyNoteSearchQuery(query);
+      });
+    });
+    const actionsToggle = row.querySelector('.item-actions-toggle');
+    const actionsMenu = row.querySelector('.item-actions-menu');
+    const shareAction = row.querySelector('[data-action="share"]');
+    const announceAction = row.querySelector('[data-action="announce"]');
+    const reportPriceAction = row.querySelector('[data-action="report-price"]');
+    if (actionsToggle) {
+      actionsToggle.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const willOpen = !row.classList.contains('actions-open');
+        closeAllItemActionMenus(row);
+        row.classList.toggle('actions-open', willOpen);
+        actionsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    }
+    if (actionsMenu) {
+      actionsMenu.addEventListener('click', event => {
+        event.stopPropagation();
+      });
+    }
+    if (shareAction) {
+      shareAction.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        handleShareClick(item, shareAction);
+      });
+    }
+    if (announceAction) {
+      announceAction.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        handleAnnounceClick(item, announceAction);
+      });
+    }
+    if (reportPriceAction) {
+      reportPriceAction.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        handleReportPriceClick(item, reportPriceAction);
+      });
+    }
+    row.querySelectorAll('.value-info-btn').forEach(valueInfoButton => {
+      valueInfoButton.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const valueRow = valueInfoButton.closest('.item-row--value');
+        if (!valueRow) return;
+        const willOpen = !valueRow.classList.contains('tooltip-open');
+        closeAllValueTooltips();
+        valueRow.classList.toggle('tooltip-open', willOpen);
+        valueInfoButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+
+    row.addEventListener('click', () => {
+      const willExpand = !row.classList.contains('expanded');
+      setExpandedListRow(row, willExpand);
+    });
+    row.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      const willExpand = !row.classList.contains('expanded');
+      setExpandedListRow(row, willExpand);
+    });
+
+    container.appendChild(row);
+  });
+}
+
+function setExpandedListRow(row, shouldExpand) {
+  if (!row) return;
+  document.querySelectorAll('.item-list-row.expanded').forEach(otherRow => {
+    otherRow.classList.remove('expanded');
+    otherRow.setAttribute('aria-expanded', 'false');
+  });
+  if (shouldExpand) {
+    row.classList.add('expanded');
+    row.setAttribute('aria-expanded', 'true');
+  }
+}
+
 function updateResultsCount(shown, total) {
   const resultsCountEl = document.getElementById('resultsCount');
   if (!resultsCountEl) return;
@@ -554,10 +744,22 @@ function openItemFromUrl() {
     ? CSS.escape(targetItem.id)
     : targetItem.id.replace(/["\\]/g, '\\$&');
   const card = document.querySelector(`.item-card[data-item-id="${selectorId}"]`);
-  if (!card) return;
+  if (!card) {
+    const listRow = document.querySelector(`.item-list-row[data-item-id="${selectorId}"]`);
+    if (!listRow) return;
+    setExpandedListRow(listRow, true);
+    listRow.classList.add('is-shared-target');
+    listRow.setAttribute('tabindex', '-1');
+    listRow.focus({ preventScroll: true });
+    listRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
 
   document.querySelectorAll('.item-card.is-shared-target').forEach(sharedCard => {
     sharedCard.classList.remove('is-shared-target');
+  });
+  document.querySelectorAll('.item-list-row.is-shared-target').forEach(sharedRow => {
+    sharedRow.classList.remove('is-shared-target');
   });
   setExpandedCard(card, true);
   card.classList.add('is-shared-target');
@@ -788,10 +990,10 @@ function getItemActionsIconMarkup() {
 }
 
 function closeAllItemActionMenus(exceptCard = null) {
-  document.querySelectorAll('.item-card.actions-open').forEach(card => {
-    if (exceptCard && card === exceptCard) return;
-    card.classList.remove('actions-open');
-    const toggle = card.querySelector('.item-actions-toggle');
+  document.querySelectorAll('.item-card.actions-open, .item-list-row.actions-open').forEach(element => {
+    if (exceptCard && element === exceptCard) return;
+    element.classList.remove('actions-open');
+    const toggle = element.querySelector('.item-actions-toggle');
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
   });
 }
@@ -1118,6 +1320,11 @@ document.getElementById('searchInput').addEventListener('input', filterItems);
 document.getElementById('categoryFilter').addEventListener('change', filterItems);
 document.getElementById('specialFilter').addEventListener('change', filterItems);
 document.getElementById('sortFilter').addEventListener('change', filterItems);
+document.getElementById('viewModeFilter').addEventListener('change', event => {
+  currentViewMode = event.target.value === 'list' ? 'list' : 'grid';
+  localStorage.setItem(VIEW_MODE_STORAGE_KEY, currentViewMode);
+  filterItems();
+});
 document.getElementById('languageSwitch').addEventListener('change', event => {
   const nextLanguage = I18N[event.target.value] ? event.target.value : 'pt-BR';
   currentLanguage = nextLanguage;
