@@ -79,7 +79,7 @@ const I18N = {
     viewModeFilterAriaLabel: 'Modo de visualização',
     viewModeGrid: 'Grade',
     viewModeList: 'Lista',
-    sortCategoryName: 'Categoria + nome',
+    sortCategoryName: 'Categoria e nome',
     sortName: 'Nome',
     sortValueDesc: 'Maior preço primeiro',
     sortValueAsc: 'Menor preço primeiro',
@@ -130,7 +130,7 @@ const I18N = {
     viewModeFilterAriaLabel: 'View mode',
     viewModeGrid: 'Grid',
     viewModeList: 'List',
-    sortCategoryName: 'Category + name',
+    sortCategoryName: 'Category and name',
     sortName: 'Name',
     sortValueDesc: 'Highest price first',
     sortValueAsc: 'Lowest price first',
@@ -548,9 +548,16 @@ function renderListView(items, container, packageMap) {
     const categoryLabel = hasCategoryKey
       ? getCategoryLabel(item.categoryKey)
       : firstNonEmptyText([item.category, '-']);
-    const categoryValueHtml = hasCategoryKey
-      ? `<button type="button" class="item-category-btn item-category-btn--inline" data-category-key="${escapeHtml(item.categoryKey)}" title="${escapeHtml(t('categoryFilterHintLabel'))}" aria-label="${escapeHtml(t('categoryFilterHintLabel'))}">${escapeHtml(categoryLabel)}</button>`
-      : `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`;
+    const categoryValueHtml = `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`;
+    const detailsCategoryValueHtml = hasCategoryKey
+      ? `<button type="button" class="item-category-btn" data-category-key="${escapeHtml(item.categoryKey)}" title="${escapeHtml(t('categoryFilterHintLabel'))}" aria-label="${escapeHtml(t('categoryFilterHintLabel'))}">${escapeHtml(categoryLabel)}</button>`
+      : `<strong>${escapeHtml(categoryLabel)}</strong>`;
+    const detailsCategoryRowHtml = `
+      <div class="item-row">
+        <span>${t('categoryLabel')}</span>
+        ${detailsCategoryValueHtml}
+      </div>
+    `;
     const valueLabel = item.valueSource === 'market' ? t('suggestedValueLabel') : t('averageValueLabel');
     const valueDisplay = item.value !== null ? escapeHtml(formatPrice(item.value)) : '-';
     const updatedAtDate = item.lastUpdate ? escapeHtml(formatDate(item.lastUpdate)) : '';
@@ -577,8 +584,10 @@ function renderListView(items, container, packageMap) {
           <small class="item-list-updated-label">${t('updatedAtLabel')}</small>
           <span class="item-list-updated-date">${updatedAtDate || '&nbsp;'}</span>
         </div>
+        <button type="button" class="item-list-expand-toggle" aria-expanded="false">${escapeHtml(t('cardHintLabel'))}</button>
       </div>
       <div class="item-list-details">
+        ${detailsCategoryRowHtml}
         ${renderLevelRow(item)}
         ${renderRarityRow(item)}
         ${renderSpeedRow(item)}
@@ -587,10 +596,6 @@ function renderListView(items, container, packageMap) {
         ${renderItemNotes(item)}
       </div>
     `;
-
-    row.setAttribute('tabindex', '0');
-    row.setAttribute('role', 'button');
-    row.setAttribute('aria-expanded', 'false');
 
     row.querySelectorAll('.item-category-btn').forEach(categoryButton => {
       categoryButton.addEventListener('click', event => {
@@ -615,6 +620,7 @@ function renderListView(items, container, packageMap) {
     const shareAction = row.querySelector('[data-action="share"]');
     const announceAction = row.querySelector('[data-action="announce"]');
     const reportPriceAction = row.querySelector('[data-action="report-price"]');
+    const expandToggle = row.querySelector('.item-list-expand-toggle');
     if (actionsToggle) {
       actionsToggle.addEventListener('click', event => {
         event.preventDefault();
@@ -664,16 +670,20 @@ function renderListView(items, container, packageMap) {
       });
     });
 
-    row.addEventListener('click', () => {
-      const willExpand = !row.classList.contains('expanded');
-      setExpandedListRow(row, willExpand);
-    });
-    row.addEventListener('keydown', event => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      event.preventDefault();
-      const willExpand = !row.classList.contains('expanded');
-      setExpandedListRow(row, willExpand);
-    });
+    if (expandToggle) {
+      expandToggle.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        const willExpand = !row.classList.contains('expanded');
+        setExpandedListRow(row, willExpand);
+      });
+      expandToggle.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        const willExpand = !row.classList.contains('expanded');
+        setExpandedListRow(row, willExpand);
+      });
+    }
 
     container.appendChild(row);
   });
@@ -683,11 +693,13 @@ function setExpandedListRow(row, shouldExpand) {
   if (!row) return;
   document.querySelectorAll('.item-list-row.expanded').forEach(otherRow => {
     otherRow.classList.remove('expanded');
-    otherRow.setAttribute('aria-expanded', 'false');
+    const otherToggle = otherRow.querySelector('.item-list-expand-toggle');
+    if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
   });
   if (shouldExpand) {
     row.classList.add('expanded');
-    row.setAttribute('aria-expanded', 'true');
+    const rowToggle = row.querySelector('.item-list-expand-toggle');
+    if (rowToggle) rowToggle.setAttribute('aria-expanded', 'true');
   }
 }
 
