@@ -89,7 +89,9 @@ const I18N = {
     resultsCountLabel: '{shown} de {total} itens',
     noteSearchHintLabel: 'Usar esta nota na busca',
     quickLinkCommunityLabel: 'Comunidade',
-    quickLinkShirtLabel: 'Camisa oficial'
+    quickLinkShirtLabel: 'Camisa oficial',
+    sortUpdatedDesc: 'Atualizado em (mais recente)',
+    sortUpdatedAsc: 'Atualizado em (mais antigo)'
   },
   en: {
     subtitlePrefix: 'Item catalog for',
@@ -140,7 +142,9 @@ const I18N = {
     resultsCountLabel: '{shown} of {total} items',
     noteSearchHintLabel: 'Use this note in search',
     quickLinkCommunityLabel: 'Community',
-    quickLinkShirtLabel: 'Official shirt'
+    quickLinkShirtLabel: 'Official shirt',
+    sortUpdatedDesc: 'Updated on (newest)',
+    sortUpdatedAsc: 'Updated on (oldest)'
   }
 };
 
@@ -1355,7 +1359,14 @@ function filterItems(options = {}) {
 
 function sortItemsForDisplay(items, sortMode = DEFAULT_SORT_MODE) {
   return [...items].sort((a, b) => {
-    if (sortMode === 'name') {
+    // Novas opções de ordenação por data
+    if (sortMode === 'updated-desc') {
+      const dateCompare = compareItemsByDate(a, b, 'desc');
+      if (dateCompare !== 0) return dateCompare;
+    } else if (sortMode === 'updated-asc') {
+      const dateCompare = compareItemsByDate(a, b, 'asc');
+      if (dateCompare !== 0) return dateCompare;
+    } else if (sortMode === 'name') {
       const nameCompare = compareItemsByName(a, b);
       if (nameCompare !== 0) return nameCompare;
     } else if (sortMode === 'value-desc') {
@@ -1374,6 +1385,51 @@ function sortItemsForDisplay(items, sortMode = DEFAULT_SORT_MODE) {
 
     return String(a.id || '').localeCompare(String(b.id || ''), 'en', { sensitivity: 'base', numeric: true });
   });
+}
+
+// Nova função de comparação por data
+function compareItemsByDate(a, b, direction) {
+  const dateA = parseDate(a?.lastUpdate);
+  const dateB = parseDate(b?.lastUpdate);
+  const hasDateA = dateA !== null;
+  const hasDateB = dateB !== null;
+
+  if (hasDateA && hasDateB) {
+    if (direction === 'asc') return dateA - dateB;
+    return dateB - dateA;
+  }
+  if (hasDateA && !hasDateB) return -1; // Itens com data vêm antes
+  if (!hasDateA && hasDateB) return 1;  // Itens sem data vão depois
+  return 0;
+}
+
+// Função auxiliar para parsear datas
+function parseDate(dateStr) {
+  if (!dateStr) return null;
+  
+  // Tenta parsear formato ISO (YYYY-MM-DD)
+  if (dateStr.includes('-')) {
+    const parsed = new Date(`${dateStr}T00:00:00`);
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed.getTime();
+    }
+  }
+  
+  // Tenta parsear formato brasileiro (DD/MM/YYYY)
+  if (dateStr.includes('/')) {
+    const parts = dateStr.split('/');
+    if (parts.length === 3) {
+      const day = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10) - 1;
+      const year = parseInt(parts[2], 10);
+      const parsed = new Date(year, month, day);
+      if (!Number.isNaN(parsed.getTime())) {
+        return parsed.getTime();
+      }
+    }
+  }
+  
+  return null;
 }
 
 function compareItemsByName(a, b) {
