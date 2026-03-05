@@ -24,10 +24,10 @@ const CATEGORY_SORT_INDEX = CATEGORY_DISPLAY_ORDER.reduce((accumulator, key, ind
 }, Object.create(null));
 const CATEGORY_LABELS = {
   All: { 'pt-BR': 'Todas as categorias', en: 'All categories' },
-  TreeCutters: { 'pt-BR': 'Cortadores de ¡rvores', en: 'Tree Cutters' },
+  TreeCutters: { 'pt-BR': 'Cortadores de √Årvores', en: 'Tree Cutters' },
   Tractors: { 'pt-BR': 'Tratores', en: 'Tractors' },
   Harvesters: { 'pt-BR': 'Colheitadeiras', en: 'Harvesters' },
-  Trucks: { 'pt-BR': 'Caminhıes', en: 'Trucks' },
+  Trucks: { 'pt-BR': 'Caminh√µes', en: 'Trucks' },
   Trailers: { 'pt-BR': 'Reboques', en: 'Trailers' },
   Plows: { 'pt-BR': 'Arados', en: 'Plows' },
   Cultivators: { 'pt-BR': 'Cultivadores', en: 'Cultivators' },
@@ -41,7 +41,7 @@ let currentViewMode = 'grid';
 
 const I18N = {
   'pt-BR': {
-    subtitlePrefix: 'Catalogo de Itens do',
+    subtitlePrefix: 'Cat√°logo de Itens do',
     searchPlaceholder: 'Buscar por nome do item ou pacote...',
     clearSearchLabel: 'Limpar busca',
     levelLabel: 'Level',
@@ -54,11 +54,11 @@ const I18N = {
     rarityTier2: 'Incomum',
     rarityTier3: 'Raro',
     rarityTier4: 'Muito raro',
-    rarityTier5: 'Lend·rio',
+    rarityTier5: 'Lend√°rio',
     averageValueLabel: 'Valor',
     suggestedValueLabel: 'Valor sugerido',
     suggestedValueInfoLabel: 'Sobre valor sugerido',
-    suggestedValueTooltip: 'Estes preÁos s„o apenas uma sugest„o (n„o s„o oficiais!). Para chegar nesse valor, analisamos v·rios preÁos informados pela comunidade nas trocas entre jogadores e calculamos um valor mÈdio mais justo. Lembre-se de que os valores podem mudar com o tempo, ent„o use isso apenas como uma ajudinha na hora de fazer sua troca! Como referÍncia pr·tica, uma negociaÁ„o pode variar cerca de 15% para cima ou para baixo.',
+    suggestedValueTooltip: 'Estes pre√ßos s√£o apenas uma sugest√£o (n√£o s√£o oficiais!). Para chegar nesse valor, analisamos v√°rios pre√ßos informados pela comunidade nas trocas entre jogadores e calculamos um valor m√©dio mais justo. Lembre-se de que os valores podem mudar com o tempo, ent√£o use isso apenas como uma ajudinha na hora de fazer sua troca! Como refer√™ncia pr√°tica, uma negocia√ß√£o pode variar cerca de 15% para cima ou para baixo.',
     relatedLabel: 'Relacionados',
     updatedAtLabel: 'Atualizado em',
     itemsSuffix: 'itens',
@@ -68,24 +68,24 @@ const I18N = {
     cardHintLabel: 'Ver mais detalhes',
     shareButtonLabel: 'Compartilhar este item',
     shareCopiedLabel: 'Link copiado',
-    moreActionsLabel: 'Mais aÁıes',
-    itemActionsMenuLabel: 'OpÁıes do item',
+    moreActionsLabel: 'Mais a√ß√µes',
+    itemActionsMenuLabel: 'Op√ß√µes do item',
     announceItemLabel: 'Tenho interesse',
     announceSoonLabel: 'Em breve',
-    reportPriceLabel: 'Informar preÁo negociado',
+    reportPriceLabel: 'Informar pre√ßo negociado',
     reportSoonLabel: 'Em breve',
     sortByLabel: 'Ordenar',
-    sortFilterAriaLabel: 'OrdenaÁ„o',
-    viewModeLabel: 'VisualizaÁ„o',
-    viewModeFilterAriaLabel: 'Modo de visualizaÁ„o',
+    sortFilterAriaLabel: 'Ordena√ß√£o',
+    viewModeLabel: 'Visualiza√ß√£o',
+    viewModeFilterAriaLabel: 'Modo de visualiza√ß√£o',
     viewModeGrid: 'Grade',
     viewModeList: 'Lista',
     sortCategoryName: 'Categoria + nome',
     sortName: 'Nome',
-    sortValueDesc: 'Maior preÁo primeiro',
-    sortValueAsc: 'Menor preÁo primeiro',
+    sortValueDesc: 'Maior pre√ßo primeiro',
+    sortValueAsc: 'Menor pre√ßo primeiro',
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
-    noItemsInCatalog: 'Nenhum item disponivel no catalogo.',
+    noItemsInCatalog: 'Nenhum item dispon√≠vel no cat√°logo.',
     resultsCountLabel: '{shown} de {total} itens',
     noteSearchHintLabel: 'Usar esta nota na busca',
     quickLinkCommunityLabel: 'Comunidade',
@@ -1259,7 +1259,7 @@ function getSpeedSummary(value, min, max) {
 
 function getRaritySummary(value, max) {
   const tierLabel = getRarityTierLabel(value, max);
-  return tierLabel ? `${value}/${max} ∑ ${tierLabel}` : `${value}/${max}`;
+  return tierLabel ? `${value}/${max} ‚Ä¢ ${tierLabel}` : `${value}/${max}`;
 }
 
 function getRarityTierLabel(value, max) {
@@ -1555,11 +1555,3 @@ function handleScrollUiState() {
 
   lastScrollY = y;
 }
-
-
-
-
-
-
-
-
