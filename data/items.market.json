@@ -34,9 +34,7 @@
             "robux": null
         },
         "falcon-utility": {
-            "history": [
-                35000000
-            ],
+            "history": [],
             "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
@@ -220,9 +218,7 @@
             "robux": 120
         },
         "falcon-x": {
-            "history": [
-                1750000000
-            ],
+            "history": [],
             "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
@@ -253,9 +249,7 @@
             "robux": null
         },
         "falcon-pickup": {
-            "history": [
-                70000000
-            ],
+            "history": [],
             "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
