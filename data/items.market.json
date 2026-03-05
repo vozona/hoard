@@ -5,7 +5,7 @@
             "history": [
                 15000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -13,7 +13,7 @@
             "history": [
                 10000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -21,25 +21,31 @@
             "history": [
                 55000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "nsh": {
-            "history": [],
-            "lastUpdate": "2026-03-03",
+            "history": [
+                15000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
         "falcon-utility": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                35000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
         "claas-xerion-5000": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                22000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": 160
         },
@@ -47,7 +53,7 @@
             "history": [
                 355000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -55,7 +61,7 @@
             "history": [
                 67000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -72,7 +78,7 @@
             "history": [
                 21000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -80,7 +86,7 @@
             "history": [
                 12000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -88,7 +94,7 @@
             "history": [
                 70000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -96,7 +102,7 @@
             "history": [
                 40000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -104,15 +110,15 @@
             "history": [
                 66000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "maltex-c4500-global": {
             "history": [
-                5000000
+                4500000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -120,7 +126,7 @@
             "history": [
                 25000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -128,7 +134,7 @@
             "history": [
                 51000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -136,19 +142,23 @@
             "history": [
                 18000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "rusty-tractor": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                9500000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": 55
         },
         "fordson": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                17000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": 150
         },
@@ -156,7 +166,7 @@
             "history": [
                 66000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -164,7 +174,7 @@
             "history": [
                 50000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -172,13 +182,15 @@
             "history": [
                 50000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "er80t": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                18000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": 150
         },
@@ -186,7 +198,7 @@
             "history": [
                 40000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -194,7 +206,7 @@
             "history": [
                 67500000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -202,13 +214,15 @@
             "history": [
                 15000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": 120
         },
         "falcon-x": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                220000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
@@ -216,7 +230,7 @@
             "history": [
                 65000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -224,7 +238,7 @@
             "history": [
                 44000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -232,13 +246,15 @@
             "history": [
                 47500000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "falcon-pickup": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                70000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
@@ -246,7 +262,7 @@
             "history": [
                 25000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -254,7 +270,7 @@
             "history": [
                 55000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -262,7 +278,7 @@
             "history": [
                 70000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -270,13 +286,15 @@
             "history": [
                 180000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "automatic-flatbed": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                850000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
@@ -284,7 +302,7 @@
             "history": [
                 140000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -292,7 +310,7 @@
             "history": [
                 20000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -300,7 +318,7 @@
             "history": [
                 21000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -308,7 +326,7 @@
             "history": [
                 46500000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -316,7 +334,7 @@
             "history": [
                 49000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -324,7 +342,7 @@
             "history": [
                 72500000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -332,13 +350,15 @@
             "history": [
                 36500000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "claas-790": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": 255
         },
@@ -346,7 +366,7 @@
             "history": [
                 45000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -354,19 +374,23 @@
             "history": [
                 20000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "sled": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                3000000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
         "chainsaw": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                9500000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
@@ -374,7 +398,7 @@
             "history": [
                 55000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -382,7 +406,7 @@
             "history": [
                 42000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -390,7 +414,7 @@
             "history": [
                 35000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -398,13 +422,15 @@
             "history": [
                 18000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "sl-medium": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                1300000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
@@ -412,7 +438,7 @@
             "history": [
                 9000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -420,7 +446,7 @@
             "history": [
                 60000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -428,13 +454,15 @@
             "history": [
                 47000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "atm-700": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                15000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": 85
         },
@@ -442,19 +470,23 @@
             "history": [
                 10000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "foxx-metal-tech-x1": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                22000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": 180
         },
         "foxx-metal-tech-p1": {
-            "history": [],
-            "lastUpdate": "2026-03-01",
+            "history": [
+                20000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": 170
         },
@@ -462,7 +494,7 @@
             "history": [
                 1520000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -470,7 +502,7 @@
             "history": [
                 83000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -478,7 +510,7 @@
             "history": [
                 45000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -486,7 +518,7 @@
             "history": [
                 49000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -494,7 +526,7 @@
             "history": [
                 80000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -502,51 +534,59 @@
             "history": [
                 48000000
             ],
-            "lastUpdate": "2026-03-02",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "efc-8300-drill": {
-            "history": [],
+            "history": [
+                5000000
+            ],
             "lastUpdate": "",
             "valueStatus": "none",
             "robux": null
         },
         "maltex-p680-ah": {
-            "history": [],
-            "lastUpdate": "2026-03-03",
+            "history": [
+                4500000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
         "candy-cane": {
             "history": [
-                280000000
+                280000000,
+                235000000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "burnt-hallowood": {
             "history": [
-                68000000
+                68000000,
+                75000000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "marshmallow": {
             "history": [
-                58000000
+                58000000,
+                55000000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "toxic-hallowood": {
             "history": [
-                43000000
+                43000000,
+                40000000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -554,7 +594,7 @@
             "history": [
                 41500000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -562,87 +602,100 @@
             "history": [
                 40000000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "balsam": {
             "history": [
-                30000000
+                30000000,
+                60000000,
+                47000000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "bamboo": {
             "history": [
-                20000000
+                20000000,
+                25000000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "woodlouse-stitch-head": {
             "history": [
-                17500000
+                17500000,
+                15000000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "shelly-stitch-head": {
             "history": [
-                8250000
+                8250000,
+                4400000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "steve-stitch-head": {
             "history": [
-                4500000
+                4500000,
+                4400000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "octochicken-stitch-head": {
             "history": [
-                4250000
+                4250000,
+                4400000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "geoff-stitch-head": {
             "history": [
-                4250000
+                4250000,
+                4400000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "holly": {
             "history": [
-                2200000
+                2200000,
+                1500000,
+                1300000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "gnarled-hallowood": {
             "history": [
-                825000
+                825000,
+                750000,
+                800000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "hallowood": {
             "history": [
-                450000
+                450000,
+                330000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
@@ -650,34 +703,41 @@
             "history": [
                 200000
             ],
-            "lastUpdate": "2026-03-03",
+            "lastUpdate": "2026-03-05",
             "valueStatus": "known",
             "robux": null
         },
         "alien-tentacles": {
             "history": [
                 160000,
-                250000
+                250000,
+                230000
             ],
             "lastUpdate": "2026-03-04",
             "valueStatus": "known",
             "robux": null
         },
         "actives7": {
-            "history": [],
-            "lastUpdate": "2026-03-03",
+            "history": [
+                33000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
         "na-cr10": {
-            "history": [],
-            "lastUpdate": "2026-03-03",
+            "history": [
+                580000000
+        ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         },
         "vintage-harvester": {
-            "history": [],
-            "lastUpdate": "2026-03-03",
+            "history": [
+                225000000
+            ],
+            "lastUpdate": "2026-03-05",
             "valueStatus": "none",
             "robux": null
         }

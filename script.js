@@ -1,6 +1,7 @@
-ï»¿const ALL_CATEGORY_VALUE = 'All';
+const ALL_CATEGORY_VALUE = 'All';
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
 const VIEW_MODE_STORAGE_KEY = 'safrabr_view_mode';
+const DEFAULT_SORT_MODE = 'category-name';
 const ACTION_FORM_LINKS = {
   announce: '',
   reportPrice: ''
@@ -23,10 +24,10 @@ const CATEGORY_SORT_INDEX = CATEGORY_DISPLAY_ORDER.reduce((accumulator, key, ind
 }, Object.create(null));
 const CATEGORY_LABELS = {
   All: { 'pt-BR': 'Todas as categorias', en: 'All categories' },
-  TreeCutters: { 'pt-BR': 'Cortadores de Ãrvores', en: 'Tree Cutters' },
+  TreeCutters: { 'pt-BR': 'Cortadores de Árvores', en: 'Tree Cutters' },
   Tractors: { 'pt-BR': 'Tratores', en: 'Tractors' },
   Harvesters: { 'pt-BR': 'Colheitadeiras', en: 'Harvesters' },
-  Trucks: { 'pt-BR': 'CaminhÃµes', en: 'Trucks' },
+  Trucks: { 'pt-BR': 'Caminhões', en: 'Trucks' },
   Trailers: { 'pt-BR': 'Reboques', en: 'Trailers' },
   Plows: { 'pt-BR': 'Arados', en: 'Plows' },
   Cultivators: { 'pt-BR': 'Cultivadores', en: 'Cultivators' },
@@ -53,11 +54,11 @@ const I18N = {
     rarityTier2: 'Incomum',
     rarityTier3: 'Raro',
     rarityTier4: 'Muito raro',
-    rarityTier5: 'LendÃ¡rio',
+    rarityTier5: 'Lendário',
     averageValueLabel: 'Valor',
     suggestedValueLabel: 'Valor sugerido',
     suggestedValueInfoLabel: 'Sobre valor sugerido',
-    suggestedValueTooltip: 'Estes preÃ§os sÃ£o apenas uma sugestÃ£o (nÃ£o sÃ£o oficiais!). Para chegar nesse valor, analisamos vÃ¡rios preÃ§os informados pela comunidade nas trocas entre jogadores e calculamos um valor mÃ©dio mais justo. Lembre-se de que os valores podem mudar com o tempo, entÃ£o use isso apenas como uma ajudinha na hora de fazer sua troca! Como referÃªncia prÃ¡tica, uma negociaÃ§Ã£o pode variar cerca de 15% para cima ou para baixo.',
+    suggestedValueTooltip: 'Estes preços são apenas uma sugestão (não são oficiais!). Para chegar nesse valor, analisamos vários preços informados pela comunidade nas trocas entre jogadores e calculamos um valor médio mais justo. Lembre-se de que os valores podem mudar com o tempo, então use isso apenas como uma ajudinha na hora de fazer sua troca! Como referência prática, uma negociação pode variar cerca de 15% para cima ou para baixo.',
     relatedLabel: 'Relacionados',
     updatedAtLabel: 'Atualizado em',
     itemsSuffix: 'itens',
@@ -67,22 +68,22 @@ const I18N = {
     cardHintLabel: 'Ver mais detalhes',
     shareButtonLabel: 'Compartilhar este item',
     shareCopiedLabel: 'Link copiado',
-    moreActionsLabel: 'Mais aÃ§Ãµes',
-    itemActionsMenuLabel: 'OpÃ§Ãµes do item',
+    moreActionsLabel: 'Mais ações',
+    itemActionsMenuLabel: 'Opções do item',
     announceItemLabel: 'Tenho interesse',
     announceSoonLabel: 'Em breve',
-    reportPriceLabel: 'Informar preÃ§o negociado',
+    reportPriceLabel: 'Informar preço negociado',
     reportSoonLabel: 'Em breve',
     sortByLabel: 'Ordenar',
-    sortFilterAriaLabel: 'OrdenaÃ§Ã£o',
-    viewModeLabel: 'VisualizaÃ§Ã£o',
-    viewModeFilterAriaLabel: 'Modo de visualizaÃ§Ã£o',
+    sortFilterAriaLabel: 'Ordenação',
+    viewModeLabel: 'Visualização',
+    viewModeFilterAriaLabel: 'Modo de visualização',
     viewModeGrid: 'Grade',
     viewModeList: 'Lista',
     sortCategoryName: 'Categoria + nome',
     sortName: 'Nome',
-    sortValueDesc: 'Maior preÃ§o primeiro',
-    sortValueAsc: 'Menor preÃ§o primeiro',
+    sortValueDesc: 'Maior preço primeiro',
+    sortValueAsc: 'Menor preço primeiro',
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
     noItemsInCatalog: 'Nenhum item disponivel no catalogo.',
     resultsCountLabel: '{shown} de {total} itens',
@@ -158,8 +159,10 @@ Promise.all([
     const marketMap = parseMarketData(marketData);
 
     allItems = rawItems.map(item => normalizeItem(item, marketMap[item.id] || {}));
+    applyCatalogStateFromUrl();
     applyInterfaceLanguage();
-    filterItems();
+    updateClearSearchVisibility();
+    filterItems({ syncUrl: false });
     openItemFromUrl();
   })
   .catch(() => {
@@ -718,6 +721,53 @@ function getItemIdFromUrl() {
   return value ? value.trim() : '';
 }
 
+function applyCatalogStateFromUrl() {
+  const params = new URLSearchParams(window.location.search || '');
+  const searchInput = document.getElementById('searchInput');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const specialFilter = document.getElementById('specialFilter');
+  const sortFilter = document.getElementById('sortFilter');
+  const viewModeFilter = document.getElementById('viewModeFilter');
+
+  const requestedSearch = firstNonEmptyText([params.get('q')]);
+  if (searchInput && requestedSearch) {
+    searchInput.value = requestedSearch;
+  }
+
+  const requestedCategory = firstNonEmptyText([params.get('cat')]);
+  if (categoryFilter && requestedCategory && hasSelectOptionValue(categoryFilter, requestedCategory)) {
+    categoryFilter.value = requestedCategory;
+  }
+
+  const requestedSpecial = firstNonEmptyText([params.get('sp')]).toLowerCase();
+  if (specialFilter && requestedSpecial) {
+    specialFilter.checked = requestedSpecial === '1' || requestedSpecial === 'true';
+  }
+
+  const requestedSort = firstNonEmptyText([params.get('sort')]);
+  if (sortFilter && requestedSort && hasSelectOptionValue(sortFilter, requestedSort)) {
+    sortFilter.value = requestedSort;
+  }
+
+  const requestedView = firstNonEmptyText([params.get('view')]);
+  if (requestedView === 'list' || requestedView === 'grid') {
+    currentViewMode = requestedView;
+    if (viewModeFilter) viewModeFilter.value = requestedView;
+    localStorage.setItem(VIEW_MODE_STORAGE_KEY, requestedView);
+  }
+
+  const requestedLanguage = firstNonEmptyText([params.get('lang')]);
+  if (requestedLanguage && I18N[requestedLanguage]) {
+    currentLanguage = requestedLanguage;
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+  }
+}
+
+function hasSelectOptionValue(selectElement, value) {
+  if (!selectElement) return false;
+  return Array.from(selectElement.options).some(option => option.value === value);
+}
+
 function findItemById(itemId) {
   const normalizedId = String(itemId || '').toLowerCase();
   return allItems.find(item => String(item.id || '').toLowerCase() === normalizedId) || null;
@@ -1084,6 +1134,40 @@ function buildItemShareUrl(itemId) {
   return url.toString();
 }
 
+function syncCatalogStateToUrl() {
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+  const search = firstNonEmptyText([document.getElementById('searchInput')?.value]);
+  const category = document.getElementById('categoryFilter')?.value || ALL_CATEGORY_VALUE;
+  const specialOnly = document.getElementById('specialFilter')?.checked;
+  const sortMode = document.getElementById('sortFilter')?.value || DEFAULT_SORT_MODE;
+  const viewMode = getSelectedViewMode();
+
+  if (search) params.set('q', search);
+  else params.delete('q');
+
+  if (category && category !== ALL_CATEGORY_VALUE) params.set('cat', category);
+  else params.delete('cat');
+
+  if (specialOnly === false) params.set('sp', '0');
+  else params.delete('sp');
+
+  if (sortMode && sortMode !== DEFAULT_SORT_MODE) params.set('sort', sortMode);
+  else params.delete('sort');
+
+  if (viewMode === 'list') params.set('view', 'list');
+  else params.delete('view');
+
+  if (currentLanguage && currentLanguage !== 'pt-BR') params.set('lang', currentLanguage);
+  else params.delete('lang');
+
+  const nextUrl = `${url.pathname}${params.toString() ? `?${params.toString()}` : ''}${url.hash || ''}`;
+  const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (nextUrl !== currentUrl) {
+    window.history.replaceState(null, '', nextUrl);
+  }
+}
+
 async function copyTextToClipboard(text) {
   if (!text) return false;
 
@@ -1175,7 +1259,7 @@ function getSpeedSummary(value, min, max) {
 
 function getRaritySummary(value, max) {
   const tierLabel = getRarityTierLabel(value, max);
-  return tierLabel ? `${value}/${max} Â· ${tierLabel}` : `${value}/${max}`;
+  return tierLabel ? `${value}/${max} · ${tierLabel}` : `${value}/${max}`;
 }
 
 function getRarityTierLabel(value, max) {
@@ -1248,11 +1332,12 @@ function toNumberOrNull(value) {
   return Number.isNaN(numeric) ? null : numeric;
 }
 
-function filterItems() {
+function filterItems(options = {}) {
+  const shouldSyncUrl = options.syncUrl !== false;
   const search = document.getElementById('searchInput').value;
   const category = document.getElementById('categoryFilter').value;
   const specialOnly = document.getElementById('specialFilter').checked;
-  const sortMode = document.getElementById('sortFilter')?.value || 'category-name';
+  const sortMode = document.getElementById('sortFilter')?.value || DEFAULT_SORT_MODE;
 
   const filtered = allItems.filter(item => {
     const matchSearch = itemMatchesSearch(item, search);
@@ -1261,10 +1346,14 @@ function filterItems() {
     return matchSearch && matchCategory && matchSpecial;
   });
 
+  if (shouldSyncUrl) {
+    syncCatalogStateToUrl();
+  }
+
   renderItems(sortItemsForDisplay(filtered, sortMode));
 }
 
-function sortItemsForDisplay(items, sortMode = 'category-name') {
+function sortItemsForDisplay(items, sortMode = DEFAULT_SORT_MODE) {
   return [...items].sort((a, b) => {
     if (sortMode === 'name') {
       const nameCompare = compareItemsByName(a, b);
@@ -1417,6 +1506,8 @@ function updateClearSearchVisibility() {
 
 const backToTopBtn = document.getElementById('backToTopBtn');
 const controlsSearch = document.querySelector('.controls-search');
+let lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+let isSearchFloatingVisible = false;
 
 if (backToTopBtn) {
   backToTopBtn.addEventListener('click', () => {
@@ -1425,6 +1516,7 @@ if (backToTopBtn) {
 }
 
 window.addEventListener('scroll', handleScrollUiState, { passive: true });
+window.addEventListener('resize', handleScrollUiState, { passive: true });
 document.addEventListener('click', () => {
   closeAllItemActionMenus();
   closeAllValueTooltips();
@@ -1439,6 +1531,10 @@ handleScrollUiState();
 
 function handleScrollUiState() {
   const y = window.scrollY || document.documentElement.scrollTop || 0;
+  const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const canUseFloatingSearch = maxScrollY > 220;
+  const scrollingUp = y < lastScrollY - 2;
+  const scrollingDown = y > lastScrollY + 2;
   const showFloatingUi = y > 240;
 
   if (backToTopBtn) {
@@ -1446,7 +1542,24 @@ function handleScrollUiState() {
   }
 
   if (controlsSearch) {
-    controlsSearch.classList.toggle('is-sticky', y > 120);
+    if (!canUseFloatingSearch || y <= 140) {
+      isSearchFloatingVisible = false;
+    } else if (scrollingUp) {
+      isSearchFloatingVisible = true;
+    } else if (scrollingDown) {
+      isSearchFloatingVisible = false;
+    }
+
+    controlsSearch.classList.toggle('is-sticky', isSearchFloatingVisible);
   }
+
+  lastScrollY = y;
 }
+
+
+
+
+
+
+
 
