@@ -52,10 +52,10 @@
             }
         },
         {
-            "id": "4204",
+            "id": "s4204",
             "display": {
-                "name": "4204",
-                "image": "img/4204.jpg"
+                "name": "s4204",
+                "image": "img/s4204.jpg"
             },
             "classification": {
                 "level": 1,
@@ -212,7 +212,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Christmas Pack"
+            "notes": "ChristmasPack"
         },
         {
             "id": "src6",
@@ -1329,10 +1329,10 @@
             }
         },
         {
-            "id": "r350-flatdeb",
+            "id": "r350-flatbed",
             "display": {
-                "name": "R350 Flatdeb",
-                "image": "img/r350-flatdeb.jpg"
+                "name": "R350 Flatbed",
+                "image": "img/r350-flatbed.jpg"
             },
             "classification": {
                 "level": 3,
@@ -1977,7 +1977,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Christmas Pack"
+            "notes": "ChristmasPack"
         },
         {
             "id": "na-cr10",
@@ -2091,7 +2091,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Christmas Pack"
+            "notes": "ChristmasPack"
         },
         {
             "id": "vertra",
@@ -2214,12 +2214,12 @@
                 "image": "img/sled.jpg"
             },
             "classification": {
-                "level": 0,
+                "level": 1,
                 "category": "Trailers",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "5"
             },
             "access": {
                 "special": true
@@ -2960,12 +2960,12 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "2"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Truck N' Trailer's Pack"
         },
         {
             "id": "small-log-hauler",
@@ -2980,6 +2980,25 @@
                 "speedMin": "",
                 "speedMax": null,
                 "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "insul-animal-trailer",
+            "display": {
+                "name": "Insul Animal Trailer",
+                "image": "img/insul-animal-trailer.jpg"
+            },
+            "classification": {
+                "level": 3,
+                "category": "Trailers",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "4"
             },
             "access": {
                 "special": true
@@ -3041,7 +3060,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Christmas Pack"
+            "notes": "ChristmasPack"
         },
         {
             "id": "zalter-s-270",
@@ -3079,7 +3098,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Christmas Pack"
+            "notes": "ChristmasPack"
         },
         {
             "id": "mega-baler",
@@ -3108,12 +3127,42 @@
             },
             "classification": {
                 "category": "Misc",
-                "rarity": ""
+                "rarity": "3.5"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Legacy items (replaced or removed)"
+        },
+        {
+            "id": "shears",
+            "display": {
+                "name": "Shears",
+                "image": "img/shears.jpg"
+            },
+            "classification": {
+                "category": "Misc",
+                "rarity": "3"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Legacy items (replaced or removed)"
+        },
+        {
+            "id": "sour-milk",
+            "display": {
+                "name": "Sour milk",
+                "image": "img/sour-milk.jpg"
+            },
+            "classification": {
+                "category": "Misc",
+                "rarity": "4"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Legacy items (replaced or removed)"
         },
         {
             "id": "candy-cane",
@@ -3228,7 +3277,7 @@
             },
             "classification": {
                 "category": "SeedBoxes",
-                "rarity": ""
+                "rarity": "3.5"
             },
             "access": {
                 "special": true
