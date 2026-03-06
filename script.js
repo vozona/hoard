@@ -81,17 +81,21 @@ const I18N = {
     viewModeGrid: 'Grade',
     viewModeList: 'Lista',
     sortName: 'Nome',
-    sortCategoryName: 'Categoria e nome',
-    sortValueAsc: 'Menor preço primeiro',
-    sortValueDesc: 'Maior preço primeiro',
+    sortCategoryName: 'Categoria e Nome',
+    sortValueAsc: 'Menor Preço',
+    sortValueDesc: 'Maior Preço',
+    sortLevelAsc: 'Menor Level',
+    sortLevelDesc: 'Maior Level',
+    sortRarityAsc: 'Menor Raridade',
+    sortRarityDesc: 'Maior Raridade',
+    sortUpdatedDesc: 'Menos Atualizado',
+    sortUpdatedAsc: 'Mais Atualizado',
     noItemsFound: 'Nenhum item encontrado. Ajuste sua busca ou filtros.',
     noItemsInCatalog: 'Nenhum item disponível no catálogo.',
     resultsCountLabel: '{shown} de {total} itens',
     noteSearchHintLabel: 'Usar esta nota na busca',
     quickLinkCommunityLabel: 'Comunidade',
-    quickLinkShirtLabel: 'Camisa oficial',
-    sortUpdatedDesc: 'Atualizado em (mais recente)',
-    sortUpdatedAsc: 'Atualizado em (mais antigo)'
+    quickLinkShirtLabel: 'Camisa oficial'
   },
   en: {
     subtitlePrefix: 'Item catalog for',
@@ -135,16 +139,20 @@ const I18N = {
     viewModeList: 'List',
     sortName: 'Name',
     sortCategoryName: 'Category and name',
-    sortValueAsc: 'Lowest price first',
-    sortValueDesc: 'Highest price first',
+    sortValueAsc: 'Lowest Price',
+    sortValueDesc: 'Highest Price',
+    sortLevelAsc: 'Lowest Level',
+    sortLevelDesc: 'Highest Level',
+    sortRarityAsc: 'Lowest Rarity',
+    sortRarityDesc: 'Highest Rarity',
+    sortUpdatedDesc: 'Less Updated',
+    sortUpdatedAsc: 'More Updated',
     noItemsFound: 'No items found. Try adjusting your search or filters.',
     noItemsInCatalog: 'No items available in the catalog.',
     resultsCountLabel: '{shown} of {total} items',
     noteSearchHintLabel: 'Use this note in search',
     quickLinkCommunityLabel: 'Community',
-    quickLinkShirtLabel: 'Official shirt',
-    sortUpdatedDesc: 'Updated on (newest)',
-    sortUpdatedAsc: 'Updated on (oldest)'
+    quickLinkShirtLabel: 'Official shirt'
   }
 };
 
@@ -555,9 +563,16 @@ function renderListView(items, container, packageMap) {
     const categoryLabel = hasCategoryKey
       ? getCategoryLabel(item.categoryKey)
       : firstNonEmptyText([item.category, '-']);
-    const categoryValueHtml = hasCategoryKey
+    
+    // Modificação: Criar duas versões da categoria - uma para visualização normal e outra para expandida
+    const categoryValueNormal = hasCategoryKey
+      ? `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`
+      : `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`;
+    
+    const categoryValueExpanded = hasCategoryKey
       ? `<button type="button" class="item-category-btn item-category-btn--inline" data-category-key="${escapeHtml(item.categoryKey)}" title="${escapeHtml(t('categoryFilterHintLabel'))}" aria-label="${escapeHtml(t('categoryFilterHintLabel'))}">${escapeHtml(categoryLabel)}</button>`
       : `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`;
+    
     const valueLabel = item.valueSource === 'market' ? t('suggestedValueLabel') : t('averageValueLabel');
     const valueDisplay = item.value !== null ? escapeHtml(formatPrice(item.value)) : '-';
     const updatedAtDate = item.lastUpdate ? escapeHtml(formatDate(item.lastUpdate)) : '';
@@ -572,7 +587,10 @@ function renderListView(items, container, packageMap) {
         <h3 class="item-list-name">${escapeHtml(item.name)}</h3>
         <div class="item-list-meta">
           <span class="item-list-meta-label">${t('categoryLabel')}</span>
-          ${categoryValueHtml}
+          <!-- Versão normal (não expandida) -->
+          <span class="category-normal">${categoryValueNormal}</span>
+          <!-- Versão expandida (inicialmente oculta) -->
+          <span class="category-expanded" style="display: none;">${categoryValueExpanded}</span>
         </div>
       </div>
       <div class="item-list-value">
@@ -608,6 +626,7 @@ function renderListView(items, container, packageMap) {
         applyCategoryFilter(categoryKey);
       });
     });
+    
     row.querySelectorAll('.item-note-btn').forEach(noteButton => {
       noteButton.addEventListener('click', event => {
         event.preventDefault();
@@ -617,11 +636,13 @@ function renderListView(items, container, packageMap) {
         applyNoteSearchQuery(query);
       });
     });
+    
     const actionsToggle = row.querySelector('.item-actions-toggle');
     const actionsMenu = row.querySelector('.item-actions-menu');
     const shareAction = row.querySelector('[data-action="share"]');
     const announceAction = row.querySelector('[data-action="announce"]');
     const reportPriceAction = row.querySelector('[data-action="report-price"]');
+    
     if (actionsToggle) {
       actionsToggle.addEventListener('click', event => {
         event.preventDefault();
@@ -632,11 +653,13 @@ function renderListView(items, container, packageMap) {
         actionsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
       });
     }
+    
     if (actionsMenu) {
       actionsMenu.addEventListener('click', event => {
         event.stopPropagation();
       });
     }
+    
     if (shareAction) {
       shareAction.addEventListener('click', event => {
         event.preventDefault();
@@ -644,6 +667,7 @@ function renderListView(items, container, packageMap) {
         handleShareClick(item, shareAction);
       });
     }
+    
     if (announceAction) {
       announceAction.addEventListener('click', event => {
         event.preventDefault();
@@ -651,6 +675,7 @@ function renderListView(items, container, packageMap) {
         handleAnnounceClick(item, announceAction);
       });
     }
+    
     if (reportPriceAction) {
       reportPriceAction.addEventListener('click', event => {
         event.preventDefault();
@@ -658,6 +683,7 @@ function renderListView(items, container, packageMap) {
         handleReportPriceClick(item, reportPriceAction);
       });
     }
+    
     row.querySelectorAll('.value-info-btn').forEach(valueInfoButton => {
       valueInfoButton.addEventListener('click', event => {
         event.preventDefault();
@@ -674,12 +700,39 @@ function renderListView(items, container, packageMap) {
     row.addEventListener('click', () => {
       const willExpand = !row.classList.contains('expanded');
       setExpandedListRow(row, willExpand);
+      
+      // Modificação: Alternar entre versão normal e expandida da categoria
+      const categoryNormal = row.querySelector('.category-normal');
+      const categoryExpanded = row.querySelector('.category-expanded');
+      if (categoryNormal && categoryExpanded) {
+        if (willExpand) {
+          categoryNormal.style.display = 'none';
+          categoryExpanded.style.display = 'inline';
+        } else {
+          categoryNormal.style.display = 'inline';
+          categoryExpanded.style.display = 'none';
+        }
+      }
     });
+    
     row.addEventListener('keydown', event => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
       const willExpand = !row.classList.contains('expanded');
       setExpandedListRow(row, willExpand);
+      
+      // Modificação: Alternar entre versão normal e expandida da categoria
+      const categoryNormal = row.querySelector('.category-normal');
+      const categoryExpanded = row.querySelector('.category-expanded');
+      if (categoryNormal && categoryExpanded) {
+        if (willExpand) {
+          categoryNormal.style.display = 'none';
+          categoryExpanded.style.display = 'inline';
+        } else {
+          categoryNormal.style.display = 'inline';
+          categoryExpanded.style.display = 'none';
+        }
+      }
     });
 
     container.appendChild(row);
@@ -1359,6 +1412,24 @@ function filterItems(options = {}) {
 
 function sortItemsForDisplay(items, sortMode = DEFAULT_SORT_MODE) {
   return [...items].sort((a, b) => {
+    // Novas opções de ordenação por level
+    if (sortMode === 'level-desc') {
+      const levelCompare = compareItemsByLevel(a, b, 'desc');
+      if (levelCompare !== 0) return levelCompare;
+    } else if (sortMode === 'level-asc') {
+      const levelCompare = compareItemsByLevel(a, b, 'asc');
+      if (levelCompare !== 0) return levelCompare;
+    }
+    
+    // Novas opções de ordenação por raridade
+    else if (sortMode === 'rarity-desc') {
+      const rarityCompare = compareItemsByRarity(a, b, 'desc');
+      if (rarityCompare !== 0) return rarityCompare;
+    } else if (sortMode === 'rarity-asc') {
+      const rarityCompare = compareItemsByRarity(a, b, 'asc');
+      if (rarityCompare !== 0) return rarityCompare;
+    }
+
     // Novas opções de ordenação por data
     if (sortMode === 'updated-desc') {
       const dateCompare = compareItemsByDate(a, b, 'desc');
@@ -1451,6 +1522,42 @@ function compareItemsByValue(a, b, direction) {
   if (hasValueA && !hasValueB) return -1;
   if (!hasValueA && hasValueB) return 1;
   return 0;
+}
+
+function compareItemsByLevel(a, b, direction) {
+  const levelA = toNumberOrNull(a?.level);
+  const levelB = toNumberOrNull(b?.level);
+  const hasLevelA = levelA !== null;
+  const hasLevelB = levelB !== null;
+
+  // Itens com level vêm antes de itens sem level
+  if (hasLevelA && !hasLevelB) return -1;
+  if (!hasLevelA && hasLevelB) return 1;
+  
+  // Se ambos não têm level, são considerados iguais
+  if (!hasLevelA && !hasLevelB) return 0;
+  
+  // Ordenação direcional
+  if (direction === 'asc') return levelA - levelB;
+  return levelB - levelA;
+}
+
+function compareItemsByRarity(a, b, direction) {
+  const rarityA = toNumberOrNull(a?.rarity);
+  const rarityB = toNumberOrNull(b?.rarity);
+  const hasRarityA = rarityA !== null && rarityA > 0;
+  const hasRarityB = rarityB !== null && rarityB > 0;
+
+  // Itens com raridade vêm antes de itens sem raridade
+  if (hasRarityA && !hasRarityB) return -1;
+  if (!hasRarityA && hasRarityB) return 1;
+  
+  // Se ambos não têm raridade, são considerados iguais
+  if (!hasRarityA && !hasRarityB) return 0;
+  
+  // Ordenação direcional
+  if (direction === 'asc') return rarityA - rarityB;
+  return rarityB - rarityA;
 }
 
 function getCategorySortIndex(item) {
