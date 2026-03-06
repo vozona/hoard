@@ -27,7 +27,7 @@
         },
         "nsh": {
             "history": [
-                15000000
+                12000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "none",
@@ -83,7 +83,7 @@
         },
         "swifter180": {
             "history": [
-                12000000
+                13000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -99,7 +99,7 @@
         },
         "r1950": {
             "history": [
-                40000000
+                42000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -131,7 +131,7 @@
         },
         "marley-liquid-hauler": {
             "history": [
-                51000000
+                47500000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -139,7 +139,7 @@
         },
         "r350-sd": {
             "history": [
-                18000000
+                16000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -155,7 +155,7 @@
         },
         "fordson": {
             "history": [
-                17000000
+                15000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "none",
@@ -195,7 +195,7 @@
         },
         "rc1950": {
             "history": [
-                40000000
+                33000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -256,7 +256,7 @@
         },
         "dg-ct": {
             "history": [
-                25000000
+                22000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -288,7 +288,7 @@
         },
         "automatic-flatbed": {
             "history": [
-                850000000
+                760000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "none",
@@ -344,7 +344,7 @@
         },
         "km472": {
             "history": [
-                36500000
+                35000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -376,7 +376,7 @@
         },
         "sled": {
             "history": [
-                3000000000
+                2200000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "none",
@@ -387,6 +387,22 @@
                 9500000
             ],
             "lastUpdate": "2026-03-05",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "shears": {
+            "history": [
+                3300000
+            ],
+            "lastUpdate": "2026-03-06",
+            "valueStatus": "none",
+            "robux": null
+        },
+        "sour-milk": {
+            "history": [
+                65000000
+            ],
+            "lastUpdate": "2026-03-06",
             "valueStatus": "none",
             "robux": null
         },
@@ -408,7 +424,7 @@
         },
         "rl1950": {
             "history": [
-                35000000
+                30000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -441,7 +457,7 @@
         "vintage-semi": {
             "history": [
                 50000000,
-                35000000,
+                36000000,
                 20000000
             ],
             "lastUpdate": "2026-03-05",
@@ -514,7 +530,15 @@
         },
         "small-log-hauler": {
             "history": [
-                49000000
+                55000000
+            ],
+            "lastUpdate": "2026-03-05",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "insul-animal-trailer": {
+            "history": [
+                56000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -563,7 +587,6 @@
         },
         "burnt-hallowood": {
             "history": [
-                68000000,
                 75000000
             ],
             "lastUpdate": "2026-03-05",
@@ -608,7 +631,7 @@
             "history": [
                 30000000,
                 60000000,
-                47000000
+                40000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -717,7 +740,7 @@
         },
         "actives7": {
             "history": [
-                33000000
+                35000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "none",
