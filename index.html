@@ -11,7 +11,9 @@
 </head>
 <body>
   <header>
-    <h1>Hoard SafraBr</h1>
+    <h1>
+      <a href="./" class="home-link" aria-label="Página inicial">Hoard SafraBr</a>
+    </h1>
     <p class="subtitle">
       <span data-i18n="subtitlePrefix">Catalogo de Itens do</span>
       <a href="https://www.roblox.com/pt/games/2772610559/Farming-and-Friends" target="_blank" rel="noopener noreferrer">Farming and Friends</a>
@@ -61,11 +63,15 @@
           <span data-i18n="sortByLabel">Ordenar</span>
           <select id="sortFilter" aria-label="Ordenação">
             <option value="name" data-i18n="sortName">Nome</option>
-            <option value="category-name" data-i18n="sortCategoryName" selected>Categoria e nome</option>
-            <option value="value-asc" data-i18n="sortValueAsc">Menor preço primeiro</option>
-            <option value="value-desc" data-i18n="sortValueDesc">Maior preço primeiro</option>
-            <option value="updated-desc" data-i18n="sortUpdatedDesc">Atualizado em (mais recente)</option>
-            <option value="updated-asc" data-i18n="sortUpdatedAsc">Atualizado em (mais antigo)</option>
+            <option value="category-name" data-i18n="sortCategoryName" selected>Categoria e Nome</option>
+            <option value="value-asc" data-i18n="sortValueAsc">Menor Preço</option>
+            <option value="value-desc" data-i18n="sortValueDesc">Maior Preço</option>
+            <option value="level-asc" data-i18n="sortLevelAsc">Menor Level</option>
+            <option value="level-desc" data-i18n="sortLevelDesc">Maior Level</option>
+            <option value="rarity-asc" data-i18n="sortRarityAsc">Menor Raridade</option>
+            <option value="rarity-desc" data-i18n="sortRarityDesc">Maior Raridade</option>
+            <option value="updated-asc" data-i18n="sortUpdatedAsc">Menor atualizado</option>
+            <option value="updated-desc" data-i18n="sortUpdatedDesc">Mais atualizado</option>
           </select>
         </label>
         <label class="sort-control" for="viewModeFilter">
