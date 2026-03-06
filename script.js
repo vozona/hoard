@@ -555,9 +555,16 @@ function renderListView(items, container, packageMap) {
     const categoryLabel = hasCategoryKey
       ? getCategoryLabel(item.categoryKey)
       : firstNonEmptyText([item.category, '-']);
-    const categoryValueHtml = hasCategoryKey
+    
+    // Modificação: Criar duas versões da categoria - uma para visualização normal e outra para expandida
+    const categoryValueNormal = hasCategoryKey
+      ? `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`
+      : `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`;
+    
+    const categoryValueExpanded = hasCategoryKey
       ? `<button type="button" class="item-category-btn item-category-btn--inline" data-category-key="${escapeHtml(item.categoryKey)}" title="${escapeHtml(t('categoryFilterHintLabel'))}" aria-label="${escapeHtml(t('categoryFilterHintLabel'))}">${escapeHtml(categoryLabel)}</button>`
       : `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`;
+    
     const valueLabel = item.valueSource === 'market' ? t('suggestedValueLabel') : t('averageValueLabel');
     const valueDisplay = item.value !== null ? escapeHtml(formatPrice(item.value)) : '-';
     const updatedAtDate = item.lastUpdate ? escapeHtml(formatDate(item.lastUpdate)) : '';
@@ -572,7 +579,10 @@ function renderListView(items, container, packageMap) {
         <h3 class="item-list-name">${escapeHtml(item.name)}</h3>
         <div class="item-list-meta">
           <span class="item-list-meta-label">${t('categoryLabel')}</span>
-          ${categoryValueHtml}
+          <!-- Versão normal (não expandida) -->
+          <span class="category-normal">${categoryValueNormal}</span>
+          <!-- Versão expandida (inicialmente oculta) -->
+          <span class="category-expanded" style="display: none;">${categoryValueExpanded}</span>
         </div>
       </div>
       <div class="item-list-value">
@@ -608,6 +618,7 @@ function renderListView(items, container, packageMap) {
         applyCategoryFilter(categoryKey);
       });
     });
+    
     row.querySelectorAll('.item-note-btn').forEach(noteButton => {
       noteButton.addEventListener('click', event => {
         event.preventDefault();
@@ -617,11 +628,13 @@ function renderListView(items, container, packageMap) {
         applyNoteSearchQuery(query);
       });
     });
+    
     const actionsToggle = row.querySelector('.item-actions-toggle');
     const actionsMenu = row.querySelector('.item-actions-menu');
     const shareAction = row.querySelector('[data-action="share"]');
     const announceAction = row.querySelector('[data-action="announce"]');
     const reportPriceAction = row.querySelector('[data-action="report-price"]');
+    
     if (actionsToggle) {
       actionsToggle.addEventListener('click', event => {
         event.preventDefault();
@@ -632,11 +645,13 @@ function renderListView(items, container, packageMap) {
         actionsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
       });
     }
+    
     if (actionsMenu) {
       actionsMenu.addEventListener('click', event => {
         event.stopPropagation();
       });
     }
+    
     if (shareAction) {
       shareAction.addEventListener('click', event => {
         event.preventDefault();
@@ -644,6 +659,7 @@ function renderListView(items, container, packageMap) {
         handleShareClick(item, shareAction);
       });
     }
+    
     if (announceAction) {
       announceAction.addEventListener('click', event => {
         event.preventDefault();
@@ -651,6 +667,7 @@ function renderListView(items, container, packageMap) {
         handleAnnounceClick(item, announceAction);
       });
     }
+    
     if (reportPriceAction) {
       reportPriceAction.addEventListener('click', event => {
         event.preventDefault();
@@ -658,6 +675,7 @@ function renderListView(items, container, packageMap) {
         handleReportPriceClick(item, reportPriceAction);
       });
     }
+    
     row.querySelectorAll('.value-info-btn').forEach(valueInfoButton => {
       valueInfoButton.addEventListener('click', event => {
         event.preventDefault();
@@ -674,12 +692,39 @@ function renderListView(items, container, packageMap) {
     row.addEventListener('click', () => {
       const willExpand = !row.classList.contains('expanded');
       setExpandedListRow(row, willExpand);
+      
+      // Modificação: Alternar entre versão normal e expandida da categoria
+      const categoryNormal = row.querySelector('.category-normal');
+      const categoryExpanded = row.querySelector('.category-expanded');
+      if (categoryNormal && categoryExpanded) {
+        if (willExpand) {
+          categoryNormal.style.display = 'none';
+          categoryExpanded.style.display = 'inline';
+        } else {
+          categoryNormal.style.display = 'inline';
+          categoryExpanded.style.display = 'none';
+        }
+      }
     });
+    
     row.addEventListener('keydown', event => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
       const willExpand = !row.classList.contains('expanded');
       setExpandedListRow(row, willExpand);
+      
+      // Modificação: Alternar entre versão normal e expandida da categoria
+      const categoryNormal = row.querySelector('.category-normal');
+      const categoryExpanded = row.querySelector('.category-expanded');
+      if (categoryNormal && categoryExpanded) {
+        if (willExpand) {
+          categoryNormal.style.display = 'none';
+          categoryExpanded.style.display = 'inline';
+        } else {
+          categoryNormal.style.display = 'inline';
+          categoryExpanded.style.display = 'none';
+        }
+      }
     });
 
     container.appendChild(row);
