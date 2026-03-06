@@ -52,10 +52,10 @@
             }
         },
         {
-            "id": "4204",
+            "id": "s4204",
             "display": {
-                "name": "4204",
-                "image": "img/4204.jpg"
+                "name": "s4204",
+                "image": "img/s4204.jpg"
             },
             "classification": {
                 "level": 1,
@@ -1329,10 +1329,10 @@
             }
         },
         {
-            "id": "r350-flatdeb",
+            "id": "r350-flatbed",
             "display": {
-                "name": "R350 Flatdeb",
-                "image": "img/r350-flatdeb.jpg"
+                "name": "R350 Flatbed",
+                "image": "img/r350-flatbed.jpg"
             },
             "classification": {
                 "level": 3,
