@@ -256,7 +256,7 @@
         },
         "dg-ct": {
             "history": [
-                22000000
+                10000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
@@ -304,7 +304,7 @@
         },
         "dg-lt": {
             "history": [
-                20000000
+                10000000
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
