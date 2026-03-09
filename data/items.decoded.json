@@ -1991,7 +1991,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": "4"
+                "rarity": "4.3"
             },
             "access": {
                 "special": true
@@ -2214,7 +2214,7 @@
                 "image": "img/sled.jpg"
             },
             "classification": {
-                "level": 1,
+                "level": "",
                 "category": "Trailers",
                 "speed": null,
                 "speedMin": "",
@@ -2238,7 +2238,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "4.7"
             },
             "access": {
                 "special": true
@@ -2561,7 +2561,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": "4.3"
+                "rarity": "4.25"
             },
             "access": {
                 "special": true
@@ -2618,7 +2618,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": "4"
+                "rarity": "4.4"
             },
             "access": {
                 "special": true
@@ -2979,7 +2979,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": ""
+                "rarity": "4.3"
             },
             "access": {
                 "special": true
@@ -2998,7 +2998,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": "4"
+                "rarity": "4.3"
             },
             "access": {
                 "special": true
@@ -3217,7 +3217,7 @@
             },
             "classification": {
                 "category": "SeedBoxes",
-                "rarity": "3.5"
+                "rarity": "4"
             },
             "access": {
                 "special": true
