@@ -2162,12 +2162,13 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": "3"
+                "rarity": "2.5"
             },
             "access": {
                 "special": true
             },
-            "notes": "2024 & 2025 Christmas Event"
+            "notes": "Trade ban applied (non-negotiable)",
+            "//": "2024 & 2025 Christmas Event"
         },
         {
             "id": "train",

@@ -240,14 +240,8 @@
             "robux": null
         },
         "gd-8r410": {
-            "history": [
-                47500000,
-                60000000,
-                30000000,
-                33000000,
-                40000000
-            ],
-            "lastUpdate": "2026-03-09",
+            "history": [],
+            "lastUpdate": "2026-03-10",
             "valueStatus": "known",
             "robux": null
         },
@@ -541,9 +535,10 @@
         },
         "insul-animal-trailer": {
             "history": [
-                56000000
+                56000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-10",
             "valueStatus": "known",
             "robux": null
         },
@@ -557,9 +552,10 @@
         },
         "sopt-925": {
             "history": [
-                48000000
+                48000000,
+                44000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-10",
             "valueStatus": "known",
             "robux": null
         },
