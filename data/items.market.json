@@ -3,9 +3,10 @@
     "pricing": {
         "pronto9": {
             "history": [
-                15000000
+                15000000,
+                20000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -19,17 +20,19 @@
         },
         "pace-ix-ch": {
             "history": [
-                55000000
+                55000000,
+                75000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
         "nsh": {
             "history": [
-                12000000
+                12000000,
+                20000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "none",
             "robux": null
         },
@@ -49,9 +52,10 @@
         },
         "vertra": {
             "history": [
-                355000000
+                355000000,
+                380000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -83,9 +87,10 @@
         },
         "swifter180": {
             "history": [
-                13000000
+                13000000,
+                16000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -99,17 +104,19 @@
         },
         "r1950": {
             "history": [
-                42000000
+                42000000,
+                44000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
         "titan": {
             "history": [
-                66000000
+                66000000,
+                75000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -131,9 +138,10 @@
         },
         "marley-liquid-hauler": {
             "history": [
-                47500000
+                47500000,
+                55000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -179,9 +187,10 @@
         },
         "mega-baler": {
             "history": [
-                50000000
+                50000000,
+                33000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -233,10 +242,17 @@
         },
         "maverick-430": {
             "history": [
-                44000000
+                44000000,
+                60000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
+            "robux": null
+        },
+        "super-zm80": {
+            "history": [],
+            "lastUpdate": "2026-03-17",
+            "valueStatus": "unknown",
             "robux": null
         },
         "gd-8r410": {
@@ -253,17 +269,19 @@
         },
         "dg-ct": {
             "history": [
-                10000000
+                10000000,
+                11000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
         "zalter-s-270": {
             "history": [
-                55000000
+                55000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -277,9 +295,10 @@
         },
         "solid-hauler-4700": {
             "history": [
-                180000000
+                180000000,
+                220000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -325,9 +344,10 @@
         },
         "r500": {
             "history": [
-                49000000
+                49000000,
+                55000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -349,9 +369,10 @@
         },
         "claas-790": {
             "history": [
-                23000000
+                23000000,
+                20000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "none",
             "robux": 255
         },
@@ -381,9 +402,10 @@
         },
         "chainsaw": {
             "history": [
-                9500000
+                9500000,
+                4500000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "none",
             "robux": null
         },
@@ -405,9 +427,10 @@
         },
         "pace-ix-lt": {
             "history": [
-                55000000
+                55000000,
+                75000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -437,9 +460,10 @@
         },
         "sl-medium": {
             "history": [
-                1300000000
+                1300000000,
+                1800000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "none",
             "robux": null
         },
@@ -471,9 +495,10 @@
         },
         "atm-700": {
             "history": [
-                15000000
+                15000000,
+                80000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "none",
             "robux": 85
         },
@@ -503,17 +528,19 @@
         },
         "sleigh": {
             "history": [
-                1520000000
+                1520000000,
+                2200000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
         "titan-x": {
             "history": [
-                83000000
+                83000000,
+                11000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -527,9 +554,11 @@
         },
         "small-log-hauler": {
             "history": [
-                55000000
+                55000000,
+                70000000,
+                75000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-17",
             "valueStatus": "known",
             "robux": null
         },
@@ -564,7 +593,7 @@
                 5000000
             ],
             "lastUpdate": "",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": null
         },
         "maltex-p680-ah": {
@@ -572,6 +601,31 @@
                 4500000
             ],
             "lastUpdate": "2026-03-05",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "actives7": {
+            "history": [
+                35000000
+            ],
+            "lastUpdate": "2026-03-05",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "na-cr10": {
+            "history": [
+                580000000
+        ],
+            "lastUpdate": "2026-03-05",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "vintage-harvester": {
+            "history": [
+                225000000,
+                250000000
+            ],
+            "lastUpdate": "2026-03-17",
             "valueStatus": "none",
             "robux": null
         },
@@ -735,30 +789,6 @@
             ],
             "lastUpdate": "2026-03-04",
             "valueStatus": "known",
-            "robux": null
-        },
-        "actives7": {
-            "history": [
-                35000000
-            ],
-            "lastUpdate": "2026-03-05",
-            "valueStatus": "none",
-            "robux": null
-        },
-        "na-cr10": {
-            "history": [
-                580000000
-        ],
-            "lastUpdate": "2026-03-05",
-            "valueStatus": "none",
-            "robux": null
-        },
-        "vintage-harvester": {
-            "history": [
-                225000000
-            ],
-            "lastUpdate": "2026-03-05",
-            "valueStatus": "none",
             "robux": null
         }
     }

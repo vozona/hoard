@@ -434,6 +434,25 @@
             }
         },
         {
+            "id": "super-zm80",
+            "display": {
+                "name": "Super ZM80",
+                "image": "img/super-zm80.gif"
+            },
+            "classification": {
+                "level": "",
+                "category": "Tractors",
+                "speed": "",
+                "speedMin": "",
+                "speedMax": "",
+                "rarity": "5"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
             "id": "h488",
             "display": {
                 "name": "H488",
