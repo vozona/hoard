@@ -4,17 +4,19 @@
         "pronto9": {
             "history": [
                 15000000,
-                20000000
+                20000000,
+                25000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "large-box-trailer": {
             "history": [
-                10000000
+                10000000,
+                9000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -30,7 +32,8 @@
         "nsh": {
             "history": [
                 12000000,
-                20000000
+                20000000,
+                22000000
             ],
             "lastUpdate": "2026-03-17",
             "valueStatus": "none",
@@ -44,26 +47,29 @@
         },
         "claas-xerion-5000": {
             "history": [
-                20000000
+                20000000,
+                18000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "none",
             "robux": 160
         },
         "vertra": {
             "history": [
                 355000000,
-                380000000
+                380000000,
+                450000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "kei-liquid-hauler": {
             "history": [
-                67000000
+                67000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -71,34 +77,38 @@
             "history": [
                 70000000,
                 40000000,
-                60000000
+                60000000,
+                35000000
             ],
-            "lastUpdate": "2026-03-04",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "foxx-chamber-105": {
             "history": [
-                21000000
+                21000000,
+                18000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "swifter180": {
             "history": [
                 13000000,
-                16000000
+                16000000,
+                18000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "cybersemi": {
             "history": [
-                65000000
+                65000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -130,34 +140,38 @@
         },
         "vintage-flatbed": {
             "history": [
-                20000000
+                20000000,
+                23000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "marley-liquid-hauler": {
             "history": [
                 47500000,
-                55000000
+                55000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "r350-sd": {
             "history": [
-                16000000
+                16000000,
+                18000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "rusty-tractor": {
             "history": [
-                9500000
+                9500000,
+                10000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "none",
             "robux": 55
         },
@@ -171,34 +185,38 @@
         },
         "kei-pickup": {
             "history": [
-                66000000
+                66000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "log-transport-vehicle": {
             "history": [
-                50000000
+                50000000,
+                40000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "mega-baler": {
             "history": [
                 50000000,
-                33000000
+                33000000,
+                30000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "er80t": {
             "history": [
-                18000000
+                18000000,
+                15000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "none",
             "robux": 150
         },
@@ -212,17 +230,19 @@
         },
         "titan-ch": {
             "history": [
-                67500000
+                67500000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "utility-hauler-deluxe": {
             "history": [
-                15000000
+                15000000,
+                14000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": 120
         },
@@ -234,18 +254,20 @@
         },
         "vintage-tractor": {
             "history": [
-                65000000
+                65000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "maverick-430": {
             "history": [
                 44000000,
-                60000000
+                60000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -296,9 +318,10 @@
         "solid-hauler-4700": {
             "history": [
                 180000000,
-                220000000
+                220000000,
+                250000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -312,9 +335,10 @@
         },
         "euro-haler-1280": {
             "history": [
-                140000000
+                140000000,
+                200000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -328,26 +352,29 @@
         },
         "train": {
             "history": [
-                21000000
+                21000000,
+                30000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "marley-crop-hauler": {
             "history": [
-                46500000
+                46500000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "r500": {
             "history": [
                 49000000,
-                55000000
+                55000000,
+                60000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -370,17 +397,19 @@
         "claas-790": {
             "history": [
                 23000000,
-                20000000
+                20000000,
+                18000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "none",
             "robux": 255
         },
         "solid-hauler-47": {
             "history": [
-                45000000
+                45000000,
+                44000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -394,18 +423,20 @@
         },
         "sled": {
             "history": [
-                2700000000
+                2700000000,
+                3000000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "none",
             "robux": null
         },
         "chainsaw": {
             "history": [
                 9500000,
-                4500000
+                4500000,
+                3000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "none",
             "robux": null
         },
@@ -428,17 +459,19 @@
         "pace-ix-lt": {
             "history": [
                 55000000,
-                75000000
+                75000000,
+                80000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "zalter-500": {
             "history": [
-                42000000
+                42000000,
+                44000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -461,9 +494,10 @@
         "sl-medium": {
             "history": [
                 1300000000,
-                1800000000
+                1800000000,
+                2400000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "none",
             "robux": null
         },
@@ -487,18 +521,19 @@
         },
         "marley-pickup-hauler": {
             "history": [
-                47000000
+                47000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "atm-700": {
             "history": [
                 15000000,
-                80000000
+                4000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "none",
             "robux": 85
         },
@@ -529,18 +564,20 @@
         "sleigh": {
             "history": [
                 1520000000,
-                2200000000
+                2200000000,
+                2600000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "titan-x": {
             "history": [
                 83000000,
-                11000000
+                110000000,
+                120000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -614,9 +651,10 @@
         },
         "na-cr10": {
             "history": [
-                580000000
+                580000000,
+                700000000
         ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -632,17 +670,20 @@
         "candy-cane": {
             "history": [
                 280000000,
-                235000000
+                235000000,
+                110000000,
+                100000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
         "burnt-hallowood": {
             "history": [
-                75000000
+                75000000,
+                80000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
