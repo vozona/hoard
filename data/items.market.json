@@ -58,9 +58,10 @@
             "history": [
                 355000000,
                 380000000,
-                450000000
+                450000000,
+                550000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "known",
             "robux": null
         },
@@ -301,9 +302,10 @@
         "zalter-s-270": {
             "history": [
                 55000000,
-                70000000
+                70000000,
+                80000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "known",
             "robux": null
         },
@@ -327,18 +329,20 @@
         },
         "automatic-flatbed": {
             "history": [
-                760000000
+                760000000,
+                880000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "none",
             "robux": null
         },
         "euro-haler-1280": {
             "history": [
                 140000000,
-                200000000
+                200000000,
+                350000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "known",
             "robux": null
         },
@@ -469,9 +473,10 @@
         "zalter-500": {
             "history": [
                 42000000,
-                44000000
+                44000000,
+                50000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "known",
             "robux": null
         },
@@ -652,18 +657,20 @@
         "na-cr10": {
             "history": [
                 580000000,
-                700000000
+                700000000,
+                880000000
         ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "known",
             "robux": null
         },
         "vintage-harvester": {
             "history": [
                 225000000,
+                240000000,
                 250000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "none",
             "robux": null
         },
@@ -671,10 +678,11 @@
             "history": [
                 280000000,
                 235000000,
+                130000000,
                 110000000,
                 100000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "known",
             "robux": null
         },
