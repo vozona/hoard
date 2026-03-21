@@ -114,10 +114,9 @@
         },
         "r1950": {
             "history": [
-                42000000,
-                44000000
+                24000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -223,9 +222,9 @@
         },
         "rc1950": {
             "history": [
-                33000000
+                20000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -478,9 +477,9 @@
         },
         "rl1950": {
             "history": [
-                30000000
+                18000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -584,9 +583,9 @@
         },
         "r1950-liquid": {
             "history": [
-                45000000
+                26000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-20",
             "valueStatus": "known",
             "robux": null
         },
@@ -700,9 +699,12 @@
         "toxic-hallowood": {
             "history": [
                 43000000,
-                40000000
+                40000000,
+                27000000,
+                20000000,
+                13000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-21",
             "valueStatus": "known",
             "robux": null
         },
