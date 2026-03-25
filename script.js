@@ -49,6 +49,7 @@ const I18N = {
     categoryFilterHintLabel: 'Filtrar por esta categoria',
     packageLabel: 'Pacote',
     speedLabel: 'Velocidade',
+    capacityLabel: 'Capacidade',
     rarityLabel: 'Raridade',
     rarityTier1: 'Comum',
     rarityTier2: 'Incomum',
@@ -106,6 +107,7 @@ const I18N = {
     categoryFilterHintLabel: 'Filter by this category',
     packageLabel: 'Bundle',
     speedLabel: 'Speed',
+    capacityLabel: 'Capacity',
     rarityLabel: 'Rarity',
     rarityTier1: 'Common',
     rarityTier2: 'Uncommon',
@@ -341,6 +343,27 @@ function normalizeItem(item, marketEntry = {}) {
     item.classification?.speedRange?.max,
     item.speedRange?.max
   ]);
+  const rawCapacity = firstDefinedValue([
+    item.classification?.capacity,
+    item.capacidade,
+    item.capacity
+  ]);
+  const rawCapacityMin = firstDefinedValue([
+    item.classification?.capacityMin,
+    item.capacityMin,
+    item.classification?.capacityRange?.min,
+    item.capacityRange?.min
+  ]);
+  const rawCapacityMax = firstDefinedValue([
+    item.classification?.capacityMax,
+    item.capacityMax,
+    item.classification?.capacityRange?.max,
+    item.capacityRange?.max
+  ]);
+  const normalizedCapacityValue = toNumberOrNull(rawCapacity);
+  const capacityText = normalizedCapacityValue === null
+    ? firstNonEmptyText([rawCapacity])
+    : '';
   const rawRarity = firstDefinedValue([
     item.classification?.rarity,
     item.raridade,
@@ -374,6 +397,10 @@ function normalizeItem(item, marketEntry = {}) {
     speed: toNumberOrNull(rawSpeed),
     speedMin: toNumberOrNull(rawSpeedMin),
     speedMax: toNumberOrNull(rawSpeedMax),
+    capacity: normalizedCapacityValue,
+    capacityText,
+    capacityMin: toNumberOrNull(rawCapacityMin),
+    capacityMax: toNumberOrNull(rawCapacityMax),
     rarity: toNumberOrNull(rawRarity),
     rarityMin: toNumberOrNull(rawRarityMin),
     rarityMax: toNumberOrNull(rawRarityMax),
@@ -449,6 +476,7 @@ function renderItems(items) {
         ${renderCategoryRow(item)}
         ${renderRarityRow(item)}
         ${renderSpeedRow(item)}
+        ${renderCapacityRow(item)}
         ${renderValueRow(item)}
         ${renderPackageRow(item, packageMap)}
         ${renderRelatedItems(item, packageMap)}
@@ -607,6 +635,7 @@ function renderListView(items, container, packageMap) {
         ${renderLevelRow(item)}
         ${renderRarityRow(item)}
         ${renderSpeedRow(item)}
+        ${renderCapacityRow(item)}
         ${renderPackageRow(item, packageMap)}
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
@@ -911,6 +940,25 @@ function renderSpeedRow(item) {
       <div class="stat-group" title="${escapeHtml(`${t('speedLabel')}: ${speedSummary}`)}">
         ${generateBar(item.speed, range.min, range.max)}
         <small>${speedSummary}</small>
+      </div>
+    </div>
+  `;
+}
+
+function renderCapacityRow(item) {
+  const capacityDetails = getCapacityDetails(item);
+  if (!capacityDetails.primary && !capacityDetails.secondary) return '';
+
+  const secondaryHtml = capacityDetails.secondary
+    ? `<small>${escapeHtml(capacityDetails.secondary)}</small>`
+    : '';
+
+  return `
+    <div class="item-row">
+      <span>${t('capacityLabel')}</span>
+      <div class="stat-group">
+        <small>${escapeHtml(capacityDetails.primary)}</small>
+        ${secondaryHtml}
       </div>
     </div>
   `;
@@ -1312,6 +1360,49 @@ function resolveRarityScale(configuredMax, rarityValue) {
 
 function getSpeedSummary(value, min, max) {
   return `${value}/${max}`;
+}
+
+function getCapacityDetails(item) {
+  const fixedCapacity = toNumberOrNull(item.capacity);
+  const minCapacity = toNumberOrNull(item.capacityMin);
+  const maxCapacity = toNumberOrNull(item.capacityMax);
+  const textCapacity = firstNonEmptyText([item.capacityText]);
+  const rangeCapacity = minCapacity !== null && maxCapacity !== null
+    ? (minCapacity === maxCapacity ? `${minCapacity}` : `${minCapacity}-${maxCapacity}`)
+    : (minCapacity !== null ? `${minCapacity}` : (maxCapacity !== null ? `${maxCapacity}` : ''));
+
+  if (textCapacity && rangeCapacity) {
+    return {
+      primary: textCapacity,
+      secondary: rangeCapacity
+    };
+  }
+
+  if (fixedCapacity !== null) {
+    return {
+      primary: `${fixedCapacity}`,
+      secondary: ''
+    };
+  }
+
+  if (textCapacity) {
+    return {
+      primary: textCapacity,
+      secondary: ''
+    };
+  }
+
+  if (rangeCapacity) {
+    return {
+      primary: rangeCapacity,
+      secondary: ''
+    };
+  }
+
+  return {
+    primary: '',
+    secondary: ''
+  };
 }
 
 function getRaritySummary(value, max) {

@@ -63,6 +63,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "1 row",
                 "rarity": ""
             },
             "access": {
@@ -88,6 +89,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "1 row",
                 "rarity": ""
             },
             "access": {
@@ -113,6 +115,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "2 rows",
                 "rarity": "2.5"
             },
             "access": {
@@ -132,6 +135,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "2 rows",
                 "rarity": ""
             },
             "access": {
@@ -157,6 +161,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "2 rows",
                 "rarity": ""
             },
             "access": {
@@ -182,6 +187,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "3 rows",
                 "rarity": ""
             },
             "access": {
@@ -207,6 +213,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "3 rows",
                 "rarity": ""
             },
             "access": {
@@ -225,7 +232,10 @@
                 "category": "Harvesters",
                 "speed": 28,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 51,
+                "capacity": "1 row",
+                "capacityMin": 50,
+                "capacityMax": 550,
                 "rarity": ""
             },
             "access": {
@@ -251,6 +261,9 @@
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 51,
+                "capacity": "1 row",
+                "capacityMin": 100,
+                "capacityMax": 600,
                 "rarity": ""
             },
             "access": {
@@ -276,6 +289,9 @@
                 "speed": 29,
                 "speedMin": "",
                 "speedMax": 51,
+                "capacity": "2 rows",
+                "capacityMin": 200,
+                "capacityMax": 700,
                 "rarity": ""
             },
             "access": {
@@ -301,6 +317,9 @@
                 "speed": 36,
                 "speedMin": "",
                 "speedMax": 52,
+                "capacity": "2 rows",
+                "capacityMin": 100,
+                "capacityMax": 600,
                 "rarity": ""
             },
             "access": {
@@ -326,6 +345,9 @@
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 53,
+                "capacity": "1 row",
+                "capacityMin": 400,
+                "capacityMax": 900,
                 "rarity": ""
             },
             "access": {
@@ -351,6 +373,9 @@
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 54,
+                "capacity": "2 rows",
+                "capacityMin": 250,
+                "capacityMax": 850,
                 "rarity": ""
             },
             "access": {
@@ -376,6 +401,9 @@
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 55,
+                "capacity": "3 rows",
+                "capacityMin": 600,
+                "capacityMax": 1100,
                 "rarity": ""
             },
             "access": {
@@ -401,6 +429,9 @@
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 56,
+                "capacity": "3 rows",
+                "capacityMin": 600,
+                "capacityMax": 1100,
                 "rarity": "2"
             },
             "access": {
@@ -440,11 +471,11 @@
                 "image": "img/super-zm80.gif"
             },
             "classification": {
-                "level": "",
+                "level": "5",
                 "category": "Tractors",
-                "speed": "",
+                "speed": "100",
                 "speedMin": "",
-                "speedMax": "",
+                "speedMax": "100",
                 "rarity": "5"
             },
             "access": {
@@ -539,6 +570,7 @@
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
+                "capacity": "8 or 20 logs",
                 "rarity": ""
             },
             "access": {
@@ -614,6 +646,7 @@
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
+                "capacity": "14 or 80 logs",
                 "rarity": ""
             },
             "access": {
@@ -1591,6 +1624,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "1 row",
                 "rarity": ""
             },
             "access": {
@@ -1616,6 +1650,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"1 row",
                 "rarity": ""
             },
             "access": {
@@ -1641,6 +1676,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "2 rows",
                 "rarity": ""
             },
             "access": {
@@ -1666,6 +1702,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "2 rows",
                 "rarity": ""
             },
             "access": {
@@ -1691,6 +1728,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "3 rows",
                 "rarity": ""
             },
             "access": {
@@ -1716,6 +1754,9 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "1 row",
+                "capacityMin": 50,
+                "capacityMax": 550,
                 "rarity": ""
             },
             "access": {
@@ -1741,6 +1782,9 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"1 row",
+                "capacityMin": 200,
+                "capacityMax": 700,
                 "rarity": ""
             },
             "access": {
@@ -1766,6 +1810,9 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"2 rows",
+                "capacityMin": 400,
+                "capacityMax": 900,
                 "rarity": ""
             },
             "access": {
@@ -1791,6 +1838,9 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"1 row",
+                "capacityMin": 200,
+                "capacityMax": 700,
                 "rarity": ""
             },
             "access": {
@@ -1816,6 +1866,9 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"3 rows",
+                "capacityMin": 600,
+                "capacityMax": 1100,
                 "rarity": ""
             },
             "access": {
@@ -1988,9 +2041,12 @@
             "classification": {
                 "level": 5,
                 "category": "Harvesters",
-                "speed": null,
+                "speed": 33,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 51,
+                "capacity": "3 rows",
+                "capacityMin": 600,
+                "capacityMax": 1100,
                 "rarity": "3"
             },
             "access": {
@@ -2007,9 +2063,12 @@
             "classification": {
                 "level": 5,
                 "category": "Harvesters",
-                "speed": null,
+                "speed": 33,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 51,
+                "capacity": "4 rows",
+                "capacityMin": 600,
+                "capacityMax": 1100,
                 "rarity": "4.3"
             },
             "access": {
@@ -2026,9 +2085,12 @@
             "classification": {
                 "level": 5,
                 "category": "Harvesters",
-                "speed": null,
+                "speed": 33,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 51,
+                "capacity": "4 rows",
+                "capacityMin": 600,
+                "capacityMax": 1100,
                 "rarity": "3.8"
             },
             "access": {
@@ -2045,9 +2107,9 @@
             "classification": {
                 "level": 5,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 45,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": "4"
             },
             "access": {
@@ -2064,9 +2126,9 @@
             "classification": {
                 "level": 5,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 30,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": "3.3"
             },
             "access": {
@@ -2083,9 +2145,9 @@
             "classification": {
                 "level": 5,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 45,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": "3.6"
             },
             "access": {
@@ -2102,9 +2164,9 @@
             "classification": {
                 "level": 5,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 30,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": ""
             },
             "access": {
@@ -2115,15 +2177,15 @@
         {
             "id": "vertra",
             "display": {
-                "name": "Vertra",
+                "name": "Vertra 135",
                 "image": "img/vertra.jpg"
             },
             "classification": {
                 "level": 5,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 40,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": "4.5"
             },
             "access": {
@@ -2140,9 +2202,9 @@
             "classification": {
                 "level": 3,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 25,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": "2.5"
             },
             "access": {
@@ -2159,9 +2221,9 @@
             "classification": {
                 "level": 3,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 31,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": ""
             },
             "access": {
@@ -2178,9 +2240,9 @@
             "classification": {
                 "level": 5,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 30,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": "2.5"
             },
             "access": {
@@ -2198,9 +2260,9 @@
             "classification": {
                 "level": 5,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 40,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": "2.5"
             },
             "access": {
@@ -2217,9 +2279,9 @@
             "classification": {
                 "level": 5,
                 "category": "Tractors",
-                "speed": null,
+                "speed": 70,
                 "speedMin": "",
-                "speedMax": null,
+                "speedMax": 100,
                 "rarity": "4.9"
             },
             "access": {
@@ -3037,6 +3099,9 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"2 rows",
+                "capacityMin": 300,
+                "capacityMax": 800,
                 "rarity": "2.5"
             },
             "access": {
@@ -3056,6 +3121,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"2 rows",
                 "rarity": "2.5"
             },
             "access": {
@@ -3075,6 +3141,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "3 rows",
                 "rarity": ""
             },
             "access": {
@@ -3094,6 +3161,9 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity": "4 rows",
+                "capacityMin": 600,
+                "capacityMax": 1100,
                 "rarity": "3"
             },
             "access": {
@@ -3113,6 +3183,9 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"3 rows",
+                "capacityMin": 600,
+                "capacityMax": 1100,
                 "rarity": ""
             },
             "access": {
