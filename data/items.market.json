@@ -67,10 +67,13 @@
         },
         "kei-liquid-hauler": {
             "history": [
+                20000000,
+                28500000,
+                39000000,
                 67000000,
                 70000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-03-28",
             "valueStatus": "known",
             "robux": null
         },
@@ -185,10 +188,13 @@
         },
         "kei-pickup": {
             "history": [
+                20000000,
+                30000000,
+                35000000,
                 66000000,
                 70000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-03-28",
             "valueStatus": "known",
             "robux": null
         },
@@ -311,9 +317,12 @@
         },
         "kei-crop-hauler": {
             "history": [
+                20000000,
+                29000000,
+                37000000,
                 70000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-03-28",
             "valueStatus": "known",
             "robux": null
         },
@@ -336,7 +345,7 @@
             "valueStatus": "none",
             "robux": null
         },
-        "euro-haler-1280": {
+        "euro-hauler-1280": {
             "history": [
                 140000000,
                 220000000,
@@ -656,11 +665,14 @@
         },
         "na-cr10": {
             "history": [
+                0,
+                300000000,
+                400000000,
                 580000000,
                 700000000,
                 880000000
         ],
-            "lastUpdate": "2026-03-21",
+            "lastUpdate": "2026-04-01",
             "valueStatus": "known",
             "robux": null
         },

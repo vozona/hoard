@@ -2879,10 +2879,10 @@
             "notes": "Truck N' Trailer's Pack"
         },
         {
-            "id": "euro-haler-1280",
+            "id": "euro-hauler-1280",
             "display": {
-                "name": "Euro Haler 1280",
-                "image": "img/euro-haler-1280.jpg"
+                "name": "Euro Hauler 1280",
+                "image": "img/euro-hauler-1280.jpg"
             },
             "classification": {
                 "level": 4,
