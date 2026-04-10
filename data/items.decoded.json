@@ -743,6 +743,20 @@
             "notes": "Premium Vehicles Store"
         },
         {
+            "id": "medal-tractor",
+            "display": {
+                "name": "Medal Tractor",
+                "image": "img/default.jpg"
+            },
+            "classification": {
+                "level": 4,
+                "category": "Tractors"
+            },
+            "access": {
+                "special": true
+            }
+        },
+        {
             "id": "claas-xerion-5000",
             "display": {
                 "name": "Claas Xerion 5000",

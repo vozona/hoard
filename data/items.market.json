@@ -227,6 +227,14 @@
             "valueStatus": "none",
             "robux": 150
         },
+        "medal-tractor": {
+            "history": [
+                22000000
+            ],
+            "lastUpdate": "2026-04-10",
+            "valueStatus": "known",
+            "robux": null
+        },
         "rc1950": {
             "history": [
                 20000000
