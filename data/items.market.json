@@ -5,9 +5,10 @@
             "history": [
                 15000000,
                 20000000,
-                25000000
+                25000000,
+                27500000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -81,19 +82,22 @@
             "history": [
                 70000000,
                 40000000,
+                52500000,
                 60000000,
                 35000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
         "foxx-chamber-105": {
             "history": [
                 21000000,
-                18000000
+                18000000,
+                15000000,
+                12000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -101,9 +105,10 @@
             "history": [
                 13000000,
                 16000000,
-                18000000
+                18000000,
+                22000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -112,15 +117,17 @@
                 65000000,
                 70000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
         "r1950": {
             "history": [
-                24000000
+                24000000,
+                20000000,
+                18000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -135,9 +142,9 @@
         },
         "maltex-c4500-global": {
             "history": [
-                4500000
+                4000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -229,7 +236,12 @@
         },
         "medal-tractor": {
             "history": [
-                22000000
+                15000000,
+                20000000,
+                22000000,
+                27500000,
+                30000000,
+                33000000
             ],
             "lastUpdate": "2026-04-10",
             "valueStatus": "known",
@@ -237,9 +249,10 @@
         },
         "rc1950": {
             "history": [
-                20000000
+                20000000,
+                16000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -307,9 +320,10 @@
         "dg-ct": {
             "history": [
                 10000000,
-                11000000
+                12000000,
+                15000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -317,9 +331,11 @@
             "history": [
                 55000000,
                 70000000,
-                80000000
+                76000000,
+                80000000,
+                120000000
             ],
-            "lastUpdate": "2026-03-21",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -338,18 +354,21 @@
             "history": [
                 180000000,
                 220000000,
-                250000000
+                250000000,
+                280000000,
+                450000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
         "automatic-flatbed": {
             "history": [
                 760000000,
-                990000000
+                990000000,
+                15000000000
             ],
-            "lastUpdate": "2026-03-25",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "none",
             "robux": null
         },
@@ -357,26 +376,29 @@
             "history": [
                 140000000,
                 220000000,
-                250000000
+                250000000,
+                300000000
             ],
-            "lastUpdate": "2026-03-25",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
         "dg-lt": {
             "history": [
-                10000000
+                10000000,
+                11000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
         "train": {
             "history": [
                 21000000,
+                22000000,
                 30000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -436,9 +458,10 @@
         },
         "dg-semi": {
             "history": [
-                20000000
+                20000000,
+                15000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -480,10 +503,9 @@
         "pace-ix-lt": {
             "history": [
                 55000000,
-                75000000,
-                80000000
+                75000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -493,15 +515,17 @@
                 44000000,
                 50000000
             ],
-            "lastUpdate": "2026-03-21",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
         "rl1950": {
             "history": [
-                18000000
+                18000000,
+                14000000,
+                13900000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -517,9 +541,10 @@
             "history": [
                 1300000000,
                 1800000000,
-                2400000000
+                2400000000,
+                2500000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "none",
             "robux": null
         },
@@ -587,9 +612,10 @@
             "history": [
                 1520000000,
                 2200000000,
-                2600000000
+                3300000000,
+                3500000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -597,17 +623,20 @@
             "history": [
                 83000000,
                 110000000,
-                120000000
+                180000000,
+                300000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
         "r1950-liquid": {
             "history": [
-                26000000
+                26000000,
+                25000000,
+                22000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -624,17 +653,19 @@
         "insul-animal-trailer": {
             "history": [
                 56000000,
-                70000000
+                70000000,
+                150000000
             ],
-            "lastUpdate": "2026-03-10",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
         "levi-flatbed": {
             "history": [
-                80000000
+                80000000,
+                270000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -651,7 +682,7 @@
             "history": [
                 5000000
             ],
-            "lastUpdate": "",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -659,7 +690,7 @@
             "history": [
                 4500000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -676,11 +707,12 @@
                 0,
                 300000000,
                 400000000,
+                550000000,
                 580000000,
                 700000000,
                 880000000
         ],
-            "lastUpdate": "2026-04-01",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -688,9 +720,10 @@
             "history": [
                 225000000,
                 250000000,
-                330000000
+                330000000,
+                350000000
             ],
-            "lastUpdate": "2026-03-25",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "none",
             "robux": null
         },
@@ -698,11 +731,13 @@
             "history": [
                 280000000,
                 235000000,
-                130000000,
                 110000000,
-                100000000
+                100000000,
+                80000000,
+                75000000,
+                40000000
             ],
-            "lastUpdate": "2026-03-21",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
@@ -718,9 +753,9 @@
         "marshmallow": {
             "history": [
                 58000000,
-                55000000
+                45000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-11",
             "valueStatus": "known",
             "robux": null
         },
