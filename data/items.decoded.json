@@ -746,7 +746,7 @@
             "id": "medal-tractor",
             "display": {
                 "name": "Medal Tractor",
-                "image": "img/default.jpg"
+                "image": "img/medal-tractor.jpg"
             },
             "classification": {
                 "level": 4,
