@@ -6,6 +6,7 @@ const ACTION_FORM_LINKS = {
   announce: '',
   reportPrice: ''
 };
+const DEFAULT_ITEM_IMAGE = 'img/default.jpg';
 const CATEGORY_DISPLAY_ORDER = [
   'TreeCutters',
   'Tractors',
@@ -39,6 +40,7 @@ let allItems = [];
 let currentLanguage = 'pt-BR';
 let currentViewMode = 'grid';
 let carouselIndex = 0;
+const itemImageCache = new Map();
 
 const I18N = {
   'pt-BR': {
@@ -458,6 +460,7 @@ function renderItems(items) {
 
   if (viewMode === 'list') {
     renderListView(items, container, packageMap);
+    loadCatalogImages(container);
     return;
   }
 
@@ -478,7 +481,7 @@ function renderItems(items) {
     card.innerHTML = `
       ${renderShareButton(item)}
       <div class="item-preview">
-        <div class="item-image" role="img" aria-label="${escapeHtml(item.name)}" style="${getItemImageStyle(item.image)}"></div>
+        <div class="item-image catalog-image is-loading" role="img" aria-label="${escapeHtml(item.name)}" data-image-src="${escapeHtml(item.image)}"></div>
         <div class="item-name">${escapeHtml(item.name)}</div>
       </div>
       <div class="item-details">
@@ -584,6 +587,8 @@ function renderItems(items) {
     slot.appendChild(card);
     container.appendChild(slot);
   });
+
+  loadCatalogImages(container);
 }
 
 function getSelectedViewMode() {
@@ -617,7 +622,7 @@ function renderCarouselView(items, container, packageMap) {
   card.innerHTML = `
     ${renderShareButton(item)}
     <div class="item-carousel-media">
-      <div class="item-image" role="img" aria-label="${escapeHtml(item.name)}" style="${getItemImageStyle(item.image)}"></div>
+      <div class="item-image catalog-image is-loading" role="img" aria-label="${escapeHtml(item.name)}" data-image-src="${escapeHtml(item.image)}"></div>
     </div>
     <div class="item-carousel-body">
       <div class="item-name">${escapeHtml(item.name)}</div>
@@ -663,6 +668,8 @@ function renderCarouselView(items, container, packageMap) {
   card.appendChild(nextButton);
   carousel.appendChild(card);
   container.appendChild(carousel);
+  loadCatalogImages(carousel);
+  preloadCarouselNeighborImages(items);
 }
 
 function bindItemActions(root, item) {
@@ -777,7 +784,7 @@ function renderListView(items, container, packageMap) {
     row.dataset.itemId = item.id;
     row.innerHTML = `
       ${renderShareButton(item)}
-      <div class="item-list-thumb" role="img" aria-label="${escapeHtml(item.name)}" style="${getItemImageStyle(item.image)}"></div>
+      <div class="item-list-thumb catalog-image is-loading" role="img" aria-label="${escapeHtml(item.name)}" data-image-src="${escapeHtml(item.image)}"></div>
       <div class="item-list-main">
         <h3 class="item-list-name">${escapeHtml(item.name)}</h3>
         <div class="item-list-meta">
@@ -1617,18 +1624,91 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-function getItemImageStyle(imagePath) {
-  const safePath = escapeCssUrl(imagePath || 'img/default.jpg');
-  const fallbackPath = escapeCssUrl('img/default.jpg');
-  return `background-image: url('${safePath}'), url('${fallbackPath}');`;
-}
-
 function escapeCssUrl(value) {
   return String(value)
     .replace(/\\/g, '\\\\')
     .replace(/'/g, "\\'")
     .replace(/\(/g, '\\(')
     .replace(/\)/g, '\\)');
+}
+
+function loadCatalogImages(root = document) {
+  root.querySelectorAll('.catalog-image[data-image-src]').forEach(element => {
+    const imagePath = firstNonEmptyText([element.dataset.imageSrc]) || DEFAULT_ITEM_IMAGE;
+    const cached = itemImageCache.get(imagePath);
+
+    if (cached?.status === 'loaded') {
+      element.style.backgroundImage = `url('${escapeCssUrl(imagePath)}')`;
+      setCatalogImageState(element, 'loaded');
+      return;
+    }
+
+    if (cached?.status === 'missing') {
+      element.style.backgroundImage = `url('${escapeCssUrl(DEFAULT_ITEM_IMAGE)}')`;
+      setCatalogImageState(element, 'missing');
+      return;
+    }
+
+    setCatalogImageState(element, 'loading');
+    preloadCatalogImage(imagePath)
+      .then(loadedPath => {
+        element.style.backgroundImage = `url('${escapeCssUrl(loadedPath)}')`;
+        setCatalogImageState(element, 'loaded');
+      })
+      .catch(() => {
+        element.style.backgroundImage = `url('${escapeCssUrl(DEFAULT_ITEM_IMAGE)}')`;
+        setCatalogImageState(element, 'missing');
+      });
+  });
+}
+
+function preloadCarouselNeighborImages(items) {
+  if (!Array.isArray(items) || items.length <= 1) return;
+  const previousIndex = (carouselIndex - 1 + items.length) % items.length;
+  const nextIndex = (carouselIndex + 1) % items.length;
+  [items[previousIndex], items[nextIndex]].forEach(item => {
+    const imagePath = firstNonEmptyText([item?.image]);
+    if (imagePath) preloadCatalogImage(imagePath).catch(() => {});
+  });
+}
+
+function preloadCatalogImage(imagePath) {
+  const normalizedPath = firstNonEmptyText([imagePath]) || DEFAULT_ITEM_IMAGE;
+  const cached = itemImageCache.get(normalizedPath);
+
+  if (cached?.status === 'loaded') {
+    return Promise.resolve(normalizedPath);
+  }
+
+  if (cached?.status === 'missing') {
+    return Promise.reject(new Error('Image not found'));
+  }
+
+  if (cached?.promise) {
+    return cached.promise;
+  }
+
+  const promise = new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => {
+      itemImageCache.set(normalizedPath, { status: 'loaded' });
+      resolve(normalizedPath);
+    };
+    image.onerror = () => {
+      itemImageCache.set(normalizedPath, { status: 'missing' });
+      reject(new Error('Image not found'));
+    };
+    image.src = normalizedPath;
+  });
+
+  itemImageCache.set(normalizedPath, { status: 'loading', promise });
+  return promise;
+}
+
+function setCatalogImageState(element, state) {
+  element.classList.toggle('is-loading', state === 'loading');
+  element.classList.toggle('is-loaded', state === 'loaded');
+  element.classList.toggle('is-missing', state === 'missing');
 }
 
 function firstDefinedValue(values) {

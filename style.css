@@ -16,6 +16,7 @@
   --success: #6ca57e;
   --shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.42);
   --radius-md: 12px;
+  --page-content-width: 1024px;
 }
 
 body {
@@ -87,7 +88,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  width: min(820px, 100%);
+  width: min(var(--page-content-width), 100%);
   margin: 0 auto;
 }
 
@@ -141,7 +142,7 @@ h1 {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(820px, calc(100% - 16px));
+  width: min(var(--page-content-width), calc(100% - 16px));
   padding: 8px;
   border-radius: var(--radius-md);
   border: 1px solid var(--line);
@@ -190,7 +191,7 @@ h1 {
 
 input[type="text"], select {
   padding: 9px 12px;
-  background: linear-gradient(180deg, rgba(39, 42, 49, 0.98), rgba(31, 34, 40, 0.98));
+  background: linear-gradient(180deg, rgba(20, 23, 30, 0.98), rgba(12, 15, 20, 0.98));
   border: 1px solid var(--line);
   color: var(--text-primary);
   border-radius: 10px;
@@ -216,7 +217,7 @@ input[type="text"]:focus-visible, select:focus-visible {
 }
 
 select option {
-  background: #22252c;
+  background: #11151c;
   color: #f1f2f4;
 }
 
@@ -229,7 +230,7 @@ select option {
   padding: 0 10px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: linear-gradient(180deg, rgba(39, 42, 49, 0.98), rgba(31, 34, 40, 0.98));
+  background: linear-gradient(180deg, rgba(20, 23, 30, 0.98), rgba(12, 15, 20, 0.98));
   color: #dce6f7;
   font-size: 13px;
   font-weight: 600;
@@ -319,7 +320,7 @@ select option {
 }
 
 .item-carousel {
-  min-height: calc(100vh - 250px);
+  min-height: calc(100vh - 350px);
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
@@ -375,9 +376,10 @@ select option {
 .item-carousel-card {
   --carousel-card-padding: 14px;
   --carousel-image-height: max(360px, min(62vh, 560px));
-  width: min(880px, 100%);
+  width: 100%;
   margin: 0 auto;
   cursor: default;
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
   gap: 16px;
@@ -447,10 +449,13 @@ select option {
 
 main {
   flex: 1;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(45, 58, 78, 0.18), transparent 34%),
+    linear-gradient(180deg, #090b0f 0%, #0b0d11 54%, #08090c 100%);
 }
 
 .content-wrap {
-  width: min(1260px, 100%);
+  width: min(var(--page-content-width), 100%);
   margin: 0 auto;
 }
 
@@ -506,6 +511,8 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #101726;
+  position: relative;
+  overflow: hidden;
 }
 
 .item-list-main {
@@ -675,7 +682,24 @@ main {
   transition: background-size 0.3s ease, filter 0.3s ease;
 }
 
-.item-image::after {
+.catalog-image.is-loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 45%, transparent 90%),
+    linear-gradient(135deg, rgba(32, 45, 67, 0.9), rgba(15, 23, 36, 0.95));
+  background-size: 180% 100%, 100% 100%;
+  animation: image-loading-sweep 1.1s ease-in-out infinite;
+}
+
+.catalog-image.is-loaded,
+.catalog-image.is-missing {
+  background-color: #101726;
+}
+
+.item-image.is-loaded::after,
+.item-image.is-missing::after {
   content: 'VoZona';
   position: absolute;
   left: 50%;
@@ -690,6 +714,16 @@ main {
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
+}
+
+@keyframes image-loading-sweep {
+  from {
+    background-position: 120% 0, center;
+  }
+
+  to {
+    background-position: -80% 0, center;
+  }
 }
 
 .item-card:hover .item-image {
