@@ -38,6 +38,7 @@ const CATEGORY_LABELS = {
 let allItems = [];
 let currentLanguage = 'pt-BR';
 let currentViewMode = 'grid';
+let carouselIndex = 0;
 
 const I18N = {
   'pt-BR': {
@@ -81,6 +82,7 @@ const I18N = {
     viewModeFilterAriaLabel: 'Modo de visualização',
     viewModeGrid: 'Grade',
     viewModeList: 'Lista',
+    viewModeCard: 'Card',
     sortName: 'Nome',
     sortCategoryName: 'Categoria e Nome',
     sortValueAsc: 'Menor Preço',
@@ -139,6 +141,7 @@ const I18N = {
     viewModeFilterAriaLabel: 'View mode',
     viewModeGrid: 'Grid',
     viewModeList: 'List',
+    viewModeCard: 'Card',
     sortName: 'Name',
     sortCategoryName: 'Category and name',
     sortValueAsc: 'Lowest Price',
@@ -262,7 +265,7 @@ function getInitialLanguage() {
 
 function getInitialViewMode() {
   const savedMode = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
-  if (savedMode === 'list' || savedMode === 'grid') {
+  if (savedMode === 'list' || savedMode === 'grid' || savedMode === 'card') {
     return savedMode;
   }
   return 'grid';
@@ -430,7 +433,9 @@ function normalizeItem(item, marketEntry = {}) {
 function renderItems(items) {
   const container = document.getElementById('itemsContainer');
   const viewMode = getSelectedViewMode();
-  container.className = viewMode === 'list' ? 'items-list' : 'items-grid';
+  container.className = viewMode === 'list'
+    ? 'items-list'
+    : (viewMode === 'card' ? 'items-carousel' : 'items-grid');
   container.innerHTML = '';
   updateResultsCount(items.length, allItems.length);
 
@@ -453,6 +458,11 @@ function renderItems(items) {
 
   if (viewMode === 'list') {
     renderListView(items, container, packageMap);
+    return;
+  }
+
+  if (viewMode === 'card') {
+    renderCarouselView(items, container, packageMap);
     return;
   }
 
@@ -579,10 +589,167 @@ function renderItems(items) {
 function getSelectedViewMode() {
   const viewModeFilter = document.getElementById('viewModeFilter');
   const selectedMode = viewModeFilter?.value;
-  if (selectedMode === 'list' || selectedMode === 'grid') {
+  if (selectedMode === 'list' || selectedMode === 'grid' || selectedMode === 'card') {
     return selectedMode;
   }
-  return currentViewMode === 'list' ? 'list' : 'grid';
+  return currentViewMode === 'list' || currentViewMode === 'card' ? currentViewMode : 'grid';
+}
+
+function renderCarouselView(items, container, packageMap) {
+  carouselIndex = Math.max(0, Math.min(carouselIndex, items.length - 1));
+  const item = items[carouselIndex];
+
+  const carousel = document.createElement('section');
+  carousel.className = 'item-carousel';
+  carousel.setAttribute('aria-label', t('viewModeCard'));
+
+  const previousButton = document.createElement('button');
+  previousButton.type = 'button';
+  previousButton.className = 'carousel-nav carousel-nav--previous';
+  previousButton.setAttribute('aria-label', currentLanguage === 'en' ? 'Previous item' : 'Item anterior');
+  previousButton.title = previousButton.getAttribute('aria-label');
+  previousButton.innerHTML = '&#8249;';
+  previousButton.disabled = items.length <= 1;
+
+  const card = document.createElement('article');
+  card.className = 'item-card item-carousel-card expanded';
+  card.dataset.itemId = item.id;
+  card.innerHTML = `
+    ${renderShareButton(item)}
+    <div class="item-carousel-media">
+      <div class="item-image" role="img" aria-label="${escapeHtml(item.name)}" style="${getItemImageStyle(item.image)}"></div>
+    </div>
+    <div class="item-carousel-body">
+      <div class="item-name">${escapeHtml(item.name)}</div>
+      <div class="item-details">
+        ${renderLevelRow(item)}
+        ${renderCategoryRow(item)}
+        ${renderRarityRow(item)}
+        ${renderSpeedRow(item)}
+        ${renderCapacityRow(item)}
+        ${renderValueRow(item)}
+        ${renderPackageRow(item, packageMap)}
+        ${renderRelatedItems(item, packageMap)}
+        ${renderItemNotes(item)}
+        ${renderUpdateRow(item)}
+      </div>
+      <div class="carousel-position">${carouselIndex + 1} / ${items.length}</div>
+    </div>
+  `;
+
+  const nextButton = document.createElement('button');
+  nextButton.type = 'button';
+  nextButton.className = 'carousel-nav carousel-nav--next';
+  nextButton.setAttribute('aria-label', currentLanguage === 'en' ? 'Next item' : 'Próximo item');
+  nextButton.title = nextButton.getAttribute('aria-label');
+  nextButton.innerHTML = '&#8250;';
+  nextButton.disabled = items.length <= 1;
+
+  previousButton.addEventListener('click', () => {
+    carouselIndex = (carouselIndex - 1 + items.length) % items.length;
+    renderItems(items);
+  });
+
+  nextButton.addEventListener('click', () => {
+    carouselIndex = (carouselIndex + 1) % items.length;
+    renderItems(items);
+  });
+
+  bindItemActions(card, item);
+  const media = card.querySelector('.item-carousel-media');
+  if (media) {
+    media.appendChild(previousButton);
+  }
+  card.appendChild(nextButton);
+  carousel.appendChild(card);
+  container.appendChild(carousel);
+}
+
+function bindItemActions(root, item) {
+  const actionsToggle = root.querySelector('.item-actions-toggle');
+  const actionsMenu = root.querySelector('.item-actions-menu');
+  const shareAction = root.querySelector('[data-action="share"]');
+  const announceAction = root.querySelector('[data-action="announce"]');
+  const reportPriceAction = root.querySelector('[data-action="report-price"]');
+
+  if (actionsToggle) {
+    actionsToggle.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const willOpen = !root.classList.contains('actions-open');
+      closeAllItemActionMenus(root);
+      root.classList.toggle('actions-open', willOpen);
+      actionsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+  }
+
+  if (actionsMenu) {
+    actionsMenu.addEventListener('click', event => {
+      event.stopPropagation();
+    });
+  }
+
+  if (shareAction) {
+    shareAction.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      handleShareClick(item, shareAction);
+    });
+  }
+
+  if (announceAction) {
+    announceAction.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      handleAnnounceClick(item, announceAction);
+    });
+  }
+
+  if (reportPriceAction) {
+    reportPriceAction.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      handleReportPriceClick(item, reportPriceAction);
+    });
+  }
+
+  root.querySelectorAll('.value-info-btn').forEach(valueInfoButton => {
+    valueInfoButton.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const valueRow = valueInfoButton.closest('.item-row--value');
+      if (!valueRow) return;
+      const willOpen = !valueRow.classList.contains('tooltip-open');
+      closeAllValueTooltips(root);
+      valueRow.classList.toggle('tooltip-open', willOpen);
+      root.classList.toggle('value-tooltip-open', willOpen);
+      valueInfoButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+  });
+
+  root.querySelectorAll('.value-tooltip').forEach(tooltip => {
+    tooltip.addEventListener('click', event => {
+      event.stopPropagation();
+    });
+  });
+
+  root.querySelectorAll('.item-note-btn').forEach(noteButton => {
+    noteButton.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const query = firstNonEmptyText([noteButton.dataset.noteQuery]);
+      if (query) applyNoteSearchQuery(query);
+    });
+  });
+
+  root.querySelectorAll('.item-category-btn').forEach(categoryButton => {
+    categoryButton.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const categoryKey = firstNonEmptyText([categoryButton.dataset.categoryKey]);
+      if (categoryKey) applyCategoryFilter(categoryKey);
+    });
+  });
 }
 
 function renderListView(items, container, packageMap) {
@@ -836,7 +1003,7 @@ function applyCatalogStateFromUrl() {
   }
 
   const requestedView = firstNonEmptyText([params.get('view')]);
-  if (requestedView === 'list' || requestedView === 'grid') {
+  if (requestedView === 'list' || requestedView === 'grid' || requestedView === 'card') {
     currentViewMode = requestedView;
     if (viewModeFilter) viewModeFilter.value = requestedView;
     localStorage.setItem(VIEW_MODE_STORAGE_KEY, requestedView);
@@ -1260,7 +1427,7 @@ function syncCatalogStateToUrl() {
   if (sortMode && sortMode !== DEFAULT_SORT_MODE) params.set('sort', sortMode);
   else params.delete('sort');
 
-  if (viewMode === 'list') params.set('view', 'list');
+  if (viewMode === 'list' || viewMode === 'card') params.set('view', viewMode);
   else params.delete('view');
 
   if (currentLanguage && currentLanguage !== 'pt-BR') params.set('lang', currentLanguage);
@@ -1498,7 +1665,18 @@ function filterItems(options = {}) {
     syncCatalogStateToUrl();
   }
 
-  renderItems(sortItemsForDisplay(filtered, sortMode));
+  const sortedItems = sortItemsForDisplay(filtered, sortMode);
+  if (getSelectedViewMode() === 'card') {
+    const requestedId = getItemIdFromUrl();
+    const requestedIndex = requestedId
+      ? sortedItems.findIndex(item => String(item.id || '').toLowerCase() === requestedId.toLowerCase())
+      : -1;
+    if (requestedIndex >= 0) {
+      carouselIndex = requestedIndex;
+    }
+  }
+
+  renderItems(sortedItems);
 }
 
 function sortItemsForDisplay(items, sortMode = DEFAULT_SORT_MODE) {
@@ -1664,7 +1842,8 @@ document.getElementById('categoryFilter').addEventListener('change', filterItems
 document.getElementById('specialFilter').addEventListener('change', filterItems);
 document.getElementById('sortFilter').addEventListener('change', filterItems);
 document.getElementById('viewModeFilter').addEventListener('change', event => {
-  currentViewMode = event.target.value === 'list' ? 'list' : 'grid';
+  const selectedMode = event.target.value;
+  currentViewMode = selectedMode === 'list' || selectedMode === 'card' ? selectedMode : 'grid';
   localStorage.setItem(VIEW_MODE_STORAGE_KEY, currentViewMode);
   filterItems();
 });
