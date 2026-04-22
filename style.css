@@ -36,7 +36,6 @@ body {
 header {
   padding: 20px 20px 16px;
   text-align: center;
-  border-bottom: 1px solid var(--line-soft);
   background: linear-gradient(180deg, rgba(10, 14, 21, 0.75), rgba(15, 20, 30, 0.5)), url(img/top.jpg) bottom / cover no-repeat;
 }
 
@@ -1119,6 +1118,12 @@ main {
   color: #ffffff;
 }
 
+.quick-link--links {
+  border-color: #4f88dc;
+  background: #4f88dc;
+  color: #ffffff;
+}
+
 .quick-link--shop {
   border-color: #ff4a4a;
   background: #ff4a4a;
@@ -1150,6 +1155,11 @@ main {
 .quick-link--community:hover,
 .quick-link--community:focus-visible {
   border-color: #58c481;
+}
+
+.quick-link--links:hover,
+.quick-link--links:focus-visible {
+  border-color: #4f88dc;
 }
 
 .quick-link--shop:hover,
@@ -1196,6 +1206,89 @@ main {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+.links-page main {
+  display: flex;
+  align-items: center;
+}
+
+.links-header {
+  padding-bottom: 18px;
+}
+
+.links-wrap {
+  padding: 28px 14px;
+  box-sizing: border-box;
+}
+
+.links-panel {
+  width: min(520px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.linktree-item {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(193, 198, 206, 0.12), transparent 40%),
+    linear-gradient(180deg, rgba(43, 47, 56, 0.95), rgba(32, 35, 42, 0.95));
+  color: #eef4ff;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.linktree-item:hover,
+.linktree-item:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.34), inset 0 0 0 1px rgba(var(--accent-rgb), 0.24);
+  outline: none;
+}
+
+.linktree-item--primary {
+  border-color: rgba(143, 180, 234, 0.55);
+}
+
+.linktree-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 23, 36, 0.95);
+  border: 1px solid #d5e6ff;
+  color: #e4eeff;
+}
+
+.linktree-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.linktree-item strong,
+.linktree-item small {
+  display: block;
+}
+
+.linktree-item strong {
+  font-size: 15px;
+}
+
+.linktree-item small {
+  margin-top: 2px;
+  color: #9fb0cd;
+  font-size: 12px;
 }
 
 @media (max-width: 768px) {

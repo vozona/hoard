@@ -99,6 +99,7 @@ const I18N = {
     noItemsInCatalog: 'Nenhum item disponível no catálogo.',
     resultsCountLabel: '{shown} de {total} itens',
     noteSearchHintLabel: 'Usar esta nota na busca',
+    quickLinkLinksLabel: 'Links',
     quickLinkCommunityLabel: 'Comunidade',
     quickLinkShirtLabel: 'Camisa oficial'
   },
@@ -158,6 +159,7 @@ const I18N = {
     noItemsInCatalog: 'No items available in the catalog.',
     resultsCountLabel: '{shown} of {total} items',
     noteSearchHintLabel: 'Use this note in search',
+    quickLinkLinksLabel: 'Links',
     quickLinkCommunityLabel: 'Community',
     quickLinkShirtLabel: 'Official shirt'
   }
