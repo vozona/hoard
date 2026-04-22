@@ -7,6 +7,7 @@ const ACTION_FORM_LINKS = {
   reportPrice: ''
 };
 const DEFAULT_ITEM_IMAGE = 'img/default.jpg';
+const VALUE_RANGE_PERCENTAGE = 0.15;
 const CATEGORY_DISPLAY_ORDER = [
   'TreeCutters',
   'Tractors',
@@ -63,6 +64,7 @@ const I18N = {
     suggestedValueLabel: 'Valor sugerido',
     suggestedValueInfoLabel: 'Sobre valor sugerido',
     suggestedValueTooltip: 'Estes preços são apenas uma sugestão (não são oficiais!). Para chegar nesse valor, analisamos vários preços informados pela comunidade nas trocas entre jogadores e calculamos um valor médio mais justo. Lembre-se de que os valores podem mudar com o tempo, então use isso apenas como uma ajudinha na hora de fazer sua troca! Como referência prática, uma negociação pode variar cerca de 15% para cima ou para baixo.',
+    valueRangeLabel: 'Faixa estimada',
     relatedLabel: 'Relacionados',
     updatedAtLabel: 'Atualizado em',
     itemsSuffix: 'itens',
@@ -123,6 +125,7 @@ const I18N = {
     suggestedValueLabel: 'Suggested value',
     suggestedValueInfoLabel: 'About suggested value',
     suggestedValueTooltip: 'These prices are only a suggestion (they are not official!). To estimate this value, we review several prices reported by the community in player-to-player trades and calculate a fairer average reference. Keep in mind values can change over time, so use this only as a helpful guide when making your trade. As a practical reference, a trade can vary by around 15% above or below this value.',
+    valueRangeLabel: 'Estimated range',
     relatedLabel: 'Related',
     updatedAtLabel: 'Updated on',
     itemsSuffix: 'items',
@@ -777,8 +780,6 @@ function renderListView(items, container, packageMap) {
       ? `<button type="button" class="item-category-btn item-category-btn--inline" data-category-key="${escapeHtml(item.categoryKey)}" title="${escapeHtml(t('categoryFilterHintLabel'))}" aria-label="${escapeHtml(t('categoryFilterHintLabel'))}">${escapeHtml(categoryLabel)}</button>`
       : `<span class="item-list-category-text">${escapeHtml(categoryLabel)}</span>`;
     
-    const valueLabel = item.valueSource === 'market' ? t('suggestedValueLabel') : t('averageValueLabel');
-    const valueDisplay = item.value !== null ? escapeHtml(formatPrice(item.value)) : '-';
     const updatedAtDate = item.lastUpdate ? escapeHtml(formatDate(item.lastUpdate)) : '';
 
     const row = document.createElement('article');
@@ -798,10 +799,7 @@ function renderListView(items, container, packageMap) {
         </div>
       </div>
       <div class="item-list-value">
-        <div class="item-list-value-main">
-          <small class="item-list-value-label">${item.value !== null ? escapeHtml(valueLabel) : '&nbsp;'}</small>
-          <span class="item-list-value-number">${valueDisplay}</span>
-        </div>
+        ${renderValueRange(item, { compact: true })}
         <div class="item-list-updated">
           <small class="item-list-updated-label">${t('updatedAtLabel')}</small>
           <span class="item-list-updated-date">${updatedAtDate || '&nbsp;'}</span>
@@ -1161,22 +1159,51 @@ function renderValueRow(item) {
   if (item.value === null) return '';
   const isSuggestedValue = item.valueSource === 'market';
   const valueLabelKey = isSuggestedValue ? 'suggestedValueLabel' : 'averageValueLabel';
+  return `
+    <div class="item-row item-row--value">
+      <span class="value-label-wrap">${t(valueLabelKey)}</span>
+      ${renderValueRange(item)}
+    </div>
+  `;
+}
+
+function renderValueRange(item, options = {}) {
+  if (item.value === null) return '<span class="item-list-value-empty">&nbsp;</span>';
+  const isSuggestedValue = item.valueSource === 'market';
+  const valueRange = getEstimatedValueRange(item.value);
+  const compactClass = options.compact ? ' value-range--compact' : '';
   const infoHtml = isSuggestedValue ? `
     <button type="button" class="value-info-btn" aria-label="${escapeHtml(t('suggestedValueInfoLabel'))}" aria-expanded="false">i</button>
   ` : '';
   const tooltipHtml = isSuggestedValue ? `
     <span class="value-tooltip" role="tooltip">${escapeHtml(t('suggestedValueTooltip'))}</span>
   ` : '';
+
   return `
-    <div class="item-row item-row--value">
-      <span class="value-label-wrap">${t(valueLabelKey)}</span>
-      <span class="value-number-wrap">
-        <strong>${formatPrice(item.value)}</strong>
-        ${infoHtml}
-        ${tooltipHtml}
-      </span>
+    <div class="value-range${compactClass}" aria-label="${escapeHtml(`${t('valueRangeLabel')}: ${formatPrice(valueRange.low)} - ${formatPrice(valueRange.high)}`)}">
+      <div class="value-range-track" aria-hidden="true">
+        <span class="value-range-fill"></span>
+        <span class="value-range-marker"></span>
+      </div>
+      <div class="value-range-values">
+        <small title="${escapeHtml(formatPrice(valueRange.low))}">${formatCompactPrice(valueRange.low)}</small>
+        <span class="value-number-wrap">
+          <strong>${formatPrice(item.value)}</strong>
+          ${infoHtml}
+          ${tooltipHtml}
+        </span>
+        <small title="${escapeHtml(formatPrice(valueRange.high))}">${formatCompactPrice(valueRange.high)}</small>
+      </div>
     </div>
   `;
+}
+
+function getEstimatedValueRange(value) {
+  const numericValue = Math.max(0, toNumberOrNull(value) || 0);
+  return {
+    low: Math.max(0, Math.round(numericValue * (1 - VALUE_RANGE_PERCENTAGE))),
+    high: Math.round(numericValue * (1 + VALUE_RANGE_PERCENTAGE))
+  };
 }
 
 function renderPackageRow(item, packageMap) {
@@ -1601,6 +1628,30 @@ function formatPrice(value) {
   return new Intl.NumberFormat(locale, {
     maximumFractionDigits: 0
   }).format(value);
+}
+
+function formatCompactPrice(value) {
+  const numericValue = toNumberOrNull(value);
+  if (numericValue === null) return '-';
+
+  const absValue = Math.abs(numericValue);
+  const units = [
+    { threshold: 1_000_000_000, suffix: 'B' },
+    { threshold: 1_000_000, suffix: 'M' },
+    { threshold: 1_000, suffix: 'K' }
+  ];
+  const unit = units.find(option => absValue >= option.threshold);
+
+  if (!unit) {
+    return formatPrice(numericValue);
+  }
+
+  const scaledValue = numericValue / unit.threshold;
+  const maximumFractionDigits = Math.abs(scaledValue) < 10 ? 1 : 0;
+  const locale = currentLanguage === 'en' ? 'en-US' : 'pt-BR';
+  return `${new Intl.NumberFormat(locale, {
+    maximumFractionDigits
+  }).format(scaledValue)}${unit.suffix}`;
 }
 
 function formatDate(value) {

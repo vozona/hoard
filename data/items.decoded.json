@@ -1,4 +1,4 @@
-﻿{
+{
     "schemaVersion": 2,
     "items": [
         {
@@ -471,7 +471,6 @@
                 "image": "img/super-zm80.gif"
             },
             "classification": {
-                "level": "5",
                 "category": "Tractors",
                 "speed": "100",
                 "speedMin": "",
@@ -2089,6 +2088,22 @@
                 "special": true
             },
             "notes": "2024 Christmas Event"
+        },
+        {
+            "id": "super-na-cr10",
+            "display": {
+                "name": "Super NA CR10",
+                "image": "img/super-na-cr10.jpg"
+            },
+            "classification": {
+                "category": "Harvesters",
+                "capacity": "10 rows",
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Dev Vehicle - only Devs has it"
         },
         {
             "id": "vintage-harvester",
