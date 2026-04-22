@@ -2098,12 +2098,12 @@
             "classification": {
                 "category": "Harvesters",
                 "capacity": "10 rows",
-                "rarity": ""
+                "rarity": "5"
             },
             "access": {
                 "special": true
             },
-            "notes": "Dev Vehicle - only Devs has it"
+            "notes": "Exclusive developer-only vehicle"
         },
         {
             "id": "vintage-harvester",
@@ -2215,7 +2215,7 @@
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 100,
-                "rarity": "4.5"
+                "rarity": "4.6"
             },
             "access": {
                 "special": true
@@ -2253,7 +2253,7 @@
                 "speed": 31,
                 "speedMin": "",
                 "speedMax": 100,
-                "rarity": ""
+                "rarity": "4"
             },
             "access": {
                 "special": true
@@ -2335,7 +2335,7 @@
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Staff-gifted vehicle"
         },
         {
             "id": "sl-medium",
@@ -2349,7 +2349,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "rarity": "4.7"
+                "rarity": "4.8"
             },
             "access": {
                 "special": true
@@ -2943,7 +2943,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Dunn Games Semi Pack - 40M"
+            "notes": "Dunn Games Semi Pack - 44M"
         },
         {
             "id": "dg-ct",
@@ -2962,7 +2962,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Dunn Games Semi Pack - 40M"
+            "notes": "Dunn Games Semi Pack - 44M"
         },
         {
             "id": "dg-lt",
@@ -2981,7 +2981,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Dunn Games Semi Pack - 40M"
+            "notes": "Dunn Games Semi Pack - 44M"
         },
         {
             "id": "vintage-flatbed",
@@ -3234,6 +3234,7 @@
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
+                "capacity":"20 round bales",
                 "rarity": ""
             },
             "access": {
@@ -3404,7 +3405,7 @@
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "No longer available - replaced by sugar cane"
         },
         {
             "id": "woodlouse-stitch-head",
@@ -3549,12 +3550,12 @@
             },
             "classification": {
                 "category": "SeedBoxes",
-                "rarity": ""
+                "rarity": "1.6"
             },
             "access": {
                 "special": true
             },
-            "notes": ""
+            "notes": "Obtainable during UFO event"
         },
         {
             "id": "birch",

@@ -1190,21 +1190,15 @@ main {
   color: #ffffff;
 }
 
-.quick-link--community {
+.quick-link--links {
   border-color: #58c481;
   background: #58c481;
   color: #ffffff;
 }
 
-.quick-link--links {
-  border-color: #4f88dc;
-  background: #4f88dc;
-  color: #ffffff;
-}
-
 .quick-link--shop {
-  border-color: #ff4a4a;
-  background: #ff4a4a;
+  border-color: #fc4b08;
+  background: #fc4b08;
   color: #ffffff;
 }
 
@@ -1230,14 +1224,9 @@ main {
   border-color: #5865f2;
 }
 
-.quick-link--community:hover,
-.quick-link--community:focus-visible {
-  border-color: #58c481;
-}
-
 .quick-link--links:hover,
 .quick-link--links:focus-visible {
-  border-color: #4f88dc;
+  border-color: #58c481;
 }
 
 .quick-link--shop:hover,

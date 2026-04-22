@@ -49,20 +49,22 @@
         "claas-xerion-5000": {
             "history": [
                 20000000,
-                18000000
+                18000000,
+                16000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": 160
         },
         "vertra": {
             "history": [
-                355000000,
                 380000000,
                 450000000,
-                550000000
+                550000000,
+                880000000,
+                1000000000
             ],
-            "lastUpdate": "2026-03-25",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -178,18 +180,22 @@
         },
         "rusty-tractor": {
             "history": [
-                9500000,
-                10000000
+                4500000,
+                5000000,
+                8800000,
+                9500000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": 55
         },
         "fordson": {
             "history": [
-                15000000
+                15000000,
+                14000000,
+                10000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": 150
         },
@@ -218,6 +224,7 @@
         "mega-baler": {
             "history": [
                 50000000,
+                40000000,
                 33000000,
                 30000000
             ],
@@ -227,10 +234,12 @@
         },
         "er80t": {
             "history": [
+                20000000,
                 18000000,
-                15000000
+                15000000,
+                10000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": 150
         },
@@ -282,9 +291,12 @@
         "vintage-tractor": {
             "history": [
                 65000000,
-                70000000
+                70000000,
+                100000000,
+                150000000,
+                165000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -304,6 +316,12 @@
             "valueStatus": "unknown",
             "robux": null
         },
+        "super-na-cr10": {
+            "history": [],
+            "lastUpdate": "2026-04-22",
+            "valueStatus": "unknown",
+            "robux": null
+        },
         "gd-8r410": {
             "history": [],
             "lastUpdate": "2026-03-10",
@@ -320,9 +338,11 @@
             "history": [
                 10000000,
                 12000000,
-                15000000
+                15000000,
+                20000000,
+                30000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -365,9 +385,10 @@
             "history": [
                 760000000,
                 990000000,
-                15000000000
+                1500000000,
+                1600000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": null
         },
@@ -376,18 +397,20 @@
                 140000000,
                 220000000,
                 250000000,
-                300000000
+                300000000,
+                350000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
         "dg-lt": {
             "history": [
                 10000000,
-                11000000
+                11500000,
+                13000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -397,7 +420,7 @@
                 22000000,
                 30000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -414,9 +437,10 @@
             "history": [
                 49000000,
                 55000000,
-                60000000
+                99000000,
+                180000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -460,16 +484,14 @@
                 20000000,
                 15000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
         "sled": {
             "history": [
-                2700000000,
-                3000000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": null
         },
@@ -495,7 +517,7 @@
             "history": [
                 65000000
             ],
-            "lastUpdate": "2026-03-06",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": null
         },
@@ -540,10 +562,10 @@
             "history": [
                 1300000000,
                 1800000000,
-                2400000000,
-                2500000000
+                3000000000,
+                7500000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": null
         },
@@ -577,9 +599,12 @@
         "atm-700": {
             "history": [
                 15000000,
+                9000000,
+                7700000,
+                6600000,
                 4000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": 85
         },
@@ -595,7 +620,7 @@
             "history": [
                 22000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": 180
         },
@@ -603,7 +628,7 @@
             "history": [
                 20000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "none",
             "robux": 170
         },
@@ -612,9 +637,10 @@
                 1520000000,
                 2200000000,
                 3300000000,
-                3500000000
+                3500000000,
+                6000000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -661,18 +687,24 @@
         },
         "levi-flatbed": {
             "history": [
-                44000000
+                38000000,
+                45000000,
+                66000000,
+                70000000,
+                100000000
             ],
-            "lastUpdate": "2026-04-16",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
         "sopt-925": {
             "history": [
                 48000000,
-                44000000
+                44000000,
+                50000000,
+                70000000
             ],
-            "lastUpdate": "2026-03-10",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -741,10 +773,12 @@
         },
         "burnt-hallowood": {
             "history": [
+                50000000,
+                55000000,
                 75000000,
                 80000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -787,11 +821,13 @@
         },
         "balsam": {
             "history": [
+                11000000,
+                20000000,
                 30000000,
                 60000000,
                 40000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -806,19 +842,21 @@
         },
         "woodlouse-stitch-head": {
             "history": [
+                18000000,
                 17500000,
                 15000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
         "shelly-stitch-head": {
             "history": [
+                11000000,
                 8250000,
                 4400000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -871,10 +909,11 @@
         },
         "hallowood": {
             "history": [
+                800000,
                 450000,
                 330000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         },
@@ -889,10 +928,10 @@
         "alien-tentacles": {
             "history": [
                 160000,
-                250000,
+                220000,
                 230000
             ],
-            "lastUpdate": "2026-03-04",
+            "lastUpdate": "2026-04-22",
             "valueStatus": "known",
             "robux": null
         }

@@ -657,11 +657,13 @@ function renderCarouselView(items, container, packageMap) {
 
   previousButton.addEventListener('click', () => {
     carouselIndex = (carouselIndex - 1 + items.length) % items.length;
+    syncCarouselItemToUrl(items[carouselIndex]);
     renderItems(items);
   });
 
   nextButton.addEventListener('click', () => {
     carouselIndex = (carouselIndex + 1) % items.length;
+    syncCarouselItemToUrl(items[carouselIndex]);
     renderItems(items);
   });
 
@@ -999,8 +1001,8 @@ function applyCatalogStateFromUrl() {
     categoryFilter.value = requestedCategory;
   }
 
-  const requestedSpecial = firstNonEmptyText([params.get('sp')]).toLowerCase();
-  if (specialFilter && requestedSpecial) {
+  const requestedSpecial = params.get('sp');
+  if (specialFilter && requestedSpecial !== null) {
     specialFilter.checked = requestedSpecial === '1' || requestedSpecial === 'true';
   }
 
@@ -1042,11 +1044,9 @@ function openItemFromUrl() {
 
   const searchInput = document.getElementById('searchInput');
   const categoryFilter = document.getElementById('categoryFilter');
-  const specialFilter = document.getElementById('specialFilter');
 
   if (searchInput) searchInput.value = '';
   if (categoryFilter) categoryFilter.value = ALL_CATEGORY_VALUE;
-  if (specialFilter) specialFilter.checked = false;
   updateClearSearchVisibility();
   filterItems();
 
@@ -1170,14 +1170,20 @@ function renderValueRow(item) {
 function renderValueRange(item, options = {}) {
   if (item.value === null) return '<span class="item-list-value-empty">&nbsp;</span>';
   const isSuggestedValue = item.valueSource === 'market';
+  
+  // Show range only for special items with suggested value
+  if (!item.special || !isSuggestedValue) {
+    return `<strong>${formatPrice(item.value)}</strong>`;
+  }
+  
   const valueRange = getEstimatedValueRange(item.value);
   const compactClass = options.compact ? ' value-range--compact' : '';
-  const infoHtml = isSuggestedValue ? `
+  const infoHtml = `
     <button type="button" class="value-info-btn" aria-label="${escapeHtml(t('suggestedValueInfoLabel'))}" aria-expanded="false">i</button>
-  ` : '';
-  const tooltipHtml = isSuggestedValue ? `
+  `;
+  const tooltipHtml = `
     <span class="value-tooltip" role="tooltip">${escapeHtml(t('suggestedValueTooltip'))}</span>
-  ` : '';
+  `;
 
   return `
     <div class="value-range${compactClass}" aria-label="${escapeHtml(`${t('valueRangeLabel')}: ${formatPrice(valueRange.low)} - ${formatPrice(valueRange.high)}`)}">
@@ -1442,6 +1448,21 @@ function buildItemShareUrl(itemId) {
   return url.toString();
 }
 
+function syncCarouselItemToUrl(item) {
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+  if (item && item.id) {
+    params.set('item', item.id);
+  } else {
+    params.delete('item');
+  }
+  const nextUrl = `${url.pathname}${params.toString() ? `?${params.toString()}` : ''}${url.hash || ''}`;
+  const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (nextUrl !== currentUrl) {
+    window.history.replaceState(null, '', nextUrl);
+  }
+}
+
 function syncCatalogStateToUrl() {
   const url = new URL(window.location.href);
   const params = url.searchParams;
@@ -1457,8 +1478,7 @@ function syncCatalogStateToUrl() {
   if (category && category !== ALL_CATEGORY_VALUE) params.set('cat', category);
   else params.delete('cat');
 
-  if (specialOnly === false) params.set('sp', '0');
-  else params.delete('sp');
+  params.set('sp', specialOnly ? '1' : '0');
 
   if (sortMode && sortMode !== DEFAULT_SORT_MODE) params.set('sort', sortMode);
   else params.delete('sort');
