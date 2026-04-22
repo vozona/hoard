@@ -236,14 +236,13 @@
         },
         "medal-tractor": {
             "history": [
+                10000000,
+                13000000,
                 15000000,
                 20000000,
-                22000000,
-                27500000,
-                30000000,
-                33000000
+                22000000
             ],
-            "lastUpdate": "2026-04-10",
+            "lastUpdate": "2026-04-15",
             "valueStatus": "known",
             "robux": null
         },
@@ -662,10 +661,9 @@
         },
         "levi-flatbed": {
             "history": [
-                80000000,
-                270000000
+                44000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-04-16",
             "valueStatus": "known",
             "robux": null
         },
