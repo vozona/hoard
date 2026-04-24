@@ -82,6 +82,7 @@ const I18N = {
     itemActionsMenuLabel: 'Opções do item',
     announceItemLabel: 'Tenho interesse',
     announceSoonLabel: 'Em breve',
+    closeLabel: 'Fechar',
     reportPriceLabel: 'Informar preço negociado',
     reportSoonLabel: 'Em breve',
     sortByLabel: 'Ordenar',
@@ -143,6 +144,7 @@ const I18N = {
     itemActionsMenuLabel: 'Item options',
     announceItemLabel: 'I am interested',
     announceSoonLabel: 'Soon',
+    closeLabel: 'Close',
     reportPriceLabel: 'Report trade price',
     reportSoonLabel: 'Soon',
     sortByLabel: 'Sort',
@@ -508,46 +510,21 @@ function renderItems(items) {
     `;
 
     const actionsToggle = card.querySelector('.item-actions-toggle');
-    const actionsMenu = card.querySelector('.item-actions-menu');
     const shareAction = card.querySelector('[data-action="share"]');
-    const announceAction = card.querySelector('[data-action="announce"]');
-    const reportPriceAction = card.querySelector('[data-action="report-price"]');
     const valueInfoButton = card.querySelector('.value-info-btn');
     const valueTooltip = card.querySelector('.value-tooltip');
     if (actionsToggle) {
       actionsToggle.addEventListener('click', event => {
         event.preventDefault();
         event.stopPropagation();
-        const willOpen = !card.classList.contains('actions-open');
-        closeAllItemActionMenus(card);
-        card.classList.toggle('actions-open', willOpen);
-        actionsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        handleShareClick(item, actionsToggle);
       });
     }
-    if (actionsMenu) {
-      actionsMenu.addEventListener('click', event => {
-        event.stopPropagation();
-      });
-    }
-    if (shareAction) {
+    if (shareAction && shareAction !== actionsToggle) {
       shareAction.addEventListener('click', event => {
         event.preventDefault();
         event.stopPropagation();
         handleShareClick(item, shareAction);
-      });
-    }
-    if (announceAction) {
-      announceAction.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopPropagation();
-        handleAnnounceClick(item, announceAction);
-      });
-    }
-    if (reportPriceAction) {
-      reportPriceAction.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopPropagation();
-        handleReportPriceClick(item, reportPriceAction);
       });
     }
     if (valueInfoButton) {
@@ -679,55 +656,27 @@ function renderCarouselView(items, container, packageMap) {
   card.appendChild(nextButton);
   carousel.appendChild(card);
   container.appendChild(carousel);
-  loadCatalogImages(carousel);
+  loadCatalogImages(container);
   preloadCarouselNeighborImages(items);
 }
 
 function bindItemActions(root, item) {
   const actionsToggle = root.querySelector('.item-actions-toggle');
-  const actionsMenu = root.querySelector('.item-actions-menu');
   const shareAction = root.querySelector('[data-action="share"]');
-  const announceAction = root.querySelector('[data-action="announce"]');
-  const reportPriceAction = root.querySelector('[data-action="report-price"]');
 
   if (actionsToggle) {
     actionsToggle.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
-      const willOpen = !root.classList.contains('actions-open');
-      closeAllItemActionMenus(root);
-      root.classList.toggle('actions-open', willOpen);
-      actionsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      handleShareClick(item, actionsToggle);
     });
   }
 
-  if (actionsMenu) {
-    actionsMenu.addEventListener('click', event => {
-      event.stopPropagation();
-    });
-  }
-
-  if (shareAction) {
+  if (shareAction && shareAction !== actionsToggle) {
     shareAction.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
       handleShareClick(item, shareAction);
-    });
-  }
-
-  if (announceAction) {
-    announceAction.addEventListener('click', event => {
-      event.preventDefault();
-      event.stopPropagation();
-      handleAnnounceClick(item, announceAction);
-    });
-  }
-
-  if (reportPriceAction) {
-    reportPriceAction.addEventListener('click', event => {
-      event.preventDefault();
-      event.stopPropagation();
-      handleReportPriceClick(item, reportPriceAction);
     });
   }
 
@@ -847,49 +796,21 @@ function renderListView(items, container, packageMap) {
     });
     
     const actionsToggle = row.querySelector('.item-actions-toggle');
-    const actionsMenu = row.querySelector('.item-actions-menu');
     const shareAction = row.querySelector('[data-action="share"]');
-    const announceAction = row.querySelector('[data-action="announce"]');
-    const reportPriceAction = row.querySelector('[data-action="report-price"]');
     
     if (actionsToggle) {
       actionsToggle.addEventListener('click', event => {
         event.preventDefault();
         event.stopPropagation();
-        const willOpen = !row.classList.contains('actions-open');
-        closeAllItemActionMenus(row);
-        row.classList.toggle('actions-open', willOpen);
-        actionsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        handleShareClick(item, actionsToggle);
       });
     }
     
-    if (actionsMenu) {
-      actionsMenu.addEventListener('click', event => {
-        event.stopPropagation();
-      });
-    }
-    
-    if (shareAction) {
+    if (shareAction && shareAction !== actionsToggle) {
       shareAction.addEventListener('click', event => {
         event.preventDefault();
         event.stopPropagation();
         handleShareClick(item, shareAction);
-      });
-    }
-    
-    if (announceAction) {
-      announceAction.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopPropagation();
-        handleAnnounceClick(item, announceAction);
-      });
-    }
-    
-    if (reportPriceAction) {
-      reportPriceAction.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopPropagation();
-        handleReportPriceClick(item, reportPriceAction);
       });
     }
     
@@ -1273,16 +1194,12 @@ function renderUpdateRow(item) {
 function renderShareButton(item) {
   if (!item.id) return '';
   const shareLabel = t('shareButtonLabel');
-  const actionsLabel = t('moreActionsLabel');
-  const actionsMenuLabel = t('itemActionsMenuLabel');
   return `
     <div class="item-actions">
-      <button type="button" class="item-actions-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="${escapeHtml(actionsLabel)}" title="${escapeHtml(actionsLabel)}">${getItemActionsIconMarkup()}</button>
-      <div class="item-actions-menu" role="menu" aria-label="${escapeHtml(actionsMenuLabel)}">
-        <button type="button" class="item-action-btn" data-action="announce" data-default-label="${escapeHtml(t('announceItemLabel'))}" role="menuitem">${escapeHtml(t('announceItemLabel'))}</button>
-        <button type="button" class="item-action-btn" data-action="share" data-default-label="${escapeHtml(shareLabel)}" role="menuitem">${escapeHtml(shareLabel)}</button>
-        <button type="button" class="item-action-btn" data-action="report-price" role="menuitem">${escapeHtml(t('reportPriceLabel'))}</button>
-      </div>
+      <button type="button" class="item-actions-toggle" data-action="share" data-default-label="${escapeHtml(shareLabel)}" aria-label="${escapeHtml(shareLabel)}" title="${escapeHtml(shareLabel)}">
+        ${getItemActionsIconMarkup()}
+        <span class="item-actions-toggle-label">${escapeHtml(shareLabel)}</span>
+      </button>
     </div>
   `;
 }
@@ -1296,12 +1213,23 @@ async function handleShareClick(item, button) {
   const defaultLabel = button.dataset.defaultLabel || t('shareButtonLabel');
   button.dataset.defaultLabel = defaultLabel;
   const copiedLabel = t('shareCopiedLabel');
-  button.textContent = copiedLabel;
-  button.classList.add('is-copied');
+  const labelElement = button.querySelector('.item-actions-toggle-label');
+
+  if (labelElement) {
+    labelElement.textContent = copiedLabel;
+  } else {
+    button.textContent = copiedLabel;
+  }
+
+  button.classList.add('is-copied', 'is-expanded');
 
   window.setTimeout(() => {
-    button.textContent = defaultLabel;
-    button.classList.remove('is-copied');
+    if (labelElement) {
+      labelElement.textContent = defaultLabel;
+    } else {
+      button.textContent = defaultLabel;
+    }
+    button.classList.remove('is-copied', 'is-expanded');
   }, 1200);
 }
 
@@ -1314,17 +1242,6 @@ function handleAnnounceClick(item, button) {
     return;
   }
   showPendingActionFeedback(button, 'announceItemLabel', 'announceSoonLabel');
-}
-
-function handleReportPriceClick(item, button) {
-  if (!item || !button) return;
-  const formUrl = buildActionFormUrl(ACTION_FORM_LINKS.reportPrice, item, { action: 'report-price' });
-  if (formUrl) {
-    window.open(formUrl, '_blank', 'noopener,noreferrer');
-    closeAllItemActionMenus();
-    return;
-  }
-  showPendingActionFeedback(button, 'reportPriceLabel', 'reportSoonLabel');
 }
 
 function showPendingActionFeedback(button, defaultLabelKey, pendingLabelKey) {
@@ -1361,10 +1278,8 @@ function buildActionFormUrl(baseUrl, item, extraParams = {}) {
 
 function getItemActionsIconMarkup() {
   return `
-    <svg class="item-actions-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <circle cx="12" cy="5" r="1.8" fill="currentColor"></circle>
-      <circle cx="12" cy="12" r="1.8" fill="currentColor"></circle>
-      <circle cx="12" cy="19" r="1.8" fill="currentColor"></circle>
+    <svg class="item-actions-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
     </svg>
   `;
 }
