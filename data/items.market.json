@@ -644,6 +644,13 @@
             "valueStatus": "known",
             "robux": null
         },
+        "rom2400": {
+            "history": [
+            ],
+            "lastUpdate": "2026-04-24",
+            "valueStatus": "unknown",
+            "robux": null
+        },
         "titan-x": {
             "history": [
                 83000000,
@@ -933,6 +940,13 @@
             ],
             "lastUpdate": "2026-04-22",
             "valueStatus": "known",
+            "robux": null
+        },
+        "wrxl2": {
+            "history": [
+            ],
+            "lastUpdate": "2026-04-24",
+            "valueStatus": "unknown",
             "robux": null
         }
     }

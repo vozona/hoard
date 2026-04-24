@@ -1756,6 +1756,26 @@
             }
         },
         {
+            "id": "wrxl2",
+            "display": {
+                "name": "WRXL2",
+                "image": "img/wrxl2.jpg"
+            },
+            "classification": {
+                "level": 5,
+                "category": "Cultivators",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "capacity": "4 rows",
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Companies & 4 Tile Equipment"
+        },
+        {
             "id": "kadl",
             "display": {
                 "name": "KADL",
@@ -2317,6 +2337,24 @@
                 "special": true
             },
             "notes": "2021 Christmas Event"
+        },
+        {
+            "id": "rom2400",
+            "display": {
+                "name": "ROM2400",
+                "image": "img/rom2400.jpg"
+            },
+            "classification": {
+                "level": 5,
+                "category": "Tractors",
+                "speedMin": "",
+                "speedMax": 100,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Companies & 4 Tile Equipment"
         },
         {
             "id": "sled",

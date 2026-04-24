@@ -1,6 +1,9 @@
 const ALL_CATEGORY_VALUE = 'All';
 const LANGUAGE_STORAGE_KEY = 'safrabr_language';
 const VIEW_MODE_STORAGE_KEY = 'safrabr_view_mode';
+const SEARCH_STORAGE_KEY = 'safrabr_search';
+const CATEGORY_STORAGE_KEY = 'safrabr_category';
+const SPECIAL_STORAGE_KEY = 'safrabr_special';
 const DEFAULT_SORT_MODE = 'category-name';
 const ACTION_FORM_LINKS = {
   announce: '',
@@ -41,6 +44,7 @@ let allItems = [];
 let currentLanguage = 'pt-BR';
 let currentViewMode = 'grid';
 let carouselIndex = 0;
+let currentFilteredItems = [];
 const itemImageCache = new Map();
 
 const I18N = {
@@ -992,18 +996,30 @@ function applyCatalogStateFromUrl() {
   const viewModeFilter = document.getElementById('viewModeFilter');
 
   const requestedSearch = firstNonEmptyText([params.get('q')]);
-  if (searchInput && requestedSearch) {
-    searchInput.value = requestedSearch;
+  if (searchInput) {
+    if (requestedSearch) {
+      searchInput.value = requestedSearch;
+    } else if (localStorage.getItem(SEARCH_STORAGE_KEY)) {
+      searchInput.value = localStorage.getItem(SEARCH_STORAGE_KEY);
+    }
   }
 
   const requestedCategory = firstNonEmptyText([params.get('cat')]);
-  if (categoryFilter && requestedCategory && hasSelectOptionValue(categoryFilter, requestedCategory)) {
-    categoryFilter.value = requestedCategory;
+  if (categoryFilter) {
+    if (requestedCategory && hasSelectOptionValue(categoryFilter, requestedCategory)) {
+      categoryFilter.value = requestedCategory;
+    } else if (localStorage.getItem(CATEGORY_STORAGE_KEY) && hasSelectOptionValue(categoryFilter, localStorage.getItem(CATEGORY_STORAGE_KEY))) {
+      categoryFilter.value = localStorage.getItem(CATEGORY_STORAGE_KEY);
+    }
   }
 
   const requestedSpecial = params.get('sp');
-  if (specialFilter && requestedSpecial !== null) {
-    specialFilter.checked = requestedSpecial === '1' || requestedSpecial === 'true';
+  if (specialFilter) {
+    if (requestedSpecial !== null) {
+      specialFilter.checked = requestedSpecial === '1' || requestedSpecial === 'true';
+    } else if (localStorage.getItem(SPECIAL_STORAGE_KEY) !== null) {
+      specialFilter.checked = localStorage.getItem(SPECIAL_STORAGE_KEY) === '1';
+    }
   }
 
   const requestedSort = firstNonEmptyText([params.get('sort')]);
@@ -1472,13 +1488,24 @@ function syncCatalogStateToUrl() {
   const sortMode = document.getElementById('sortFilter')?.value || DEFAULT_SORT_MODE;
   const viewMode = getSelectedViewMode();
 
-  if (search) params.set('q', search);
-  else params.delete('q');
+  if (search) {
+    params.set('q', search);
+    localStorage.setItem(SEARCH_STORAGE_KEY, search);
+  } else {
+    params.delete('q');
+    localStorage.removeItem(SEARCH_STORAGE_KEY);
+  }
 
-  if (category && category !== ALL_CATEGORY_VALUE) params.set('cat', category);
-  else params.delete('cat');
+  if (category && category !== ALL_CATEGORY_VALUE) {
+    params.set('cat', category);
+    localStorage.setItem(CATEGORY_STORAGE_KEY, category);
+  } else {
+    params.delete('cat');
+    localStorage.removeItem(CATEGORY_STORAGE_KEY);
+  }
 
   params.set('sp', specialOnly ? '1' : '0');
+  localStorage.setItem(SPECIAL_STORAGE_KEY, specialOnly ? '1' : '0');
 
   if (sortMode && sortMode !== DEFAULT_SORT_MODE) params.set('sort', sortMode);
   else params.delete('sort');
@@ -1819,6 +1846,8 @@ function filterItems(options = {}) {
   }
 
   const sortedItems = sortItemsForDisplay(filtered, sortMode);
+  currentFilteredItems = sortedItems;
+
   if (getSelectedViewMode() === 'card') {
     const requestedId = getItemIdFromUrl();
     const requestedIndex = requestedId
@@ -2111,6 +2140,33 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     closeAllItemActionMenus();
     closeAllValueTooltips();
+    return;
+  }
+
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    if (getSelectedViewMode() !== 'card') return;
+    if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+
+    const activeElement = document.activeElement;
+    const activeTag = activeElement?.tagName?.toLowerCase();
+    const isTyping = activeElement?.isContentEditable
+      || activeTag === 'input'
+      || activeTag === 'textarea'
+      || activeTag === 'select';
+
+    if (isTyping) return;
+    if (!Array.isArray(currentFilteredItems) || currentFilteredItems.length === 0) return;
+
+    event.preventDefault();
+
+    if (event.key === 'ArrowLeft') {
+      carouselIndex = (carouselIndex - 1 + currentFilteredItems.length) % currentFilteredItems.length;
+    } else {
+      carouselIndex = (carouselIndex + 1) % currentFilteredItems.length;
+    }
+
+    syncCarouselItemToUrl(currentFilteredItems[carouselIndex]);
+    renderItems(currentFilteredItems);
   }
 });
 handleScrollUiState();
