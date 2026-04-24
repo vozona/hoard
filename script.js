@@ -1833,6 +1833,9 @@ function filterItems(options = {}) {
   const category = document.getElementById('categoryFilter').value;
   const specialOnly = document.getElementById('specialFilter').checked;
   const sortMode = document.getElementById('sortFilter')?.value || DEFAULT_SORT_MODE;
+  const effectiveSortMode = getSelectedViewMode() === 'card' && sortMode === DEFAULT_SORT_MODE
+    ? 'level-asc'
+    : sortMode;
 
   const filtered = allItems.filter(item => {
     const matchSearch = itemMatchesSearch(item, search);
@@ -1845,7 +1848,7 @@ function filterItems(options = {}) {
     syncCatalogStateToUrl();
   }
 
-  const sortedItems = sortItemsForDisplay(filtered, sortMode);
+  const sortedItems = sortItemsForDisplay(filtered, effectiveSortMode);
   currentFilteredItems = sortedItems;
 
   if (getSelectedViewMode() === 'card') {
