@@ -110,6 +110,7 @@
       <input id="image" placeholder="imagem (ex: img/default.jpg)">
       <input id="packageId" placeholder="id do pacote (opcional)">
       <input id="packageName" placeholder="nome do pacote (opcional)">
+      <textarea id="aliases" placeholder="aliases/apelidos separados por virgula (ex: JD, John Deere)"></textarea>
       <textarea id="notes" placeholder="observações (opcional)"></textarea>
     </div>
 
@@ -193,13 +194,19 @@
 
       if (typeof data.payload === 'string' && data.payload.trim()) {
         try {
-          return JSON.parse(atob(data.payload));
+          return JSON.parse(decodeBase64Utf8(data.payload));
         } catch (error) {
           console.warn('Falha ao decodificar payload do catalogo.', error);
         }
       }
 
       return data;
+    }
+
+    function decodeBase64Utf8(payload) {
+      const binary = atob(payload);
+      const bytes = Uint8Array.from(binary, character => character.charCodeAt(0));
+      return new TextDecoder().decode(bytes);
     }
 
     function value(id) {
@@ -242,10 +249,17 @@
     }
 
     function clearForm() {
-      ['id', 'name', 'level', 'category', 'rarity', 'image', 'packageId', 'packageName', 'notes'].forEach(id => {
+      ['id', 'name', 'level', 'category', 'rarity', 'image', 'packageId', 'packageName', 'aliases', 'notes'].forEach(id => {
         document.getElementById(id).value = '';
       });
       idEditedManually = false;
+    }
+
+    function parseAliases(rawAliases) {
+      return String(rawAliases || '')
+        .split(',')
+        .map(alias => alias.trim())
+        .filter(Boolean);
     }
 
     function upsertItem(item) {
@@ -368,6 +382,7 @@
       const image = value('image') || 'img/default.jpg';
       const packageId = value('packageId');
       const packageName = value('packageName');
+      const aliases = parseAliases(value('aliases'));
       const notes = value('notes');
 
       if (!id || !name || Number.isNaN(level) || !category || Number.isNaN(rarity)) {
@@ -394,6 +409,9 @@
         relations: packageId ? {
           packageId,
           packageName: packageName || packageId
+        } : undefined,
+        search: aliases.length > 0 ? {
+          aliases
         } : undefined,
         notes: notes || undefined
       };

@@ -207,7 +207,7 @@ function parseCatalogData(data) {
 
   if (typeof data.payload === 'string' && data.payload.trim()) {
     try {
-      const decoded = atob(data.payload);
+      const decoded = decodeBase64Utf8(data.payload);
       const parsed = JSON.parse(decoded);
       return parsed;
     } catch (error) {
@@ -216,6 +216,12 @@ function parseCatalogData(data) {
   }
 
   return data;
+}
+
+function decodeBase64Utf8(payload) {
+  const binary = atob(payload);
+  const bytes = Uint8Array.from(binary, character => character.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
 }
 
 function parseMarketData(data) {
@@ -439,8 +445,45 @@ function normalizeItem(item, marketEntry = {}) {
     ),
     packageId: item.relations?.packageId || item.packageId || '',
     packageName: item.relations?.packageName || item.packageName || '',
+    aliases: normalizeSearchAliases(firstDefinedValue([
+      item.search?.aliases,
+      item.aliases,
+      item.alias,
+      item.display?.aliases
+    ])),
     notes: item.notes || item.description || ''
   };
+}
+
+function normalizeSearchAliases(rawAliases) {
+  if (Array.isArray(rawAliases)) {
+    return rawAliases
+      .map(alias => String(alias || '').trim())
+      .filter(Boolean);
+  }
+
+  if (typeof rawAliases === 'string') {
+    return rawAliases
+      .split(',')
+      .map(alias => alias.trim())
+      .filter(Boolean);
+  }
+
+  return [];
+}
+
+function getPrimaryAlias(item) {
+  if (!Array.isArray(item?.aliases)) return '';
+  return firstNonEmptyText(item.aliases);
+}
+
+function renderItemName(item) {
+  const name = escapeHtml(item?.name || '');
+  const primaryAlias = getPrimaryAlias(item);
+
+  if (!primaryAlias) return name;
+
+  return `${name} <span class="item-alias">(${escapeHtml(primaryAlias)})</span>`;
 }
 
 function renderItems(items) {
@@ -493,7 +536,7 @@ function renderItems(items) {
       ${renderShareButton(item)}
       <div class="item-preview">
         <div class="item-image catalog-image is-loading" role="img" aria-label="${escapeHtml(item.name)}" data-image-src="${escapeHtml(item.image)}"></div>
-        <div class="item-name">${escapeHtml(item.name)}</div>
+        <div class="item-name">${renderItemName(item)}</div>
       </div>
       <div class="item-details">
         ${renderLevelRow(item)}
@@ -611,7 +654,7 @@ function renderCarouselView(items, container, packageMap) {
       <div class="item-image catalog-image is-loading" role="img" aria-label="${escapeHtml(item.name)}" data-image-src="${escapeHtml(item.image)}"></div>
     </div>
     <div class="item-carousel-body">
-      <div class="item-name">${escapeHtml(item.name)}</div>
+      <div class="item-name">${renderItemName(item)}</div>
       <div class="item-details">
         ${renderLevelRow(item)}
         ${renderCategoryRow(item)}
@@ -744,7 +787,7 @@ function renderListView(items, container, packageMap) {
       ${renderShareButton(item)}
       <div class="item-list-thumb catalog-image is-loading" role="img" aria-label="${escapeHtml(item.name)}" data-image-src="${escapeHtml(item.image)}"></div>
       <div class="item-list-main">
-        <h3 class="item-list-name">${escapeHtml(item.name)}</h3>
+        <h3 class="item-list-name">${renderItemName(item)}</h3>
         <div class="item-list-meta">
           <span class="item-list-meta-label">${t('categoryLabel')}</span>
           <!-- Versão normal (não expandida) -->
@@ -1328,8 +1371,15 @@ function itemMatchesSearch(item, rawSearch) {
   const normalizedName = normalizeSearchText(item?.name || '');
   if (normalizedName.includes(normalizedSearch)) return true;
 
+  const normalizedAliases = Array.isArray(item?.aliases)
+    ? item.aliases.map(alias => normalizeSearchText(alias)).filter(Boolean)
+    : [];
+  if (normalizedAliases.some(alias => alias.includes(normalizedSearch))) return true;
+
   const relevantTokens = getRelevantSearchTokens(rawSearch);
   if (relevantTokens.length === 0) return false;
+
+  if (normalizedAliases.some(alias => relevantTokens.every(token => alias.includes(token)))) return true;
 
   const normalizedNotes = normalizeSearchText(item?.notes || '');
   if (!normalizedNotes) return false;
@@ -1531,7 +1581,7 @@ function getCapacityDetails(item) {
   const fixedCapacity = toNumberOrNull(item.capacity);
   const minCapacity = toNumberOrNull(item.capacityMin);
   const maxCapacity = toNumberOrNull(item.capacityMax);
-  const textCapacity = firstNonEmptyText([item.capacityText]);
+  const textCapacity = translateCapacityText(firstNonEmptyText([item.capacityText]));
   const rangeCapacity = minCapacity !== null && maxCapacity !== null
     ? (minCapacity === maxCapacity ? `${minCapacity}` : `${minCapacity}-${maxCapacity}`)
     : (minCapacity !== null ? `${minCapacity}` : (maxCapacity !== null ? `${maxCapacity}` : ''));
@@ -1568,6 +1618,20 @@ function getCapacityDetails(item) {
     primary: '',
     secondary: ''
   };
+}
+
+function translateCapacityText(capacityText) {
+  const text = firstNonEmptyText([capacityText]);
+  if (!text || currentLanguage !== 'en') return text;
+
+  return text
+    .replace(/\blinhas\b/gi, 'rows')
+    .replace(/\blinha\b/gi, 'row')
+    .replace(/\btoras\b/gi, 'logs')
+    .replace(/\btora\b/gi, 'log')
+    .replace(/\bfardos redondos\b/gi, 'round bales')
+    .replace(/\bfardo redondo\b/gi, 'round bale')
+    .replace(/\bou\b/gi, 'or');
 }
 
 function getRaritySummary(value, max) {
@@ -1987,6 +2051,7 @@ function resolveCategoryKey(rawCategory) {
     treecutters: 'TreeCutters',
     treecuter: 'TreeCutters',
     cortadoresdearvore: 'TreeCutters',
+    cortadoresdearvores: 'TreeCutters',
     tractors: 'Tractors',
     trator: 'Tractors',
     tratores: 'Tractors',

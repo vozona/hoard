@@ -1,4 +1,4 @@
-{
+﻿{
     "schemaVersion": 2,
     "items": [
         {
@@ -9,7 +9,7 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Tree Cutters",
+                "category": "Cortadores de Árvores",
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 30,
@@ -34,7 +34,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Tree Cutters",
+                "category": "Cortadores de Árvores",
                 "speed": 25,
                 "speedMin": "",
                 "speedMax": 30,
@@ -59,11 +59,11 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Plows",
+                "category": "Arados",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "1 row",
+                "capacity": "1 linha",
                 "rarity": ""
             },
             "access": {
@@ -85,11 +85,11 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Plows",
+                "category": "Arados",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "1 row",
+                "capacity": "1 linha",
                 "rarity": ""
             },
             "access": {
@@ -111,11 +111,11 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Plows",
+                "category": "Arados",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "2 rows",
+                "capacity": "2 linhas",
                 "rarity": "2.5"
             },
             "access": {
@@ -131,11 +131,11 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Plows",
+                "category": "Arados",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "2 rows",
+                "capacity": "2 linhas",
                 "rarity": ""
             },
             "access": {
@@ -157,11 +157,11 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Plows",
+                "category": "Arados",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "2 rows",
+                "capacity": "2 linhas",
                 "rarity": ""
             },
             "access": {
@@ -183,11 +183,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Plows",
+                "category": "Arados",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "3 rows",
+                "capacity": "3 linhas",
                 "rarity": ""
             },
             "access": {
@@ -209,11 +209,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Plows",
+                "category": "Arados",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "3 rows",
+                "capacity": "3 linhas",
                 "rarity": ""
             },
             "access": {
@@ -229,11 +229,11 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 28,
                 "speedMin": "",
                 "speedMax": 51,
-                "capacity": "1 row",
+                "capacity": "1 linha",
                 "capacityMin": 50,
                 "capacityMax": 550,
                 "rarity": ""
@@ -257,11 +257,11 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 51,
-                "capacity": "1 row",
+                "capacity": "1 linha",
                 "capacityMin": 100,
                 "capacityMax": 600,
                 "rarity": ""
@@ -285,11 +285,11 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 29,
                 "speedMin": "",
                 "speedMax": 51,
-                "capacity": "2 rows",
+                "capacity": "2 linhas",
                 "capacityMin": 200,
                 "capacityMax": 700,
                 "rarity": ""
@@ -313,11 +313,11 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 36,
                 "speedMin": "",
                 "speedMax": 52,
-                "capacity": "2 rows",
+                "capacity": "2 linhas",
                 "capacityMin": 100,
                 "capacityMax": 600,
                 "rarity": ""
@@ -341,11 +341,11 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 53,
-                "capacity": "1 row",
+                "capacity": "1 linha",
                 "capacityMin": 400,
                 "capacityMax": 900,
                 "rarity": ""
@@ -369,11 +369,11 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 54,
-                "capacity": "2 rows",
+                "capacity": "2 linhas",
                 "capacityMin": 250,
                 "capacityMax": 850,
                 "rarity": ""
@@ -397,11 +397,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 55,
-                "capacity": "3 rows",
+                "capacity": "3 linhas",
                 "capacityMin": 600,
                 "capacityMax": 1100,
                 "rarity": ""
@@ -425,11 +425,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 56,
-                "capacity": "3 rows",
+                "capacity": "3 linhas",
                 "capacityMin": 600,
                 "capacityMax": 1100,
                 "rarity": "2"
@@ -447,7 +447,7 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 100,
@@ -471,7 +471,7 @@
                 "image": "img/super-zm80.gif"
             },
             "classification": {
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": "100",
                 "speedMin": "",
                 "speedMax": "100",
@@ -490,7 +490,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 37,
                 "speedMin": "",
                 "speedMax": 100,
@@ -515,7 +515,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 100,
@@ -540,7 +540,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 31,
                 "speedMin": "",
                 "speedMax": 100,
@@ -565,11 +565,11 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
-                "capacity": "8 or 20 logs",
+                "capacity": "8 ou 20 toras",
                 "rarity": ""
             },
             "access": {
@@ -591,7 +591,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 27,
                 "speedMin": "",
                 "speedMax": 100,
@@ -616,7 +616,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 39,
                 "speedMin": "",
                 "speedMax": 100,
@@ -641,11 +641,11 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
-                "capacity": "14 or 80 logs",
+                "capacity": "14 ou 80 toras",
                 "rarity": ""
             },
             "access": {
@@ -667,7 +667,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 36,
                 "speedMin": "",
                 "speedMax": 100,
@@ -692,7 +692,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 37,
                 "speedMin": "",
                 "speedMax": 100,
@@ -711,7 +711,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
@@ -730,7 +730,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 41,
                 "speedMin": "",
                 "speedMax": 100,
@@ -749,7 +749,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Tractors"
+                "category": "Tratores"
             },
             "access": {
                 "special": true
@@ -763,7 +763,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 39,
                 "speedMin": "",
                 "speedMax": 100,
@@ -782,7 +782,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 41,
                 "speedMin": "",
                 "speedMax": 100,
@@ -801,7 +801,7 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -826,7 +826,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -851,7 +851,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -876,7 +876,7 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -901,7 +901,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -926,7 +926,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -951,7 +951,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -976,7 +976,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1001,7 +1001,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1026,7 +1026,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1051,7 +1051,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1076,7 +1076,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1101,7 +1101,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1126,7 +1126,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1151,7 +1151,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1176,7 +1176,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1201,7 +1201,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1226,7 +1226,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1251,7 +1251,7 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 52,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1276,7 +1276,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1301,7 +1301,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 45,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1326,7 +1326,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 46,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1351,7 +1351,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 52,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1376,7 +1376,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1401,7 +1401,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 45,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1426,7 +1426,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 16,
                 "speedMin": "",
                 "speedMax": 16,
@@ -1451,7 +1451,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1476,7 +1476,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 51,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1501,7 +1501,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 38,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1526,7 +1526,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1551,7 +1551,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 41,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1576,7 +1576,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 57,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1595,7 +1595,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 46,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1614,7 +1614,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": 61,
                 "speedMin": "",
                 "speedMax": 76,
@@ -1633,11 +1633,11 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Cultivators",
+                "category": "Cultivadores",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "1 row",
+                "capacity": "1 linha",
                 "rarity": ""
             },
             "access": {
@@ -1659,11 +1659,11 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Cultivators",
+                "category": "Cultivadores",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"1 row",
+                "capacity": "1 linha",
                 "rarity": ""
             },
             "access": {
@@ -1685,11 +1685,11 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Cultivators",
+                "category": "Cultivadores",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "2 rows",
+                "capacity": "2 linhas",
                 "rarity": ""
             },
             "access": {
@@ -1711,11 +1711,11 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Cultivators",
+                "category": "Cultivadores",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "2 rows",
+                "capacity": "2 linhas",
                 "rarity": ""
             },
             "access": {
@@ -1737,11 +1737,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Cultivators",
+                "category": "Cultivadores",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "3 rows",
+                "capacity": "3 linhas",
                 "rarity": ""
             },
             "access": {
@@ -1763,11 +1763,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Cultivators",
+                "category": "Cultivadores",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "4 rows",
+                "capacity": "4 linhas",
                 "rarity": ""
             },
             "access": {
@@ -1783,11 +1783,11 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Seeders",
+                "category": "Plantadeiras",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "1 row",
+                "capacity": "1 linha",
                 "capacityMin": 50,
                 "capacityMax": 550,
                 "rarity": ""
@@ -1811,11 +1811,11 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Seeders",
+                "category": "Plantadeiras",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"1 row",
+                "capacity": "1 linha",
                 "capacityMin": 200,
                 "capacityMax": 700,
                 "rarity": ""
@@ -1839,11 +1839,11 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Seeders",
+                "category": "Plantadeiras",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"2 rows",
+                "capacity": "2 linhas",
                 "capacityMin": 400,
                 "capacityMax": 900,
                 "rarity": ""
@@ -1867,11 +1867,11 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Seeders",
+                "category": "Plantadeiras",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"1 row",
+                "capacity": "1 linha",
                 "capacityMin": 200,
                 "capacityMax": 700,
                 "rarity": ""
@@ -1895,11 +1895,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Seeders",
+                "category": "Plantadeiras",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"3 rows",
+                "capacity": "3 linhas",
                 "capacityMin": 600,
                 "capacityMax": 1100,
                 "rarity": ""
@@ -1923,7 +1923,7 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Misc",
+                "category": "Diversos",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1948,7 +1948,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Misc",
+                "category": "Diversos",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1973,7 +1973,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Misc",
+                "category": "Diversos",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -1998,7 +1998,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Misc",
+                "category": "Diversos",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2023,7 +2023,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Misc",
+                "category": "Diversos",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2048,7 +2048,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Misc",
+                "category": "Diversos",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2073,11 +2073,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 51,
-                "capacity": "3 rows",
+                "capacity": "3 linhas",
                 "capacityMin": 600,
                 "capacityMax": 1100,
                 "rarity": "3"
@@ -2095,11 +2095,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 51,
-                "capacity": "4 rows",
+                "capacity": "4 linhas",
                 "capacityMin": 600,
                 "capacityMax": 1100,
                 "rarity": "4.3"
@@ -2116,8 +2116,8 @@
                 "image": "img/super-na-cr10.jpg"
             },
             "classification": {
-                "category": "Harvesters",
-                "capacity": "10 rows",
+                "category": "Colheitadeiras",
+                "capacity": "10 linhas",
                 "rarity": "5"
             },
             "access": {
@@ -2133,11 +2133,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Harvesters",
+                "category": "Colheitadeiras",
                 "speed": 33,
                 "speedMin": "",
                 "speedMax": 51,
-                "capacity": "4 rows",
+                "capacity": "4 linhas",
                 "capacityMin": 600,
                 "capacityMax": 1100,
                 "rarity": "3.8"
@@ -2155,7 +2155,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 45,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2174,7 +2174,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2193,7 +2193,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 45,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2212,7 +2212,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2231,7 +2231,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2250,7 +2250,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 25,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2269,7 +2269,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 31,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2288,7 +2288,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 30,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2296,6 +2296,12 @@
             },
             "access": {
                 "special": true
+            },
+            "search": {
+                "aliases": [
+                    "John Deere",
+                    "JD"
+                ]
             },
             "notes": "Trade ban applied (non-negotiable)",
             "//": "2024 & 2025 Christmas Event"
@@ -2308,7 +2314,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 40,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2327,7 +2333,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speed": 70,
                 "speedMin": "",
                 "speedMax": 100,
@@ -2335,6 +2341,12 @@
             },
             "access": {
                 "special": true
+            },
+            "search": {
+                "aliases": [
+                    "Trenó",
+                    "Treno"
+                ]
             },
             "notes": "2021 Christmas Event"
         },
@@ -2346,7 +2358,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Tractors",
+                "category": "Tratores",
                 "speedMin": "",
                 "speedMax": 100,
                 "rarity": ""
@@ -2364,7 +2376,7 @@
             },
             "classification": {
                 "level": "",
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2383,7 +2395,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2402,7 +2414,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2421,7 +2433,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2440,7 +2452,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2459,7 +2471,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2478,7 +2490,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2497,7 +2509,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2516,7 +2528,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2535,7 +2547,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2554,7 +2566,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2573,7 +2585,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2592,7 +2604,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2611,7 +2623,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2630,7 +2642,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2649,7 +2661,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2668,7 +2680,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2687,7 +2699,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2706,7 +2718,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2725,7 +2737,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2744,7 +2756,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2763,7 +2775,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2782,7 +2794,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2801,7 +2813,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2820,7 +2832,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2839,7 +2851,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2858,7 +2870,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2877,7 +2889,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2885,6 +2897,12 @@
             },
             "access": {
                 "special": true
+            },
+            "search": {
+                "aliases": [
+                    "RAM",
+                    "Dually"
+                ]
             },
             "notes": "2023 & 2025 Christmas Event"
         },
@@ -2896,7 +2914,7 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2915,7 +2933,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2934,7 +2952,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2953,7 +2971,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2972,7 +2990,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trucks",
+                "category": "Caminhões",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -2991,7 +3009,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3010,7 +3028,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3029,7 +3047,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3048,7 +3066,7 @@
             },
             "classification": {
                 "level": 4,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3067,7 +3085,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3086,7 +3104,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3105,7 +3123,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3124,7 +3142,7 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3143,7 +3161,7 @@
             },
             "classification": {
                 "level": 3,
-                "category": "Trailers",
+                "category": "Reboques",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
@@ -3162,11 +3180,11 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Seeders",
+                "category": "Plantadeiras",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"2 rows",
+                "capacity": "2 linhas",
                 "capacityMin": 300,
                 "capacityMax": 800,
                 "rarity": "2.5"
@@ -3184,11 +3202,11 @@
             },
             "classification": {
                 "level": 2,
-                "category": "Cultivators",
+                "category": "Cultivadores",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"2 rows",
+                "capacity": "2 linhas",
                 "rarity": "2.5"
             },
             "access": {
@@ -3204,11 +3222,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Cultivators",
+                "category": "Cultivadores",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "3 rows",
+                "capacity": "3 linhas",
                 "rarity": ""
             },
             "access": {
@@ -3224,11 +3242,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Planters",
+                "category": "Plantadeiras",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity": "4 rows",
+                "capacity": "4 linhas",
                 "capacityMin": 600,
                 "capacityMax": 1100,
                 "rarity": "3"
@@ -3246,11 +3264,11 @@
             },
             "classification": {
                 "level": 5,
-                "category": "Planters",
+                "category": "Plantadeiras",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"3 rows",
+                "capacity": "3 linhas",
                 "capacityMin": 600,
                 "capacityMax": 1100,
                 "rarity": ""
@@ -3268,11 +3286,11 @@
             },
             "classification": {
                 "level": 1,
-                "category": "Misc",
+                "category": "Diversos",
                 "speed": null,
                 "speedMin": "",
                 "speedMax": null,
-                "capacity":"20 round bales",
+                "capacity": "20 fardos redondos",
                 "rarity": ""
             },
             "access": {
@@ -3287,7 +3305,7 @@
                 "image": "img/chainsaw.jpg"
             },
             "classification": {
-                "category": "Misc",
+                "category": "Diversos",
                 "rarity": "3.5"
             },
             "access": {
@@ -3302,7 +3320,7 @@
                 "image": "img/shears.jpg"
             },
             "classification": {
-                "category": "Misc",
+                "category": "Diversos",
                 "rarity": "3"
             },
             "access": {
@@ -3317,7 +3335,7 @@
                 "image": "img/sour-milk.jpg"
             },
             "classification": {
-                "category": "Misc",
+                "category": "Diversos",
                 "rarity": "4"
             },
             "access": {
@@ -3332,7 +3350,7 @@
                 "image": "img/candy-cane.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "4.5"
             },
             "access": {
@@ -3347,7 +3365,7 @@
                 "image": "img/burnt-hallowood.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "4.2"
             },
             "access": {
@@ -3362,7 +3380,7 @@
                 "image": "img/marshmallow.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "4"
             },
             "access": {
@@ -3377,7 +3395,7 @@
                 "image": "img/toxic-hallowood.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "4"
             },
             "access": {
@@ -3392,7 +3410,7 @@
                 "image": "img/mint.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "4"
             },
             "access": {
@@ -3407,7 +3425,7 @@
                 "image": "img/poinsettia.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "4"
             },
             "access": {
@@ -3422,7 +3440,7 @@
                 "image": "img/balsam.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "4"
             },
             "access": {
@@ -3437,7 +3455,7 @@
                 "image": "img/bamboo.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "3.5"
             },
             "access": {
@@ -3452,7 +3470,7 @@
                 "image": "img/woodlouse-stitch-head.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "2.5"
             },
             "access": {
@@ -3467,7 +3485,7 @@
                 "image": "img/shelly-stitch-head.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "2.5"
             },
             "access": {
@@ -3482,7 +3500,7 @@
                 "image": "img/steve-stitch-head.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "2.5"
             },
             "access": {
@@ -3497,7 +3515,7 @@
                 "image": "img/octochicken-stitch-head.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "2.5"
             },
             "access": {
@@ -3512,7 +3530,7 @@
                 "image": "img/geoff-stitch-head.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "2.5"
             },
             "access": {
@@ -3527,7 +3545,7 @@
                 "image": "img/holly.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "2"
             },
             "access": {
@@ -3542,7 +3560,7 @@
                 "image": "img/gnarled-hallowood.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "3"
             },
             "access": {
@@ -3557,7 +3575,7 @@
                 "image": "img/hallowood.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "1.5"
             },
             "access": {
@@ -3572,7 +3590,7 @@
                 "image": "img/stunted-hallowood.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "1"
             },
             "access": {
@@ -3587,7 +3605,7 @@
                 "image": "img/alien-tentacles.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": "1.6"
             },
             "access": {
@@ -3602,7 +3620,7 @@
                 "image": "img/birch.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3623,7 +3641,7 @@
                 "image": "img/cypress.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3644,7 +3662,7 @@
                 "image": "img/potato.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3665,7 +3683,7 @@
                 "image": "img/carrot.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3686,7 +3704,7 @@
                 "image": "img/cocoa.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3707,7 +3725,7 @@
                 "image": "img/cabbage.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3728,7 +3746,7 @@
                 "image": "img/tomato.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3749,7 +3767,7 @@
                 "image": "img/soybean.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3770,7 +3788,7 @@
                 "image": "img/sugar-cane.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3791,7 +3809,7 @@
                 "image": "img/oat.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3812,7 +3830,7 @@
                 "image": "img/rice.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3833,7 +3851,7 @@
                 "image": "img/pine.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3854,7 +3872,7 @@
                 "image": "img/corn.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3875,7 +3893,7 @@
                 "image": "img/wheat.jpg"
             },
             "classification": {
-                "category": "SeedBoxes",
+                "category": "Caixas de Sementes",
                 "rarity": ""
             },
             "access": {
@@ -3891,3 +3909,5 @@
         }
     ]
 }
+
+

@@ -533,6 +533,12 @@ main {
   text-overflow: ellipsis;
 }
 
+.item-alias {
+  color: #c9d4e8;
+  font-weight: 500;
+  opacity: 0.76;
+}
+
 .item-list-meta {
   margin-top: 4px;
   display: flex;
