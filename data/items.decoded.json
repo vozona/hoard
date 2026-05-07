@@ -2522,7 +2522,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Marley Truck Pack"
+            "notes": "Marley Truck Pack - 99M"
         },
         {
             "id": "marley-pickup-hauler",
@@ -2541,7 +2541,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Marley Truck Pack"
+            "notes": "Marley Truck Pack - 99M"
         },
         {
             "id": "marley-crop-hauler",
@@ -2560,7 +2560,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Marley Truck Pack"
+            "notes": "Marley Truck Pack - 99M"
         },
         {
             "id": "titan",
@@ -2579,7 +2579,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Titan Pack"
+            "notes": "Titan Pack - 220M"
         },
         {
             "id": "titan-lh",
@@ -2598,7 +2598,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Titan Pack"
+            "notes": "Titan Pack - 220M"
         },
         {
             "id": "titan-ch",
@@ -2617,7 +2617,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Titan Pack"
+            "notes": "Titan Pack - 220M"
         },
         {
             "id": "titan-x",
@@ -2636,7 +2636,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Titan Pack"
+            "notes": "Titan Pack - 220M"
         },
         {
             "id": "pace-ix-lt",
@@ -2655,7 +2655,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Pace IX Pack"
+            "notes": "Pace IX Pack - 150M"
         },
         {
             "id": "pace-ix-ch",
@@ -2674,7 +2674,7 @@
             "access": {
                 "special": true
             },
-            "notes": "Pace IX Pack"
+            "notes": "Pace IX Pack - 150M"
         },
         {
             "id": "cybertruck",
