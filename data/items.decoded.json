@@ -222,6 +222,26 @@
             "notes": "ChristmasPack"
         },
         {
+            "id": "zc3",
+            "display": {
+                "name": "ZC3",
+                "image": "img/zc3.jpg"
+            },
+            "classification": {
+                "level": 5,
+                "category": "Arados",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "capacity": "4 linhas",
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Companies & 4 Tile Equipment"
+        },
+        {
             "id": "src6",
             "display": {
                 "name": "SRC6",
@@ -1914,6 +1934,28 @@
                 "robux": null,
                 "lastUpdate": "2026-03-01"
             }
+        },
+        {
+            "id": "gfs10",
+            "display": {
+                "name": "GFS10",
+                "image": "img/gfs10.jpg"
+            },
+            "classification": {
+                "level": 5,
+                "category": "Plantadeiras",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "capacity": "4 linhas",
+                "capacityMin": 750,
+                "capacityMax": 1300,
+                "rarity": ""
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Companies & 4 Tile Equipment"
         },
         {
             "id": "sprinkler",

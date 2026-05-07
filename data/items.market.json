@@ -638,13 +638,6 @@
             "valueStatus": "known",
             "robux": null
         },
-        "rom2400": {
-            "history": [
-            ],
-            "lastUpdate": "2026-04-24",
-            "valueStatus": "unknown",
-            "robux": null
-        },
         "titan-x": {
             "history": [
                 83000000,
@@ -935,10 +928,35 @@
             "valueStatus": "known",
             "robux": null
         },
-        "wrxl2": {
+        "rom2400": {
             "history": [
+                80000000
             ],
             "lastUpdate": "2026-04-24",
+            "valueStatus": "unknown",
+            "robux": null
+        },
+        "wrxl2": {
+            "history": [
+                70000000
+            ],
+            "lastUpdate": "2026-04-24",
+            "valueStatus": "unknown",
+            "robux": null
+        },
+        "zc3": {
+            "history": [
+                70000000
+            ],
+            "lastUpdate": "2026-05-07",
+            "valueStatus": "unknown",
+            "robux": null
+        },
+        "gfs10": {
+            "history": [
+                110000000
+            ],
+            "lastUpdate": "2026-05-07",
             "valueStatus": "unknown",
             "robux": null
         }
