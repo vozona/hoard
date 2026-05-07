@@ -58,13 +58,11 @@
         },
         "vertra": {
             "history": [
-                380000000,
-                450000000,
                 550000000,
                 880000000,
                 1000000000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-05-06",
             "valueStatus": "known",
             "robux": null
         },
@@ -383,12 +381,11 @@
         },
         "automatic-flatbed": {
             "history": [
-                760000000,
                 990000000,
                 1500000000,
                 1600000000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-05-06",
             "valueStatus": "none",
             "robux": null
         },
@@ -560,12 +557,11 @@
         },
         "sl-medium": {
             "history": [
-                1300000000,
                 1800000000,
-                3000000000,
+                3300000000,
                 7500000000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-05-06",
             "valueStatus": "none",
             "robux": null
         },
@@ -634,14 +630,11 @@
         },
         "sleigh": {
             "history": [
-                1520000000,
-                2200000000,
-                3300000000,
                 3500000000,
                 4400000000,
                 6000000000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-05-06",
             "valueStatus": "known",
             "robux": null
         },
@@ -756,12 +749,11 @@
         },
         "vintage-harvester": {
             "history": [
-                225000000,
-                250000000,
                 330000000,
-                350000000
+                350000000,
+                440000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-06",
             "valueStatus": "none",
             "robux": null
         },
