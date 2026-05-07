@@ -28,17 +28,98 @@ const CATEGORY_SORT_INDEX = CATEGORY_DISPLAY_ORDER.reduce((accumulator, key, ind
   return accumulator;
 }, Object.create(null));
 const CATEGORY_LABELS = {
-  All: { 'pt-BR': 'Todas as categorias', en: 'All categories' },
-  TreeCutters: { 'pt-BR': 'Cortadores de Árvores', en: 'Tree Cutters' },
-  Tractors: { 'pt-BR': 'Tratores', en: 'Tractors' },
-  Harvesters: { 'pt-BR': 'Colheitadeiras', en: 'Harvesters' },
-  Trucks: { 'pt-BR': 'Caminhões', en: 'Trucks' },
-  Trailers: { 'pt-BR': 'Reboques', en: 'Trailers' },
-  Plows: { 'pt-BR': 'Arados', en: 'Plows' },
-  Cultivators: { 'pt-BR': 'Cultivadores', en: 'Cultivators' },
-  Seeders: { 'pt-BR': 'Plantadeiras', en: 'Seeders' },
-  SeedBoxes: { 'pt-BR': 'Caixas de Sementes', en: 'Seed Boxes' },
-  Misc: { 'pt-BR': 'Diversos', en: 'Misc' }
+  All: { 'pt-BR': 'Todas as categorias', en: 'All categories', es: 'Todas las categorías', pl: 'Wszystkie kategorie', fr: 'Toutes les catégories', hi: 'सभी श्रेणियां' },
+  TreeCutters: { 'pt-BR': 'Cortadores de Árvores', en: 'Tree Cutters', es: 'Cortadoras de árboles', pl: 'Ścinarki do drzew', fr: "Coupeurs d'arbres", hi: 'पेड़ काटने वाली मशीनें' },
+  Tractors: { 'pt-BR': 'Tratores', en: 'Tractors', es: 'Tractores', pl: 'Traktory', fr: 'Tracteurs', hi: 'ट्रैक्टर' },
+  Harvesters: { 'pt-BR': 'Colheitadeiras', en: 'Harvesters', es: 'Cosechadoras', pl: 'Kombajny', fr: 'Moissonneuses', hi: 'हार्वेस्टर' },
+  Trucks: { 'pt-BR': 'Caminhões', en: 'Trucks', es: 'Camiones', pl: 'Ciężarówki', fr: 'Camions', hi: 'ट्रक' },
+  Trailers: { 'pt-BR': 'Reboques', en: 'Trailers', es: 'Remolques', pl: 'Przyczepy', fr: 'Remorques', hi: 'ट्रेलर' },
+  Plows: { 'pt-BR': 'Arados', en: 'Plows', es: 'Arados', pl: 'Pługi', fr: 'Charrues', hi: 'हल' },
+  Cultivators: { 'pt-BR': 'Cultivadores', en: 'Cultivators', es: 'Cultivadores', pl: 'Kultywatory', fr: 'Cultivateurs', hi: 'कल्टीवेटर' },
+  Seeders: { 'pt-BR': 'Plantadeiras', en: 'Seeders', es: 'Sembradoras', pl: 'Siewniki', fr: 'Semoirs', hi: 'सीडर' },
+  SeedBoxes: { 'pt-BR': 'Caixas de Sementes', en: 'Seed Boxes', es: 'Cajas de semillas', pl: 'Skrzynie nasienne', fr: 'Boîtes de graines', hi: 'बीज बॉक्स' },
+  Misc: { 'pt-BR': 'Diversos', en: 'Misc', es: 'Varios', pl: 'Różne', fr: 'Divers', hi: 'विविध' }
+};
+const SUPPORTED_LOCALES = {
+  'pt-BR': 'pt-BR',
+  en: 'en-US',
+  es: 'es-ES',
+  pl: 'pl-PL',
+  fr: 'fr-FR',
+  hi: 'hi-IN'
+};
+const LANGUAGE_ARIA_LABELS = {
+  'pt-BR': 'Idioma',
+  en: 'Language',
+  es: 'Idioma',
+  pl: 'Język',
+  fr: 'Langue',
+  hi: 'भाषा'
+};
+const NAVIGATION_LABELS = {
+  previousItem: {
+    'pt-BR': 'Item anterior',
+    en: 'Previous item',
+    es: 'Artículo anterior',
+    pl: 'Poprzedni przedmiot',
+    fr: 'Article précédent',
+    hi: 'पिछला आइटम'
+  },
+  nextItem: {
+    'pt-BR': 'Próximo item',
+    en: 'Next item',
+    es: 'Siguiente artículo',
+    pl: 'Następny przedmiot',
+    fr: 'Article suivant',
+    hi: 'अगला आइटम'
+  }
+};
+const CAPACITY_TRANSLATIONS = {
+  en: [
+    [/\bfardos redondos\b/gi, 'round bales'],
+    [/\bfardo redondo\b/gi, 'round bale'],
+    [/\blinhas\b/gi, 'rows'],
+    [/\blinha\b/gi, 'row'],
+    [/\btoras\b/gi, 'logs'],
+    [/\btora\b/gi, 'log'],
+    [/\bou\b/gi, 'or']
+  ],
+  es: [
+    [/\bfardos redondos\b/gi, 'fardos redondos'],
+    [/\bfardo redondo\b/gi, 'fardo redondo'],
+    [/\blinhas\b/gi, 'filas'],
+    [/\blinha\b/gi, 'fila'],
+    [/\btoras\b/gi, 'troncos'],
+    [/\btora\b/gi, 'tronco'],
+    [/\bou\b/gi, 'o']
+  ],
+  pl: [
+    [/\bfardos redondos\b/gi, 'okrągłych bel'],
+    [/\bfardo redondo\b/gi, 'okrągła bela'],
+    [/\blinhas\b/gi, 'rzędy'],
+    [/\blinha\b/gi, 'rząd'],
+    [/\btoras\b/gi, 'kłód'],
+    [/\btora\b/gi, 'kłoda'],
+    [/\bou\b/gi, 'lub']
+  ],
+  fr: [
+    [/\bfardos redondos\b/gi, 'balles rondes'],
+    [/\bfardo redondo\b/gi, 'balle ronde'],
+    [/\blinhas\b/gi, 'rangs'],
+    [/\blinha\b/gi, 'rang'],
+    [/\btoras\b/gi, 'bûches'],
+    [/\btora\b/gi, 'bûche'],
+    [/\bou\b/gi, 'ou']
+  ],
+  hi: [
+    [/\bfardos redondos\b/gi, 'गोल गांठें'],
+    [/\bfardo redondo\b/gi, 'गोल गांठ'],
+    [/\blinhas\b/gi, 'पंक्तियां'],
+    [/\blinha\b/gi, 'पंक्ति'],
+    [/\btoras\b/gi, 'लकड़ियां'],
+    [/\btora\b/gi, 'लकड़ी'],
+    [/\bou\b/gi, 'या']
+  ]
 };
 let allItems = [];
 let currentLanguage = 'pt-BR';
@@ -171,6 +252,254 @@ const I18N = {
     quickLinkLinksLabel: 'Links',
     quickLinkCommunityLabel: 'Community',
     quickLinkShirtLabel: 'Official shirt'
+  },
+  es: {
+    subtitlePrefix: 'Catálogo de artículos de',
+    searchPlaceholder: 'Buscar por nombre del artículo o paquete...',
+    clearSearchLabel: 'Limpiar búsqueda',
+    levelLabel: 'Nivel',
+    categoryLabel: 'Categoría',
+    categoryFilterHintLabel: 'Filtrar por esta categoría',
+    packageLabel: 'Paquete',
+    speedLabel: 'Velocidad',
+    capacityLabel: 'Capacidad',
+    rarityLabel: 'Rareza',
+    rarityTier1: 'Común',
+    rarityTier2: 'Poco común',
+    rarityTier3: 'Raro',
+    rarityTier4: 'Muy raro',
+    rarityTier5: 'Legendario',
+    averageValueLabel: 'Valor',
+    suggestedValueLabel: 'Valor sugerido',
+    suggestedValueInfoLabel: 'Sobre el valor sugerido',
+    suggestedValueTooltip: 'Estos precios son solo una sugerencia (no son oficiales). Para estimar este valor, revisamos varios precios informados por la comunidad en intercambios entre jugadores y calculamos una referencia media más justa. Recuerda que los valores pueden cambiar con el tiempo, así que úsalo solo como ayuda al negociar. Como referencia práctica, una negociación puede variar cerca de un 15% hacia arriba o hacia abajo.',
+    valueRangeLabel: 'Rango estimado',
+    relatedLabel: 'Relacionados',
+    updatedAtLabel: 'Actualizado el',
+    itemsSuffix: 'artículos',
+    indicatorLabel: 'Indicador {value} de {max}',
+    footerCreditPrefix: 'Creado por',
+    specialOnlyLabel: 'Solo artículos especiales',
+    cardHintLabel: 'Ver más detalles',
+    shareButtonLabel: 'Compartir este artículo',
+    shareCopiedLabel: 'Enlace copiado',
+    moreActionsLabel: 'Más acciones',
+    itemActionsMenuLabel: 'Opciones del artículo',
+    announceItemLabel: 'Me interesa',
+    announceSoonLabel: 'Próximamente',
+    closeLabel: 'Cerrar',
+    reportPriceLabel: 'Informar precio negociado',
+    reportSoonLabel: 'Próximamente',
+    sortByLabel: 'Ordenar',
+    sortFilterAriaLabel: 'Ordenación',
+    viewModeLabel: 'Vista',
+    viewModeFilterAriaLabel: 'Modo de vista',
+    viewModeGrid: 'Cuadrícula',
+    viewModeList: 'Lista',
+    viewModeCard: 'Tarjeta',
+    sortName: 'Nombre',
+    sortCategoryName: 'Categoría y nombre',
+    sortValueAsc: 'Precio más bajo',
+    sortValueDesc: 'Precio más alto',
+    sortLevelAsc: 'Nivel más bajo',
+    sortLevelDesc: 'Nivel más alto',
+    sortRarityAsc: 'Menor rareza',
+    sortRarityDesc: 'Mayor rareza',
+    sortUpdatedAsc: 'Menos actualizado',
+    sortUpdatedDesc: 'Más actualizado',
+    noItemsFound: 'No se encontró ningún artículo. Ajusta la búsqueda o los filtros.',
+    noItemsInCatalog: 'No hay artículos disponibles en el catálogo.',
+    resultsCountLabel: '{shown} de {total} artículos',
+    noteSearchHintLabel: 'Usar esta nota en la búsqueda',
+    quickLinkLinksLabel: 'Enlaces',
+    quickLinkCommunityLabel: 'Comunidad',
+    quickLinkShirtLabel: 'Camisa oficial'
+  },
+  pl: {
+    subtitlePrefix: 'Katalog przedmiotów dla',
+    searchPlaceholder: 'Szukaj według nazwy przedmiotu lub pakietu...',
+    clearSearchLabel: 'Wyczyść wyszukiwanie',
+    levelLabel: 'Poziom',
+    categoryLabel: 'Kategoria',
+    categoryFilterHintLabel: 'Filtruj według tej kategorii',
+    packageLabel: 'Pakiet',
+    speedLabel: 'Prędkość',
+    capacityLabel: 'Pojemność',
+    rarityLabel: 'Rzadkość',
+    rarityTier1: 'Zwykły',
+    rarityTier2: 'Niezwykły',
+    rarityTier3: 'Rzadki',
+    rarityTier4: 'Bardzo rzadki',
+    rarityTier5: 'Legendarny',
+    averageValueLabel: 'Wartość',
+    suggestedValueLabel: 'Sugerowana wartość',
+    suggestedValueInfoLabel: 'O sugerowanej wartości',
+    suggestedValueTooltip: 'Te ceny są tylko sugestią (nie są oficjalne). Aby oszacować tę wartość, analizujemy ceny zgłaszane przez społeczność w wymianach między graczami i obliczamy uczciwszą średnią referencyjną. Pamiętaj, że wartości mogą się zmieniać, więc traktuj to tylko jako pomoc przy wymianie. W praktyce cena transakcji może różnić się o około 15% w górę lub w dół.',
+    valueRangeLabel: 'Szacowany zakres',
+    relatedLabel: 'Powiązane',
+    updatedAtLabel: 'Zaktualizowano',
+    itemsSuffix: 'przedmiotów',
+    indicatorLabel: 'Wskaźnik {value} z {max}',
+    footerCreditPrefix: 'Stworzone przez',
+    specialOnlyLabel: 'Tylko przedmioty specjalne',
+    cardHintLabel: 'Zobacz więcej szczegółów',
+    shareButtonLabel: 'Udostępnij ten przedmiot',
+    shareCopiedLabel: 'Link skopiowany',
+    moreActionsLabel: 'Więcej akcji',
+    itemActionsMenuLabel: 'Opcje przedmiotu',
+    announceItemLabel: 'Jestem zainteresowany',
+    announceSoonLabel: 'Wkrótce',
+    closeLabel: 'Zamknij',
+    reportPriceLabel: 'Zgłoś cenę wymiany',
+    reportSoonLabel: 'Wkrótce',
+    sortByLabel: 'Sortuj',
+    sortFilterAriaLabel: 'Sortowanie',
+    viewModeLabel: 'Widok',
+    viewModeFilterAriaLabel: 'Tryb widoku',
+    viewModeGrid: 'Siatka',
+    viewModeList: 'Lista',
+    viewModeCard: 'Karta',
+    sortName: 'Nazwa',
+    sortCategoryName: 'Kategoria i nazwa',
+    sortValueAsc: 'Najniższa cena',
+    sortValueDesc: 'Najwyższa cena',
+    sortLevelAsc: 'Najniższy poziom',
+    sortLevelDesc: 'Najwyższy poziom',
+    sortRarityAsc: 'Najniższa rzadkość',
+    sortRarityDesc: 'Najwyższa rzadkość',
+    sortUpdatedAsc: 'Najdawniej aktualizowane',
+    sortUpdatedDesc: 'Najnowsza aktualizacja',
+    noItemsFound: 'Nie znaleziono przedmiotów. Zmień wyszukiwanie lub filtry.',
+    noItemsInCatalog: 'Brak przedmiotów w katalogu.',
+    resultsCountLabel: '{shown} z {total} przedmiotów',
+    noteSearchHintLabel: 'Użyj tej notatki w wyszukiwaniu',
+    quickLinkLinksLabel: 'Linki',
+    quickLinkCommunityLabel: 'Społeczność',
+    quickLinkShirtLabel: 'Oficjalna koszulka'
+  },
+  fr: {
+    subtitlePrefix: "Catalogue d'objets pour",
+    searchPlaceholder: "Rechercher par nom d'objet ou de pack...",
+    clearSearchLabel: 'Effacer la recherche',
+    levelLabel: 'Niveau',
+    categoryLabel: 'Catégorie',
+    categoryFilterHintLabel: 'Filtrer par cette catégorie',
+    packageLabel: 'Pack',
+    speedLabel: 'Vitesse',
+    capacityLabel: 'Capacité',
+    rarityLabel: 'Rareté',
+    rarityTier1: 'Commun',
+    rarityTier2: 'Peu commun',
+    rarityTier3: 'Rare',
+    rarityTier4: 'Très rare',
+    rarityTier5: 'Légendaire',
+    averageValueLabel: 'Valeur',
+    suggestedValueLabel: 'Valeur suggérée',
+    suggestedValueInfoLabel: 'À propos de la valeur suggérée',
+    suggestedValueTooltip: "Ces prix sont seulement une suggestion (ils ne sont pas officiels). Pour estimer cette valeur, nous analysons plusieurs prix signalés par la communauté lors d'échanges entre joueurs et calculons une référence moyenne plus juste. Les valeurs peuvent changer avec le temps, utilisez donc cela uniquement comme aide lors de vos échanges. En pratique, une négociation peut varier d'environ 15% à la hausse ou à la baisse.",
+    valueRangeLabel: 'Fourchette estimée',
+    relatedLabel: 'Associés',
+    updatedAtLabel: 'Mis à jour le',
+    itemsSuffix: 'objets',
+    indicatorLabel: 'Indicateur {value} sur {max}',
+    footerCreditPrefix: 'Créé par',
+    specialOnlyLabel: 'Objets spéciaux uniquement',
+    cardHintLabel: 'Voir plus de détails',
+    shareButtonLabel: 'Partager cet objet',
+    shareCopiedLabel: 'Lien copié',
+    moreActionsLabel: "Plus d'actions",
+    itemActionsMenuLabel: "Options de l'objet",
+    announceItemLabel: 'Je suis intéressé',
+    announceSoonLabel: 'Bientôt',
+    closeLabel: 'Fermer',
+    reportPriceLabel: "Signaler un prix d'échange",
+    reportSoonLabel: 'Bientôt',
+    sortByLabel: 'Trier',
+    sortFilterAriaLabel: 'Tri',
+    viewModeLabel: 'Vue',
+    viewModeFilterAriaLabel: 'Mode de vue',
+    viewModeGrid: 'Grille',
+    viewModeList: 'Liste',
+    viewModeCard: 'Carte',
+    sortName: 'Nom',
+    sortCategoryName: 'Catégorie et nom',
+    sortValueAsc: 'Prix le plus bas',
+    sortValueDesc: 'Prix le plus élevé',
+    sortLevelAsc: 'Niveau le plus bas',
+    sortLevelDesc: 'Niveau le plus élevé',
+    sortRarityAsc: 'Rareté la plus basse',
+    sortRarityDesc: 'Rareté la plus élevée',
+    sortUpdatedAsc: 'Moins récent',
+    sortUpdatedDesc: 'Plus récent',
+    noItemsFound: 'Aucun objet trouvé. Ajustez votre recherche ou vos filtres.',
+    noItemsInCatalog: 'Aucun objet disponible dans le catalogue.',
+    resultsCountLabel: '{shown} sur {total} objets',
+    noteSearchHintLabel: 'Utiliser cette note dans la recherche',
+    quickLinkLinksLabel: 'Liens',
+    quickLinkCommunityLabel: 'Communauté',
+    quickLinkShirtLabel: 'Chemise officielle'
+  },
+  hi: {
+    subtitlePrefix: 'आइटम कैटलॉग',
+    searchPlaceholder: 'आइटम या पैक के नाम से खोजें...',
+    clearSearchLabel: 'खोज साफ़ करें',
+    levelLabel: 'लेवल',
+    categoryLabel: 'श्रेणी',
+    categoryFilterHintLabel: 'इस श्रेणी से फ़िल्टर करें',
+    packageLabel: 'पैक',
+    speedLabel: 'गति',
+    capacityLabel: 'क्षमता',
+    rarityLabel: 'दुर्लभता',
+    rarityTier1: 'सामान्य',
+    rarityTier2: 'असामान्य',
+    rarityTier3: 'दुर्लभ',
+    rarityTier4: 'बहुत दुर्लभ',
+    rarityTier5: 'लेजेन्डरी',
+    averageValueLabel: 'मूल्य',
+    suggestedValueLabel: 'सुझाया गया मूल्य',
+    suggestedValueInfoLabel: 'सुझाए गए मूल्य के बारे में',
+    suggestedValueTooltip: 'ये कीमतें केवल सुझाव हैं (आधिकारिक नहीं)। इस मूल्य का अनुमान लगाने के लिए हम खिलाड़ियों के बीच ट्रेड में समुदाय द्वारा बताई गई कई कीमतों की समीक्षा करते हैं और एक अधिक न्यायसंगत औसत संदर्भ निकालते हैं। याद रखें कि मूल्य समय के साथ बदल सकते हैं, इसलिए ट्रेड करते समय इसे केवल मदद के रूप में उपयोग करें। व्यावहारिक संदर्भ के रूप में, किसी सौदे में यह मूल्य लगभग 15% ऊपर या नीचे हो सकता है।',
+    valueRangeLabel: 'अनुमानित सीमा',
+    relatedLabel: 'संबंधित',
+    updatedAtLabel: 'अपडेट किया गया',
+    itemsSuffix: 'आइटम',
+    indicatorLabel: '{max} में से {value} संकेतक',
+    footerCreditPrefix: 'द्वारा बनाया गया',
+    specialOnlyLabel: 'केवल विशेष आइटम',
+    cardHintLabel: 'अधिक विवरण देखें',
+    shareButtonLabel: 'यह आइटम साझा करें',
+    shareCopiedLabel: 'लिंक कॉपी हुआ',
+    moreActionsLabel: 'अधिक कार्रवाइयां',
+    itemActionsMenuLabel: 'आइटम विकल्प',
+    announceItemLabel: 'मुझे रुचि है',
+    announceSoonLabel: 'जल्द',
+    closeLabel: 'बंद करें',
+    reportPriceLabel: 'ट्रेड कीमत बताएं',
+    reportSoonLabel: 'जल्द',
+    sortByLabel: 'क्रमबद्ध करें',
+    sortFilterAriaLabel: 'क्रम',
+    viewModeLabel: 'दृश्य',
+    viewModeFilterAriaLabel: 'दृश्य मोड',
+    viewModeGrid: 'ग्रिड',
+    viewModeList: 'सूची',
+    viewModeCard: 'कार्ड',
+    sortName: 'नाम',
+    sortCategoryName: 'श्रेणी और नाम',
+    sortValueAsc: 'सबसे कम कीमत',
+    sortValueDesc: 'सबसे अधिक कीमत',
+    sortLevelAsc: 'सबसे कम लेवल',
+    sortLevelDesc: 'सबसे अधिक लेवल',
+    sortRarityAsc: 'सबसे कम दुर्लभता',
+    sortRarityDesc: 'सबसे अधिक दुर्लभता',
+    sortUpdatedAsc: 'कम अपडेटेड',
+    sortUpdatedDesc: 'अधिक अपडेटेड',
+    noItemsFound: 'कोई आइटम नहीं मिला। अपनी खोज या फ़िल्टर बदलें।',
+    noItemsInCatalog: 'कैटलॉग में कोई आइटम उपलब्ध नहीं है।',
+    resultsCountLabel: '{shown} / {total} आइटम',
+    noteSearchHintLabel: 'इस नोट को खोज में उपयोग करें',
+    quickLinkLinksLabel: 'लिंक',
+    quickLinkCommunityLabel: 'समुदाय',
+    quickLinkShirtLabel: 'आधिकारिक शर्ट'
   }
 };
 
@@ -306,7 +635,7 @@ function applyInterfaceLanguage() {
 
   const languageSwitch = document.getElementById('languageSwitch');
   languageSwitch.value = currentLanguage;
-  languageSwitch.setAttribute('aria-label', currentLanguage === 'en' ? 'Language' : 'Idioma');
+  languageSwitch.setAttribute('aria-label', getLanguageAriaLabel());
 
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
@@ -340,6 +669,10 @@ function applyInterfaceLanguage() {
     viewModeFilter.setAttribute('aria-label', t('viewModeFilterAriaLabel'));
     viewModeFilter.value = currentViewMode;
   }
+}
+
+function getLanguageAriaLabel() {
+  return LANGUAGE_ARIA_LABELS[currentLanguage] || LANGUAGE_ARIA_LABELS['pt-BR'];
 }
 
 function normalizeItem(item, marketEntry = {}) {
@@ -640,7 +973,7 @@ function renderCarouselView(items, container, packageMap) {
   const previousButton = document.createElement('button');
   previousButton.type = 'button';
   previousButton.className = 'carousel-nav carousel-nav--previous';
-  previousButton.setAttribute('aria-label', currentLanguage === 'en' ? 'Previous item' : 'Item anterior');
+  previousButton.setAttribute('aria-label', getNavigationLabel('previousItem'));
   previousButton.title = previousButton.getAttribute('aria-label');
   previousButton.innerHTML = '&#8249;';
   previousButton.disabled = items.length <= 1;
@@ -674,7 +1007,7 @@ function renderCarouselView(items, container, packageMap) {
   const nextButton = document.createElement('button');
   nextButton.type = 'button';
   nextButton.className = 'carousel-nav carousel-nav--next';
-  nextButton.setAttribute('aria-label', currentLanguage === 'en' ? 'Next item' : 'Próximo item');
+  nextButton.setAttribute('aria-label', getNavigationLabel('nextItem'));
   nextButton.title = nextButton.getAttribute('aria-label');
   nextButton.innerHTML = '&#8250;';
   nextButton.disabled = items.length <= 1;
@@ -701,6 +1034,11 @@ function renderCarouselView(items, container, packageMap) {
   container.appendChild(carousel);
   loadCatalogImages(container);
   preloadCarouselNeighborImages(items);
+}
+
+function getNavigationLabel(key) {
+  const labels = NAVIGATION_LABELS[key] || {};
+  return labels[currentLanguage] || labels['pt-BR'] || key;
 }
 
 function bindItemActions(root, item) {
@@ -1622,16 +1960,12 @@ function getCapacityDetails(item) {
 
 function translateCapacityText(capacityText) {
   const text = firstNonEmptyText([capacityText]);
-  if (!text || currentLanguage !== 'en') return text;
+  const translations = CAPACITY_TRANSLATIONS[currentLanguage];
+  if (!text || !translations) return text;
 
-  return text
-    .replace(/\blinhas\b/gi, 'rows')
-    .replace(/\blinha\b/gi, 'row')
-    .replace(/\btoras\b/gi, 'logs')
-    .replace(/\btora\b/gi, 'log')
-    .replace(/\bfardos redondos\b/gi, 'round bales')
-    .replace(/\bfardo redondo\b/gi, 'round bale')
-    .replace(/\bou\b/gi, 'or');
+  return translations.reduce((translatedText, [pattern, replacement]) => {
+    return translatedText.replace(pattern, replacement);
+  }, text);
 }
 
 function getRaritySummary(value, max) {
@@ -1650,7 +1984,7 @@ function getRarityTierLabel(value, max) {
 }
 
 function formatPrice(value) {
-  const locale = currentLanguage === 'en' ? 'en-US' : 'pt-BR';
+  const locale = getCurrentLocale();
   return new Intl.NumberFormat(locale, {
     maximumFractionDigits: 0
   }).format(value);
@@ -1674,7 +2008,7 @@ function formatCompactPrice(value) {
 
   const scaledValue = numericValue / unit.threshold;
   const maximumFractionDigits = Math.abs(scaledValue) < 10 ? 1 : 0;
-  const locale = currentLanguage === 'en' ? 'en-US' : 'pt-BR';
+  const locale = getCurrentLocale();
   return `${new Intl.NumberFormat(locale, {
     maximumFractionDigits
   }).format(scaledValue)}${unit.suffix}`;
@@ -1686,12 +2020,16 @@ function formatDate(value) {
   if (value.includes('-')) {
     const parsed = new Date(`${value}T00:00:00`);
     if (!Number.isNaN(parsed.getTime())) {
-      const locale = currentLanguage === 'en' ? 'en-US' : 'pt-BR';
+      const locale = getCurrentLocale();
       return parsed.toLocaleDateString(locale);
     }
   }
 
   return value;
+}
+
+function getCurrentLocale() {
+  return SUPPORTED_LOCALES[currentLanguage] || SUPPORTED_LOCALES['pt-BR'];
 }
 
 function escapeHtml(value) {
