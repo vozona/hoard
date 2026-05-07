@@ -37,7 +37,7 @@
                 22000000
             ],
             "lastUpdate": "2026-03-17",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": null
         },
         "falcon-utility": {
@@ -53,7 +53,7 @@
                 16000000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": 160
         },
         "vertra": {
@@ -184,7 +184,7 @@
                 9500000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": 55
         },
         "fordson": {
@@ -194,7 +194,7 @@
                 10000000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": 150
         },
         "kei-pickup": {
@@ -238,7 +238,7 @@
                 10000000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": 150
         },
         "medal-tractor": {
@@ -386,7 +386,7 @@
                 1600000000
             ],
             "lastUpdate": "2026-05-06",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": null
         },
         "euro-hauler-1280": {
@@ -464,7 +464,7 @@
                 18000000
             ],
             "lastUpdate": "2026-03-20",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": 255
         },
         "solid-hauler-47": {
@@ -499,7 +499,7 @@
                 3000000
             ],
             "lastUpdate": "2026-03-20",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": null
         },
         "shears": {
@@ -507,7 +507,7 @@
                 3300000
             ],
             "lastUpdate": "2026-03-06",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": null
         },
         "sour-milk": {
@@ -515,7 +515,7 @@
                 65000000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": null
         },
         "pace-ix-lt": {
@@ -562,7 +562,7 @@
                 7500000000
             ],
             "lastUpdate": "2026-05-06",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": null
         },
         "lat-360": {
@@ -601,7 +601,7 @@
                 4000000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": 85
         },
         "large-crop-trailer": {
@@ -617,7 +617,7 @@
                 22000000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": 180
         },
         "foxx-metal-tech-p1": {
@@ -625,7 +625,7 @@
                 20000000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": 170
         },
         "sleigh": {
@@ -747,7 +747,7 @@
                 440000000
             ],
             "lastUpdate": "2026-05-06",
-            "valueStatus": "none",
+            "valueStatus": "known",
             "robux": null
         },
         "candy-cane": {
@@ -933,7 +933,7 @@
                 80000000
             ],
             "lastUpdate": "2026-04-24",
-            "valueStatus": "unknown",
+            "valueStatus": "known",
             "robux": null
         },
         "wrxl2": {
@@ -941,7 +941,7 @@
                 70000000
             ],
             "lastUpdate": "2026-04-24",
-            "valueStatus": "unknown",
+            "valueStatus": "known",
             "robux": null
         },
         "zc3": {
@@ -949,7 +949,7 @@
                 70000000
             ],
             "lastUpdate": "2026-05-07",
-            "valueStatus": "unknown",
+            "valueStatus": "known",
             "robux": null
         },
         "gfs10": {
@@ -957,7 +957,7 @@
                 110000000
             ],
             "lastUpdate": "2026-05-07",
-            "valueStatus": "unknown",
+            "valueStatus": "known",
             "robux": null
         }
     }
