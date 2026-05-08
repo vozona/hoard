@@ -918,6 +918,7 @@ main {
   font-size: 10px;
   font-weight: 700;
   white-space: nowrap;
+  text-align: left;
 }
 
 .value-range-values small:last-child {
