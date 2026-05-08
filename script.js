@@ -806,17 +806,42 @@ function normalizeSearchAliases(rawAliases) {
 }
 
 function getPrimaryAlias(item) {
-  if (!Array.isArray(item?.aliases)) return '';
-  return firstNonEmptyText(item.aliases);
+  return firstNonEmptyText(getDisplayAliases(item));
+}
+
+function getDisplayAliases(item) {
+  if (!Array.isArray(item?.aliases)) return [];
+
+  const normalizedName = normalizeSearchText(item?.name || '');
+  const seenAliases = new Set();
+
+  return item.aliases
+    .map(alias => String(alias || '').trim())
+    .filter(alias => {
+      const normalizedAlias = normalizeSearchText(alias);
+      if (!normalizedAlias || normalizedAlias === normalizedName || seenAliases.has(normalizedAlias)) return false;
+      seenAliases.add(normalizedAlias);
+      return true;
+    });
 }
 
 function renderItemName(item) {
   const name = escapeHtml(item?.name || '');
-  const primaryAlias = getPrimaryAlias(item);
+  const displayAliases = getDisplayAliases(item);
+  const primaryAlias = firstNonEmptyText(displayAliases);
+  const extraAliases = displayAliases.slice(1);
 
   if (!primaryAlias) return name;
 
-  return `${name} <span class="item-alias">(${escapeHtml(primaryAlias)})</span>`;
+  if (extraAliases.length === 0) {
+    return `${name} <span class="item-alias">(${escapeHtml(primaryAlias)})</span>`;
+  }
+
+  const tooltipHtml = extraAliases
+    .map(alias => `<span>${escapeHtml(alias)}</span>`)
+    .join('');
+
+  return `${name} <span class="item-alias item-alias--has-tooltip" tabindex="0" aria-label="${escapeHtml([primaryAlias, ...extraAliases].join(', '))}">(${escapeHtml(primaryAlias)})<span class="item-alias-tooltip" role="tooltip" aria-hidden="true">${tooltipHtml}</span></span>`;
 }
 
 function renderItems(items) {
@@ -863,7 +888,7 @@ function renderItems(items) {
     const card = document.createElement('div');
     card.classList.add('item-card');
     card.dataset.itemId = item.id;
-    card.title = t('cardHintLabel');
+    card.setAttribute('aria-label', t('cardHintLabel'));
 
     card.innerHTML = `
       ${renderShareButton(item)}
@@ -922,6 +947,7 @@ function renderItems(items) {
         event.stopPropagation();
       });
     }
+    bindAliasTooltipActions(card);
     card.querySelectorAll('.item-note-btn').forEach(noteButton => {
       noteButton.addEventListener('click', event => {
         event.preventDefault();
@@ -1081,6 +1107,8 @@ function bindItemActions(root, item) {
     });
   });
 
+  bindAliasTooltipActions(root);
+
   root.querySelectorAll('.item-note-btn').forEach(noteButton => {
     noteButton.addEventListener('click', event => {
       event.preventDefault();
@@ -1194,6 +1222,8 @@ function renderListView(items, container, packageMap) {
         handleShareClick(item, shareAction);
       });
     }
+
+    bindAliasTooltipActions(row);
     
     row.querySelectorAll('.value-info-btn').forEach(valueInfoButton => {
       valueInfoButton.addEventListener('click', event => {
@@ -1247,6 +1277,21 @@ function renderListView(items, container, packageMap) {
     });
 
     container.appendChild(row);
+  });
+}
+
+function bindAliasTooltipActions(root) {
+  root.querySelectorAll('.item-alias--has-tooltip').forEach(alias => {
+    alias.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+
+    alias.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      event.stopPropagation();
+    });
   });
 }
 

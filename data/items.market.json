@@ -651,11 +651,12 @@
         },
         "small-log-hauler": {
             "history": [
-                55000000,
                 70000000,
-                75000000
+                75000000,
+                110000000,
+                140000000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-05-08",
             "valueStatus": "known",
             "robux": null
         },

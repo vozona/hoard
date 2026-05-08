@@ -485,12 +485,14 @@ main {
 }
 
 .item-list-row:hover {
+  z-index: 45;
   border-color: var(--accent);
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(var(--accent-rgb), 0.24);
 }
 
 .item-list-row:focus-within {
+  z-index: 45;
   border-color: var(--accent);
   box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.22), 0 10px 22px rgba(0, 0, 0, 0.28);
 }
@@ -534,9 +536,77 @@ main {
 }
 
 .item-alias {
+  position: relative;
+  display: inline-block;
   color: #c9d4e8;
   font-weight: 500;
   opacity: 0.76;
+}
+
+.item-alias--has-tooltip {
+  cursor: help;
+  outline: none;
+  z-index: 46;
+}
+
+.item-alias--has-tooltip::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 4px);
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(18, 29, 46, 0.98);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+}
+
+.item-alias-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 13px);
+  z-index: 28;
+  display: none;
+  width: max-content;
+  max-width: min(220px, calc(100vw - 36px));
+  transform: translateX(-50%);
+  padding: 7px 9px;
+  border: 1px solid #4f78b5;
+  border-radius: 8px;
+  background: rgba(18, 29, 46, 0.98);
+  color: #e5efff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.36);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+}
+
+.item-alias-tooltip span {
+  display: block;
+}
+
+.item-alias--has-tooltip:hover,
+.item-alias--has-tooltip:focus-visible {
+  opacity: 1;
+}
+
+.item-alias--has-tooltip:hover .item-alias-tooltip,
+.item-alias--has-tooltip:focus-visible .item-alias-tooltip {
+  display: block;
+}
+
+.item-alias--has-tooltip:hover::after,
+.item-alias--has-tooltip:focus-visible::after {
+  opacity: 1;
+}
+
+.item-list-row:hover .item-list-name,
+.item-list-row:focus-within .item-list-name {
+  overflow: visible;
 }
 
 .item-list-meta {
@@ -649,12 +719,14 @@ main {
 }
 
 .item-card:hover {
+  z-index: 45;
   border: 1px solid var(--accent);
   transform: translateY(-2px) scale(1.01);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.34), inset 0 0 0 1px rgba(var(--accent-rgb), 0.3);
 }
 
 .item-card:focus-within {
+  z-index: 45;
   border: 1px solid var(--accent);
   box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.28), 0 10px 22px rgba(0, 0, 0, 0.32);
 }
