@@ -19,7 +19,7 @@
             ],
             "lastUpdate": "2026-03-20",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "pace-ix-ch": {
             "history": [
@@ -75,7 +75,7 @@
             ],
             "lastUpdate": "2026-03-28",
             "valueStatus": "known",
-            "robux": null
+            "robux": 505
         },
         "cybertruck": {
             "history": [
@@ -98,7 +98,7 @@
             ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "swifter180": {
             "history": [
@@ -128,7 +128,7 @@
             ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
-            "robux": null
+            "robux": 365
         },
         "titan": {
             "history": [
@@ -144,7 +144,7 @@
             ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "vintage-flatbed": {
             "history": [
@@ -170,7 +170,7 @@
             ],
             "lastUpdate": "2026-03-20",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "rusty-tractor": {
             "history": [
@@ -203,7 +203,7 @@
             ],
             "lastUpdate": "2026-03-28",
             "valueStatus": "known",
-            "robux": null
+            "robux": 505
         },
         "log-transport-vehicle": {
             "history": [
@@ -213,7 +213,7 @@
             ],
             "lastUpdate": "2026-03-20",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "mega-baler": {
             "history": [
@@ -224,7 +224,7 @@
             ],
             "lastUpdate": "2026-03-20",
             "valueStatus": "known",
-            "robux": null
+            "robux": 419
         },
         "er80t": {
             "history": [
@@ -255,7 +255,7 @@
             ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
-            "robux": null
+            "robux": 365
         },
         "titan-ch": {
             "history": [
@@ -336,7 +336,7 @@
             ],
             "lastUpdate": "2026-04-22",
             "valueStatus": "known",
-            "robux": null
+            "robux": 419
         },
         "zalter-s-270": {
             "history": [
@@ -359,7 +359,7 @@
             ],
             "lastUpdate": "2026-03-28",
             "valueStatus": "known",
-            "robux": null
+            "robux": 505
         },
         "solid-hauler-4700": {
             "history": [
@@ -403,7 +403,7 @@
             ],
             "lastUpdate": "2026-04-22",
             "valueStatus": "known",
-            "robux": null
+            "robux": 419
         },
         "train": {
             "history": [
@@ -478,13 +478,14 @@
             ],
             "lastUpdate": "2026-04-22",
             "valueStatus": "known",
-            "robux": null
+            "robux": 419
         },
         "sled": {
             "history": [
+                4500000000
             ],
-            "lastUpdate": "2026-04-22",
-            "valueStatus": "know",
+            "lastUpdate": "2026-05-08",
+            "valueStatus": "known",
             "robux": null
         },
         "chainsaw": {
@@ -539,7 +540,7 @@
             ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
-            "robux": null
+            "robux": 365
         },
         "vintage-log-trailer": {
             "history": [
@@ -565,7 +566,7 @@
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "vintage-semi": {
             "history": [
@@ -603,7 +604,7 @@
             ],
             "lastUpdate": "2026-03-05",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "foxx-metal-tech-x1": {
             "history": [
@@ -647,7 +648,7 @@
             ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
-            "robux": null
+            "robux": 365
         },
         "small-log-hauler": {
             "history": [
@@ -670,7 +671,7 @@
             ],
             "lastUpdate": "2026-05-07",
             "valueStatus": "known",
-            "robux": null
+            "robux": 450
         },
         "levi-flatbed": {
             "history": [
@@ -699,7 +700,7 @@
             ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "maltex-p680-ah": {
             "history": [
@@ -707,7 +708,7 @@
             ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "actives7": {
             "history": [

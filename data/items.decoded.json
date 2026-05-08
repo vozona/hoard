@@ -718,6 +718,11 @@
                 "speedMax": 100,
                 "rarity": "2"
             },
+            "search": {
+                "aliases": [
+                    "Trator enferrujado"
+                ]
+            },
             "access": {
                 "special": true
             },
@@ -1631,6 +1636,11 @@
                 "speedMin": "",
                 "speedMax": 76,
                 "rarity": ""
+            },
+            "search": {
+                "aliases": [
+                    "Transportador Utilitário Deluxe"
+                ]
             },
             "access": {
                 "special": true
