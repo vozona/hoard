@@ -923,8 +923,8 @@ function renderItems(items) {
         ${renderRarityRow(item)}
         ${renderSpeedRow(item)}
         ${renderCapacityRow(item)}
-        ${renderValueRow(item)}
         ${renderRobuxRow(item)}
+        ${renderValueRow(item)}
         ${renderPackageRow(item, packageMap)}
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
@@ -1043,8 +1043,8 @@ function renderCarouselView(items, container, packageMap) {
         ${renderRarityRow(item)}
         ${renderSpeedRow(item)}
         ${renderCapacityRow(item)}
-        ${renderValueRow(item)}
         ${renderRobuxRow(item)}
+        ${renderValueRow(item)}
         ${renderPackageRow(item, packageMap)}
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
@@ -1188,6 +1188,7 @@ function renderListView(items, container, packageMap) {
         </div>
       </div>
       <div class="item-list-value">
+        ${renderRobuxRow(item)}
         ${renderValueRange(item, { compact: true })}
         <div class="item-list-updated">
           <small class="item-list-updated-label">${t('updatedAtLabel')}</small>
@@ -1199,7 +1200,6 @@ function renderListView(items, container, packageMap) {
         ${renderRarityRow(item)}
         ${renderSpeedRow(item)}
         ${renderCapacityRow(item)}
-        ${renderRobuxRow(item)}
         ${renderPackageRow(item, packageMap)}
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
@@ -1643,7 +1643,7 @@ function renderRobuxRow(item) {
   if (!robux) return '';
 
   return `
-    <div class="item-row">
+    <div class="item-row item-row--robux">
       <span>${t('robuxLabel')}</span>
       <strong>${escapeHtml(robux)}</strong>
     </div>

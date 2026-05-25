@@ -54,7 +54,7 @@
                 18000000,
                 16000000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": 160
         },
@@ -152,7 +152,7 @@
                 20000000,
                 23000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -381,7 +381,6 @@
         },
         "euro-hauler-1280": {
             "history": [
-                140000000,
                 220000000,
                 330000000,
                 880000000,
@@ -450,11 +449,9 @@
         },
         "claas-790": {
             "history": [
-                23000000,
-                20000000,
-                18000000
+                22000000
             ],
-            "lastUpdate": "2026-03-20",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": "255 - 400"
         },
@@ -504,9 +501,9 @@
         },
         "sour-milk": {
             "history": [
-                65000000
+                55000000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -532,9 +529,10 @@
         },
         "vintage-log-trailer": {
             "history": [
-                10000000
+                10000000,
+                15000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -559,10 +557,9 @@
         "vintage-semi": {
             "history": [
                 50000000,
-                36000000,
-                20000000
+                36000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -664,11 +661,10 @@
         },
         "levi-flatbed": {
             "history": [
-                38000000,
                 44000000,
                 66000000
             ],
-            "lastUpdate": "2026-05-07",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": 195
         },
@@ -716,8 +712,7 @@
                 400000000,
                 550000000,
                 580000000,
-                700000000,
-                880000000
+                700000000
         ],
             "lastUpdate": "2026-04-11",
             "valueStatus": "known",
@@ -725,7 +720,6 @@
         },
         "vintage-harvester": {
             "history": [
-                330000000,
                 350000000,
                 440000000,
                 550000000,

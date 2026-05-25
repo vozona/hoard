@@ -654,6 +654,10 @@ main {
   text-align: right;
 }
 
+.item-list-row:not(.expanded) .item-list-value .item-row--robux {
+  display: none;
+}
+
 .item-list-value-number {
   color: #f1f6ff;
   font-weight: 700;
