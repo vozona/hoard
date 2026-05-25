@@ -1891,7 +1891,8 @@ function closeAllValueTooltips(exceptCard = null) {
 
 function buildItemShareUrl(itemId) {
   const url = new URL(window.location.href);
-  url.searchParams.set('item', itemId);
+  url.pathname = url.pathname.replace(/[^/]*$/, `share/${encodeURIComponent(itemId)}.html`);
+  url.search = '';
   return url.toString();
 }
 
