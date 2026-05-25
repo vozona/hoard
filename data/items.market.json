@@ -24,7 +24,7 @@
             ],
             "lastUpdate": "2026-05-25",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "pace-ix-lt": {
             "history": [
@@ -32,7 +32,7 @@
             ],
             "lastUpdate": "2026-05-25",
             "valueStatus": "known",
-            "robux": null
+            "robux": 380
         },
         "nsh": {
             "history": [
@@ -83,13 +83,9 @@
         },
         "cybertruck": {
             "history": [
-                70000000,
-                40000000,
-                52500000,
-                60000000,
-                35000000
+                70000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -114,10 +110,9 @@
         },
         "cybersemi": {
             "history": [
-                65000000,
                 70000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -141,9 +136,9 @@
         },
         "maltex-c4500-global": {
             "history": [
-                4000000
+                4500000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": 380
         },
@@ -242,10 +237,9 @@
             "history": [
                 1000000,
                 4000000,
-                10000000,
-                13000000
+                10000000
             ],
-            "lastUpdate": "2026-05-07",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -294,12 +288,11 @@
         },
         "maverick-430": {
             "history": [
-                44000000,
                 60000000,
-                70000000,
+                75000000,
                 100000000
             ],
-            "lastUpdate": "2026-05-07",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -360,10 +353,9 @@
         },
         "solid-hauler-4700": {
             "history": [
-                180000000,
                 220000000,
                 250000000,
-                280000000,
+                270000000,
                 450000000,
                 600000000
             ],
@@ -501,7 +493,7 @@
         },
         "sour-milk": {
             "history": [
-                55000000
+                60000000
             ],
             "lastUpdate": "2026-05-25",
             "valueStatus": "known",
@@ -539,7 +531,7 @@
         "sl-medium": {
             "history": [
                 1800000000,
-                3500000000,
+                3600000000,
                 7500000000
             ],
             "lastUpdate": "2026-05-25",
@@ -585,9 +577,9 @@
         },
         "large-crop-trailer": {
             "history": [
-                10000000
+                14000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": 380
         },
@@ -610,10 +602,10 @@
         "sleigh": {
             "history": [
                 3500000000,
-                4400000000,
+                4500000000,
                 6000000000
             ],
-            "lastUpdate": "2026-05-06",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -637,12 +629,11 @@
         },
         "small-log-hauler": {
             "history": [
-                70000000,
                 75000000,
                 110000000,
                 140000000
             ],
-            "lastUpdate": "2026-05-08",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -681,9 +672,9 @@
         },
         "efc-8300-drill": {
             "history": [
-                5000000
+                4500000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": 380
         },
@@ -691,7 +682,7 @@
             "history": [
                 4500000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": 380
         },
@@ -892,9 +883,9 @@
         },
         "stunted-hallowood": {
             "history": [
-                200000
+                300000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
