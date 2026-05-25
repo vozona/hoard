@@ -137,6 +137,7 @@ const I18N = {
     categoryLabel: 'Categoria',
     categoryFilterHintLabel: 'Filtrar por esta categoria',
     packageLabel: 'Pacote',
+    robuxLabel: 'Robux',
     speedLabel: 'Velocidade',
     capacityLabel: 'Capacidade',
     rarityLabel: 'Raridade',
@@ -157,6 +158,8 @@ const I18N = {
     footerCreditPrefix: 'Criado por',
     specialOnlyLabel: 'Somente itens especiais',
     cardHintLabel: 'Ver mais detalhes',
+    copyNameLabel: 'Copiar nome do item',
+    nameCopiedLabel: 'Nome copiado',
     shareButtonLabel: 'Compartilhar este item',
     shareCopiedLabel: 'Link copiado',
     moreActionsLabel: 'Mais ações',
@@ -199,6 +202,7 @@ const I18N = {
     categoryLabel: 'Category',
     categoryFilterHintLabel: 'Filter by this category',
     packageLabel: 'Bundle',
+    robuxLabel: 'Robux',
     speedLabel: 'Speed',
     capacityLabel: 'Capacity',
     rarityLabel: 'Rarity',
@@ -219,6 +223,8 @@ const I18N = {
     footerCreditPrefix: 'Powered by',
     specialOnlyLabel: 'Special items only',
     cardHintLabel: 'View details',
+    copyNameLabel: 'Copy item name',
+    nameCopiedLabel: 'Name copied',
     shareButtonLabel: 'Share this item',
     shareCopiedLabel: 'Link copied',
     moreActionsLabel: 'More actions',
@@ -261,6 +267,7 @@ const I18N = {
     categoryLabel: 'Categoría',
     categoryFilterHintLabel: 'Filtrar por esta categoría',
     packageLabel: 'Paquete',
+    robuxLabel: 'Robux',
     speedLabel: 'Velocidad',
     capacityLabel: 'Capacidad',
     rarityLabel: 'Rareza',
@@ -281,6 +288,8 @@ const I18N = {
     footerCreditPrefix: 'Creado por',
     specialOnlyLabel: 'Solo artículos especiales',
     cardHintLabel: 'Ver más detalles',
+    copyNameLabel: 'Copiar nombre del ítem',
+    nameCopiedLabel: 'Nombre copiado',
     shareButtonLabel: 'Compartir este artículo',
     shareCopiedLabel: 'Enlace copiado',
     moreActionsLabel: 'Más acciones',
@@ -323,6 +332,7 @@ const I18N = {
     categoryLabel: 'Kategoria',
     categoryFilterHintLabel: 'Filtruj według tej kategorii',
     packageLabel: 'Pakiet',
+    robuxLabel: 'Robux',
     speedLabel: 'Prędkość',
     capacityLabel: 'Pojemność',
     rarityLabel: 'Rzadkość',
@@ -343,6 +353,8 @@ const I18N = {
     footerCreditPrefix: 'Stworzone przez',
     specialOnlyLabel: 'Tylko przedmioty specjalne',
     cardHintLabel: 'Zobacz więcej szczegółów',
+    copyNameLabel: 'Kopiuj nazwę przedmiotu',
+    nameCopiedLabel: 'Nazwa skopiowana',
     shareButtonLabel: 'Udostępnij ten przedmiot',
     shareCopiedLabel: 'Link skopiowany',
     moreActionsLabel: 'Więcej akcji',
@@ -385,6 +397,7 @@ const I18N = {
     categoryLabel: 'Catégorie',
     categoryFilterHintLabel: 'Filtrer par cette catégorie',
     packageLabel: 'Pack',
+    robuxLabel: 'Robux',
     speedLabel: 'Vitesse',
     capacityLabel: 'Capacité',
     rarityLabel: 'Rareté',
@@ -405,6 +418,8 @@ const I18N = {
     footerCreditPrefix: 'Créé par',
     specialOnlyLabel: 'Objets spéciaux uniquement',
     cardHintLabel: 'Voir plus de détails',
+    copyNameLabel: 'Copier le nom de l\'objet',
+    nameCopiedLabel: 'Nom copié',
     shareButtonLabel: 'Partager cet objet',
     shareCopiedLabel: 'Lien copié',
     moreActionsLabel: "Plus d'actions",
@@ -447,6 +462,7 @@ const I18N = {
     categoryLabel: 'श्रेणी',
     categoryFilterHintLabel: 'इस श्रेणी से फ़िल्टर करें',
     packageLabel: 'पैक',
+    robuxLabel: 'Robux',
     speedLabel: 'गति',
     capacityLabel: 'क्षमता',
     rarityLabel: 'दुर्लभता',
@@ -467,6 +483,8 @@ const I18N = {
     footerCreditPrefix: 'द्वारा बनाया गया',
     specialOnlyLabel: 'केवल विशेष आइटम',
     cardHintLabel: 'अधिक विवरण देखें',
+    copyNameLabel: 'आइटम का नाम कॉपी करें',
+    nameCopiedLabel: 'नाम कॉपी हुआ',
     shareButtonLabel: 'यह आइटम साझा करें',
     shareCopiedLabel: 'लिंक कॉपी हुआ',
     moreActionsLabel: 'अधिक कार्रवाइयां',
@@ -575,7 +593,7 @@ function normalizeMarketEntry(entry) {
     history,
     lastUpdate: firstNonEmptyText([safeEntry.lastUpdate]),
     valueStatus: firstNonEmptyText([safeEntry.valueStatus]),
-    robux: toNumberOrNull(safeEntry.robux)
+    robux: normalizeRobuxValue(safeEntry.robux)
   };
 }
 
@@ -763,7 +781,7 @@ function normalizeItem(item, marketEntry = {}) {
     valueHistory: normalizedMarket.history,
     valueSource: hasMarketHistory ? 'market' : 'fixed',
     valueStatus: firstNonEmptyText([normalizedMarket.valueStatus, item.pricing?.valueStatus]) || (resolvedValue === null ? 'none' : 'known'),
-    robux: toNumberOrNull(firstDefinedValue([normalizedMarket.robux, item.pricing?.robux, item.robux])),
+    robux: normalizeRobuxValue(firstDefinedValue([normalizedMarket.robux, item.pricing?.robux, item.robux])),
     lastUpdate: firstNonEmptyText([normalizedMarket.lastUpdate, item.pricing?.lastUpdate, item.ultima_atualizacao, item.lastUpdate]) || '',
     special: toBoolean(
       item.access?.special
@@ -826,22 +844,25 @@ function getDisplayAliases(item) {
 }
 
 function renderItemName(item) {
-  const name = escapeHtml(item?.name || '');
+  const rawName = item?.name || '';
+  const name = escapeHtml(rawName);
+  const copyLabel = t('copyNameLabel');
+  const nameMarkup = `<button type="button" class="item-name-copy-btn" data-copy-item-name="${name}" title="${escapeHtml(copyLabel)}" aria-label="${escapeHtml(`${copyLabel}: ${rawName}`)}">${name}</button>`;
   const displayAliases = getDisplayAliases(item);
   const primaryAlias = firstNonEmptyText(displayAliases);
   const extraAliases = displayAliases.slice(1);
 
-  if (!primaryAlias) return name;
+  if (!primaryAlias) return nameMarkup;
 
   if (extraAliases.length === 0) {
-    return `${name} <span class="item-alias">(${escapeHtml(primaryAlias)})</span>`;
+    return `${nameMarkup} <span class="item-alias">(${escapeHtml(primaryAlias)})</span>`;
   }
 
   const tooltipHtml = extraAliases
     .map(alias => `<span>${escapeHtml(alias)}</span>`)
     .join('');
 
-  return `${name} <span class="item-alias item-alias--has-tooltip" tabindex="0" aria-label="${escapeHtml([primaryAlias, ...extraAliases].join(', '))}">(${escapeHtml(primaryAlias)})<span class="item-alias-tooltip" role="tooltip" aria-hidden="true">${tooltipHtml}</span></span>`;
+  return `${nameMarkup} <span class="item-alias item-alias--has-tooltip" tabindex="0" aria-label="${escapeHtml([primaryAlias, ...extraAliases].join(', '))}">(${escapeHtml(primaryAlias)})<span class="item-alias-tooltip" role="tooltip" aria-hidden="true">${tooltipHtml}</span></span>`;
 }
 
 function renderItems(items) {
@@ -851,7 +872,7 @@ function renderItems(items) {
     ? 'items-list'
     : (viewMode === 'card' ? 'items-carousel' : 'items-grid');
   container.innerHTML = '';
-  updateResultsCount(items.length, allItems.length);
+  updateResultsCount(items.length, allItems.length, items);
 
   if (items.length === 0) {
     const emptyState = document.createElement('div');
@@ -903,6 +924,7 @@ function renderItems(items) {
         ${renderSpeedRow(item)}
         ${renderCapacityRow(item)}
         ${renderValueRow(item)}
+        ${renderRobuxRow(item)}
         ${renderPackageRow(item, packageMap)}
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
@@ -947,6 +969,7 @@ function renderItems(items) {
         event.stopPropagation();
       });
     }
+    bindCopyNameActions(card, item);
     bindAliasTooltipActions(card);
     card.querySelectorAll('.item-note-btn').forEach(noteButton => {
       noteButton.addEventListener('click', event => {
@@ -1021,6 +1044,7 @@ function renderCarouselView(items, container, packageMap) {
         ${renderSpeedRow(item)}
         ${renderCapacityRow(item)}
         ${renderValueRow(item)}
+        ${renderRobuxRow(item)}
         ${renderPackageRow(item, packageMap)}
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
@@ -1108,6 +1132,7 @@ function bindItemActions(root, item) {
   });
 
   bindAliasTooltipActions(root);
+  bindCopyNameActions(root, item);
 
   root.querySelectorAll('.item-note-btn').forEach(noteButton => {
     noteButton.addEventListener('click', event => {
@@ -1174,6 +1199,7 @@ function renderListView(items, container, packageMap) {
         ${renderRarityRow(item)}
         ${renderSpeedRow(item)}
         ${renderCapacityRow(item)}
+        ${renderRobuxRow(item)}
         ${renderPackageRow(item, packageMap)}
         ${renderRelatedItems(item, packageMap)}
         ${renderItemNotes(item)}
@@ -1224,6 +1250,7 @@ function renderListView(items, container, packageMap) {
     }
 
     bindAliasTooltipActions(row);
+    bindCopyNameActions(row, item);
     
     row.querySelectorAll('.value-info-btn').forEach(valueInfoButton => {
       valueInfoButton.addEventListener('click', event => {
@@ -1280,6 +1307,39 @@ function renderListView(items, container, packageMap) {
   });
 }
 
+function bindCopyNameActions(root, item) {
+  root.querySelectorAll('.item-name-copy-btn').forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      handleCopyNameClick(item, button);
+    });
+
+    button.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.stopPropagation();
+    });
+  });
+}
+
+async function handleCopyNameClick(item, button) {
+  const itemName = firstNonEmptyText([item?.name, button?.dataset.copyItemName]);
+  if (!itemName || !button) return;
+
+  const copied = await copyTextToClipboard(itemName);
+  if (!copied) return;
+
+  const defaultLabel = button.dataset.defaultLabel || itemName;
+  button.dataset.defaultLabel = defaultLabel;
+  button.textContent = t('nameCopiedLabel');
+  button.classList.add('is-copied');
+
+  window.setTimeout(() => {
+    button.textContent = defaultLabel;
+    button.classList.remove('is-copied');
+  }, 1100);
+}
+
 function bindAliasTooltipActions(root) {
   root.querySelectorAll('.item-alias--has-tooltip').forEach(alias => {
     alias.addEventListener('click', event => {
@@ -1307,13 +1367,24 @@ function setExpandedListRow(row, shouldExpand) {
   }
 }
 
-function updateResultsCount(shown, total) {
+function updateResultsCount(shown, total, items = []) {
   const resultsCountEl = document.getElementById('resultsCount');
   if (!resultsCountEl) return;
-  resultsCountEl.textContent = t('resultsCountLabel', {
+  const searchQuery = firstNonEmptyText([document.getElementById('searchInput')?.value]);
+  const valueTotal = searchQuery ? getItemsValueTotal(items) : 0;
+  const totalSuffix = valueTotal > 0 ? ` (${formatCompactPrice(valueTotal)})` : '';
+  resultsCountEl.textContent = `${t('resultsCountLabel', {
     shown: String(shown),
     total: String(total)
-  });
+  })}${totalSuffix}`;
+}
+
+function getItemsValueTotal(items) {
+  if (!Array.isArray(items)) return 0;
+  return items.reduce((sum, item) => {
+    const value = toNumberOrNull(item?.value);
+    return value !== null && value > 0 ? sum + value : sum;
+  }, 0);
 }
 
 function setExpandedCard(card, shouldExpand) {
@@ -1563,6 +1634,18 @@ function renderValueRange(item, options = {}) {
         </span>
         <small title="${escapeHtml(formatPrice(valueRange.high))}">${formatCompactPrice(valueRange.high)}</small>
       </div>
+    </div>
+  `;
+}
+
+function renderRobuxRow(item) {
+  const robux = formatRobuxCost(item?.robux);
+  if (!robux) return '';
+
+  return `
+    <div class="item-row">
+      <span>${t('robuxLabel')}</span>
+      <strong>${escapeHtml(robux)}</strong>
     </div>
   `;
 }
@@ -2059,6 +2142,19 @@ function formatCompactPrice(value) {
   }).format(scaledValue)}${unit.suffix}`;
 }
 
+function formatRobuxCost(value) {
+  const normalized = normalizeRobuxValue(value);
+  if (!normalized) return '';
+
+  return normalized
+    .split(/\s*-\s*/)
+    .map(part => {
+      const numericPart = toNumberOrNull(part);
+      return numericPart === null ? part : formatPrice(numericPart);
+    })
+    .join(' - ');
+}
+
 function formatDate(value) {
   if (!value) return '-';
 
@@ -2181,6 +2277,27 @@ function firstNonEmptyText(values) {
   const value = values.find(candidate => typeof candidate === 'string' ? candidate.trim() : candidate);
   if (typeof value === 'string') return value.trim();
   return value || '';
+}
+
+function normalizeRobuxValue(value) {
+  if (value === undefined || value === null || value === '') return '';
+  if (typeof value === 'number') return value > 0 ? String(value) : '';
+  if (typeof value !== 'string') return '';
+
+  const normalized = value.trim();
+  if (!normalized) return '';
+
+  const rangeParts = normalized
+    .split(/\s*-\s*/)
+    .map(part => toNumberOrNull(part))
+    .filter(part => part !== null && part > 0);
+
+  if (rangeParts.length === 2) {
+    return `${rangeParts[0]} - ${rangeParts[1]}`;
+  }
+
+  const numericValue = toNumberOrNull(normalized);
+  return numericValue !== null && numericValue > 0 ? String(numericValue) : normalized;
 }
 
 function toNumberOrNull(value) {

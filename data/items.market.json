@@ -3,12 +3,9 @@
     "pricing": {
         "pronto9": {
             "history": [
-                15000000,
-                20000000,
-                25000000,
-                27500000
+                44000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -23,19 +20,25 @@
         },
         "pace-ix-ch": {
             "history": [
-                75000000
+                47000000
             ],
-            "lastUpdate": "2026-05-07",
+            "lastUpdate": "2026-05-25",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "pace-ix-lt": {
+            "history": [
+                52000000
+            ],
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
         "nsh": {
             "history": [
-                12000000,
-                20000000,
-                22000000
+                23500000
             ],
-            "lastUpdate": "2026-03-17",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -59,21 +62,22 @@
             "history": [
                 550000000,
                 880000000,
-                1000000000
+                1400000000,
+                2000000000
             ],
-            "lastUpdate": "2026-05-06",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
         "kei-liquid-hauler": {
             "history": [
-                20000000,
                 28500000,
                 39000000,
+                55000000,
                 67000000,
                 70000000
             ],
-            "lastUpdate": "2026-03-28",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": "505 - 900"
         },
@@ -102,12 +106,9 @@
         },
         "swifter180": {
             "history": [
-                13000000,
-                16000000,
-                18000000,
-                22000000
+                27000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -195,13 +196,13 @@
         },
         "kei-pickup": {
             "history": [
-                20000000,
                 30000000,
                 35000000,
+                43500000,
                 66000000,
                 70000000
             ],
-            "lastUpdate": "2026-03-28",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": "505 - 900"
         },
@@ -341,23 +342,19 @@
         "zalter-s-270": {
             "history": [
                 55000000,
-                70000000,
-                76000000,
-                80000000,
+                66000000,
                 120000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
         "kei-crop-hauler": {
             "history": [
-                20000000,
-                29000000,
-                37000000,
+                33000000,
                 70000000
             ],
-            "lastUpdate": "2026-03-28",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": "505 - 900"
         },
@@ -367,19 +364,18 @@
                 220000000,
                 250000000,
                 280000000,
-                450000000
+                450000000,
+                600000000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
         "automatic-flatbed": {
             "history": [
-                990000000,
-                1500000000,
-                1600000000
+                2200000000
             ],
-            "lastUpdate": "2026-05-06",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -387,11 +383,11 @@
             "history": [
                 140000000,
                 220000000,
-                250000000,
-                300000000,
-                350000000
+                330000000,
+                880000000,
+                1000000000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -446,9 +442,9 @@
         },
         "km472": {
             "history": [
-                35000000
+                55500000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -482,9 +478,9 @@
         },
         "sled": {
             "history": [
-                4500000000
+                5000000000
             ],
-            "lastUpdate": "2026-05-08",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -511,14 +507,6 @@
                 65000000
             ],
             "lastUpdate": "2026-04-22",
-            "valueStatus": "known",
-            "robux": null
-        },
-        "pace-ix-lt": {
-            "history": [
-                75000000
-            ],
-            "lastUpdate": "2026-05-07",
             "valueStatus": "known",
             "robux": null
         },
@@ -553,10 +541,10 @@
         "sl-medium": {
             "history": [
                 1800000000,
-                3300000000,
+                3500000000,
                 7500000000
             ],
-            "lastUpdate": "2026-05-06",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -667,6 +655,7 @@
                 70000000,
                 150000000,
                 200000000,
+                400000000,
                 1000000000
             ],
             "lastUpdate": "2026-05-07",
@@ -712,9 +701,11 @@
         },
         "actives7": {
             "history": [
-                35000000
+                35000000,
+                70000000,
+                110000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -736,9 +727,12 @@
             "history": [
                 330000000,
                 350000000,
-                440000000
+                440000000,
+                550000000,
+                700000000,
+                900000000
             ],
-            "lastUpdate": "2026-05-06",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -922,33 +916,33 @@
         },
         "rom2400": {
             "history": [
-                80000000
+                55000000
             ],
-            "lastUpdate": "2026-04-24",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
         "wrxl2": {
             "history": [
-                70000000
+                42500000
             ],
-            "lastUpdate": "2026-04-24",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
         "zc3": {
             "history": [
-                70000000
+                35000000
             ],
-            "lastUpdate": "2026-05-07",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         },
         "gfs10": {
             "history": [
-                110000000
+                47500000
             ],
-            "lastUpdate": "2026-05-07",
+            "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
         }

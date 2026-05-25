@@ -535,6 +535,32 @@ main {
   text-overflow: ellipsis;
 }
 
+.item-name-copy-btn {
+  max-width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  padding: 0;
+  cursor: copy;
+}
+
+.item-name-copy-btn:hover,
+.item-name-copy-btn:focus-visible {
+  color: #bcd6ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  outline: none;
+}
+
+.item-name-copy-btn.is-copied {
+  color: #8fe0ad;
+  text-decoration: none;
+}
+
 .item-alias {
   position: relative;
   display: inline-block;
