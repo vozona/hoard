@@ -4123,6 +4123,159 @@
                 "robux": null,
                 "lastUpdate": "2026-03-03"
             }
+        },
+        {
+            "id": "w25-flatbed",
+            "display": {
+                "name": "W25 Flatbed",
+                "image": "img/w25-flatbed.jpg"
+            },
+            "classification": {
+                "level": 3,
+                "category": "Caminhões",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "1.7"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "1920 Pack"
+        },
+        {
+            "id": "p20-pickup",
+            "display": {
+                "name": "P20 Pickup",
+                "image": "img/p20-pickup.jpg"
+            },
+            "classification": {
+                "level": 3,
+                "category": "Caminhões",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "1.7"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "1920 Pack"
+        },
+        {
+            "id": "r1-utility",
+            "display": {
+                "name": "R1 Utility",
+                "image": "img/r1-utility.jpg"
+            },
+            "classification": {
+                "level": 3,
+                "category": "Diversos",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "1.7"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "1920 Pack"
+        },
+        {
+            "id": "juiceliner",
+            "display": {
+                "name": "Juiceliner",
+                "image": "img/juiceliner.jpg"
+            },
+            "classification": {
+                "level": 3,
+                "category": "Caminhões",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "1.5",
+                "capacityMin": 120,
+                "capacityMax": 620
+            },
+            "access": {
+                "special": true
+            },
+            "notes": ""
+        },
+        {
+            "id": "moped",
+            "display": {
+                "name": "Moped",
+                "image": "img/moped.jpg"
+            },
+            "classification": {
+                "level": 3,
+                "category": "Tratores",
+                "speed": 35,
+                "speedMin": "",
+                "speedMax": 100,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "Vineyard, TRACTORco",
+            "pricing": {
+                "value": 72000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-06-29"
+            }
+        },
+        {
+            "id": "grape-seeder",
+            "display": {
+                "name": "Grape Seeder",
+                "image": "img/grape-seeder.jpg"
+            },
+            "classification": {
+                "level": 3,
+                "category": "Plantadeiras",
+                "speed": 30,
+                "speedMin": "",
+                "speedMax": 30,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "Vineyard, TRACTORco",
+            "pricing": {
+                "value": 55000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-06-29"
+            }
+        },
+        {
+            "id": "grape-haverster",
+            "display": {
+                "name": "Grape Haverster",
+                "image": "img/grape-haverster.jpg"
+            },
+            "classification": {
+                "level": 3,
+                "category": "Colheitadeiras",
+                "speed": 30,
+                "speedMin": "",
+                "speedMax": 51,
+                "rarity": ""
+            },
+            "access": {
+                "special": false
+            },
+            "notes": "Vineyard, TRACTORco",
+            "pricing": {
+                "value": 55000,
+                "valueStatus": "known",
+                "robux": null,
+                "lastUpdate": "2026-06-29"
+            }
         }
     ]
 }

@@ -930,6 +930,38 @@
             "lastUpdate": "2026-05-25",
             "valueStatus": "known",
             "robux": null
+        },
+        "w25-flatbed": {
+            "history": [
+                55000000
+            ],
+            "lastUpdate": "2026-06-29",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "p20-pickup": {
+            "history": [
+                44000000
+            ],
+            "lastUpdate": "2026-06-29",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "r1-utility": {
+            "history": [
+                66000000
+            ],
+            "lastUpdate": "2026-06-29",
+            "valueStatus": "known",
+            "robux": null
+        },
+        "juiceliner": {
+            "history": [
+                77000000
+            ],
+            "lastUpdate": "2026-06-29",
+            "valueStatus": "known",
+            "robux": null
         }
     }
 }
