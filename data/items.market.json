@@ -760,10 +760,9 @@
                 43000000,
                 40000000,
                 27000000,
-                20000000,
-                13000000
+                20000000
             ],
-            "lastUpdate": "2026-03-21",
+            "lastUpdate": "2026-07-23",
             "valueStatus": "known",
             "robux": null
         },
@@ -785,22 +784,21 @@
         },
         "balsam": {
             "history": [
-                11000000,
                 20000000,
                 30000000,
+                33000000,
                 60000000,
                 40000000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-07-23",
             "valueStatus": "known",
             "robux": null
         },
         "bamboo": {
             "history": [
-                20000000,
                 25000000
             ],
-            "lastUpdate": "2026-03-05",
+            "lastUpdate": "2026-07-23",
             "valueStatus": "known",
             "robux": null
         },
@@ -957,9 +955,10 @@
         },
         "juiceliner": {
             "history": [
-                77000000
+                77000000,
+                63000000
             ],
-            "lastUpdate": "2026-06-29",
+            "lastUpdate": "2026-07-23",
             "valueStatus": "known",
             "robux": null
         }
