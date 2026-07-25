@@ -50,22 +50,17 @@
         },
         "claas-xerion-5000": {
             "history": [
-                20000000,
-                18000000,
-                16000000
+                17800000
             ],
-            "lastUpdate": "2026-05-25",
+            "lastUpdate": "2026-07-25",
             "valueStatus": "known",
             "robux": 160
         },
         "vertra": {
             "history": [
-                550000000,
-                880000000,
-                1400000000,
-                2000000000
+                1508500000
             ],
-            "lastUpdate": "2026-05-25",
+            "lastUpdate": "2026-07-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -497,11 +492,9 @@
         },
         "zalter-500": {
             "history": [
-                42000000,
-                44000000,
-                50000000
+                57100000
             ],
-            "lastUpdate": "2026-04-11",
+            "lastUpdate": "2026-07-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -526,9 +519,9 @@
         },
         "sl-medium": {
             "history": [
-                3853100000
+                4863500000
             ],
-            "lastUpdate": "2026-07-24",
+            "lastUpdate": "2026-07-25",
             "valueStatus": "known",
             "robux": null
         },
@@ -798,11 +791,9 @@
         },
         "woodlouse-stitch-head": {
             "history": [
-                18000000,
-                17500000,
-                15000000
+                19100000
             ],
-            "lastUpdate": "2026-04-22",
+            "lastUpdate": "2026-07-25",
             "valueStatus": "known",
             "robux": null
         },
