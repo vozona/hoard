@@ -873,6 +873,7 @@ main {
 .item-row--value {
   position: relative;
   align-items: flex-start;
+  display: none;
 }
 
 .value-label-wrap {
@@ -890,7 +891,8 @@ main {
 
 .value-range {
   width: min(220px, 62%);
-  display: flex;
+  /*display: flex;*/
+  display: none;
   flex-direction: column;
   gap: 5px;
   flex-shrink: 0;

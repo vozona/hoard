@@ -4276,6 +4276,85 @@
                 "robux": null,
                 "lastUpdate": "2026-06-29"
             }
+        },
+        {
+            "id": "tx89-dx",
+            "display": {
+                "name": "TX89 DX",
+                "image": "img/tx89-dx.jpg"
+            },
+            "classification": {
+                "level": 5,
+                "category": "Tratores",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "1.5"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Quarter 2 2026 Event"
+        },
+        {
+            "id": "ml10",
+            "display": {
+                "name": "ML10",
+                "image": "img/ml10.jpg"
+            },
+            "classification": {
+                "level": 5,
+                "category": "Colheitadeiras",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "1.5",
+                "capacity": 4,
+                "capacityMin": 700,
+                "capacityMax": 1300
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Quarter 2 2026 Event"
+        },
+        {
+            "id": "kh9",
+            "display": {
+                "name": "KH9",
+                "image": "img/kh9.jpg"
+            },
+            "classification": {
+                "level": 4,
+                "category": "Caminhões",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "1.5"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Quarter 2 2026 Event"
+        },
+        {
+            "id": "cw26",
+            "display": {
+                "name": "CW26",
+                "image": "img/cw26.jpg"
+            },
+            "classification": {
+                "level": 5,
+                "category": "Diversos",
+                "speed": null,
+                "speedMin": "",
+                "speedMax": null,
+                "rarity": "1.5"
+            },
+            "access": {
+                "special": true
+            },
+            "notes": "Quarter 2 2026 Event"
         }
     ]
 }
